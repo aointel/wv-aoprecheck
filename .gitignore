@@ -1,4 +1,5 @@
 ﻿node_modules/
+_nm/
 dist/
 .railway-deploy/
 live-shell-snapshot*/
@@ -9,6 +10,8 @@ attached_assets/
 *.mp4
 *.zip
 *.tgz
+*.mp3
+*.wav
 .env
 .env.*
 !.env.example
@@ -17,3 +20,10 @@ attached_assets/
 .DS_Store
 uploads/
 backups/
+recordings-csv-*/
+tmp-audit-screenshots/
+tmp-playwright-trace/
+tmp-*/
+output/
+scripts/output/
+railway_logs*.txt
