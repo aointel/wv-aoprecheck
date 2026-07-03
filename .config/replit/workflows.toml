@@ -1,0 +1,3 @@
+[[workflows]]
+name = "Start application"
+command = "/home/runner/workspace/start-server.sh"

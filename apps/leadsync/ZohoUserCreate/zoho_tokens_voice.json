@@ -1,0 +1,10 @@
+{
+  "refresh_token": "1000.765b7e92bcc6533bd93cdba88634422c.ea5fc866ef5061db30e2efa284557271",
+  "scope": "zohovoice.queues.ALL",
+  "api_domain": "https://www.zohoapis.com",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "client_id": "1000.J997V5CGG0NS742VQA401ZFKTI5MJF",
+  "client_secret": "b60187effb9b211d02853c974b5f82ae3f51e53f54",
+  "access_token": "1000.daaf5129019d931039365ed4948f5a50.2bec1b3fb5ec7dfaa139283a434bccaf"
+}

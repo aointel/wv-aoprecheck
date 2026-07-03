@@ -1,0 +1,634 @@
+{
+  "found": [
+    {
+      "name": "Aaron G Lawrence",
+      "planet_name": "LAWRENCE, AARON",
+      "associate_id": "235134",
+      "company_email": "lawrenceaaron@aoglobelife.com",
+      "phone": "(914) 475-6091",
+      "mga": null
+    },
+    {
+      "name": "Alexandra Dominguez",
+      "planet_name": "Dominguez, Alexandra",
+      "associate_id": "235171",
+      "company_email": "alexandradominguez@aoglobelife.com",
+      "phone": "(857) 330-8740",
+      "mga": null
+    },
+    {
+      "name": "Amari J Kerr",
+      "planet_name": "KERR, AMARI",
+      "associate_id": "235197",
+      "company_email": "amarikerr@aoglobelife.com",
+      "phone": "(717) 809-4059",
+      "mga": null
+    },
+    {
+      "name": "Amy Jewell Beauchamp",
+      "planet_name": "BEAUCHAMP, AMY",
+      "associate_id": "235139",
+      "company_email": "amybeauchamp@aoglobelife.com",
+      "phone": "(919) 805-6835",
+      "mga": null
+    },
+    {
+      "name": "Anthony Greco",
+      "planet_name": "GRECO, ANTHONY",
+      "associate_id": "235142",
+      "company_email": "anthonygreco@aoglobelife.com",
+      "phone": "(906) 367-1373",
+      "mga": null
+    },
+    {
+      "name": "Ashley Nicole Gamache",
+      "planet_name": "GAMACHE, ASHLEY",
+      "associate_id": "236195",
+      "company_email": "ashleygamache@aoglobelife.com",
+      "phone": "(603) 748-8725",
+      "mga": null
+    },
+    {
+      "name": "Aubrey Wolfe",
+      "planet_name": "WOLFE, AUBREY",
+      "associate_id": "235148",
+      "company_email": "aubreywolfe@aoglobelife.com",
+      "phone": "(443) 475-2432",
+      "mga": null
+    },
+    {
+      "name": "Austin Wayne Smith",
+      "planet_name": "Smith, Austin",
+      "associate_id": "235383",
+      "company_email": "austinsm@aoglobelife.com",
+      "phone": "(713) 355-0881",
+      "mga": null
+    },
+    {
+      "name": "Brandon Quinn Cabeceiras",
+      "planet_name": "CABECEIRAS, BRANDON",
+      "associate_id": "235144",
+      "company_email": "brandoncabeceiras@aoglobelife.com",
+      "phone": "(401) 345-5051",
+      "mga": null
+    },
+    {
+      "name": "Carolina Jorge F Richmond",
+      "planet_name": "RICHMOND, CAROLINA",
+      "associate_id": "235189",
+      "company_email": "carolinarichmond@aoglobelife.com",
+      "phone": "(425) 772-2106",
+      "mga": null
+    },
+    {
+      "name": "Cathleen Hairston",
+      "planet_name": "HAIRSTON, CATHLEEN",
+      "associate_id": "235175",
+      "company_email": "cathleenhairston@aoglobelife.com",
+      "phone": "(704) 779-5880",
+      "mga": null
+    },
+    {
+      "name": "Christian Samuel Mercado",
+      "planet_name": "MERCADO, CHRISTIAN",
+      "associate_id": "235151",
+      "company_email": "christianmercado@aoglobelife.com",
+      "phone": "(561) 543-0072",
+      "mga": null
+    },
+    {
+      "name": "Christina-Maria Mapuana Anna Altvater",
+      "planet_name": "ALTVATER, CHRISTINAMARIA",
+      "associate_id": "235176",
+      "company_email": "christinamariaaltvater@aoglobelife.com",
+      "phone": "(508) 739-3209",
+      "mga": null
+    },
+    {
+      "name": "Colby Devon Richards",
+      "planet_name": "Richards, Colby",
+      "associate_id": "236196",
+      "company_email": "richardscolby@aoglobelife.com",
+      "phone": "(561) 389-0293",
+      "mga": null
+    },
+    {
+      "name": "Craig Stasiowski",
+      "planet_name": "STASIOWSKI, CRAIG",
+      "associate_id": "235154",
+      "company_email": "craigstasiowski@aoglobelife.com",
+      "phone": "(401) 413-8973",
+      "mga": null
+    },
+    {
+      "name": "Cynthia Schomp",
+      "planet_name": "SCHOMP, CYNTHIA",
+      "associate_id": "235178",
+      "company_email": "cynthiaschomp@aoglobelife.com",
+      "phone": "(201) 306-0405",
+      "mga": null
+    },
+    {
+      "name": "Dawid Liniewski",
+      "planet_name": "LINIEWSKI, DAWID",
+      "associate_id": "235172",
+      "company_email": "dawidliniewski@aoglobelife.com",
+      "phone": "(860) 205-5878",
+      "mga": null
+    },
+    {
+      "name": "Drew Thomas Sharp",
+      "planet_name": "SHARP, DREW",
+      "associate_id": "235132",
+      "company_email": "drewsharp@aoglobelife.com",
+      "phone": "(508) 282-2725",
+      "mga": null
+    },
+    {
+      "name": "Eleanor Rose Giles",
+      "planet_name": "GILES, ELEANOR",
+      "associate_id": "235146",
+      "company_email": "eleanorgiles@aoglobelife.com",
+      "phone": "(248) 924-5366",
+      "mga": null
+    },
+    {
+      "name": "Felipe R Machado Santanna",
+      "planet_name": "MACHADOSANTANNA, FELIPE",
+      "associate_id": "235129",
+      "company_email": "felipesantanna@aoglobelife.com",
+      "phone": "(774) 257-4593",
+      "mga": null
+    },
+    {
+      "name": "Gabriel Arsene De Souza",
+      "planet_name": "Arsene de Souza, Gabriel",
+      "associate_id": "235150",
+      "company_email": "gabrielarsenedesouza@aoglobelife.com",
+      "phone": "(857) 230-0954",
+      "mga": null
+    },
+    {
+      "name": "Helen Bradley",
+      "planet_name": "Holmes, Noah Bradley",
+      "associate_id": "236243",
+      "company_email": "noahbradleyholmes@aoglobelife.com",
+      "phone": "(321) 423-2456",
+      "mga": null
+    },
+    {
+      "name": "Hortensia Angel Joseph",
+      "planet_name": "HARVEY, JOSEPH",
+      "associate_id": "230855",
+      "company_email": "josephharvey@aoglobelife.com",
+      "phone": "(309) 753-0774",
+      "mga": null
+    },
+    {
+      "name": "Jakeline Ferreira Campos Olive",
+      "planet_name": "Olive, Jakeline",
+      "associate_id": "236181",
+      "company_email": "jakelineolive@aoglobelife.com",
+      "phone": "(754) 266-0029",
+      "mga": null
+    },
+    {
+      "name": "Janice Nicole Badger",
+      "planet_name": "BADGER, JANICE",
+      "associate_id": "235122",
+      "company_email": "janicebadger@aoglobelife.com",
+      "phone": "(252) 626-4750",
+      "mga": null
+    },
+    {
+      "name": "Jonathan Angel Cantu",
+      "planet_name": "Cantu, Jonathan",
+      "associate_id": "235184",
+      "company_email": "jonathancantu@aoglobelife.com",
+      "phone": "(956) 345-4856",
+      "mga": null
+    },
+    {
+      "name": "Junia Williams",
+      "planet_name": "WILLIAMS, JUNIA",
+      "associate_id": "235192",
+      "company_email": "juniawilliams@aoglobelife.com",
+      "phone": "(401) 855-9515",
+      "mga": null
+    },
+    {
+      "name": "Justin Zeramby",
+      "planet_name": "ZERAMBY, JUSTIN",
+      "associate_id": "235127",
+      "company_email": "justinzeramby@aoglobelife.com",
+      "phone": "(401) 575-2839",
+      "mga": null
+    },
+    {
+      "name": "Kaitlyn Lorraine Tuckmantel",
+      "planet_name": "TUCKMANTEL, KAITLYN",
+      "associate_id": "235143",
+      "company_email": "kaitlyntuckmantel@aoglobelife.com",
+      "phone": "(336) 202-4118",
+      "mga": null
+    },
+    {
+      "name": "Kendall Rena Grewer",
+      "planet_name": "Grewer, Kendall",
+      "associate_id": "235180",
+      "company_email": "kendallgrewer@aoglobelife.com",
+      "phone": "(779) 706-0797",
+      "mga": null
+    },
+    {
+      "name": "Kimberly D Alston",
+      "planet_name": "ALSTON, KIMBERLY",
+      "associate_id": "235177",
+      "company_email": "kimberlyalston@aoglobelife.com",
+      "phone": "(336) 689-6261",
+      "mga": null
+    },
+    {
+      "name": "Lalitha Janardhanan",
+      "planet_name": "JANARDHANAN, LALITHA",
+      "associate_id": "235188",
+      "company_email": "lalithajanardhanan@aoglobelife.com",
+      "phone": "(919) 757-4942",
+      "mga": null
+    },
+    {
+      "name": "Linda Scott",
+      "planet_name": "LEATHERS, SCOTT",
+      "associate_id": "77522",
+      "company_email": "scottleathers@aoglobelife.com",
+      "phone": "(832) 263-5463",
+      "mga": null
+    },
+    {
+      "name": "Lisa Yvette Smithson",
+      "planet_name": "SMITHSON, LISA",
+      "associate_id": "235138",
+      "company_email": "lisasmithson@aoglobelife.com",
+      "phone": "(803) 260-1928",
+      "mga": null
+    },
+    {
+      "name": "Lleison Martinez",
+      "planet_name": "MARTINEZ, LLEISON",
+      "associate_id": "235174",
+      "company_email": "lleisonmartinez@aoglobelife.com",
+      "phone": "(646) 320-1641",
+      "mga": null
+    },
+    {
+      "name": "Lynell Dominic Collier",
+      "planet_name": "COLLIER, LYNELL",
+      "associate_id": "235126",
+      "company_email": "lynellcollier@aoglobelife.com",
+      "phone": "(937) 782-9257",
+      "mga": null
+    },
+    {
+      "name": "Madison Smith",
+      "planet_name": "Smith, Madison",
+      "associate_id": "235168",
+      "company_email": "madisonsm@aoglobelife.com",
+      "phone": "(336) 894-0133",
+      "mga": null
+    },
+    {
+      "name": "Matheus Bob",
+      "planet_name": "BOB, MATHEUS",
+      "associate_id": "235162",
+      "company_email": "matheusbob@aoglobelife.com",
+      "phone": "(508) 206-6000",
+      "mga": null
+    },
+    {
+      "name": "Michael Ryan Shepler",
+      "planet_name": "SHEPLER, MICHAEL",
+      "associate_id": "235141",
+      "company_email": "michaelshepler@aoglobelife.com",
+      "phone": "(401) 649-2536",
+      "mga": null
+    },
+    {
+      "name": "Mistie Clontz Cockman",
+      "planet_name": "COCKMAN, MISTIE",
+      "associate_id": "235152",
+      "company_email": "mistiecockman@aoglobelife.com",
+      "phone": "(336) 749-2728",
+      "mga": null
+    },
+    {
+      "name": "Monica Leticia Pina De Barros",
+      "planet_name": "PINADEBARROS, MONICA",
+      "associate_id": "235160",
+      "company_email": "monicapinadebarros@aoglobelife.com",
+      "phone": "(401) 230-6087",
+      "mga": null
+    },
+    {
+      "name": "Natalia Lopes Monteiro",
+      "planet_name": "LOPESMONTEIRO, NATALIADECASSIA",
+      "associate_id": "235157",
+      "company_email": "natalialopesmonteiro@aoglobelife.com",
+      "phone": "(508) 656-0643",
+      "mga": null
+    },
+    {
+      "name": "Nicholas Paul Triantafyllidis",
+      "planet_name": "Triantafyllidis, Nicholas",
+      "associate_id": "235123",
+      "company_email": "nicholastriantafyllidis@aoglobelife.com",
+      "phone": "(203) 427-7628",
+      "mga": null
+    },
+    {
+      "name": "Nicolette Van Rensburg",
+      "planet_name": "VANRENSBURG, NICOLETTE",
+      "associate_id": "235149",
+      "company_email": "nicolettevanrensburg@aoglobelife.com",
+      "phone": "(984) 312-9665",
+      "mga": null
+    },
+    {
+      "name": "Nikolaus Walter",
+      "planet_name": "WALTER, NIKOLAUS",
+      "associate_id": "235130",
+      "company_email": "nikowalter@aoglobelife.com",
+      "phone": "(234) 564-5322",
+      "mga": null
+    },
+    {
+      "name": "Nivea Shanice Bryan",
+      "planet_name": "BRYAN, NIVEA",
+      "associate_id": "235169",
+      "company_email": "niveabryan@aoglobelife.com",
+      "phone": "(518) 210-3828",
+      "mga": null
+    },
+    {
+      "name": "Nolangie Rosado Pabon",
+      "planet_name": "ROSADOPABON, NOLANGIE",
+      "associate_id": "235135",
+      "company_email": "nolangierosado@aoglobelife.com",
+      "phone": "(787) 397-0472",
+      "mga": null
+    },
+    {
+      "name": "Pallavi Varshney",
+      "planet_name": "VARSHNEY, PALLAVI",
+      "associate_id": "235195",
+      "company_email": "pallavivarshney@aoglobelife.com",
+      "phone": "(508) 439-3506",
+      "mga": null
+    },
+    {
+      "name": "Renata Johnson",
+      "planet_name": "JOHNSON, RENATA",
+      "associate_id": "235165",
+      "company_email": "renatajohnson@aoglobelife.com",
+      "phone": "(252) 258-8464",
+      "mga": null
+    },
+    {
+      "name": "Robert Gilman",
+      "planet_name": "GILMAN, ROBERT",
+      "associate_id": "235198",
+      "company_email": "gilmanrobert@aoglobelife.com",
+      "phone": "(561) 543-8233",
+      "mga": null
+    },
+    {
+      "name": "Rodney Jones",
+      "planet_name": "JONES, RODNEY",
+      "associate_id": "235147",
+      "company_email": "jonesrodney@aoglobelife.com",
+      "phone": "(919) 819-0266",
+      "mga": null
+    },
+    {
+      "name": "Samantha P Nowak",
+      "planet_name": "Nowak, Samantha",
+      "associate_id": "235156",
+      "company_email": "samanthanowak@aoglobelife.com",
+      "phone": "(413) 324-6054",
+      "mga": null
+    },
+    {
+      "name": "Sean Gregory Melaven",
+      "planet_name": "MELAVEN, SEAN",
+      "associate_id": "235124",
+      "company_email": "seanmelaven@aoglobelife.com",
+      "phone": "(860) 502-5757",
+      "mga": null
+    },
+    {
+      "name": "Sean Hansen",
+      "planet_name": "Hansen, Sean",
+      "associate_id": "235131",
+      "company_email": "seanhansen@aoglobelife.com",
+      "phone": "(860) 605-8501",
+      "mga": null
+    },
+    {
+      "name": "Sergio D Vincenti",
+      "planet_name": "Vincenti, Sergio",
+      "associate_id": "235161",
+      "company_email": "sergiovincenti@aoglobelife.com",
+      "phone": "(813) 848-9438",
+      "mga": null
+    },
+    {
+      "name": "Sophia Limonciello",
+      "planet_name": "LIMONCIELLO, SOPHIA",
+      "associate_id": "235186",
+      "company_email": "sophialimonciello@aoglobelife.com",
+      "phone": "(781) 888-0364",
+      "mga": null
+    },
+    {
+      "name": "Terrelle L Goslee-Adams",
+      "planet_name": "GOSLEEADAMS, TERRELLE",
+      "associate_id": "235179",
+      "company_email": "terrellegosleeadams@aoglobelife.com",
+      "phone": "(919) 200-5995",
+      "mga": null
+    },
+    {
+      "name": "Teshaun Devoise",
+      "planet_name": "DEVOISE, TESHAUN",
+      "associate_id": "235133",
+      "company_email": "teshaundevoise@aoglobelife.com",
+      "phone": "(937) 266-1991",
+      "mga": null
+    },
+    {
+      "name": "Theresa Jo Bryson",
+      "planet_name": "BRYSON, THERESA",
+      "associate_id": "235136",
+      "company_email": "theresabryson@aoglobelife.com",
+      "phone": "(240) 409-8812",
+      "mga": null
+    },
+    {
+      "name": "Towanya Thompson",
+      "planet_name": "Thompson, DMelody",
+      "associate_id": "223690",
+      "company_email": "melodythompson@aoglobelife.com",
+      "phone": "(530) 789-1733",
+      "mga": null
+    },
+    {
+      "name": "Tyran Carter",
+      "planet_name": "Carter, Tyran",
+      "associate_id": "235158",
+      "company_email": "tyrancarter@aoglobelife.com",
+      "phone": "(336) 829-1292",
+      "mga": null
+    },
+    {
+      "name": "Vitor Ingles Buche",
+      "planet_name": "INGLESBUCHE, VITOR",
+      "associate_id": "235145",
+      "company_email": "vitoringlesbuche@aoglobelife.com",
+      "phone": "(561) 664-3853",
+      "mga": null
+    },
+    {
+      "name": "Yaury Victoria",
+      "planet_name": "VICTORIA, YAURY",
+      "associate_id": "235181",
+      "company_email": "yauryvictoria@aoglobelife.com",
+      "phone": "(910) 748-7483",
+      "mga": null
+    },
+    {
+      "name": "Zaki Blanding",
+      "planet_name": "BLANDING, ZAKI",
+      "associate_id": "235128",
+      "company_email": "zakiblanding@aoglobelife.com",
+      "phone": "(252) 578-3641",
+      "mga": null
+    }
+  ],
+  "not_found": [
+    {
+      "name": "Aaron Lowell Stander",
+      "reason": "13 results, no first match"
+    },
+    {
+      "name": "Adaisha Darby",
+      "reason": "1 results, no first match"
+    },
+    {
+      "name": "Amy Jo Knight Commander",
+      "reason": "14 results, no first match"
+    },
+    {
+      "name": "Andrew Walker",
+      "reason": "14 results, no first match"
+    },
+    {
+      "name": "Boris Koprivica",
+      "reason": "no results"
+    },
+    {
+      "name": "Bruce L Moxley",
+      "reason": "1 results, no first match"
+    },
+    {
+      "name": "Camila Dalbem Andrade",
+      "reason": "3 results, no first match"
+    },
+    {
+      "name": "Dontaeja Smart",
+      "reason": "2 results, no first match"
+    },
+    {
+      "name": "Eric Geiss",
+      "reason": "20 results, no first match"
+    },
+    {
+      "name": "Fidel R Escobar",
+      "reason": "2 results, no first match"
+    },
+    {
+      "name": "George Carl Tockstein",
+      "reason": "13 results, no first match"
+    },
+    {
+      "name": "Jiael Zenia Astwood",
+      "reason": "1 results, no first match"
+    },
+    {
+      "name": "Jonathan Carrero",
+      "reason": "1 results, no first match"
+    },
+    {
+      "name": "Kristian Portante",
+      "reason": "2 results, no first match"
+    },
+    {
+      "name": "Krystal K Redding",
+      "reason": "4 results, no first match"
+    },
+    {
+      "name": "Kyra Hopkins",
+      "reason": "7 results, no first match"
+    },
+    {
+      "name": "Kywan Gilbert Jasper Sheppard",
+      "reason": "1 results, no first match"
+    },
+    {
+      "name": "Michael N Locke",
+      "reason": "5 results, no first match"
+    },
+    {
+      "name": "Nicholas Walker",
+      "reason": "14 results, no first match"
+    },
+    {
+      "name": "Nicole Renee Paul",
+      "reason": "14 results, no first match"
+    },
+    {
+      "name": "Pamela Sue Faircloth",
+      "reason": "1 results, no first match"
+    },
+    {
+      "name": "Paul Michael Demeo",
+      "reason": "14 results, no first match"
+    },
+    {
+      "name": "Philip Prata",
+      "reason": "8 results, no first match"
+    },
+    {
+      "name": "Robert Lee Jones",
+      "reason": "20 results, no first match"
+    },
+    {
+      "name": "Ryan Wilson",
+      "reason": "18 results, no first match"
+    },
+    {
+      "name": "Samuel Donadio",
+      "reason": "17 results, no first match"
+    },
+    {
+      "name": "Timothy Matthew Wilson",
+      "reason": "18 results, no first match"
+    },
+    {
+      "name": "Treyson Scott",
+      "reason": "20 results, no first match"
+    },
+    {
+      "name": "William Frederick Lawson",
+      "reason": "4 results, no first match"
+    }
+  ]
+}

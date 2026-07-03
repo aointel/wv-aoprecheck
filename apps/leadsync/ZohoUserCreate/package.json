@@ -1,0 +1,20 @@
+{
+  "name": "zoho-queue-manager",
+  "version": "1.0.0",
+  "description": "Zoho Voice Queue Management",
+  "main": "list-zoho-queues.js",
+  "type": "module",
+  "scripts": {
+    "list": "node list-zoho-queues.js",
+    "queues": "node get-zoho-queues.js",
+    "show": "node show-queues.js",
+    "update-queues": "node update-queues.js",
+    "show-updates": "node show-updates.js",
+    "update-all": "node update-all-queues.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "csv-parse": "^5.6.0",
+    "node-fetch": "^3.3.2"
+  }
+}

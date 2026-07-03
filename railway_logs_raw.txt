@@ -1,0 +1,500 @@
+﻿  forcePressure: false,
+  activeAgents: 53,
+  lowClientBuffers: 12,
+  emptyClientBuffers: 12,
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEAD_PRIORITY] yielding non-lead job {
+  jobName: 'ccpro_rank_refresh',
+  checkedAt: '2026-07-03T00:12:24.811Z',
+  pressure: true,
+  forcePressure: false,
+  activeAgents: 50,
+  lowClientBuffers: 8,
+  emptyClientBuffers: 8,
+  threshold: 50
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEAD_PRIORITY] yielding non-lead job {
+  jobName: 'ccpro_rank_refresh',
+  checkedAt: '2026-07-03T01:12:24.397Z',
+  pressure: true,
+  forcePressure: false,
+  activeAgents: 43,
+  lowClientBuffers: 14,
+  emptyClientBuffers: 14,
+  threshold: 50
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEAD_PRIORITY] yielding non-lead job {
+  jobName: 'ccpro_rank_refresh',
+  checkedAt: '2026-07-03T02:12:24.656Z',
+  pressure: true,
+  forcePressure: false,
+  activeAgents: 26,
+  lowClientBuffers: 6,
+  emptyClientBuffers: 6,
+  threshold: 50
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  skippedMissingData: 12749
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEAD_PRIORITY] yielding non-lead job {
+  jobName: 'ccpro_rank_refresh',
+  checkedAt: '2026-07-03T03:12:24.306Z',
+  pressure: true,
+  forcePressure: false,
+  activeAgents: 15,
+  lowClientBuffers: 8,
+  emptyClientBuffers: 8,
+  threshold: 50
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEAD_PRIORITY] yielding non-lead job {
+  jobName: 'ccpro_rank_refresh',
+  checkedAt: '2026-07-03T04:12:24.293Z',
+  pressure: true,
+  forcePressure: false,
+  activeAgents: 5,
+  lowClientBuffers: 3,
+  emptyClientBuffers: 3,
+  threshold: 50
+}
+[LEAD_PRIORITY] yielding non-lead job {
+  jobName: 'ccpro_rank_refresh',
+  checkedAt: '2026-07-03T05:12:24.325Z',
+  pressure: true,
+  forcePressure: false,
+  activeAgents: 2,
+  lowClientBuffers: 1,
+  emptyClientBuffers: 1,
+  threshold: 50
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEAD_PRIORITY] yielding non-lead job {
+  jobName: 'ccpro_rank_refresh',
+  checkedAt: '2026-07-03T06:12:24.330Z',
+  pressure: true,
+  forcePressure: false,
+  activeAgents: 3,
+  lowClientBuffers: 2,
+  emptyClientBuffers: 2,
+  threshold: 50
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[CCPRO_RANK] refreshed production ranks { updated: 262 }
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[CCPRO_RANK] refreshed production ranks { updated: 262 }
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[CCPRO_RANK] refreshed production ranks { updated: 262 }
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[CCPRO_RANK] refreshed production ranks { updated: 262 }
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEAD_PRIORITY] yielding non-lead job {
+  jobName: 'ccpro_rank_refresh',
+  checkedAt: '2026-07-03T11:12:24.391Z',
+  pressure: true,
+  forcePressure: false,
+  activeAgents: 1,
+  lowClientBuffers: 1,
+  emptyClientBuffers: 1,
+  threshold: 50
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[CCPRO_RANK] refreshed production ranks { updated: 262 }
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEAD_PRIORITY] yielding non-lead job {
+  jobName: 'ccpro_rank_refresh',
+  checkedAt: '2026-07-03T13:12:24.409Z',
+  pressure: true,
+  forcePressure: false,
+  activeAgents: 8,
+  lowClientBuffers: 1,
+  emptyClientBuffers: 1,
+  threshold: 50
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEAD_PRIORITY] yielding non-lead job {
+  jobName: 'ccpro_rank_refresh',
+  checkedAt: '2026-07-03T14:12:24.395Z',
+  pressure: true,
+  forcePressure: false,
+  activeAgents: 18,
+  lowClientBuffers: 1,
+  emptyClientBuffers: 1,
+  threshold: 50
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14697,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12749
+}
+[LEAD_PRIORITY] yielding non-lead job {
+  jobName: 'ccpro_rank_refresh',
+  checkedAt: '2026-07-03T15:12:24.609Z',
+  pressure: true,
+  forcePressure: false,
+  activeAgents: 33,
+  lowClientBuffers: 14,
+  emptyClientBuffers: 14,
+  threshold: 50
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14695,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12747
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14695,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12747
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14695,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12747
+}
+[LEAD_PRIORITY] yielding non-lead job {
+  jobName: 'ccpro_rank_refresh',
+  checkedAt: '2026-07-03T16:12:24.455Z',
+  pressure: true,
+  forcePressure: false,
+  activeAgents: 47,
+  lowClientBuffers: 14,
+  emptyClientBuffers: 14,
+  threshold: 50
+}
+[LEASE] customer routing profile sync complete {
+  scanned: 14695,
+  updated: 2394,
+  skippedAorecruitOnly: 49,
+  skippedMissingData: 12747
+}
+initializeAgentSession failed {} {
+  agentEmail: 'chrislafond@aoglobelife.com',
+  sessionId: '88tGaMG706WNPRnJO0evMlFCGkv39JXd',
+  metadata: {
+    login_method: 'password',
+    supabase_user_id: '4c29fb7a-295c-4ffa-b876-b38ea7a26da4',
+    ip_address: '67.185.115.123',
+    user_agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36',
+    login_timestamp: '2026-07-03T16:37:46.917Z'
+  }
+}
+Γ¥î SUPABASE: Error updating verification session: {
+  code: 'PGRST116',
+  details: 'The result contains 0 rows',
+  hint: null,
+  message: 'JSON object requested, multiple (or no) rows returned'
+}

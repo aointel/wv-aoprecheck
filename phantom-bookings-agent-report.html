@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phantom Bookings Agent Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #d32f2f; }
+        .agent-section { margin: 20px 0; padding: 15px; border: 2px solid #d32f2f; border-radius: 8px; background: #ffeaa7; }
+        .booking-item { margin: 5px 0; padding: 8px; background: white; border-radius: 4px; }
+        .summary { background: #74b9ff; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .worst-offender { background: #ff7675; color: white; }
+    </style>
+</head>
+<body>
+    <div class="summary">
+        <h1>🚨 PHANTOM BOOKINGS AGENT REPORT</h1>
+        <p><strong>Total Phantom Bookings:</strong> <span id="total-count">Loading...</span></p>
+        <p><strong>Total Agents Involved:</strong> <span id="agent-count">Loading...</span></p>
+        <p><strong>Report Generated:</strong> <span id="timestamp">Loading...</span></p>
+    </div>
+
+    <div id="agent-breakdown">Loading agent breakdown...</div>
+
+    <script>
+        async function loadPhantomBookings() {
+            try {
+                const response = await fetch('/api/check-phantom-bookings');
+                const data = await response.json();
+                
+                document.getElementById('timestamp').textContent = new Date().toLocaleString();
+                document.getElementById('total-count').textContent = data.phantomBookings.length;
+                
+                // Group by cn_email
+                const emailGroups = {};
+                data.phantomBookings.forEach(booking => {
+                    const email = booking.cn_email || 'NO EMAIL FOUND';
+                    if (!emailGroups[email]) {
+                        emailGroups[email] = [];
+                    }
+                    emailGroups[email].push(booking);
+                });
+                
+                // Sort by count (highest first)
+                const sortedAgents = Object.entries(emailGroups)
+                    .sort((a, b) => b[1].length - a[1].length);
+                
+                document.getElementById('agent-count').textContent = sortedAgents.length;
+                
+                let html = '';
+                sortedAgents.forEach(([email, bookings], index) => {
+                    const isWorstOffender = index === 0 && bookings.length > 1;
+                    html += `
+                        <div class="agent-section ${isWorstOffender ? 'worst-offender' : ''}">
+                            <h2>📧 Agent: ${email}</h2>
+                            <p><strong>Phantom Bookings: ${bookings.length}</strong> ${isWorstOffender ? '(WORST OFFENDER)' : ''}</p>
+                            ${bookings.map((booking, idx) => `
+                                <div class="booking-item">
+                                    ${idx + 1}. <strong>${booking.first_name} ${booking.last_name}</strong> 
+                                    (${booking.phone}) - Market: ${booking.taalk_market || 'Unknown'}
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                });
+                
+                document.getElementById('agent-breakdown').innerHTML = html;
+                
+            } catch (error) {
+                console.error('Error loading phantom bookings:', error);
+                document.getElementById('agent-breakdown').innerHTML = 
+                    '<div style="color: red;">Error loading phantom bookings data</div>';
+            }
+        }
+        
+        loadPhantomBookings();
+        
+        // Auto-refresh every 30 seconds
+        setInterval(loadPhantomBookings, 30000);
+    </script>
+</body>
+</html>

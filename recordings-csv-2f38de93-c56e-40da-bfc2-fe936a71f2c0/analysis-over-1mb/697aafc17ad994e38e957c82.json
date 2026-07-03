@@ -1,0 +1,23 @@
+{
+  "label": "697aafc17ad994e38e957c82",
+  "scriptOutline": [
+    "opening: Hey Loretta. Hey, this is Alex with AO Globe Life Customer Service. I was calling about the Veteran Will Kit that you just requested. Can you hear me okay?",
+    "agenda/consent: The reason why I'm calling is that your kit has been processed and your local representative is standing by.",
+    "qualification: Are you the Veteran, Loretta? Are either of you retired military?",
+    "objection handling: If for any reason you don't think you can make it, please let me know as soon as possible.",
+    "close: So, we can do 1 p.m. on Saturday. Does that work? Do you think that will work for both you and your husband?",
+    "next steps: You'll get some reminder text messages and emails along the way."
+  ],
+  "objections": [
+    {
+      "objection": "I'm cooking right now.",
+      "howAgentHandled": "No problems. Can you still hear me while I'm taking just a moment?"
+    }
+  ],
+  "keyPhrases": [
+    "Are you familiar with Zoom, ma'am?",
+    "We're under pretty strict instructions, right? We've got to be polite and courteous.",
+    "If you know something is going to conflict, let me know so I can maybe see another veteran during that time spot."
+  ],
+  "summary": "The call effectively established rapport and clarified the purpose of the meeting. The agent skillfully navigated objections and confirmed the appointment while ensuring the prospect felt comfortable and informed."
+}

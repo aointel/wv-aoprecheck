@@ -1,0 +1,662 @@
+﻿[dotenv@17.2.3] injecting env (2) from .env -- tip: ≡ƒùé∩╕Å backup and recover secrets: https://dotenvx.com/ops
+≡ƒôï COMPLETE LIST OF EVERY USER I FUCKED UP
+
+≡ƒôï WHAT TO ADD/SUBTRACT TO FIX IT
+
+≡ƒôè Processing 1000 entries and 39 back-billing transactions...
+
+   Processed 200/1000...
+   Processed 400/1000...
+   Processed 600/1000...
+   Processed 800/1000...
+   Processed 1000/1000...
+
+≡ƒôï COMPLETE LIST - EVERY USER I FUCKED UP:
+
+stephansutton@aoglobelife.com (associate_id: 194978):
+   Trigger calculated: +584 credits (ADDED to credits_used)
+   TOTAL ADDED: +584 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -584 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -584 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+cuttercameau@aoglobelife.com (associate_id: 216218):
+   Back-billing: +544 credits (ADDED to credits_used)
+   TOTAL ADDED: +544 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -544 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -544 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+carlosarmandoalfagofarge@aoglobelife.com (associate_id: 205404):
+   Trigger calculated: +76 credits (ADDED to credits_used)
+   Back-billing: +448 credits (ADDED to credits_used)
+   TOTAL ADDED: +524 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -524 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -524 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+tabithamcdermid@aoglobelife.com (associate_id: 38431):
+   Trigger calculated: +491 credits (ADDED to credits_used)
+   TOTAL ADDED: +491 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -491 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -491 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+tyjeremorrow@aoglobelife.com (associate_id: 108762):
+   Trigger calculated: +436 credits (ADDED to credits_used)
+   TOTAL ADDED: +436 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -436 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -436 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+bridgetcallahan@aoglobelife.com (associate_id: 205226):
+   Trigger calculated: +380 credits (ADDED to credits_used)
+   TOTAL ADDED: +380 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -380 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -380 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+torianfields@aoglobelife.com (associate_id: 128036):
+   Trigger calculated: +376 credits (ADDED to credits_used)
+   TOTAL ADDED: +376 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -376 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -376 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+davidcarpenter@aoglobelife.com (associate_id: 46179):
+   Trigger calculated: +364 credits (ADDED to credits_used)
+   TOTAL ADDED: +364 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -364 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -364 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+andreabrienza@aoglobelife.com (associate_id: 194835):
+   Trigger calculated: +364 credits (ADDED to credits_used)
+   TOTAL ADDED: +364 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -364 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -364 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+collindickinson@aoglobelife.com (associate_id: 197816):
+   Trigger calculated: +361 credits (ADDED to credits_used)
+   TOTAL ADDED: +361 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -361 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -361 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+susanabruzzese@aoglobelife.com (associate_id: 180772):
+   Trigger calculated: +344 credits (ADDED to credits_used)
+   TOTAL ADDED: +344 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -344 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -344 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+pedrodanielortega@aoglobelife.com (associate_id: 217091):
+   Back-billing: +336 credits (ADDED to credits_used)
+   TOTAL ADDED: +336 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -336 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -336 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+gageharrington@aoglobelife.com (associate_id: 95059):
+   Trigger calculated: +308 credits (ADDED to credits_used)
+   TOTAL ADDED: +308 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -308 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -308 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+mariapiqueras@aoglobelife.com (associate_id: 216306):
+   Back-billing: +272 credits (ADDED to credits_used)
+   TOTAL ADDED: +272 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -272 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -272 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+brianshaeena@aoglobelife.com (associate_id: 128805):
+   Trigger calculated: +236 credits (ADDED to credits_used)
+   TOTAL ADDED: +236 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -236 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -236 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+karlamendoza@aoglobelife.com (associate_id: 159180):
+   Trigger calculated: +226 credits (ADDED to credits_used)
+   TOTAL ADDED: +226 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -226 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -226 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+jesserusso@aoglobelife.com (associate_id: 207058):
+   Back-billing: +224 credits (ADDED to credits_used)
+   TOTAL ADDED: +224 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -224 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -224 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+austinwilbert@aoglobelife.com (associate_id: 215248):
+   Trigger calculated: +220 credits (ADDED to credits_used)
+   TOTAL ADDED: +220 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -220 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -220 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+jinchen@aoglobelife.com (associate_id: 83550):
+   Trigger calculated: +215 credits (ADDED to credits_used)
+   TOTAL ADDED: +215 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -215 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -215 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+julieshannon@aoglobelife.com (associate_id: 188631):
+   Trigger calculated: +208 credits (ADDED to credits_used)
+   TOTAL ADDED: +208 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -208 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -208 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+daeshawagnergonzalez@aoglobelife.com (associate_id: 216305):
+   Trigger calculated: +192 credits (ADDED to credits_used)
+   TOTAL ADDED: +192 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -192 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -192 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+bryanjesuslozadapacheco@aoglobelife.com (associate_id: 152828):
+   Trigger calculated: +188 credits (ADDED to credits_used)
+   TOTAL ADDED: +188 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -188 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -188 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+arthurscott@aoglobelife.com (associate_id: 209153):
+   Trigger calculated: +184 credits (ADDED to credits_used)
+   TOTAL ADDED: +184 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -184 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -184 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+coreytrenk@aoglobelife.com (associate_id: 205409):
+   Trigger calculated: +180 credits (ADDED to credits_used)
+   TOTAL ADDED: +180 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -180 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -180 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+courtlandcarpenter@aoglobelife.com (associate_id: 188348):
+   Trigger calculated: +166 credits (ADDED to credits_used)
+   TOTAL ADDED: +166 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -166 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -166 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+matthewrobins@aoglobelife.com (associate_id: 204210):
+   Trigger calculated: +165 credits (ADDED to credits_used)
+   TOTAL ADDED: +165 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -165 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -165 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+lisavanzile@aoglobelife.com (associate_id: 185556):
+   Trigger calculated: +140 credits (ADDED to credits_used)
+   TOTAL ADDED: +140 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -140 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -140 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+deewilkins@aoglobelife.com (associate_id: 107086):
+   Trigger calculated: +140 credits (ADDED to credits_used)
+   TOTAL ADDED: +140 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -140 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -140 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+emberburdette@aoglobelife.com (associate_id: 215389):
+   Trigger calculated: +130 credits (ADDED to credits_used)
+   TOTAL ADDED: +130 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -130 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -130 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+lewisjordan@aoglobelife.com (associate_id: 203894):
+   Back-billing: +128 credits (ADDED to credits_used)
+   TOTAL ADDED: +128 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -128 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -128 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+jaredcircle@aoglobelife.com (associate_id: 131768):
+   Trigger calculated: +112 credits (ADDED to credits_used)
+   TOTAL ADDED: +112 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -112 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -112 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+franklinbrock@aoglobelife.com (associate_id: 202183):
+   Trigger calculated: +100 credits (ADDED to credits_used)
+   TOTAL ADDED: +100 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -100 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -100 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+jacobzetoff@aoglobelife.com (associate_id: 205951):
+   Trigger calculated: +96 credits (ADDED to credits_used)
+   TOTAL ADDED: +96 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -96 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -96 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+richardlafond@aoglobelife.com (associate_id: 159521):
+   Trigger calculated: +88 credits (ADDED to credits_used)
+   TOTAL ADDED: +88 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -88 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -88 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+danielhern@aoglobelife.com (associate_id: 217094):
+   Trigger calculated: +68 credits (ADDED to credits_used)
+   Back-billing: +16 credits (ADDED to credits_used)
+   TOTAL ADDED: +84 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -84 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -84 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+tuckerpaynter@aoglobelife.com (associate_id: 194426):
+   Trigger calculated: +52 credits (ADDED to credits_used)
+   Back-billing: +32 credits (ADDED to credits_used)
+   TOTAL ADDED: +84 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -84 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -84 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+josiahmonett@aoglobelife.com (associate_id: 203499):
+   Trigger calculated: +72 credits (ADDED to credits_used)
+   TOTAL ADDED: +72 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -72 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -72 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+alliyahpierre@aoglobelife.com (associate_id: 197816):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   Back-billing: +64 credits (ADDED to credits_used)
+   TOTAL ADDED: +72 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -72 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -72 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+ryancarrion@aoglobelife.com (associate_id: 216580):
+   Trigger calculated: +24 credits (ADDED to credits_used)
+   Back-billing: +48 credits (ADDED to credits_used)
+   TOTAL ADDED: +72 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -72 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -72 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+emilyrogers@aoglobelife.com (associate_id: 97995):
+   Trigger calculated: +64 credits (ADDED to credits_used)
+   TOTAL ADDED: +64 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -64 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -64 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+amandagarcia@aoglobelife.com (associate_id: 218375):
+   Back-billing: +64 credits (ADDED to credits_used)
+   TOTAL ADDED: +64 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -64 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -64 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+jacobmares@aoglobelife.com (associate_id: 197105):
+   Back-billing: +64 credits (ADDED to credits_used)
+   TOTAL ADDED: +64 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -64 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -64 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+tracejohnson@aoglobelife.com (associate_id: 52356):
+   Trigger calculated: +56 credits (ADDED to credits_used)
+   TOTAL ADDED: +56 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -56 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -56 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+jamiecattanach@aoglobelife.com (associate_id: 199601):
+   Trigger calculated: +53 credits (ADDED to credits_used)
+   TOTAL ADDED: +53 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -53 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -53 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+keithgindlesperger@aoglobelife.com (associate_id: 75183):
+   Trigger calculated: +47 credits (ADDED to credits_used)
+   TOTAL ADDED: +47 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -47 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -47 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+jasmynenorris@aoglobelife.com (associate_id: 186334):
+   Trigger calculated: +45 credits (ADDED to credits_used)
+   TOTAL ADDED: +45 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -45 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -45 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+heidimcmullin@aoglobelife.com (associate_id: 122345):
+   Trigger calculated: +44 credits (ADDED to credits_used)
+   TOTAL ADDED: +44 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -44 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -44 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+jacquelineprieto@aoglobelife.com (associate_id: 118232):
+   Trigger calculated: +41 credits (ADDED to credits_used)
+   TOTAL ADDED: +41 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -41 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -41 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+skylardial@aoglobelife.com (associate_id: 158942):
+   Trigger calculated: +40 credits (ADDED to credits_used)
+   TOTAL ADDED: +40 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -40 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -40 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+bridgethughes@aoglobelife.com (associate_id: 193199):
+   Trigger calculated: +40 credits (ADDED to credits_used)
+   TOTAL ADDED: +40 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -40 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -40 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+sawyerdavis@aoglobelife.com (associate_id: 176766):
+   Trigger calculated: +40 credits (ADDED to credits_used)
+   TOTAL ADDED: +40 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -40 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -40 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+randyortizalarcon@aoglobelife.com (associate_id: 205407):
+   Trigger calculated: +36 credits (ADDED to credits_used)
+   TOTAL ADDED: +36 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -36 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -36 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+ryancummings@aoglobelife.com (associate_id: 110970):
+   Trigger calculated: +32 credits (ADDED to credits_used)
+   TOTAL ADDED: +32 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -32 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -32 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+mohamedalgohaim@aoglobelife.com (associate_id: 200388):
+   Back-billing: +32 credits (ADDED to credits_used)
+   TOTAL ADDED: +32 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -32 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -32 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+brandonschaeffer@aoglobelife.com (associate_id: 173653):
+   Trigger calculated: +30 credits (ADDED to credits_used)
+   TOTAL ADDED: +30 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -30 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -30 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+tinadang@aoglobelife.com (associate_id: 211469):
+   Trigger calculated: +27 credits (ADDED to credits_used)
+   TOTAL ADDED: +27 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -27 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -27 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+ajlaramic@aoglobelife.com (associate_id: 158414):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   Back-billing: +16 credits (ADDED to credits_used)
+   TOTAL ADDED: +24 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -24 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -24 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+thuytnguyen@aoglobelife.com (associate_id: 208945):
+   Trigger calculated: +17 credits (ADDED to credits_used)
+   TOTAL ADDED: +17 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -17 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -17 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+mariahsenter@aoglobelife.com (associate_id: 218182):
+   Trigger calculated: +17 credits (ADDED to credits_used)
+   TOTAL ADDED: +17 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -17 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -17 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+josephesshaki@aoglobelife.com (associate_id: 224629):
+   Back-billing: +16 credits (ADDED to credits_used)
+   TOTAL ADDED: +16 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -16 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -16 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+aidenbauer@aoglobelife.com (associate_id: 218164):
+   Back-billing: +16 credits (ADDED to credits_used)
+   TOTAL ADDED: +16 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -16 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -16 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+talayathomas@aoglobelife.com (associate_id: 214222):
+   Back-billing: +16 credits (ADDED to credits_used)
+   TOTAL ADDED: +16 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -16 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -16 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+alejandromontano@aoglobelife.com (associate_id: 212804):
+   Back-billing: +16 credits (ADDED to credits_used)
+   TOTAL ADDED: +16 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -16 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -16 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+fayesaad@aoglobelife.com (associate_id: 134400):
+   Back-billing: +16 credits (ADDED to credits_used)
+   TOTAL ADDED: +16 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -16 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -16 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+erichjackson@aoglobelife.com (associate_id: 122254):
+   Back-billing: +16 credits (ADDED to credits_used)
+   TOTAL ADDED: +16 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -16 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -16 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+cierrafranklin@aoglobelife.com (associate_id: 131240):
+   Trigger calculated: +15 credits (ADDED to credits_used)
+   TOTAL ADDED: +15 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -15 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -15 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+lauramiranda@aoglobelife.com (associate_id: 180935):
+   Trigger calculated: +12 credits (ADDED to credits_used)
+   TOTAL ADDED: +12 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -12 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -12 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+williamtemrowski@aoglobelife.com (associate_id: 198575):
+   Trigger calculated: +12 credits (ADDED to credits_used)
+   TOTAL ADDED: +12 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -12 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -12 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+allissacollins@aoglobelife.com (associate_id: 132872):
+   Trigger calculated: +9 credits (ADDED to credits_used)
+   TOTAL ADDED: +9 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -9 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -9 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+meltonjennifer@aoglobelife.com (associate_id: 213052):
+   Trigger calculated: +9 credits (ADDED to credits_used)
+   TOTAL ADDED: +9 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -9 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -9 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+richiealtig@aoglobelife.com (associate_id: 4184):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   TOTAL ADDED: +8 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+hassannasser@aoglobelife.com (associate_id: 141718):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   TOTAL ADDED: +8 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+patriciasantamarina@aoglobelife.com (associate_id: 21256):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   TOTAL ADDED: +8 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+katherinepetersbell@aoglobelife.com (associate_id: 135049):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   TOTAL ADDED: +8 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+dontheacampbell@aoglobelife.com (associate_id: 196754):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   TOTAL ADDED: +8 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+danielrock@aoglobelife.com (associate_id: 109269):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   TOTAL ADDED: +8 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+shanstanford@aoglobelife.com (associate_id: 182349):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   TOTAL ADDED: +8 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+christopherblanc@aoglobelife.com (associate_id: 216221):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   TOTAL ADDED: +8 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+tionnaburke@aoglobelife.com (associate_id: 197395):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   TOTAL ADDED: +8 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+nelsonjoe@aoglobelife.com (associate_id: 100825):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   TOTAL ADDED: +8 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+michellefritchle@aoglobelife.com (associate_id: 180432):
+   Trigger calculated: +8 credits (ADDED to credits_used)
+   TOTAL ADDED: +8 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -8 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+anitradickey@aoglobelife.com (associate_id: 656565):
+   Trigger calculated: +5 credits (ADDED to credits_used)
+   TOTAL ADDED: +5 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -5 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -5 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+charleslong@aoglobelife.com (associate_id: 223166):
+   Trigger calculated: +5 credits (ADDED to credits_used)
+   TOTAL ADDED: +5 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -5 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -5 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+barbaraking@aoglobelife.com (associate_id: 94718):
+   Trigger calculated: +4 credits (ADDED to credits_used)
+   TOTAL ADDED: +4 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -4 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -4 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+cnsysop@aoglobelife.com (associate_id: 1253):
+   Trigger calculated: +4 credits (ADDED to credits_used)
+   TOTAL ADDED: +4 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -4 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -4 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+christianchis@aoglobelife.com (associate_id: 221121):
+   Trigger calculated: +4 credits (ADDED to credits_used)
+   TOTAL ADDED: +4 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -4 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -4 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+shawlisa@aoglobelife.com (associate_id: 216653):
+   Trigger calculated: +4 credits (ADDED to credits_used)
+   TOTAL ADDED: +4 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -4 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -4 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+janiceanderson@aoglobelife.com (associate_id: 197329):
+   Trigger calculated: +3 credits (ADDED to credits_used)
+   TOTAL ADDED: +3 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -3 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -3 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+kristadunn@aoglobelife.com (associate_id: 201934):
+   Trigger calculated: +3 credits (ADDED to credits_used)
+   TOTAL ADDED: +3 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -3 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -3 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+rodriguezjohnny@aoglobelife.com (associate_id: 168052):
+   Trigger calculated: +3 credits (ADDED to credits_used)
+   TOTAL ADDED: +3 credits
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -3 credits from credits_used
+   ΓÜá∩╕Å  NEED TO SUBTRACT: -3 credits from aoi_connect_credits_used
+   ΓÜá∩╕Å  THEN DELETE: user_credits entry (if new) and back-billing transactions
+
+
+≡ƒôè SUMMARY:
+   Total users affected: 90
+   Total credits ADDED (that need to be SUBTRACTED): 10495
+   Total credits to ADD back: 0 (none - I only added, never subtracted)
+
+Γ£à ACTION REQUIRED:
+   SUBTRACT 10495 credits from credits_used in user_credits table
+   SUBTRACT 10495 credits from aoi_connect_credits_used in user_credits table
+   DELETE all user_credits entries created in last 2 hours
+   DELETE all back-billing transactions created in last 2 hours

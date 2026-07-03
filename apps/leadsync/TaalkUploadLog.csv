@@ -1,0 +1,285 @@
+2025-01-15T06:42:44.454Z,,Cindy Reeson,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T06:42:44.457Z,,Vallen Carter,Unknown,MI,PAVET,,Invalid Lead Data
+2025-01-15T06:42:44.457Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T06:42:44.458Z,,Wesley Summerfield,Unknown,WV,VET06,,Invalid Lead Data
+2025-01-15T06:42:44.458Z,,Karlyn Payton,Unknown,GA,NCL07,,Invalid Lead Data
+2025-01-15T06:42:44.458Z,,Lindsay Rucker,Unknown,CA,NCL07,,Invalid Lead Data
+2025-01-15T06:42:44.459Z,,Wendy Smith,Unknown,AZ,PAVET,,Invalid Lead Data
+2025-01-15T06:42:44.459Z,,BabiiLuv AkaThatone,Unknown,NC,NCL05,,Invalid Lead Data
+2025-01-15T06:42:44.460Z,,Keisha Graham,Unknown,MD,NCL07,,Invalid Lead Data
+2025-01-15T06:42:44.460Z,,Keisha Graham,Unknown,MD,VN125,,Invalid Lead Data
+2025-01-15T06:44:02.070Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Failed
+2025-01-15T06:44:04.293Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Failed
+2025-01-15T06:44:06.518Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Failed
+2025-01-15T06:44:08.738Z,,Wesley Summerfield,Vet,WV,VET06,67771646e345699491e7545f,Failed
+2025-01-15T06:44:10.968Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Failed
+2025-01-15T06:44:10.968Z,,Lindsay Rucker,Womens,CA,NCL07,,No Campaign Found for Womens-CA
+2025-01-15T06:44:13.193Z,,Wendy Smith,Vet,AZ,PAVET,67770dfde345699491e69d98,Failed
+2025-01-15T06:44:15.413Z,,BabiiLuv AkaThatone,Will Kit,NC,NCL05,677ac1b427b78ac01f4c7fc0,Failed
+2025-01-15T06:44:15.414Z,,Keisha Graham,Womens,MD,NCL07,,No Campaign Found for Womens-MD
+2025-01-15T06:44:17.623Z,,Keisha Graham,Globe,MD,VN125,677ab4b127b78ac01f4bd221,Failed
+2025-01-15T06:45:19.536Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Failed
+2025-01-15T06:45:21.764Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Failed
+2025-01-15T06:45:23.993Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Failed
+2025-01-15T06:45:26.221Z,,Wesley Summerfield,Vet,WV,VET06,67771646e345699491e7545f,Failed
+2025-01-15T06:45:28.440Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Failed
+2025-01-15T06:45:28.441Z,,Lindsay Rucker,Womens,CA,NCL07,,No Campaign Found for Womens-CA
+2025-01-15T06:45:30.662Z,,Wendy Smith,Vet,AZ,PAVET,67770dfde345699491e69d98,Failed
+2025-01-15T06:45:32.900Z,,BabiiLuv AkaThatone,Will Kit,NC,NCL05,677ac1b427b78ac01f4c7fc0,Failed
+2025-01-15T06:45:32.901Z,,Keisha Graham,Womens,MD,NCL07,,No Campaign Found for Womens-MD
+2025-01-15T06:45:35.134Z,,Keisha Graham,Globe,MD,VN125,677ab4b127b78ac01f4bd221,Failed
+2025-01-15T06:46:39.450Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T06:46:39.541Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T06:46:39.631Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T06:46:39.712Z,,Wesley Summerfield,Vet,WV,VET06,67771646e345699491e7545f,Success
+2025-01-15T06:46:39.802Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T06:46:39.804Z,,Lindsay Rucker,Womens,CA,NCL07,,No Campaign Found for Womens-CA
+2025-01-15T06:46:39.886Z,,Wendy Smith,Vet,AZ,PAVET,67770dfde345699491e69d98,Success
+2025-01-15T06:46:39.968Z,,BabiiLuv AkaThatone,Will Kit,NC,NCL05,677ac1b427b78ac01f4c7fc0,Success
+2025-01-15T06:46:39.969Z,,Keisha Graham,Womens,MD,NCL07,,No Campaign Found for Womens-MD
+2025-01-15T06:46:40.067Z,,Keisha Graham,Globe,MD,VN125,677ab4b127b78ac01f4bd221,Success
+2025-01-15T14:42:41.057Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T14:42:41.159Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T14:42:41.249Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T14:42:41.349Z,,Wesley Summerfield,Vet,WV,VET06,67771646e345699491e7545f,Success
+2025-01-15T14:42:41.437Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T14:42:41.438Z,,Lindsay Rucker,Womens,CA,NCL07,,No Campaign Found for Womens-CA
+2025-01-15T14:42:41.524Z,,Wendy Smith,Vet,AZ,PAVET,67770dfde345699491e69d98,Success
+2025-01-15T14:42:41.613Z,,BabiiLuv AkaThatone,Will Kit,NC,NCL05,677ac1b427b78ac01f4c7fc0,Success
+2025-01-15T14:42:41.614Z,,Keisha Graham,Womens,MD,NCL07,,No Campaign Found for Womens-MD
+2025-01-15T14:42:41.700Z,,Keisha Graham,Globe,MD,VN125,677ab4b127b78ac01f4bd221,Success
+2025-01-15T14:44:51.876Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T14:44:51.969Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T14:44:51.970Z,,Charity Townes,Will kit,OH,NCL05,,No Campaign Found for Will kit-OH
+2025-01-15T14:44:52.062Z,,Wesley Summerfield,Vet,WV,VET06,67771646e345699491e7545f,Success
+2025-01-15T14:44:52.151Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T14:44:52.152Z,,Lindsay Rucker,Womens,CA,NCL07,,No Campaign Found for Womens-CA
+2025-01-15T14:44:52.243Z,,Wendy Smith,Vet,AZ,PAVET,67770dfde345699491e69d98,Success
+2025-01-15T14:44:52.244Z,,BabiiLuv AkaThatone,Will kit,NC,NCL05,,No Campaign Found for Will kit-NC
+2025-01-15T14:44:52.245Z,,Keisha Graham,Womens,MD,NCL07,,No Campaign Found for Womens-MD
+2025-01-15T14:44:52.346Z,,Keisha Graham,Globe,MD,VN125,677ab4b127b78ac01f4bd221,Success
+2025-01-15T14:46:46.236Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T14:46:46.332Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T14:46:46.333Z,,Charity Townes,Will kit,OH,NCL05,,No Campaign Found for Will kit-OH
+2025-01-15T14:46:46.427Z,,Wesley Summerfield,Vet,WV,VET06,67771646e345699491e7545f,Success
+2025-01-15T14:46:46.516Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T14:46:46.517Z,,Lindsay Rucker,Womens,CA,NCL07,,No Campaign Found for Womens-CA
+2025-01-15T14:46:46.607Z,,Wendy Smith,Vet,AZ,PAVET,67770dfde345699491e69d98,Success
+2025-01-15T14:46:46.608Z,,BabiiLuv AkaThatone,Will kit,NC,NCL05,,No Campaign Found for Will kit-NC
+2025-01-15T14:46:46.608Z,,Keisha Graham,Womens,MD,NCL07,,No Campaign Found for Womens-MD
+2025-01-15T14:46:46.707Z,,Keisha Graham,Globe,MD,VN125,677ab4b127b78ac01f4bd221,Success
+2025-01-15T14:47:30.737Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T14:47:30.838Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T14:47:30.838Z,,Charity Townes,Will kit,OH,NCL05,,No Campaign Found for Will kit-OH
+2025-01-15T14:47:30.925Z,,Wesley Summerfield,Vet,WV,VET06,67771646e345699491e7545f,Success
+2025-01-15T14:47:31.009Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T14:47:31.010Z,,Lindsay Rucker,Womens,CA,NCL07,,No Campaign Found for Womens-CA
+2025-01-15T14:47:31.096Z,,Wendy Smith,Vet,AZ,PAVET,67770dfde345699491e69d98,Success
+2025-01-15T14:47:31.097Z,,BabiiLuv AkaThatone,Will kit,NC,NCL05,,No Campaign Found for Will kit-NC
+2025-01-15T14:47:31.097Z,,Keisha Graham,Womens,MD,NCL07,,No Campaign Found for Womens-MD
+2025-01-15T14:47:31.182Z,,Keisha Graham,Globe,MD,VN125,677ab4b127b78ac01f4bd221,Success
+2025-01-15T14:48:05.597Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T14:48:05.686Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T14:48:05.687Z,,Charity Townes,Will kit,OH,NCL05,,No Campaign Found for Will kit-OH
+2025-01-15T14:48:05.771Z,,Wesley Summerfield,Vet,WV,VET06,67771646e345699491e7545f,Success
+2025-01-15T14:48:05.859Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T14:48:05.859Z,,Lindsay Rucker,Womens,CA,NCL07,,No Campaign Found for Womens-CA
+2025-01-15T14:48:05.950Z,,Wendy Smith,Vet,AZ,PAVET,67770dfde345699491e69d98,Success
+2025-01-15T14:48:05.951Z,,BabiiLuv AkaThatone,Will kit,NC,NCL05,,No Campaign Found for Will kit-NC
+2025-01-15T14:48:05.951Z,,Keisha Graham,Womens,MD,NCL07,,No Campaign Found for Womens-MD
+2025-01-15T14:48:06.038Z,,Keisha Graham,Globe,MD,VN125,677ab4b127b78ac01f4bd221,Success
+2025-01-15T14:48:58.701Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T14:48:58.789Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T14:48:58.790Z,,Charity Townes,Will kit,OH,NCL05,,No Campaign Found for Will kit-OH
+2025-01-15T14:48:58.874Z,,Wesley Summerfield,Vet,WV,VET06,67771646e345699491e7545f,Success
+2025-01-15T14:48:58.957Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T14:48:58.957Z,,Lindsay Rucker,Womens,CA,NCL07,,No Campaign Found for Womens-CA
+2025-01-15T14:48:59.052Z,,Wendy Smith,Vet,AZ,PAVET,67770dfde345699491e69d98,Success
+2025-01-15T14:48:59.052Z,,BabiiLuv AkaThatone,Will kit,NC,NCL05,,No Campaign Found for Will kit-NC
+2025-01-15T14:48:59.053Z,,Keisha Graham,Womens,MD,NCL07,,No Campaign Found for Womens-MD
+2025-01-15T14:48:59.137Z,,Keisha Graham,Globe,MD,VN125,677ab4b127b78ac01f4bd221,Success
+2025-01-15T14:49:38.033Z,,Charity Townes,Will kit,OH,NCL05,,No Campaign Found for Will kit-OH
+2025-01-15T14:49:38.037Z,,Lindsay Rucker,Womens,CA,NCL07,,No Campaign Found for Womens-CA
+2025-01-15T14:49:38.039Z,,BabiiLuv AkaThatone,Will kit,NC,NCL05,,No Campaign Found for Will kit-NC
+2025-01-15T14:49:38.039Z,,Keisha Graham,Womens,MD,NCL07,,No Campaign Found for Womens-MD
+2025-01-15T14:49:38.347Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T14:49:38.362Z,,Keisha Graham,Globe,MD,VN125,677ab4b127b78ac01f4bd221,Success
+2025-01-15T14:49:38.364Z,,Wesley Summerfield,Vet,WV,VET06,67771646e345699491e7545f,Success
+2025-01-15T14:49:38.366Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T14:49:38.391Z,,Wendy Smith,Vet,AZ,PAVET,67770dfde345699491e69d98,Success
+2025-01-15T14:49:38.396Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T14:50:16.120Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T14:50:16.208Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T14:50:16.209Z,,Charity Townes,Will kit,OH,NCL05,,No Campaign Found for Will kit-OH
+2025-01-15T14:50:16.310Z,,Wesley Summerfield,Vet,WV,VET06,67771646e345699491e7545f,Success
+2025-01-15T14:50:16.396Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T14:50:16.397Z,,Lindsay Rucker,Womens,CA,NCL07,,No Campaign Found for Womens-CA
+2025-01-15T14:50:16.482Z,,Wendy Smith,Vet,AZ,PAVET,67770dfde345699491e69d98,Success
+2025-01-15T14:50:16.483Z,,BabiiLuv AkaThatone,Will kit,NC,NCL05,,No Campaign Found for Will kit-NC
+2025-01-15T14:50:16.484Z,,Keisha Graham,Womens,MD,NCL07,,No Campaign Found for Womens-MD
+2025-01-15T14:50:16.570Z,,Keisha Graham,Globe,MD,VN125,677ab4b127b78ac01f4bd221,Success
+2025-01-15T14:51:41.170Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T14:51:41.265Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T14:51:41.359Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T14:51:41.455Z,,Wesley Summerfield,Vet,WV,VET06,67771646e345699491e7545f,Success
+2025-01-15T14:51:41.542Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T14:51:41.544Z,,Lindsay Rucker,Womens,CA,NCL07,,No Campaign Found for Womens-CA
+2025-01-15T14:51:41.653Z,,Wendy Smith,Vet,AZ,PAVET,67770dfde345699491e69d98,Success
+2025-01-15T14:51:41.754Z,,BabiiLuv AkaThatone,Will Kit,NC,NCL05,677ac1b427b78ac01f4c7fc0,Success
+2025-01-15T14:51:41.755Z,,Keisha Graham,Womens,MD,NCL07,,No Campaign Found for Womens-MD
+2025-01-15T14:51:41.842Z,,Keisha Graham,Globe,MD,VN125,677ab4b127b78ac01f4bd221,Success
+2025-01-15T15:01:38.247Z,,Cindy Reeson,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T15:01:38.250Z,,Vallen Carter,Unknown,MI,PAVET,,Invalid Lead Data
+2025-01-15T15:01:38.250Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T15:01:38.251Z,,Theodore E Lowe,Unknown,OH,PAVET,,Invalid Lead Data
+2025-01-15T15:01:38.251Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T15:01:38.252Z,,Karlyn Payton,Unknown,GA,NCL07,,Invalid Lead Data
+2025-01-15T15:01:38.252Z,,Lindsay Rucker,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T15:01:38.252Z,,KITTY WILCOX,Unknown,OH,VN125,,Invalid Lead Data
+2025-01-15T15:01:38.253Z,,ANGELINA SCOTTELLIOTT,Unknown,FL,VN125,,Invalid Lead Data
+2025-01-15T15:01:38.253Z,,DENISE CHAVOUS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:01:38.254Z,,CORBIN WILLS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:03:41.121Z,,Cindy Reeson,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T15:03:41.125Z,,Vallen Carter,Unknown,MI,PAVET,,Invalid Lead Data
+2025-01-15T15:03:41.126Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T15:03:41.127Z,,Theodore E Lowe,Unknown,OH,PAVET,,Invalid Lead Data
+2025-01-15T15:03:41.127Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T15:03:41.128Z,,Karlyn Payton,Unknown,GA,NCL07,,Invalid Lead Data
+2025-01-15T15:03:41.128Z,,Lindsay Rucker,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T15:03:41.129Z,,KITTY WILCOX,Unknown,OH,VN125,,Invalid Lead Data
+2025-01-15T15:03:41.129Z,,ANGELINA SCOTTELLIOTT,Unknown,FL,VN125,,Invalid Lead Data
+2025-01-15T15:03:41.130Z,,DENISE CHAVOUS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:03:41.131Z,,CORBIN WILLS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:04:34.503Z,,Cindy Reeson,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T15:04:34.506Z,,Vallen Carter,Unknown,MI,PAVET,,Invalid Lead Data
+2025-01-15T15:04:34.507Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T15:04:34.507Z,,Theodore E Lowe,Unknown,OH,PAVET,,Invalid Lead Data
+2025-01-15T15:04:34.508Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T15:04:34.508Z,,Karlyn Payton,Unknown,GA,NCL07,,Invalid Lead Data
+2025-01-15T15:04:34.509Z,,Lindsay Rucker,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T15:04:34.510Z,,KITTY WILCOX,Unknown,OH,VN125,,Invalid Lead Data
+2025-01-15T15:04:34.511Z,,ANGELINA SCOTTELLIOTT,Unknown,FL,VN125,,Invalid Lead Data
+2025-01-15T15:04:34.512Z,,DENISE CHAVOUS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:04:34.512Z,,CORBIN WILLS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:08:27.064Z,,undefined undefined,Unknown,,,,Invalid Lead Data
+2025-01-15T15:08:27.068Z,,undefined undefined,Unknown,,,,Invalid Lead Data
+2025-01-15T15:08:27.068Z,,undefined undefined,Unknown,,,,Invalid Lead Data
+2025-01-15T15:08:27.069Z,,undefined undefined,Unknown,,,,Invalid Lead Data
+2025-01-15T15:08:27.069Z,,undefined undefined,Unknown,,,,Invalid Lead Data
+2025-01-15T15:08:27.070Z,,undefined undefined,Unknown,,,,Invalid Lead Data
+2025-01-15T15:08:27.071Z,,undefined undefined,Unknown,,,,Invalid Lead Data
+2025-01-15T15:08:27.071Z,,undefined undefined,Unknown,,,,Invalid Lead Data
+2025-01-15T15:08:27.071Z,,undefined undefined,Unknown,,,,Invalid Lead Data
+2025-01-15T15:08:27.072Z,,undefined undefined,Unknown,,,,Invalid Lead Data
+2025-01-15T15:08:27.072Z,,undefined undefined,Unknown,,,,Invalid Lead Data
+2025-01-15T15:08:27.073Z,,undefined undefined,Unknown,,,,Invalid Lead Data
+2025-01-15T15:09:24.855Z,,Cindy Reeson,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T15:09:24.857Z,,Vallen Carter,Unknown,MI,PAVET,,Invalid Lead Data
+2025-01-15T15:09:24.858Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T15:09:24.858Z,,Theodore E Lowe,Unknown,OH,PAVET,,Invalid Lead Data
+2025-01-15T15:09:24.859Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T15:09:24.859Z,,Karlyn Payton,Unknown,GA,NCL07,,Invalid Lead Data
+2025-01-15T15:09:24.860Z,,Lindsay Rucker,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T15:09:24.860Z,,KITTY WILCOX,Unknown,OH,VN125,,Invalid Lead Data
+2025-01-15T15:09:24.861Z,,ANGELINA SCOTTELLIOTT,Unknown,FL,VN125,,Invalid Lead Data
+2025-01-15T15:09:24.861Z,,DENISE CHAVOUS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:09:24.862Z,,CORBIN WILLS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:10:04.032Z,,Cindy Reeson,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T15:10:04.035Z,,Vallen Carter,Unknown,MI,PAVET,,Invalid Lead Data
+2025-01-15T15:10:04.035Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T15:10:04.036Z,,Theodore E Lowe,Unknown,OH,PAVET,,Invalid Lead Data
+2025-01-15T15:10:04.036Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T15:10:04.037Z,,Karlyn Payton,Unknown,GA,NCL07,,Invalid Lead Data
+2025-01-15T15:10:04.037Z,,Lindsay Rucker,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T15:10:04.038Z,,KITTY WILCOX,Unknown,OH,VN125,,Invalid Lead Data
+2025-01-15T15:10:04.038Z,,ANGELINA SCOTTELLIOTT,Unknown,FL,VN125,,Invalid Lead Data
+2025-01-15T15:10:04.039Z,,DENISE CHAVOUS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:10:04.039Z,,CORBIN WILLS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:10:37.905Z,,Cindy Reeson,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T15:10:37.907Z,,Vallen Carter,Unknown,MI,PAVET,,Invalid Lead Data
+2025-01-15T15:10:37.907Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T15:10:37.908Z,,Theodore E Lowe,Unknown,OH,PAVET,,Invalid Lead Data
+2025-01-15T15:10:37.908Z,,Charity Townes,Unknown,OH,NCL05,,Invalid Lead Data
+2025-01-15T15:10:37.909Z,,Karlyn Payton,Unknown,GA,NCL07,,Invalid Lead Data
+2025-01-15T15:10:37.909Z,,Lindsay Rucker,Unknown,TX,NCL07,,Invalid Lead Data
+2025-01-15T15:10:37.910Z,,KITTY WILCOX,Unknown,OH,VN125,,Invalid Lead Data
+2025-01-15T15:10:37.910Z,,ANGELINA SCOTTELLIOTT,Unknown,FL,VN125,,Invalid Lead Data
+2025-01-15T15:10:37.910Z,,DENISE CHAVOUS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:10:37.911Z,,CORBIN WILLS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:11:15.515Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:11:15.609Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T15:11:15.700Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:11:15.799Z,,Theodore E Lowe,Vet,OH,PAVET,67771515e345699491e73442,Success
+2025-01-15T15:11:15.886Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:11:15.979Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T15:11:16.092Z,,Lindsay Rucker,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:11:16.093Z,,KITTY WILCOX,Unknown,OH,VN125,,Invalid Lead Data
+2025-01-15T15:11:16.093Z,,ANGELINA SCOTTELLIOTT,Unknown,FL,VN125,,Invalid Lead Data
+2025-01-15T15:11:16.094Z,,DENISE CHAVOUS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:11:16.094Z,,CORBIN WILLS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:11:22.105Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:11:22.202Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T15:11:22.302Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:11:22.401Z,,Theodore E Lowe,Vet,OH,PAVET,67771515e345699491e73442,Success
+2025-01-15T15:11:22.491Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:11:22.589Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T15:11:22.678Z,,Lindsay Rucker,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:11:22.678Z,,KITTY WILCOX,Unknown,OH,VN125,,Invalid Lead Data
+2025-01-15T15:11:22.679Z,,ANGELINA SCOTTELLIOTT,Unknown,FL,VN125,,Invalid Lead Data
+2025-01-15T15:11:22.679Z,,DENISE CHAVOUS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:11:22.680Z,,CORBIN WILLS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:13:06.916Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:13:07.001Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T15:13:07.085Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:13:07.170Z,,Theodore E Lowe,Vet,OH,PAVET,67771515e345699491e73442,Success
+2025-01-15T15:13:07.270Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:13:07.353Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T15:13:07.436Z,,Lindsay Rucker,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:13:07.436Z,,KITTY WILCOX,Unknown,OH,VN125,,Invalid Lead Data
+2025-01-15T15:13:07.437Z,,ANGELINA SCOTTELLIOTT,Unknown,FL,VN125,,Invalid Lead Data
+2025-01-15T15:13:07.438Z,,DENISE CHAVOUS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:13:07.438Z,,CORBIN WILLS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:14:27.765Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:14:27.861Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T15:14:27.976Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:14:28.087Z,,Theodore E Lowe,Vet,OH,PAVET,67771515e345699491e73442,Success
+2025-01-15T15:14:28.180Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:14:28.270Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T15:14:28.354Z,,Lindsay Rucker,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:14:28.355Z,,KITTY WILCOX,Unknown,OH,VN125,,Invalid Lead Data
+2025-01-15T15:14:28.355Z,,ANGELINA SCOTTELLIOTT,Unknown,FL,VN125,,Invalid Lead Data
+2025-01-15T15:14:28.356Z,,DENISE CHAVOUS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:14:28.356Z,,CORBIN WILLS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:15:54.951Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:15:55.047Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T15:15:55.133Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:15:55.220Z,,Theodore E Lowe,Vet,OH,PAVET,67771515e345699491e73442,Success
+2025-01-15T15:15:55.321Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:15:55.413Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T15:15:55.501Z,,Lindsay Rucker,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:15:55.501Z,,KITTY WILCOX,Unknown,OH,VN125,,Invalid Lead Data
+2025-01-15T15:15:55.502Z,,ANGELINA SCOTTELLIOTT,Unknown,FL,VN125,,Invalid Lead Data
+2025-01-15T15:15:55.502Z,,DENISE CHAVOUS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:15:55.502Z,,CORBIN WILLS,Unknown,IN,VN125,,Invalid Lead Data
+2025-01-15T15:16:51.259Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:16:51.353Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T15:16:51.443Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:16:51.531Z,,Theodore E Lowe,Vet,OH,PAVET,67771515e345699491e73442,Success
+2025-01-15T15:16:51.620Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:16:51.707Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T15:16:51.796Z,,Lindsay Rucker,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:16:51.885Z,,KITTY WILCOX,Globe,OH,VN125,677ab88127b78ac01f4c02d9,Success
+2025-01-15T15:16:51.976Z,,ANGELINA SCOTTELLIOTT,Globe,FL,VN125,677ab38727b78ac01f4bc35a,Success
+2025-01-15T15:16:52.067Z,,DENISE CHAVOUS,Globe,IN,VN125,677ab43f27b78ac01f4bca84,Success
+2025-01-15T15:16:52.155Z,,CORBIN WILLS,Globe,IN,VN125,677ab43f27b78ac01f4bca84,Success
+2025-01-15T15:20:00.867Z,,Cindy Reeson,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:20:00.952Z,,Vallen Carter,Vet,MI,PAVET,677712aee345699491e700ae,Success
+2025-01-15T15:20:01.034Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:20:01.118Z,,Theodore E Lowe,Vet,OH,PAVET,67771515e345699491e73442,Success
+2025-01-15T15:20:01.205Z,,Charity Townes,Will Kit,OH,NCL05,677ac1f827b78ac01f4c826a,Success
+2025-01-15T15:20:01.299Z,,Karlyn Payton,Womens,GA,NCL07,67847e86477432a7c853f1df,Success
+2025-01-15T15:20:01.384Z,,Lindsay Rucker,Womens,TX,NCL07,67847eca477432a7c853f446,Success
+2025-01-15T15:20:01.466Z,,KITTY WILCOX,Globe,OH,VN125,677ab88127b78ac01f4c02d9,Success
+2025-01-15T15:20:01.549Z,,ANGELINA SCOTTELLIOTT,Globe,FL,VN125,677ab38727b78ac01f4bc35a,Success
+2025-01-15T15:20:01.634Z,,DENISE CHAVOUS,Globe,IN,VN125,677ab43f27b78ac01f4bca84,Success
+2025-01-15T15:20:01.744Z,,CORBIN WILLS,Globe,IN,VN125,677ab43f27b78ac01f4bca84,Success

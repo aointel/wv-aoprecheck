@@ -1,0 +1,18 @@
+{
+  "sourceCsv": "C:\\dev\\AOIrail\\server\\sql\\1e186c90-5ca5-4915-868c-7092a85fd5a6.csv",
+  "db": "michaelmandella",
+  "scope": {
+    "groupCode": "VBEU1",
+    "missingCityOnly": true,
+    "excludedGroupCode": "PAVET"
+  },
+  "counts": {
+    "csvRows": 2114,
+    "scopedRows": 1037,
+    "uniqueCallIds": 1037,
+    "fetchedCalls": 1037,
+    "failedCalls": 0,
+    "transferredRows": 1037,
+    "rowsWithTaalkPayload": 1037
+  }
+}

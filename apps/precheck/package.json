@@ -1,0 +1,9 @@
+{
+  "name": "aoirail-precheck",
+  "private": true,
+  "description": "Precheck server – verification, Taalk. Set Railway Root Directory to apps/precheck.",
+  "scripts": {
+    "build": "cd ../.. && npm ci && npm run build",
+    "start": "cd ../.. && npx cross-env SECTION=precheck node dist/index.js"
+  }
+}

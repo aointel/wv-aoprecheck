@@ -1,0 +1,378 @@
+import { useState, useEffect } from "react";
+import { Phone, Users, Flag, Clock, CheckCircle2, Settings } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
+import { Call } from "@shared/schema";
+import { useCallsData } from "@/hooks/useCallsData";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import CallSyncPanel from "@/components/CallSyncPanel";
+
+export default function Home() {
+  const { user, logoutMutation } = useAuth();
+  const [audioPlayerOpen, setAudioPlayerOpen] = useState(false);
+  const [transcriptionOpen, setTranscriptionOpen] = useState(false);
+  const [screenshotOpen, setScreenshotOpen] = useState(false);
+  const [selectedCall, setSelectedCall] = useState<Call | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [loadingMessage, setLoadingMessage] = useState("Loading dashboard...");
+
+  type FilterType = {
+    search: string;
+    status: string;
+    dateRange: string;
+    agent: string;
+    premiumMin?: number;
+    premiumMax?: number;
+    isFlagged?: boolean;
+  };
+
+  const [filters, setFilters] = useState<FilterType>({
+    search: "",
+    status: "",
+    dateRange: "",
+    agent: "",
+    premiumMin: undefined,
+    premiumMax: undefined,
+    isFlagged: undefined
+  });
+  
+  // We'll mock the data for now
+  const mockCalls: Call[] = [
+    {
+      id: 1,
+      status: "pending",
+      teamId: 1,
+      agentId: 5,
+      hpprouid: "HP12345",
+      phone: "555-123-4567",
+      firstName: "John",
+      lastName: "Smith",
+      monthlyPremium: "$129.99",
+      recordingUrl: "https://example.com/recordings/1.mp3",
+      transcriptionText: "Conversation about health insurance options...",
+      screenshotUrl: "https://example.com/screenshots/1.jpg",
+      callDate: new Date("2023-04-01"),
+      callDuration: "12:34",
+      createdAt: new Date("2023-04-01"),
+      isFlagged: true
+    },
+    {
+      id: 2,
+      status: "approved",
+      teamId: 1,
+      agentId: 6,
+      hpprouid: "HP67890",
+      phone: "555-987-6543",
+      firstName: "Jane",
+      lastName: "Doe",
+      monthlyPremium: "$145.50",
+      recordingUrl: "https://example.com/recordings/2.mp3",
+      transcriptionText: "Discussion about coverage options...",
+      screenshotUrl: "https://example.com/screenshots/2.jpg",
+      callDate: new Date("2023-04-02"),
+      callDuration: "08:42",
+      createdAt: new Date("2023-04-02"),
+      isFlagged: false
+    },
+    {
+      id: 3,
+      status: "pending",
+      teamId: 2,
+      agentId: 7,
+      hpprouid: "HP24680",
+      phone: "555-246-8024",
+      firstName: "Robert",
+      lastName: "Johnson",
+      monthlyPremium: "$110.75",
+      recordingUrl: "https://example.com/recordings/3.mp3",
+      transcriptionText: "Call about adding a dependent to the policy...",
+      screenshotUrl: "https://example.com/screenshots/3.jpg",
+      callDate: new Date("2023-04-03"),
+      callDuration: "15:20",
+      createdAt: new Date("2023-04-03"),
+      isFlagged: true
+    }
+  ];
+  
+  useEffect(() => {
+    // Simulate loading
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleLogout = () => {
+    logoutMutation.mutate();
+  };
+
+  // Summary statistics
+  const totalCalls = mockCalls.length;
+  const flaggedCalls = mockCalls.filter(call => call.isFlagged).length;
+  const pendingCalls = mockCalls.filter(call => call.status === 'pending').length;
+  const approvedCalls = mockCalls.filter(call => call.status === 'approved').length;
+  const averagePremium = totalCalls 
+    ? `$${Math.round(mockCalls.reduce((sum, call) => {
+        const premium = parseFloat(call.monthlyPremium.replace(/[^0-9.]/g, ''));
+        return sum + (isNaN(premium) ? 0 : premium);
+      }, 0) / totalCalls)}`
+    : '$0';
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="text-center">
+          <h2 className="text-2xl font-semibold text-slate-700 mb-2">Loading Dashboard</h2>
+          <p className="text-slate-500 mb-4">{loadingMessage}</p>
+          <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto"></div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="text-center max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+          <h2 className="text-2xl font-semibold text-red-600 mb-2">Authentication Error</h2>
+          <p className="text-slate-600 mb-4">You need to be logged in to view this page. Please log in again.</p>
+          <Button variant="default" onClick={() => window.location.href = '/auth'}>
+            Go to Login
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
+      <main className="container mx-auto px-4 py-8">
+        {/* Dashboard Header with Logout */}
+        <div className="flex justify-between items-center mb-8">
+          <div>
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">AO Pre-Check Dashboard</h1>
+            <p className="text-sm text-slate-500 mt-1">Welcome back, <span className="font-medium text-slate-700">{user.fullName}</span></p>
+          </div>
+          <Button variant="outline" onClick={handleLogout} className="hover:bg-slate-100">
+            Log Out
+          </Button>
+        </div>
+        
+        {/* Dashboard Statistics */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Card className="shadow-md hover:shadow-lg transition-shadow border-none">
+            <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+              <CardTitle className="text-sm font-medium text-slate-700">Total Calls</CardTitle>
+              <div className="p-2 rounded-full bg-blue-50">
+                <Phone className="h-4 w-4 text-blue-600" />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-blue-600">{totalCalls}</div>
+              <p className="text-xs text-slate-500 mt-1">
+                {filters.search ? 'Matching search criteria' : 'All reviewed calls'}
+              </p>
+            </CardContent>
+          </Card>
+          
+          <Card className="shadow-md hover:shadow-lg transition-shadow border-none">
+            <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+              <CardTitle className="text-sm font-medium text-slate-700">Flagged Calls</CardTitle>
+              <div className="p-2 rounded-full bg-red-50">
+                <Flag className="h-4 w-4 text-red-600" />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-red-600">{flaggedCalls}</div>
+              <p className="text-xs text-slate-500 mt-1">
+                {flaggedCalls > 0 
+                  ? `${Math.round((flaggedCalls / totalCalls) * 100)}% of total calls` 
+                  : 'No flagged calls'}
+              </p>
+            </CardContent>
+          </Card>
+          
+          <Card className="shadow-md hover:shadow-lg transition-shadow border-none">
+            <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+              <CardTitle className="text-sm font-medium text-slate-700">Pending Review</CardTitle>
+              <div className="p-2 rounded-full bg-amber-50">
+                <Clock className="h-4 w-4 text-amber-600" />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-amber-600">{pendingCalls}</div>
+              <p className="text-xs text-slate-500 mt-1">
+                {pendingCalls > 0 
+                  ? `${Math.round((pendingCalls / totalCalls) * 100)}% of total calls` 
+                  : 'No pending calls'}
+              </p>
+            </CardContent>
+          </Card>
+          
+          <Card className="shadow-md hover:shadow-lg transition-shadow border-none">
+            <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
+              <CardTitle className="text-sm font-medium text-slate-700">Approved Calls</CardTitle>
+              <div className="p-2 rounded-full bg-green-50">
+                <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-emerald-600">{approvedCalls}</div>
+              <p className="text-xs text-slate-500 mt-1">
+                {approvedCalls > 0 
+                  ? `${Math.round((approvedCalls / totalCalls) * 100)}% of total calls` 
+                  : 'No approved calls'}
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+        
+        {/* Page Title and Date */}
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-bold text-slate-800 flex items-center">
+            <span className="bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent">Call Quality Management</span>
+          </h2>
+          <div className="text-sm text-slate-500 bg-white px-3 py-1 rounded-full shadow-sm border border-slate-200">
+            {new Date().toLocaleDateString('en-US', { 
+              weekday: 'long', 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            })}
+          </div>
+        </div>
+        
+        {/* Search Bar */}
+        <div className="bg-white rounded-xl shadow-md border-none p-5 mb-8">
+          <div className="flex flex-col md:flex-row gap-4 items-end">
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1">Search Calls</label>
+              <input 
+                type="text" 
+                placeholder="Search by name, phone, ID..." 
+                className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+              />
+            </div>
+            <div className="w-full md:w-auto">
+              <Button variant="default" className="py-2.5">
+                Search
+              </Button>
+            </div>
+          </div>
+        </div>
+        
+        {/* Tabs for Calls and Settings */}
+        <Tabs defaultValue="calls" className="mb-8">
+          <TabsList className="grid w-full md:w-[400px] grid-cols-2 mb-6">
+            <TabsTrigger value="calls" className="text-sm">
+              <Phone className="h-4 w-4 mr-2" />
+              Call Management
+            </TabsTrigger>
+            <TabsTrigger value="settings" className="text-sm">
+              <Settings className="h-4 w-4 mr-2" />
+              Integration
+            </TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="calls" className="mt-0">
+            {/* Call Cards */}
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h3 className="text-lg font-bold text-slate-800 mb-6 border-b pb-4">Recent Calls</h3>
+              
+              {/* Card List */}
+              <div className="space-y-5">
+                {mockCalls.map((call) => (
+                  <div 
+                    key={call.id} 
+                    className="border border-slate-200 rounded-lg p-5 hover:shadow-md transition-all bg-white"
+                  >
+                    <div className="flex flex-wrap md:flex-nowrap justify-between gap-4">
+                      {/* Left: Client Info */}
+                      <div className="min-w-[200px]">
+                        <h4 className="font-semibold text-slate-800 text-lg">{call.firstName} {call.lastName}</h4>
+                        <div className="mt-1.5 flex items-center">
+                          <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${
+                            call.status === 'approved' 
+                              ? 'bg-green-100 text-green-800' 
+                              : 'bg-yellow-100 text-yellow-800'
+                          }`}>
+                            {call.status === 'approved' ? 'Approved' : 'Pending'}
+                          </span>
+                          
+                          {call.isFlagged && (
+                            <span className="ml-2 inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                              Flagged
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      
+                      {/* Middle: Call Details */}
+                      <div className="grow grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div>
+                          <p className="text-sm text-slate-500">HPPROUID</p>
+                          <p className="font-medium">{call.hpprouid}</p>
+                        </div>
+                        
+                        <div>
+                          <p className="text-sm text-slate-500">Phone</p>
+                          <p className="font-medium">{call.phone}</p>
+                        </div>
+                        
+                        <div>
+                          <p className="text-sm text-slate-500">Premium</p>
+                          <p className="font-medium">{call.monthlyPremium}</p>
+                        </div>
+                        
+                        <div>
+                          <p className="text-sm text-slate-500">Date</p>
+                          <p className="font-medium">{call.callDate?.toLocaleDateString()}</p>
+                        </div>
+                        
+                        <div>
+                          <p className="text-sm text-slate-500">Duration</p>
+                          <p className="font-medium">{call.callDuration}</p>
+                        </div>
+                      </div>
+                      
+                      {/* Right: Actions */}
+                      <div className="flex flex-wrap md:flex-nowrap items-center gap-2">
+                        <Button size="sm" variant="outline" className="w-full md:w-auto">
+                          <Phone className="w-3.5 h-3.5 mr-1.5" />
+                          Recording
+                        </Button>
+                        <Button size="sm" variant="outline" className="w-full md:w-auto">
+                          <span className="mr-1.5">📄</span>
+                          Transcript
+                        </Button>
+                        {call.screenshotUrl && (
+                          <Button size="sm" variant="outline" className="w-full md:w-auto">
+                            <span className="mr-1.5">🖼️</span>
+                            Screenshot
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Load More Button */}
+              <div className="mt-8 text-center">
+                <Button variant="outline" size="lg" className="px-8">
+                  Load More Calls
+                </Button>
+              </div>
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="settings" className="mt-0">
+            <CallSyncPanel />
+          </TabsContent>
+        </Tabs>
+      </main>
+    </div>
+  );
+}

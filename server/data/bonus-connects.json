@@ -1,0 +1,10 @@
+{
+  "users": {
+    "chrislafond@aoglobelife.com": {
+      "remaining": 10,
+      "max": 10,
+      "reset_key": "2026-05-08",
+      "consumed_call_sids": []
+    }
+  }
+}

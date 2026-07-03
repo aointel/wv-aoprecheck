@@ -1,0 +1,4 @@
+[build]
+# Enable Git LFS support
+gitLFS = true
+

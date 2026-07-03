@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebRTC Call Test - 5032018470</title>
+    <script src="https://sdk.twilio.com/js/client/v1.15/twilio.min.js"></script>
+</head>
+<body>
+    <h1>WebRTC Call Test - 5032018470</h1>
+    <p>This will call 5032018470 using the same method as Call Connector Pro</p>
+    <p><strong>Auto-starting call in 2 seconds...</strong></p>
+    <button id="callBtn" onclick="makeCall()">Call 5032018470</button>
+    <button id="hangupBtn" onclick="hangup()" disabled>Hang Up</button>
+    <div id="status">Ready</div>
+    <div id="log"></div>
+
+    <script>
+        let device = null;
+        let connection = null;
+
+        async function makeCall() {
+            const statusDiv = document.getElementById('status');
+            const logDiv = document.getElementById('log');
+            const callBtn = document.getElementById('callBtn');
+            const hangupBtn = document.getElementById('hangupBtn');
+
+            try {
+                statusDiv.textContent = 'Getting token...';
+                log('🔑 Fetching WebRTC token...');
+
+                // Get user email from localStorage (same as CCPro)
+                let userEmail = null;
+                try {
+                    const storedUser = localStorage.getItem('current_producer');
+                    if (storedUser) {
+                        const userData = JSON.parse(storedUser);
+                        userEmail = userData.email;
+                        log(`📧 Using email: ${userEmail}`);
+                    }
+                } catch (e) {
+                    log(`⚠️ Could not get email from localStorage: ${e.message}`);
+                }
+
+                if (!userEmail) {
+                    // Fallback to prompt
+                    userEmail = prompt('Enter your email address:') || 'test@example.com';
+                    log(`📧 Using email: ${userEmail}`);
+                }
+
+                // Get token (same as CCPro) - WITH HEADER
+                const res = await fetch('/api/twilio/token', {
+                    credentials: 'include',
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-user-email': userEmail
+                    }
+                });
+
+                if (!res.ok) {
+                    const error = await res.json();
+                    throw new Error(error.error || 'Failed to get token');
+                }
+
+                const { token, identity } = await res.json();
+                log(`✅ Got token for ${identity}`);
+                log(`   Token length: ${token.length} chars`);
+
+                statusDiv.textContent = 'Initializing device...';
+                log('🚀 Creating Twilio Device...');
+
+                // Create device (same as CCPro)
+                device = new Twilio.Device(token, {
+                    debug: true,
+                    codecPreferences: ['opus', 'pcmu'],
+                    allowIncomingWhileBusy: true,
+                    enableRingingState: true
+                });
+
+                // Wait for device ready
+                device.on('ready', () => {
+                    log('✅ Device ready - making call to 5032018470...');
+                    statusDiv.textContent = 'Device ready, calling 5032018470...';
+
+                    // Make call (same as CCPro) - TO 5032018470
+                    connection = device.connect({
+                        params: {
+                            To: '5032018470',
+                            agentEmail: identity,
+                            leadName: 'WebRTC Test Call',
+                            leadState: 'OR'
+                        }
+                    });
+                    
+                    log('📞 device.connect() called with To: 5032018470');
+
+                    log('📞 Call initiated, waiting for connection...');
+                    statusDiv.textContent = 'Calling 5032018470...';
+                    callBtn.disabled = true;
+                    hangupBtn.disabled = false;
+
+                    connection.on('accept', () => {
+                        log('✅ Call connected!');
+                        statusDiv.textContent = 'Connected to 5032018470';
+                    });
+
+                    connection.on('disconnect', () => {
+                        log('📴 Call disconnected');
+                        statusDiv.textContent = 'Call ended';
+                        callBtn.disabled = false;
+                        hangupBtn.disabled = true;
+                        connection = null;
+                    });
+
+                    connection.on('error', (error) => {
+                        log(`❌ Call error: ${error.message}`);
+                        statusDiv.textContent = `Error: ${error.message}`;
+                        callBtn.disabled = false;
+                        hangupBtn.disabled = true;
+                    });
+                });
+
+                device.on('error', (error) => {
+                    log(`❌ Device error: ${error.message}`);
+                    statusDiv.textContent = `Device error: ${error.message}`;
+                    callBtn.disabled = false;
+                });
+
+                device.on('registering', () => {
+                    log('📡 Device registering with Twilio...');
+                });
+
+                device.on('registered', () => {
+                    log('✅ Device registered with Twilio');
+                });
+
+                device.on('unregistered', () => {
+                    log('⚠️ Device unregistered');
+                });
+
+                // CRITICAL: Actually register the device
+                log('📡 Calling device.register()...');
+                device.register();
+
+            } catch (error) {
+                log(`❌ Error: ${error.message}`);
+                statusDiv.textContent = `Error: ${error.message}`;
+                callBtn.disabled = false;
+            }
+        }
+
+        function hangup() {
+            if (connection) {
+                connection.disconnect();
+                log('📴 Hanging up...');
+            }
+        }
+
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            const time = new Date().toLocaleTimeString();
+            logDiv.innerHTML += `<div>[${time}] ${message}</div>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        // Auto-start call after page loads
+        window.addEventListener('load', () => {
+            log('🚀 Page loaded, auto-starting call in 2 seconds...');
+            setTimeout(() => {
+                makeCall();
+            }, 2000);
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        #status {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+        #log {
+            margin-top: 20px;
+            padding: 10px;
+            background: #000;
+            color: #0f0;
+            font-family: monospace;
+            font-size: 12px;
+            height: 300px;
+            overflow-y: auto;
+            border-radius: 5px;
+        }
+    </style>
+</body>
+</html>

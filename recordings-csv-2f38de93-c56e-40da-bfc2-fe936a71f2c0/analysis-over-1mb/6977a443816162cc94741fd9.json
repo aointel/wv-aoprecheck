@@ -1,0 +1,27 @@
+{
+  "label": "6977a443816162cc94741fd9",
+  "scriptOutline": [
+    "opening: Hey Dennis, hey this is Alex with AOGlobalife customer service. I was calling about the veteran will kit that you just requested. Can you hear me okay?",
+    "agenda/consent: The reason why I'm calling is that your kit has been processed and your local representative is standing by.",
+    "qualification: Have you ever set up something like this before? Or is this your first time getting these kinds of documents in place?",
+    "objection handling: No, I'm not. Okay. So that makes things easier. We'll just take care of you today, okay?",
+    "close: I could do it at 3 p.m. your time, or I could take care of it now. Which would be better?",
+    "next steps: 3 p.m. Now, let me just verify your email address."
+  ],
+  "objections": [
+    {
+      "objection": "I'm not that technically proficient, so you're going to have to bear with me a little bit.",
+      "howAgentHandled": "Oh, no, no. My job is to be patient and bear with you a little bit. Okay. Maybe even a lot of it."
+    },
+    {
+      "objection": "I do not have ... I have access to, but I won't have it until ... I'll need a day to set that up.",
+      "howAgentHandled": "That's okay. You can just use your smartphone. Do you have an Android or an iPhone?"
+    }
+  ],
+  "keyPhrases": [
+    "your kit has been processed and your local representative is standing by",
+    "getting these documents in order now makes things so much easier for your loved ones down the road",
+    "my job is to be patient and bear with you a little bit"
+  ],
+  "summary": "The call effectively established rapport and addressed the prospect's concerns about technology with patience and understanding. The agent successfully set an appointment while ensuring the prospect felt supported throughout the process."
+}

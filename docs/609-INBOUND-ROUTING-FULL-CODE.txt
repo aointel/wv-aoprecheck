@@ -1,0 +1,575 @@
+================================================================================
+609 INBOUND ROUTING — FULL CODE FLOW
+From Twilio call → Incoming call panel → Accept
+================================================================================
+
+SEQUENCE OVERVIEW
+-----------------
+1. Call hits 609 → Twilio POSTs to Voice URL: /incomingcall
+2. Server: handleIncomingCall → masterlead lookup by From → build task JSON → return <Enqueue><Task>...</Task></Enqueue>
+3. Twilio creates TaskRouter task, matches workers (Workflow), creates reservation
+4. Twilio POSTs to Assignment Callback URL with reservation + task + worker
+5. Server: assignment handler → save pending to DB + in-memory → return { instruction: "dequeue", from, to }
+6. Twilio rings agent's WebRTC client (Device receives "incoming")
+7. Client polls GET /api/twilio/taskrouter/pending → server returns enriched pending (lead from masterlead)
+8. Client sets taskRouterPending / retainedTaskRouterPending → derives inboundPanelLead from taskAttributes
+9. InboundCallHeaderPanel receives lead={inboundPanelLead} and shows name/state/market
+10. Agent clicks Accept → POST /api/twilio/taskrouter/accept → server acceptReservationWithDequeue; client conn.accept() on ringing connection
+
+================================================================================
+STEP 1: TWILIO HITS /incomingcall (server/routes.ts)
+================================================================================
+
+  app.get("/incomingcall", handleIncomingCall);
+  app.post("/incomingcall", express.urlencoded({ extended: false }), handleIncomingCall);
+
+  const handleIncomingCall = async (req: any, res: any) => {
+    const body = req.body || {};
+    const callSid = body.CallSid || body.call_sid || `inbound-${Date.now()}`;
+    const from = String(body.From || body.from || '').trim();
+    const to = String(body.To || body.to || '').trim();
+    console.error('incomingcall hit', { callSid, from, to });
+
+    let market = 'Unknown';
+    let state = 'XX';
+    let leadId = '';
+    let leadName = 'Unknown';
+    let leadRow: Record<string, unknown> | null = null;
+
+    try {
+      const callerLast10 = from.replace(/\D/g, '').slice(-10);
+      if (supabaseAdmin && callerLast10.length >= 10) {
+        try {
+          const { data: rpcRows, error: rpcErr } = await supabaseAdmin.rpc('get_masterlead_by_phone_last10', { last10: callerLast10 });
+          if (!rpcErr && rpcRows && Array.isArray(rpcRows) && rpcRows.length > 0) {
+            leadRow = rpcRows[0] as Record<string, unknown>;
+          }
+        } catch (_) {}
+        if (!leadRow) {
+          const { data: row } = await supabaseAdmin.from('masterlead')
+            .select('id, state, taalk_state, taalk_market, first_name, last_name, taalk_lead_id, city, taalk_city, cn_email, email, taalk_email')
+            .or(`phone.ilike.%${callerLast10}%,phone.eq.${callerLast10},phone.eq.+1${callerLast10}`)
+            .order('updated_at', { ascending: false })
+            .limit(1)
+            .maybeSingle();
+          leadRow = row ?? null;
+        }
+        if (leadRow) {
+          const rawState = (leadRow.state ?? (leadRow as any).taalk_state) != null ? String(leadRow.state ?? (leadRow as any).taalk_state).trim() : '';
+          if (rawState) state = rawState.length === 2 ? rawState.toUpperCase() : rawState;
+          const rawMarket = ((leadRow as any).taalk_market ?? (leadRow as any).market) != null ? String((leadRow as any).taalk_market ?? (leadRow as any).market).trim() : '';
+          if (rawMarket) market = rawMarket;
+          if (leadRow.id) leadId = String(leadRow.id);
+          const fn = String((leadRow as any).first_name ?? (leadRow as any).firstname ?? '').trim();
+          const ln = String((leadRow as any).last_name ?? (leadRow as any).lastname ?? '').trim();
+          if (fn || ln) leadName = [fn, ln].filter(Boolean).join(' ').trim() || 'Unknown';
+        }
+      }
+    } catch (err) {
+      console.error('incomingcall lead lookup failed', err);
+    }
+
+    if (!isTaskRouterConfigured()) {
+      res.status(200).type('text/xml').send(FALLBACK_TWIML);
+      return;
+    }
+
+    const rowFirst = leadRow ? String((leadRow as any).first_name ?? (leadRow as any).firstname ?? '').trim() : '';
+    const rowLast = leadRow ? String((leadRow as any).last_name ?? (leadRow as any).lastname ?? '').trim() : '';
+    const taskJson = buildTaskAttributesFor609Inbound({
+      call_sid: callSid,
+      phone_number: from,
+      market,
+      state,
+      lead_id: leadId || undefined,
+      lead_name: leadName,
+      first_name: rowFirst || undefined,
+      last_name: rowLast || undefined,
+      taalk_lead_id: leadRow && (leadRow as any).taalk_lead_id ? String((leadRow as any).taalk_lead_id).trim() || undefined : undefined,
+      lead_email: leadRow ? String((leadRow as any).cn_email ?? (leadRow as any).email ?? (leadRow as any).taalk_email ?? '').trim() || undefined : undefined,
+      city: leadRow ? String((leadRow as any).city ?? (leadRow as any).taalk_city ?? '').trim() || undefined : undefined,
+      dequeue_from: to || undefined,
+    });
+    const workflowSid = getWorkflowSidForEnqueue();
+    const ringbackWaitUrl = `${getTwilioPublicBaseUrl()}/api/twilio/ringback`;
+    const twiml = buildEnqueueTwiML(workflowSid, taskJson, ringbackWaitUrl);
+
+    res.status(200).type('text/xml').send(twiml);
+    void logIncomingCallBestEffort({ callSid, from, to, market, state, leadId });
+  };
+
+================================================================================
+STEP 2: BUILD TASK JSON AND ENQUEUE TWIML (server/taskrouter-service.ts)
+================================================================================
+
+  export function getWorkflowSidForEnqueue(): string {
+    const sid = TWILIO_TASKROUTER_WORKFLOW_INBOUND_SID || process.env.TWILIO_TASKROUTER_WORKFLOW_INBOUND_SID;
+    if (!sid) throw new Error('TaskRouter: TWILIO_TASKROUTER_WORKFLOW_INBOUND_SID not set.');
+    return sid;
+  }
+
+  export function buildTaskAttributesFor609Inbound(params: {
+    call_sid: string;
+    phone_number: string;
+    market: string;
+    state: string;
+    lead_id?: string;
+    lead_name?: string;
+    first_name?: string;
+    last_name?: string;
+    lead_email?: string;
+    taalk_lead_id?: string;
+    city?: string;
+    dequeue_from?: string;
+  }): string {
+    const market = normalizeMarket(params.market);
+    const state = normalizeState(params.state);
+    const firstName = params.first_name != null && String(params.first_name).trim() !== '' ? String(params.first_name).trim() : '';
+    const lastName = params.last_name != null && String(params.last_name).trim() !== '' ? String(params.last_name).trim() : '';
+    const leadName =
+      (params.lead_name != null && String(params.lead_name).trim() !== '' ? String(params.lead_name).trim() : null) ??
+      ([firstName, lastName].filter(Boolean).join(' ').trim() || 'Unknown');
+    const attrs: Record<string, unknown> = {
+      call_sid: params.call_sid,
+      phone_number: params.phone_number,
+      market,
+      state,
+      routing_target: 'inbound609',
+      lead_id: params.lead_id ?? '',
+      lead_name: leadName,
+      first_name: firstName,
+      last_name: lastName,
+      lead_email: params.lead_email != null && String(params.lead_email).trim() !== '' ? String(params.lead_email).trim() : '',
+      taalk_lead_id: params.taalk_lead_id ?? '',
+      city: params.city != null && String(params.city).trim() !== '' ? String(params.city).trim() : '',
+    };
+    if (params.dequeue_from) attrs.dequeue_from = params.dequeue_from;
+    return JSON.stringify(attrs);
+  }
+
+  export function buildEnqueueTwiML(workflowSid: string, taskAttributesJson: string, waitUrl?: string): string {
+    const waitAttr = waitUrl ? ` waitUrl="${escapeXml(waitUrl)}"` : '';
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Enqueue workflowSid="${escapeXml(workflowSid)}"${waitAttr}>
+    <Task>${escapeXml(taskAttributesJson)}</Task>
+  </Enqueue>
+</Response>`;
+  }
+
+================================================================================
+STEP 3: TWILIO CREATES TASK, MATCHES WORKER, POSTS ASSIGNMENT CALLBACK
+================================================================================
+(Twilio internal: Workflow filters workers by task market/state vs worker markets/licensed_states; Assignment Callback URL is on the Workflow.)
+
+================================================================================
+STEP 4: ASSIGNMENT CALLBACK (server/routes.ts)
+================================================================================
+
+  app.post("/api/twilio/taskrouter/assignment", express.urlencoded({ extended: false }), async (req, res) => {
+    const body = req.body || {};
+    const reservationSid = body.ReservationSid || body.reservation_sid;
+    const taskSid = body.TaskSid || body.task_sid;
+    const workerSid = body.WorkerSid || body.worker_sid;
+    const workerAttributesRaw = body.WorkerAttributes ?? body.worker_attributes ?? '{}';
+    const taskAttributes = body.TaskAttributes ?? body.task_attributes ?? '{}';
+    const workerAttributes = typeof workerAttributesRaw === 'string' ? workerAttributesRaw : JSON.stringify(workerAttributesRaw || {});
+
+    let workerAttrs: Record<string, unknown> = {};
+    try {
+      workerAttrs = JSON.parse(workerAttributes || '{}') as Record<string, unknown>;
+    } catch (_) {}
+
+    const contactUri = (workerAttrs.contact_uri ? String(workerAttrs.contact_uri).trim() : null)
+      || (workerAttrs.agent_email ? `client:${String(workerAttrs.agent_email).trim()}` : null)
+      || (workerAttrs.email ? `client:${String(workerAttrs.email).trim()}` : null);
+    const dequeueTo = contactUri && String(contactUri).startsWith('client:') ? contactUri : null;
+    let dequeueFrom = DEQUEUE_FROM;  // e.g. +16096048379
+    try {
+      const taskAttrs = typeof taskAttributes === 'string' ? JSON.parse(taskAttributes || '{}') : taskAttributes || {};
+      if (taskAttrs.dequeue_from && String(taskAttrs.dequeue_from).trim()) dequeueFrom = String(taskAttrs.dequeue_from).trim();
+    } catch (_) {}
+
+    if (dequeueTo) {
+      try {
+        const normalizedTaskAttributes = normalizeTaskAttributesFromTwilioForm(taskAttributes);
+        await savePendingReservation({
+          reservationSid: String(reservationSid || ''),
+          taskSid: String(taskSid || ''),
+          workerSid: String(workerSid || ''),
+          workerAttributes,
+          taskAttributes: normalizedTaskAttributes,
+        });
+      } catch (e) {
+        console.error('assignment callback save failed', e);
+      }
+      const response = { instruction: 'dequeue' as const, from: dequeueFrom, to: dequeueTo };
+      return res.status(200).contentType('application/json').json(response);
+    }
+    return res.status(200).contentType('application/json').json({ instruction: 'reject' });
+  });
+
+  function normalizeTaskAttributesFromTwilioForm(raw: string | object): string {
+    let attrs: Record<string, unknown> = {};
+    try {
+      attrs = typeof raw === 'string' ? (raw ? JSON.parse(raw) : {}) : (raw || {}) as Record<string, unknown>;
+    } catch (_) {
+      return typeof raw === 'string' ? raw : JSON.stringify(raw || {});
+    }
+    const digitsOnly = (s: string) => String(s ?? '').replace(/\D/g, '');
+    const fixPhone = (v: unknown): string => {
+      const s = String(v ?? '').trim();
+      const digits = digitsOnly(s);
+      if (digits.length === 10) return '+1' + digits;
+      if (digits.length === 11 && digits.startsWith('1')) return '+' + digits;
+      if (digits.length >= 10) return '+' + digits.slice(-11);
+      return s || '';
+    };
+    if (attrs.phone_number != null) attrs.phone_number = fixPhone(attrs.phone_number);
+    if (attrs.phone != null) attrs.phone = fixPhone(attrs.phone);
+    return JSON.stringify(attrs);
+  }
+
+  async function savePendingReservation(p: { reservationSid: string; taskSid: string; workerSid: string; workerAttributes: string; taskAttributes: string }): Promise<void> {
+    const createdAt = Date.now();
+    pendingReservations.set(p.reservationSid, { taskSid: p.taskSid, workerSid: p.workerSid, workerAttributes: p.workerAttributes, taskAttributes: p.taskAttributes, createdAt });
+    if (supabaseAdmin) {
+      await supabaseAdmin.from('taskrouter_pending').upsert({
+        reservation_sid: p.reservationSid,
+        task_sid: p.taskSid,
+        worker_sid: p.workerSid,
+        worker_attributes: p.workerAttributes,
+        task_attributes: p.taskAttributes,
+        created_at: new Date(createdAt).toISOString(),
+      }, { onConflict: 'reservation_sid' }).then(() => {}).catch((err) => console.warn('savePendingReservation DB failed', err));
+    }
+  }
+
+================================================================================
+STEP 5: TWILIO RINGS AGENT
+================================================================================
+(Twilio uses dequeue "from"/"to" to call the worker's client identity; browser Device receives "incoming" with the connection.)
+
+================================================================================
+STEP 6: GET /api/twilio/taskrouter/pending (server/routes.ts)
+================================================================================
+
+  app.get("/api/twilio/taskrouter/pending", async (req, res) => {
+    const agentEmail = (req.query.agentEmail as string)?.toLowerCase?.()?.trim();
+    let list = [];
+    if (supabaseAdmin) {
+      const { data: realRows } = await supabaseAdmin.from('taskrouter_pending').select('reservation_sid, task_sid, worker_sid, worker_attributes, task_attributes, created_at').order('created_at', { ascending: false }).limit(100);
+      // ... push to list (with TTL filter), then if agentEmail also load from taskrouter_injected_pending
+      // ... filter list by worker matching agentEmail
+      // ... optional: validate reservations with Twilio API, clear stale
+    }
+    list.sort((a, b) => b.createdAt - a.createdAt);
+    list = list.filter((item) => { /* dedupe by task|worker */ });
+    const enriched = await Promise.all(list.map(async (item) => ({
+      ...item,
+      taskAttributes: await enrichTaskAttributesFromMasterlead(item.taskAttributes),
+    })));
+    return res.status(200).json({ pending: enriched });
+  });
+
+  async function enrichTaskAttributesFromMasterlead(taskAttributesJson: string): Promise<string> {
+    if (!supabaseAdmin) return taskAttributesJson;
+    let attrs = {};
+    try {
+      attrs = taskAttributesJson ? JSON.parse(taskAttributesJson) : {};
+    } catch (_) {
+      return taskAttributesJson;
+    }
+    let phone = String(attrs.phone_number ?? attrs.phone ?? '').trim();
+    let callerLast10 = phone.replace(/\D/g, '').slice(-10);
+    const isInboundLine = ['6096048379', '6097664321', '6098090661'].includes(callerLast10);
+    if (callerLast10.length < 10 || isInboundLine) {
+      const callSid = String(attrs.call_sid ?? '').trim();
+      if (callSid) {
+        const { data: callRow } = await supabaseAdmin.from('twilio_call_logs').select('from_number, call_source').eq('twilio_call_sid', callSid).maybeSingle();
+        const loggedFrom = String((callRow as any)?.from_number ?? '').trim();
+        const loggedLast10 = loggedFrom.replace(/\D/g, '').slice(-10);
+        if (loggedLast10.length >= 10 && !['6096048379', ...].includes(loggedLast10)) {
+          phone = loggedFrom;
+          callerLast10 = loggedLast10;
+          attrs.phone_number = loggedFrom;
+          attrs.phone = loggedFrom;
+        }
+      }
+    }
+    if (callerLast10.length < 10) return taskAttributesJson;
+    let leadRow = null;
+    const { data: rpcRows, error: rpcErr } = await supabaseAdmin.rpc('get_masterlead_by_phone_last10', { last10: callerLast10 });
+    if (!rpcErr && rpcRows?.length > 0) leadRow = rpcRows[0];
+    if (!leadRow) {
+      const { data: row } = await supabaseAdmin.from('masterlead').select('id, state, taalk_state, taalk_market, first_name, last_name, taalk_lead_id, city, taalk_city, cn_email, email, taalk_email, phone').or(`phone.ilike.%${callerLast10}%,...`).order('updated_at', { ascending: false }).limit(1).maybeSingle();
+      leadRow = row ?? null;
+    }
+    if (!leadRow) return taskAttributesJson;
+    attrs.state = /* from leadRow */;
+    attrs.market = /* from leadRow */;
+    const fn = String(leadRow.first_name ?? leadRow.firstname ?? '').trim();
+    const ln = String(leadRow.last_name ?? leadRow.lastname ?? '').trim();
+    attrs.lead_name = (fn || ln) ? [fn, ln].filter(Boolean).join(' ').trim() : (attrs.lead_name ?? 'Unknown');
+    attrs.first_name = fn || attrs.first_name;
+    attrs.last_name = ln || attrs.last_name;
+    attrs.lead_id = leadRow.id != null ? String(leadRow.id) : attrs.lead_id;
+    attrs.taalk_lead_id = leadRow.taalk_lead_id ? String(leadRow.taalk_lead_id).trim() : attrs.taalk_lead_id;
+    attrs.city = leadRow.city ?? leadRow.taalk_city ?? attrs.city;
+    attrs.lead_email = leadRow.cn_email ?? leadRow.email ?? leadRow.taalk_email ?? attrs.lead_email;
+    const canonicalPhone = leadRow.phone != null ? String(leadRow.phone).trim() : phone;
+    if (canonicalPhone) {
+      attrs.phone_number = canonicalPhone;
+      attrs.phone = canonicalPhone;
+    }
+    return JSON.stringify(attrs);
+  }
+
+================================================================================
+STEP 7: CLIENT POLLS PENDING AND SETS STATE (OutboundDialerInterface.tsx)
+================================================================================
+
+  const poll = async () => {
+    const res = await fetch(`/api/twilio/taskrouter/pending?agentEmail=${encodeURIComponent(email)}`, { credentials: 'include' });
+    const data = await res.json();
+    const pending = data?.pending ?? [];
+    const forMe = pending[0];
+    if (forMe?.taskSid && forMe?.reservationSid) {
+      const rawAttrs = forMe.taskAttributes ?? forMe.task_attributes ?? '{}';
+      const pendingSnapshot = {
+        taskSid: forMe.taskSid,
+        reservationSid: forMe.reservationSid,
+        taskAttributes: typeof rawAttrs === 'string' ? rawAttrs : JSON.stringify(rawAttrs),
+        createdAt: typeof forMe.createdAt === 'number' ? forMe.createdAt : Date.now(),
+      };
+      const attrs = typeof rawAttrs === 'string' ? (rawAttrs ? JSON.parse(rawAttrs) : {}) : (rawAttrs || {});
+      let phone = String(attrs.phone_number ?? attrs.phone ?? '').trim();
+      if (isInboundLineNumber(phone)) phone = '';
+      const leadName = attrs.lead_name ?? attrs.leadName;
+      const lead = {
+        id: String(attrs.lead_id ?? forMe.taskSid),
+        leadId: String(attrs.lead_id ?? forMe.taskSid),
+        name: (typeof leadName === 'string' && leadName.trim()) || [attrs.first_name, attrs.last_name].filter(Boolean).join(' ').trim() || (phone ? `Call from ${phone}` : 'Inbound Call'),
+        phone,
+        state: String(attrs.state ?? '').trim(),
+        market: String(attrs.market ?? 'Inbound').trim() || 'Inbound',
+        ...
+      };
+      inboundCallLeadRef.current = lead;
+      setIncomingCallLead(lead);
+      setDialerState((prev) => ({ ...prev, dialingStatus: 'ringing', inboundCallLead: lead, viewedLead: lead, currentCall: lead, ... }));
+      setRetainedTaskRouterPending((prev) => (prev?.reservationSid === pendingSnapshot.reservationSid ? prev : pendingSnapshot));
+      setTaskRouterPending((prev) => (prev?.reservationSid === forMe.reservationSid ? prev : pendingSnapshot));
+    } else {
+      setTaskRouterPending(null);
+      setRetainedTaskRouterPending(null);
+      // ... clear lead if not preserving (e.g. between accept and connect)
+    }
+  };
+
+  const activeTaskRouterPending = taskRouterPending ?? retainedTaskRouterPending;
+
+  const inboundPanelLead: Lead | null =
+    incomingCallLead ||
+    dialerState.inboundCallLead ||
+    inboundCallLeadRef.current ||
+    (activeTaskRouterPending
+      ? (() => {
+          const raw = activeTaskRouterPending.taskAttributes;
+          const attrs = typeof raw === 'string' ? (raw ? JSON.parse(raw) : {}) : (raw || {});
+          let phone = String(attrs.phone_number ?? attrs.phone ?? '').trim();
+          if (isInboundLineNumber(phone)) phone = '';
+          const leadName = attrs.lead_name ?? attrs.leadName;
+          const firstName = attrs.first_name ?? attrs.firstName;
+          const lastName = attrs.last_name ?? attrs.lastName;
+          const name =
+            (typeof leadName === 'string' && leadName.trim()) ||
+            [firstName, lastName].filter(Boolean).map(String).join(' ').trim() ||
+            (phone ? `Call from ${phone}` : 'Inbound Call');
+          return {
+            id: String(attrs.lead_id ?? activeTaskRouterPending.taskSid),
+            leadId: String(attrs.lead_id ?? activeTaskRouterPending.taskSid),
+            name,
+            phone,
+            state: String(attrs.state ?? '').trim(),
+            market: (attrs.market as string) || 'Inbound',
+            taalk_market: (attrs.market as string) || 'Inbound',
+            ...
+          } as Lead;
+        })()
+      : null) ||
+    (inboundPanelState === 'connected' ? getCurrentLead() : null) ||
+    (hasPendingInboundOffer && dialerState.inboundCallInfo?.from ? { name: `Call from ${dialerState.inboundCallInfo.from}`, ... } : null);
+
+================================================================================
+STEP 8: INBOUND CALL PANEL DISPLAY (InboundCallHeaderPanel.tsx)
+================================================================================
+
+  <InboundCallHeaderPanel
+    state={inboundPanelState}
+    lead={inboundPanelLead}
+    ...
+  />
+
+  const market = lead?.taalk_market || (lead as any)?.market || 'Inbound';
+  const firstName = String((lead as any)?.first_name ?? '').trim();
+  const lastName = String((lead as any)?.last_name ?? '').trim();
+  const leadNameRaw = (lead as any)?.lead_name ?? lead?.name;
+  const clientName =
+    [firstName, lastName].filter(Boolean).join(' ').trim() ||
+    (typeof leadNameRaw === 'string' && leadNameRaw.trim()) ||
+    lead?.name?.trim() ||
+    'Unknown Caller';
+
+  {(showRingingStyle || isConnected) && !isEnded && !isWrapping && (lead || isRinging) && (
+    <div ...>
+      <span ...>{lead ? (clientName || 'Unknown Caller') : 'Inbound call…'}</span>
+      {lead && (
+        <div>
+          {displayPhone && <span>{displayPhone}</span>}
+          {lead.state && <span>{lead.state}</span>}
+          {market !== 'Inbound' && <MarketBadge market={market} />}
+          {(lead as any)?.email && <span>{(lead as any).email}</span>}
+        </div>
+      )}
+    </div>
+  )}
+
+================================================================================
+STEP 9: ACCEPT CLICK (OutboundDialerInterface.tsx → server)
+================================================================================
+
+  const handleInboundPanelAnswer = async () => {
+    if (answering) return;
+    inboundAnswerRequestedRef.current = true;
+    if (activeTaskRouterPending) {
+      setAnswering(true);
+      try {
+        const res = await fetch('/api/twilio/taskrouter/accept', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({ taskSid: activeTaskRouterPending.taskSid, reservationSid: activeTaskRouterPending.reservationSid }),
+        });
+        if (res.ok) {
+          const conn = incomingConn ?? (window as any).__lastIncomingConn;
+          if (conn && typeof conn.accept === 'function') {
+            try {
+              const p = conn.accept();
+              if (p && typeof p.then === 'function') await p;
+              if (acceptIssuedRef) acceptIssuedRef.current = true;
+            } catch (e) {
+              console.warn('Inbound accept (browser leg) failed', e);
+            }
+          }
+          setInboundConnecting(true);
+          // ... set dialer state with lead from activeTaskRouterPending.taskAttributes
+          setTaskRouterPending(null);
+        }
+      } finally {
+        setAnswering(false);
+      }
+      return;
+    }
+    if (!incomingConn) return;
+    // Legacy path: accept incomingConn directly
+    if (typeof conn.accept === 'function') {
+      const r = conn.accept();
+      if (r && typeof r.then === 'function') await r;
+    }
+    ...
+  };
+
+================================================================================
+STEP 10: POST /api/twilio/taskrouter/accept (server/routes.ts)
+================================================================================
+
+  app.post("/api/twilio/taskrouter/accept", express.json(), async (req, res) => {
+    const { taskSid, reservationSid } = req.body || {};
+    if (!taskSid || !reservationSid) {
+      return res.status(400).json({ error: 'taskSid and reservationSid required' });
+    }
+    const isTest = String(reservationSid).startsWith('test-inject-') || String(taskSid).startsWith('test-task-');
+    if (isTest) {
+      pendingReservations.delete(reservationSid);
+      if (supabaseAdmin) await supabaseAdmin.from('taskrouter_injected_pending').delete().eq('reservation_sid', reservationSid).then(() => {});
+      return res.status(200).json({ ok: true, message: 'Test reservation accepted (no-op)' });
+    }
+    const pending = await getPendingReservation(reservationSid);
+    if (!pending) {
+      return res.status(404).json({ error: 'reservation_not_found' });
+    }
+    let workerAttrs = typeof pending.workerAttributes === 'string' ? JSON.parse(pending.workerAttributes || '{}') : pending.workerAttributes;
+    let dequeueTo = (workerAttrs.contact_uri && String(workerAttrs.contact_uri).startsWith('client:')) ? String(workerAttrs.contact_uri).trim() : (workerAttrs.agent_email ? `client:${String(workerAttrs.agent_email).trim()}` : null);
+    if ((!dequeueTo || !String(dequeueTo).startsWith('client:')) && pending.workerSid) {
+      const { getWorkerAttributesBySid } = await import('./taskrouter-service.js');
+      const fresh = await getWorkerAttributesBySid(pending.workerSid);
+      if (fresh) {
+        workerAttrs = fresh;
+        dequeueTo = (fresh.contact_uri && String(fresh.contact_uri).startsWith('client:')) ? String(fresh.contact_uri).trim() : (fresh.agent_email ? `client:${fresh.agent_email}` : null);
+      }
+    }
+    if (!dequeueTo || !String(dequeueTo).startsWith('client:')) {
+      return res.status(400).json({ error: 'missing_contact_uri', hint: 'Worker must have contact_uri (client:email).' });
+    }
+    const dequeueFrom = DEQUEUE_FROM;
+    const dequeueStatusCallbackUrl = `${getTwilioPublicBaseUrl()}/api/twilio/dequeue-status`;
+    const { acceptReservationWithDequeue } = await import('./taskrouter-service.js');
+    await acceptReservationWithDequeue(taskSid, reservationSid, dequeueFrom, dequeueTo, {
+      dequeueStatusCallbackUrl,
+      dequeueTimeout: 20,
+    });
+    // Insert inbound_success_events + billing_transactions (lead_phone from task attrs)
+    cancelNextReservationWave(taskSid);
+    clearInMemoryPendingForTask(taskSid);
+    await clearPersistentPendingForTask(taskSid);
+    return res.status(200).json({ ok: true });
+  });
+
+  async function getPendingReservation(reservationSid: string) {
+    if (supabaseAdmin) {
+      const { data: row } = await supabaseAdmin.from('taskrouter_pending').select('task_sid, worker_sid, worker_attributes, task_attributes').eq('reservation_sid', reservationSid).maybeSingle();
+      if (row) return { taskSid: row.task_sid, workerSid: row.worker_sid, workerAttributes: row.worker_attributes, taskAttributes: row.task_attributes };
+    }
+    const mem = pendingReservations.get(reservationSid);
+    return mem ? { taskSid: mem.taskSid, workerSid: mem.workerSid, workerAttributes: mem.workerAttributes, taskAttributes: mem.taskAttributes } : null;
+  }
+
+================================================================================
+STEP 11: acceptReservationWithDequeue (server/taskrouter-service.ts)
+================================================================================
+
+  export async function acceptReservationWithDequeue(
+    taskSid: string,
+    reservationSid: string,
+    dequeueFrom: string,
+    dequeueTo: string,
+    options?: { dequeueStatusCallbackUrl?: string; dequeueTimeout?: number }
+  ): Promise<void> {
+    const updatePayload = {
+      reservationStatus: 'accepted',
+      instruction: 'dequeue',
+      dequeueFrom: dequeueFrom || undefined,
+      dequeueTo: dequeueTo || undefined,
+      timeout: options?.dequeueTimeout ?? 20,
+      dequeueStatusCallbackUrl: options?.dequeueStatusCallbackUrl,
+      dequeueStatusCallbackEvent: ['initiated', 'ringing', 'answered', 'completed'],
+    };
+    try {
+      const wrapSid = await getActivitySidByName('Wrap');
+      if (wrapSid) updatePayload.dequeuePostWorkActivitySid = wrapSid;
+    } catch (_) {}
+    await workspace().tasks(taskSid).reservations(reservationSid).update(updatePayload);
+  }
+
+================================================================================
+FILE LOCATIONS
+================================================================================
+  server/routes.ts         — handleIncomingCall, assignment, pending, accept, savePendingReservation, enrichTaskAttributesFromMasterlead, normalizeTaskAttributesFromTwilioForm, getPendingReservation
+  server/taskrouter-service.ts — getWorkflowSidForEnqueue, buildTaskAttributesFor609Inbound, buildEnqueueTwiML, acceptReservationWithDequeue
+  client/.../OutboundDialerInterface.tsx — poll pending, activeTaskRouterPending, inboundPanelLead, handleInboundPanelAnswer, InboundCallHeaderPanel usage
+  client/.../InboundCallHeaderPanel.tsx  — lead display (clientName, market, state, phone)
+
+================================================================================
+END OF 609 INBOUND ROUTING FULL CODE
+================================================================================

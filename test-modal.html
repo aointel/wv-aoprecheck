@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modal Test</title>
+</head>
+<body>
+    <script>
+        // Test if modal opens by simulating click
+        setTimeout(() => {
+            console.log('Testing modal click...');
+            
+            // Find the Meet Now / Book button
+            const meetButton = document.querySelector('button[class*="bg-purple-600"]');
+            
+            if (meetButton) {
+                console.log('Found Meet Now button:', meetButton);
+                meetButton.click();
+                
+                // Check if modal opened after a brief delay
+                setTimeout(() => {
+                    const modal = document.querySelector('[role="dialog"]');
+                    console.log('Modal found after click:', !!modal);
+                    
+                    if (modal) {
+                        console.log('Modal content:', modal.textContent.substring(0, 200));
+                    }
+                }, 500);
+            } else {
+                console.log('Meet Now button not found');
+            }
+        }, 2000);
+    </script>
+    
+    <iframe src="http://localhost:5000" width="100%" height="600"></iframe>
+</body>
+</html>

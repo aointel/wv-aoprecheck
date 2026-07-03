@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebRTC Registration Test</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #1a1a1a;
+      color: #e0e0e0;
+    }
+    h1 {
+      color: #4CAF50;
+      border-bottom: 2px solid #4CAF50;
+      padding-bottom: 10px;
+    }
+    .container {
+      background: #2a2a2a;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .config {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #b0b0b0;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 4px;
+      background: #1a1a1a;
+      color: #e0e0e0;
+      font-size: 14px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    button:disabled {
+      background: #666;
+      cursor: not-allowed;
+    }
+    .log {
+      background: #1a1a1a;
+      border: 1px solid #444;
+      border-radius: 4px;
+      padding: 15px;
+      max-height: 500px;
+      overflow-y: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .log-entry {
+      margin: 5px 0;
+      padding: 5px;
+      border-left: 3px solid #444;
+      padding-left: 10px;
+    }
+    .log-entry.success { border-left-color: #4CAF50; }
+    .log-entry.error { border-left-color: #f44336; }
+    .log-entry.warning { border-left-color: #ff9800; }
+    .log-entry.info { border-left-color: #2196F3; }
+    .status {
+      padding: 15px;
+      border-radius: 4px;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .status.idle { background: #666; }
+    .status.testing { background: #ff9800; }
+    .status.success { background: #4CAF50; }
+    .status.error { background: #f44336; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .stat {
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 4px;
+      border: 1px solid #444;
+    }
+    .stat-label {
+      color: #b0b0b0;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+    .stat-value {
+      color: #4CAF50;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 WebRTC Registration Test</h1>
+  
+  <div class="container">
+    <h2>Configuration</h2>
+    <div class="config">
+      <div>
+        <label for="identity">Identity (Email):</label>
+        <input type="text" id="identity" value="test@example.com" placeholder="test@example.com">
+      </div>
+      <div>
+        <label for="tokenSource">Token Source:</label>
+        <select id="tokenSource">
+          <option value="endpoint">From Endpoint (/api/twilio/token)</option>
+          <option value="direct">Generate Directly (Node.js only)</option>
+        </select>
+      </div>
+      <div>
+        <label for="maxRetries">Max Retries:</label>
+        <input type="number" id="maxRetries" value="3" min="1" max="10">
+      </div>
+      <div>
+        <label for="timeout">Register Timeout (ms):</label>
+        <input type="number" id="timeout" value="8000" min="1000" max="30000">
+      </div>
+    </div>
+    <button id="startTest">Start Registration Test</button>
+    <button id="stopTest" disabled>Stop Test</button>
+  </div>
+
+  <div class="container">
+    <h2>Status</h2>
+    <div id="status" class="status idle">Ready</div>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-label">Attempt</div>
+        <div class="stat-value" id="attempt">-</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Elapsed Time</div>
+        <div class="stat-value" id="elapsed">-</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Device State</div>
+        <div class="stat-value" id="deviceState">-</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">WebSocket State</div>
+        <div class="stat-value" id="wsState">-</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Test Log</h2>
+    <div id="log" class="log"></div>
+    <button onclick="document.getElementById('log').innerHTML = ''">Clear Log</button>
+  </div>
+
+  <!-- Twilio SDK -->
+  <script src="https://sdk.twilio.com/js/client/releases/2.0.0/twilio.min.js"></script>
+
+  <script>
+    let testInProgress = false;
+    let device = null;
+    let startTime = null;
+    let currentAttempt = 0;
+    let maxRetries = 3;
+    let registerTimeout = 8000;
+
+    function log(message, type = 'info') {
+      const logDiv = document.getElementById('log');
+      const entry = document.createElement('div');
+      entry.className = `log-entry ${type}`;
+      entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+      logDiv.appendChild(entry);
+      logDiv.scrollTop = logDiv.scrollHeight;
+      console.log(message);
+    }
+
+    function updateStatus(text, className) {
+      const status = document.getElementById('status');
+      status.textContent = text;
+      status.className = `status ${className}`;
+    }
+
+    function updateStat(id, value) {
+      document.getElementById(id).textContent = value;
+    }
+
+    function updateElapsed() {
+      if (startTime) {
+        const elapsed = Date.now() - startTime;
+        updateStat('elapsed', `${(elapsed / 1000).toFixed(1)}s`);
+      }
+    }
+
+    setInterval(updateElapsed, 100);
+
+    function monitorWebSocket() {
+      try {
+        if (!device) return;
+        const deviceInternal = device;
+        const signaling = deviceInternal?._signaling;
+        const ws = signaling?._ws || signaling?.ws;
+        if (ws) {
+          const states = ['CONNECTING', 'OPEN', 'CLOSING', 'CLOSED'];
+          const stateText = states[ws.readyState] || 'UNKNOWN';
+          updateStat('wsState', stateText);
+          return ws.readyState;
+        }
+      } catch (e) {
+        // Ignore
+      }
+      return null;
+    }
+
+    function monitorDeviceState() {
+      if (device) {
+        updateStat('deviceState', device.state || 'unknown');
+      }
+    }
+
+    setInterval(() => {
+      monitorDeviceState();
+      monitorWebSocket();
+    }, 500);
+
+    async function fetchTokenFromEndpoint(identity) {
+      log(`📡 Fetching token from /api/twilio/token...`, 'info');
+      const response = await fetch('/api/twilio/token', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-user-email': identity,
+        },
+        credentials: 'include',
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP ${response.status}: ${errorText}`);
+      }
+
+      const data = await response.json();
+      
+      if (!data.token) {
+        throw new Error('No token in response');
+      }
+      
+      log(`✅ Token received: ${data.token.length} chars`, 'success');
+      log(`   Identity: ${data.identity || 'N/A'}`, 'info');
+      
+      // Decode and verify token
+      try {
+        const parts = data.token.split('.');
+        if (parts.length === 3) {
+          const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
+          log(`   Token expires: ${new Date(payload.exp * 1000).toISOString()}`, 'info');
+          log(`   Voice grant: ${payload.grants?.voice ? '✅' : '❌'}`, payload.grants?.voice ? 'success' : 'error');
+          if (!payload.grants?.voice) {
+            throw new Error('Token missing VoiceGrant!');
+          }
+        }
+      } catch (e) {
+        log(`   ⚠️ Could not decode token: ${e.message}`, 'warning');
+      }
+      
+      return data.token;
+    }
+
+    async function testWebSocketConnectivity() {
+      return new Promise((resolve) => {
+        log('🔍 Testing WebSocket connectivity to Twilio...', 'info');
+        const testWs = new WebSocket('wss://chunderw-gll.twilio.com');
+        const timeout = setTimeout(() => {
+          testWs.close();
+          log('   ❌ WebSocket test timed out after 5s', 'error');
+          resolve(false);
+        }, 5000);
+        
+        testWs.onopen = () => {
+          clearTimeout(timeout);
+          log('   ✅ WebSocket test: CONNECTED to Twilio signaling', 'success');
+          testWs.close();
+          resolve(true);
+        };
+        
+        testWs.onerror = (err) => {
+          clearTimeout(timeout);
+          log('   ❌ WebSocket test: FAILED to connect', 'error');
+          log('   This likely means firewall/VPN is blocking WSS connections', 'warning');
+          resolve(false);
+        };
+      });
+    }
+
+    async function tryRegister(attempt) {
+      return new Promise((resolve) => {
+        currentAttempt = attempt;
+        updateStat('attempt', `${attempt}/${maxRetries}`);
+        let registered = false;
+        
+        log(`\n🔄 Registration attempt #${attempt}/${maxRetries}`, 'info');
+        
+        // Setup event handlers
+        device.off();
+        
+        device.on('registering', () => {
+          log('   📡 Device registering...', 'info');
+          monitorDeviceState();
+        });
+        
+        device.on('registered', () => {
+          registered = true;
+          log('   ✅ Device registered successfully!', 'success');
+          monitorDeviceState();
+          resolve(true);
+        });
+        
+        device.on('ready', () => {
+          registered = true;
+          log('   ✅ Device ready!', 'success');
+          monitorDeviceState();
+          resolve(true);
+        });
+        
+        device.on('error', (err) => {
+          log(`   ❌ Device error: ${err.code || 'unknown'} - ${err.message || 'Unknown error'}`, 'error');
+        });
+        
+        device.on('offline', (err) => {
+          log(`   ❌ Device offline: ${err?.message || 'Unknown'}`, 'error');
+        });
+        
+        // Monitor WebSocket
+        const monitorInterval = setInterval(() => {
+          const wsState = monitorWebSocket();
+          if (wsState === 1) { // OPEN
+            log('   ✅ WebSocket connection established!', 'success');
+            clearInterval(monitorInterval);
+          } else if (wsState === 3) { // CLOSED
+            log('   ❌ WebSocket closed - connection failed', 'error');
+            clearInterval(monitorInterval);
+          }
+        }, 500);
+        
+        // Call register
+        try {
+          device.register();
+          log('   📡 device.register() called', 'info');
+        } catch (error) {
+          log(`   ❌ register() call failed: ${error.message}`, 'error');
+          clearInterval(monitorInterval);
+          resolve(false);
+          return;
+        }
+        
+        // Timeout
+        const timeout = setTimeout(() => {
+          clearInterval(monitorInterval);
+          if (!registered) {
+            log(`   ⏱️  Registration attempt #${attempt} timed out after ${registerTimeout}ms`, 'warning');
+            log(`   📋 Device state: ${device.state}`, 'info');
+            monitorWebSocket();
+            resolve(false);
+          }
+        }, registerTimeout);
+        
+        // Clear timeout if registered
+        const checkRegistered = () => {
+          if (registered || device.state === 'registered' || device.state === 'ready') {
+            clearTimeout(timeout);
+            clearInterval(monitorInterval);
+            registered = true;
+            resolve(true);
+          }
+        };
+        
+        device.once('registered', checkRegistered);
+        device.once('ready', checkRegistered);
+      });
+    }
+
+    async function runTest() {
+      if (testInProgress) return;
+      
+      testInProgress = true;
+      startTime = Date.now();
+      currentAttempt = 0;
+      
+      document.getElementById('startTest').disabled = true;
+      document.getElementById('stopTest').disabled = false;
+      
+      log('='.repeat(70), 'info');
+      log('🧪 Starting WebRTC Registration Test', 'info');
+      log('='.repeat(70), 'info');
+      
+      updateStatus('Testing...', 'testing');
+      
+      try {
+        // Get configuration
+        const identity = document.getElementById('identity').value;
+        const tokenSource = document.getElementById('tokenSource').value;
+        maxRetries = parseInt(document.getElementById('maxRetries').value) || 3;
+        registerTimeout = parseInt(document.getElementById('timeout').value) || 8000;
+        
+        log(`Identity: ${identity}`, 'info');
+        log(`Token Source: ${tokenSource}`, 'info');
+        log(`Max Retries: ${maxRetries}`, 'info');
+        log(`Timeout: ${registerTimeout}ms`, 'info');
+        
+        // Check Twilio SDK
+        if (typeof Twilio === 'undefined') {
+          throw new Error('Twilio SDK not loaded!');
+        }
+        log('✅ Twilio SDK loaded', 'success');
+        
+        // Browser support check
+        const support = {
+          getUserMedia: !!(navigator.mediaDevices?.getUserMedia),
+          RTCPeerConnection: typeof RTCPeerConnection !== 'undefined',
+          WebSocket: typeof WebSocket !== 'undefined',
+          AudioContext: typeof AudioContext !== 'undefined',
+        };
+        log(`Browser support: ${JSON.stringify(support, null, 2)}`, 'info');
+        
+        // Network info
+        log(`Online: ${navigator.onLine}`, 'info');
+        
+        // Test WebSocket
+        await testWebSocketConnectivity();
+        
+        // Get token
+        let token;
+        if (tokenSource === 'endpoint') {
+          token = await fetchTokenFromEndpoint(identity);
+        } else {
+          throw new Error('Direct token generation requires Node.js. Use endpoint option.');
+        }
+        
+        // Create device
+        log('\n📱 Creating Twilio Device...', 'info');
+        const deviceOptions = {
+          debug: true,
+          codecPreferences: ['opus', 'pcmu'],
+          edge: 'roaming',
+          enableRingingState: true,
+        };
+        
+        // Cleanup existing device
+        if (device) {
+          try {
+            device.off();
+            device.destroy();
+          } catch (e) {
+            // Ignore
+          }
+        }
+        
+        device = new Twilio.Device(token, deviceOptions);
+        log('✅ Device created', 'success');
+        log(`   State: ${device.state}`, 'info');
+        log(`   Identity: ${device.identity}`, 'info');
+        
+        // Request microphone (optional but recommended)
+        try {
+          log('🎤 Requesting microphone permission...', 'info');
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          log('✅ Microphone permission granted', 'success');
+          stream.getTracks().forEach(track => track.stop()); // Stop immediately, just testing permission
+        } catch (e) {
+          log(`⚠️  Microphone permission denied or not available: ${e.message}`, 'warning');
+          log('   Registration may still work, but calls will fail', 'warning');
+        }
+        
+        // Run registration attempts
+        let success = false;
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+          success = await tryRegister(attempt);
+          
+          if (success) {
+            const elapsed = Date.now() - startTime;
+            log(`\n✅ Registration succeeded on attempt #${attempt} (${(elapsed / 1000).toFixed(1)}s)`, 'success');
+            updateStatus('Registration Successful!', 'success');
+            break;
+          }
+          
+          if (attempt < maxRetries) {
+            const backoffMs = Math.min(1000 * Math.pow(2, attempt - 1), 5000);
+            log(`\n⏳ Waiting ${backoffMs}ms before retry...`, 'info');
+            await new Promise(resolve => setTimeout(resolve, backoffMs));
+            
+            // Cleanup and recreate device
+            log('🧹 Cleaning up device for retry...', 'info');
+            try {
+              device.off();
+              if (device.state === 'registering' || device.state === 'registered') {
+                device.unregister();
+              }
+              device.destroy();
+            } catch (e) {
+              log(`   ⚠️  Error during cleanup: ${e.message}`, 'warning');
+            }
+            
+            log('🔄 Recreating device...', 'info');
+            device = new Twilio.Device(token, deviceOptions);
+          }
+        }
+        
+        if (!success) {
+          const elapsed = Date.now() - startTime;
+          log(`\n❌ Registration failed after ${maxRetries} attempts (${(elapsed / 1000).toFixed(1)}s)`, 'error');
+          updateStatus('Registration Failed', 'error');
+          
+          // Cleanup
+          try {
+            device.off();
+            device.destroy();
+          } catch (e) {
+            // Ignore
+          }
+        }
+        
+        log('\n' + '='.repeat(70), 'info');
+        log('Test Complete', 'info');
+        log('='.repeat(70), 'info');
+        
+      } catch (error) {
+        log(`\n❌ Test failed: ${error.message}`, 'error');
+        updateStatus('Test Failed', 'error');
+        if (error.stack) {
+          log(error.stack, 'error');
+        }
+      } finally {
+        testInProgress = false;
+        document.getElementById('startTest').disabled = false;
+        document.getElementById('stopTest').disabled = true;
+      }
+    }
+
+    function stopTest() {
+      if (device) {
+        try {
+          device.off();
+          device.destroy();
+        } catch (e) {
+          // Ignore
+        }
+        device = null;
+      }
+      testInProgress = false;
+      updateStatus('Stopped', 'idle');
+      document.getElementById('startTest').disabled = false;
+      document.getElementById('stopTest').disabled = true;
+      log('Test stopped by user', 'warning');
+    }
+
+    document.getElementById('startTest').addEventListener('click', runTest);
+    document.getElementById('stopTest').addEventListener('click', stopTest);
+  </script>
+</body>
+</html>

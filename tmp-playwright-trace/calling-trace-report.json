@@ -1,0 +1,211 @@
+{
+  "failed": false,
+  "errorMessage": null,
+  "finalUrl": "https://aoirail-production.up.railway.app/dashboard/connect?queueDebug=1",
+  "responseCount": 11,
+  "requestFailureCount": 1,
+  "responses": [
+    {
+      "url": "https://aoirail-production.up.railway.app/api/call-connector-pro/access-check/chrislafond%40aoglobelife.com",
+      "method": "GET",
+      "status": 200,
+      "bodySummary": {
+        "success": true,
+        "total": null,
+        "leadsCount": null,
+        "error": null,
+        "source": "hardcoded_bypass"
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/twilio/taskrouter/pending?agentEmail=chrislafond%40aoglobelife.com",
+      "method": "GET",
+      "status": 200,
+      "bodySummary": {
+        "success": null,
+        "total": null,
+        "leadsCount": null,
+        "error": null,
+        "source": null
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/call-connector-pro/access-check/chrislafond%40aoglobelife.com",
+      "method": "GET",
+      "status": 200,
+      "bodySummary": {
+        "success": true,
+        "total": null,
+        "leadsCount": null,
+        "error": null,
+        "source": "hardcoded_bypass"
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/twilio/taskrouter/pending?agentEmail=chrislafond%40aoglobelife.com",
+      "method": "GET",
+      "status": 200,
+      "bodySummary": {
+        "success": null,
+        "total": null,
+        "leadsCount": null,
+        "error": null,
+        "source": null
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/twilio/taskrouter/pending?agentEmail=chrislafond%40aoglobelife.com",
+      "method": "GET",
+      "status": 200,
+      "bodySummary": {
+        "success": null,
+        "total": null,
+        "leadsCount": null,
+        "error": null,
+        "source": null
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/diagnostics/proxy/agent-health",
+      "method": "POST",
+      "status": 200,
+      "bodySummary": {
+        "success": null,
+        "total": null,
+        "leadsCount": null,
+        "error": null,
+        "source": null
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/twilio/taskrouter/pending?agentEmail=chrislafond%40aoglobelife.com",
+      "method": "GET",
+      "status": 200,
+      "bodySummary": {
+        "success": null,
+        "total": null,
+        "leadsCount": null,
+        "error": null,
+        "source": null
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/twilio/taskrouter/pending?agentEmail=chrislafond%40aoglobelife.com",
+      "method": "GET",
+      "status": 200,
+      "bodySummary": {
+        "success": null,
+        "total": null,
+        "leadsCount": null,
+        "error": null,
+        "source": null
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/twilio/taskrouter/pending?agentEmail=chrislafond%40aoglobelife.com",
+      "method": "GET",
+      "status": 200,
+      "bodySummary": {
+        "success": null,
+        "total": null,
+        "leadsCount": null,
+        "error": null,
+        "source": null
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/twilio/taskrouter/pending?agentEmail=chrislafond%40aoglobelife.com",
+      "method": "GET",
+      "status": 200,
+      "bodySummary": {
+        "success": null,
+        "total": null,
+        "leadsCount": null,
+        "error": null,
+        "source": null
+      }
+    },
+    {
+      "url": "https://aoirail-data-production.up.railway.app/api/outbound-dialer/leads?userEmail=chrislafond%40aoglobelife.com&debug=1",
+      "method": "GET",
+      "status": 200,
+      "bodySummary": {
+        "success": true,
+        "total": 994,
+        "leadsCount": 994,
+        "error": null,
+        "source": null
+      }
+    }
+  ],
+  "requestFailures": [
+    {
+      "url": "https://aoirail-production.up.railway.app/api/call-connector-pro/access-check/chrislafond%40aoglobelife.com",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    }
+  ],
+  "consoleLines": [
+    {
+      "type": "error",
+      "text": "❌ Error checking CCPro access: TypeError: Failed to fetch\n    at queryFn (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:1601:17640)\n    at Object.i [as fn] (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:48:15828)\n    at g (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:48:11288)\n    at Object.start (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:48:11771)\n    at VW.fetch (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:48:16743)\n    at zW.rb (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:48:25224)\n    at zW.setOptions (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:48:20740)\n    at https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:48:44103\n    at OC (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:24296)\n    at yx (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:42451)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to check accountability status: TypeError: Failed to fetch\n    at N (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:1601:21104)\n    at Gdt.h.useEffect.P (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:1601:19472)\n    at OC (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:24296)\n    at yx (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:42451)\n    at f$ (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:36652)\n    at Um (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:38:3288)\n    at Nme (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:41328)\n    at kh (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:40312)\n    at JH (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:35759)\n    at j (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:25:1552)"
+    },
+    {
+      "type": "error",
+      "text": "❌ Failed to set agent online: TypeError: Failed to fetch\n    at https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:952:85893\n    at LTe.h.useEffect.n (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:952:86294)\n    at OC (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:24296)\n    at yx (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:42451)\n    at f$ (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:36652)\n    at Um (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:38:3288)\n    at Nme (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:41328)\n    at kh (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:40312)\n    at JH (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:35759)\n    at j (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:25:1552)"
+    },
+    {
+      "type": "error",
+      "text": "❌ UsageHeartbeat error: TypeError: Failed to fetch\n    at a (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:952:86521)\n    at LTe.h.useEffect.n (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:952:87005)\n    at OC (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:24296)\n    at yx (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:42451)\n    at f$ (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:36652)\n    at Um (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:38:3288)\n    at Nme (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:41328)\n    at kh (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:40312)\n    at JH (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:40:35759)\n    at j (https://aoirail-production.up.railway.app/assets/index-jIfxLKEa.js:25:1552)"
+    },
+    {
+      "type": "error",
+      "text": "❌ Microphone permission denied: NotSupportedError: Not supported"
+    },
+    {
+      "type": "error",
+      "text": "WebSocket connection to 'wss://chunderw-vpc-gll.twilio.com/' failed: Error during WebSocket handshake: Unexpected response code: 403"
+    },
+    {
+      "type": "log",
+      "text": "🔎 QUEUE TRACE uiq_1776292016604_ezxaw3 :: request {apiUrl: /api/outbound-dialer/leads?userEmail=chrislafond%40aoglobelife.com&debug=1, activeQueueTab: hotlead, forceRefill: false}"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 500 ()"
+    },
+    {
+      "type": "log",
+      "text": "🔎 QUEUE TRACE uiq_1776292016604_ezxaw3 :: api-response {status: 200, leadCount: 994, apiDebug: null}"
+    },
+    {
+      "type": "log",
+      "text": "🔎 QUEUE TRACE uiq_1776292016604_ezxaw3 :: post-convert {allLeads: 994, regularLeads: 994, plusCandidates: 947, nonPlusCandidates: 47}"
+    },
+    {
+      "type": "log",
+      "text": "🔎 QUEUE TRACE uiq_1776292016604_ezxaw3 :: queue-split {hotLeads: 47, plusLeads: 945, myLeadsEligible: 47, mergedMyLeads: 47, activeQueueTab: hotlead}"
+    },
+    {
+      "type": "log",
+      "text": "🔎 QUEUE TRACE uiq_1776292016604_ezxaw3 :: selected-queue {activeQueueTab: hotlead, selectedQueueCount: 47, ftcFilteredQueueCount: 47, ftcDroppedCount: 0, selectedIndexBeforeNormalize: 0}"
+    },
+    {
+      "type": "log",
+      "text": "🔎 QUEUE TRACE uiq_1776292016604_ezxaw3 :: pre-bind {prevAvailableLeads: 0, prevCurrentLeadIndex: 0, finalQueueCount: 47, preserveIndexCandidate: 0, currentLeadId: undefined}"
+    },
+    {
+      "type": "error",
+      "text": "❌ CRITICAL: No associate_id for phone reveal webhook. Cannot send (never send 999)."
+    }
+  ],
+  "artifacts": {
+    "tracePath": "C:\\dev\\AOIrail\\tmp-playwright-trace\\calling-trace.zip",
+    "screenshotPath": "C:\\dev\\AOIrail\\tmp-playwright-trace\\calling-trace.png",
+    "snapshotPath": "C:\\dev\\AOIrail\\tmp-playwright-trace\\calling-trace-snapshot.txt"
+  }
+}

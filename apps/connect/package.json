@@ -1,0 +1,9 @@
+{
+  "name": "aoirail-connect",
+  "private": true,
+  "description": "Connect server – dialer, LCB, campaigns, credits. Set Railway Root Directory to apps/connect.",
+  "scripts": {
+    "build": "cd ../.. && (if [ -f package-lock.json ]; then npm ci; else npm install; fi) && npm run build",
+    "start": "cd ../.. && npx cross-env SECTION=connect node dist/index.js"
+  }
+}

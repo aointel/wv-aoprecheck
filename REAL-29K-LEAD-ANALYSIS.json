@@ -1,0 +1,1978 @@
+﻿{
+    "success":  true,
+    "summary":  {
+                    "totalLeads":  29135,
+                    "uniqueAreaCodes":  388,
+                    "existingNumbers":  100,
+                    "existingAreaCodes":  [
+                                              "914",
+                                              "980",
+                                              "504",
+                                              "717",
+                                              "440",
+                                              "951",
+                                              "667",
+                                              "513",
+                                              "361",
+                                              "913",
+                                              "469",
+                                              "559",
+                                              "903",
+                                              "386",
+                                              "636",
+                                              "708",
+                                              "906",
+                                              "847",
+                                              "571",
+                                              "331",
+                                              "920",
+                                              "856",
+                                              "562",
+                                              "760",
+                                              "929",
+                                              "517",
+                                              "810",
+                                              "610",
+                                              "918",
+                                              "737",
+                                              "334",
+                                              "650",
+                                              "425",
+                                              "706",
+                                              "408",
+                                              "952",
+                                              "651",
+                                              "973",
+                                              "816",
+                                              "831",
+                                              "510",
+                                              "947",
+                                              "530",
+                                              "669",
+                                              "607",
+                                              "765",
+                                              "904",
+                                              "740",
+                                              "619",
+                                              "956",
+                                              "424",
+                                              "985",
+                                              "812",
+                                              "814",
+                                              "646",
+                                              "763",
+                                              "774",
+                                              "850",
+                                              "773",
+                                              "509",
+                                              "938",
+                                              "707",
+                                              "908",
+                                              "626",
+                                              "586",
+                                              "734",
+                                              "570",
+                                              "608",
+                                              "872",
+                                              "754",
+                                              "916",
+                                              "940",
+                                              "443",
+                                              "878",
+                                              "716",
+                                              "712",
+                                              "430",
+                                              "779",
+                                              "901",
+                                              "937",
+                                              "772",
+                                              "989",
+                                              "858",
+                                              "641",
+                                              "618",
+                                              "859",
+                                              "978",
+                                              "561",
+                                              "781",
+                                              "660",
+                                              "574",
+                                              "313",
+                                              "813",
+                                              "724",
+                                              "630",
+                                              "912",
+                                              "442",
+                                              "832",
+                                              "805",
+                                              "862"
+                                          ],
+                    "coveredLeads":  9027,
+                    "coveragePercentage":  "30.98%",
+                    "recommendedPurchases":  20,
+                    "estimatedMonthlyCost":  "$20.00"
+                },
+    "areaCodeDistribution":  [
+                                 {
+                                     "areaCode":  "757",
+                                     "leadCount":  379,
+                                     "states":  [
+                                                    "VA",
+                                                    "TN",
+                                                    "VT",
+                                                    "FL",
+                                                    "AR",
+                                                    "MI",
+                                                    "PA",
+                                                    "CO",
+                                                    "AL",
+                                                    "Norfolk",
+                                                    "NJ",
+                                                    "NC",
+                                                    "HI",
+                                                    "AK",
+                                                    "DE",
+                                                    "IL"
+                                                ],
+                                     "cities":  [
+                                                    "Norfolk",
+                                                    "null",
+                                                    "Williamsburg"
+                                                ],
+                                     "percentage":  "1.30"
+                                 },
+                                 {
+                                     "areaCode":  "423",
+                                     "leadCount":  365,
+                                     "states":  [
+                                                    "TN",
+                                                    "SC",
+                                                    "MI",
+                                                    "VA",
+                                                    "PA"
+                                                ],
+                                     "cities":  [
+                                                    "Riceville",
+                                                    "Chattanooga",
+                                                    "White Pine"
+                                                ],
+                                     "percentage":  "1.25"
+                                 },
+                                 {
+                                     "areaCode":  "717",
+                                     "leadCount":  329,
+                                     "states":  [
+                                                    "PA",
+                                                    "NC",
+                                                    "null",
+                                                    "OK",
+                                                    "Middletown",
+                                                    "Camp Hill",
+                                                    "VA"
+                                                ],
+                                     "cities":  [
+                                                    "Hummelstown",
+                                                    "Denver",
+                                                    "York"
+                                                ],
+                                     "percentage":  "1.13"
+                                 },
+                                 {
+                                     "areaCode":  "540",
+                                     "leadCount":  306,
+                                     "states":  [
+                                                    "VA",
+                                                    "WA",
+                                                    "MD",
+                                                    "PA",
+                                                    "NC",
+                                                    "SC",
+                                                    "FL"
+                                                ],
+                                     "cities":  [
+                                                    "Timberville",
+                                                    "Fredericksburg",
+                                                    "null"
+                                                ],
+                                     "percentage":  "1.05"
+                                 },
+                                 {
+                                     "areaCode":  "804",
+                                     "leadCount":  287,
+                                     "states":  [
+                                                    "VA",
+                                                    "WV",
+                                                    "PA",
+                                                    "FL",
+                                                    "NC",
+                                                    "GA",
+                                                    "OH",
+                                                    "OK",
+                                                    "NJ"
+                                                ],
+                                     "cities":  [
+                                                    "Richmond",
+                                                    "Mechanicsville",
+                                                    "null"
+                                                ],
+                                     "percentage":  "0.99"
+                                 },
+                                 {
+                                     "areaCode":  "570",
+                                     "leadCount":  279,
+                                     "states":  [
+                                                    "PA",
+                                                    "FL",
+                                                    "VA",
+                                                    "Selinsgrove",
+                                                    "SC",
+                                                    "ME",
+                                                    "AK",
+                                                    "NJ"
+                                                ],
+                                     "cities":  [
+                                                    "Hawley",
+                                                    "Millerstown",
+                                                    "Davenport"
+                                                ],
+                                     "percentage":  "0.96"
+                                 },
+                                 {
+                                     "areaCode":  "814",
+                                     "leadCount":  261,
+                                     "states":  [
+                                                    "PA",
+                                                    "VA",
+                                                    "MI",
+                                                    "Hollidaysburg",
+                                                    "NE",
+                                                    "OH",
+                                                    "IL",
+                                                    "TN"
+                                                ],
+                                     "cities":  [
+                                                    "null",
+                                                    "Johnstown",
+                                                    "Spotsylvania"
+                                                ],
+                                     "percentage":  "0.90"
+                                 },
+                                 {
+                                     "areaCode":  "443",
+                                     "leadCount":  252,
+                                     "states":  [
+                                                    "MD",
+                                                    "PA",
+                                                    "DE",
+                                                    "VA",
+                                                    "IA",
+                                                    "IL",
+                                                    "CA",
+                                                    "TN",
+                                                    "NJ"
+                                                ],
+                                     "cities":  [
+                                                    "BELAIR",
+                                                    "Elkridge",
+                                                    "Mount Airy"
+                                                ],
+                                     "percentage":  "0.86"
+                                 },
+                                 {
+                                     "areaCode":  "901",
+                                     "leadCount":  247,
+                                     "states":  [
+                                                    "TN",
+                                                    "AR",
+                                                    "NC",
+                                                    "FL",
+                                                    "MS",
+                                                    "NJ",
+                                                    "GA",
+                                                    "IL",
+                                                    "MI"
+                                                ],
+                                     "cities":  [
+                                                    "Covington",
+                                                    "Cleveland",
+                                                    "Jonesboro"
+                                                ],
+                                     "percentage":  "0.85"
+                                 },
+                                 {
+                                     "areaCode":  "910",
+                                     "leadCount":  246,
+                                     "states":  [
+                                                    "NC",
+                                                    "VA",
+                                                    "PA",
+                                                    "DC",
+                                                    "NV",
+                                                    "MI",
+                                                    "FL",
+                                                    "TX",
+                                                    "null",
+                                                    "GA",
+                                                    "Owings Mills",
+                                                    "TN",
+                                                    "WV"
+                                                ],
+                                     "cities":  [
+                                                    "Elizabethtown",
+                                                    "FUQUAY-VARINA",
+                                                    "Fayetteville"
+                                                ],
+                                     "percentage":  "0.84"
+                                 },
+                                 {
+                                     "areaCode":  "803",
+                                     "leadCount":  241,
+                                     "states":  [
+                                                    "SC",
+                                                    "NC",
+                                                    "null",
+                                                    "PA",
+                                                    "sc",
+                                                    "ID",
+                                                    "Facebook Request",
+                                                    "FL",
+                                                    "GA"
+                                                ],
+                                     "cities":  [
+                                                    "Sumter",
+                                                    "Cassatt",
+                                                    "Alcolu"
+                                                ],
+                                     "percentage":  "0.83"
+                                 },
+                                 {
+                                     "areaCode":  "304",
+                                     "leadCount":  237,
+                                     "states":  [
+                                                    "WV",
+                                                    "PA",
+                                                    "TN",
+                                                    "KY",
+                                                    "AZ",
+                                                    "MD",
+                                                    "OK",
+                                                    "OH"
+                                                ],
+                                     "cities":  [
+                                                    "Oceana",
+                                                    "Leon",
+                                                    "Hinton"
+                                                ],
+                                     "percentage":  "0.81"
+                                 },
+                                 {
+                                     "areaCode":  "360",
+                                     "leadCount":  234,
+                                     "states":  [
+                                                    "WA",
+                                                    "NC",
+                                                    "OK",
+                                                    "MS",
+                                                    "OR",
+                                                    "PAVET",
+                                                    "Rainier",
+                                                    "IA",
+                                                    "ND",
+                                                    "AZ",
+                                                    "AK",
+                                                    "FL",
+                                                    "NV"
+                                                ],
+                                     "cities":  [
+                                                    "Castle Rock",
+                                                    "Burlington",
+                                                    "null"
+                                                ],
+                                     "percentage":  "0.80"
+                                 },
+                                 {
+                                     "areaCode":  "215",
+                                     "leadCount":  234,
+                                     "states":  [
+                                                    "PA",
+                                                    "NJ",
+                                                    "DE",
+                                                    "FL",
+                                                    "NC",
+                                                    "TN",
+                                                    "MD",
+                                                    "VA",
+                                                    "ID",
+                                                    "CO"
+                                                ],
+                                     "cities":  [
+                                                    "Jersey Shore",
+                                                    "Philadelphia",
+                                                    "Springfield"
+                                                ],
+                                     "percentage":  "0.80"
+                                 },
+                                 {
+                                     "areaCode":  "615",
+                                     "leadCount":  229,
+                                     "states":  [
+                                                    "TN",
+                                                    "KY",
+                                                    "FL",
+                                                    "CO",
+                                                    "VA",
+                                                    "WI"
+                                                ],
+                                     "cities":  [
+                                                    "null",
+                                                    "Boulder",
+                                                    "La Vergne"
+                                                ],
+                                     "percentage":  "0.79"
+                                 },
+                                 {
+                                     "areaCode":  "609",
+                                     "leadCount":  228,
+                                     "states":  [
+                                                    "NJ",
+                                                    "ND",
+                                                    "PA",
+                                                    "UT",
+                                                    "DE",
+                                                    "TX",
+                                                    "FL",
+                                                    "SC",
+                                                    "KY"
+                                                ],
+                                     "cities":  [
+                                                    "Wildwood",
+                                                    "Williston",
+                                                    "Hamilton Township"
+                                                ],
+                                     "percentage":  "0.78"
+                                 },
+                                 {
+                                     "areaCode":  "724",
+                                     "leadCount":  228,
+                                     "states":  [
+                                                    "PA",
+                                                    "WI",
+                                                    "SC",
+                                                    "NC",
+                                                    "FL"
+                                                ],
+                                     "cities":  [
+                                                    "Fairchance",
+                                                    "Connellsville",
+                                                    "Sandy Lake"
+                                                ],
+                                     "percentage":  "0.78"
+                                 },
+                                 {
+                                     "areaCode":  "267",
+                                     "leadCount":  222,
+                                     "states":  [
+                                                    "PA",
+                                                    "IL",
+                                                    "VA",
+                                                    "NJ",
+                                                    "MD",
+                                                    "MN",
+                                                    "IN",
+                                                    "MI"
+                                                ],
+                                     "cities":  [
+                                                    "Philadelphia",
+                                                    "Chester",
+                                                    "Lansdale"
+                                                ],
+                                     "percentage":  "0.76"
+                                 },
+                                 {
+                                     "areaCode":  "850",
+                                     "leadCount":  222,
+                                     "states":  [
+                                                    "AL",
+                                                    "FL",
+                                                    "NC",
+                                                    "CO",
+                                                    "KS",
+                                                    "AR",
+                                                    "SC",
+                                                    "WI",
+                                                    "MS",
+                                                    "IN",
+                                                    "GA",
+                                                    "Pensacola",
+                                                    "OH",
+                                                    "VA",
+                                                    "TN"
+                                                ],
+                                     "cities":  [
+                                                    "Niceville",
+                                                    "Fort Walton Beach",
+                                                    "Crestview"
+                                                ],
+                                     "percentage":  "0.76"
+                                 },
+                                 {
+                                     "areaCode":  "270",
+                                     "leadCount":  222,
+                                     "states":  [
+                                                    "KY",
+                                                    "IL",
+                                                    "TN",
+                                                    "MS"
+                                                ],
+                                     "cities":  [
+                                                    "Irvington",
+                                                    "Campbellsville",
+                                                    "Providence"
+                                                ],
+                                     "percentage":  "0.76"
+                                 },
+                                 {
+                                     "areaCode":  "336",
+                                     "leadCount":  216,
+                                     "states":  [
+                                                    "NC",
+                                                    "VA",
+                                                    "FL",
+                                                    "SC"
+                                                ],
+                                     "cities":  [
+                                                    "Siloam",
+                                                    "Cary",
+                                                    "High Point"
+                                                ],
+                                     "percentage":  "0.74"
+                                 },
+                                 {
+                                     "areaCode":  "610",
+                                     "leadCount":  216,
+                                     "states":  [
+                                                    "PA",
+                                                    "IL",
+                                                    "NJ",
+                                                    "WI",
+                                                    "WA",
+                                                    "FL"
+                                                ],
+                                     "cities":  [
+                                                    "West Chester",
+                                                    "Myerstown",
+                                                    "King of Prussia"
+                                                ],
+                                     "percentage":  "0.74"
+                                 },
+                                 {
+                                     "areaCode":  "541",
+                                     "leadCount":  214,
+                                     "states":  [
+                                                    "OR",
+                                                    "NC",
+                                                    "AZ",
+                                                    "WA",
+                                                    "CA",
+                                                    "IN",
+                                                    "MN"
+                                                ],
+                                     "cities":  [
+                                                    "Matthews",
+                                                    "Eagle Point",
+                                                    "Portland"
+                                                ],
+                                     "percentage":  "0.73"
+                                 },
+                                 {
+                                     "areaCode":  "484",
+                                     "leadCount":  210,
+                                     "states":  [
+                                                    "PA",
+                                                    "FL",
+                                                    "TN",
+                                                    "MS",
+                                                    "VA",
+                                                    "DE"
+                                                ],
+                                     "cities":  [
+                                                    "null",
+                                                    "Reading",
+                                                    "Melbourne"
+                                                ],
+                                     "percentage":  "0.72"
+                                 },
+                                 {
+                                     "areaCode":  "812",
+                                     "leadCount":  208,
+                                     "states":  [
+                                                    "IN",
+                                                    "KY",
+                                                    "MN",
+                                                    "PA",
+                                                    "FL",
+                                                    "TN"
+                                                ],
+                                     "cities":  [
+                                                    "Oakland City",
+                                                    "North Vernon",
+                                                    "Bloomington"
+                                                ],
+                                     "percentage":  "0.71"
+                                 },
+                                 {
+                                     "areaCode":  "865",
+                                     "leadCount":  196,
+                                     "states":  [
+                                                    "TN",
+                                                    "WV",
+                                                    "FL",
+                                                    "KY",
+                                                    "GA"
+                                                ],
+                                     "cities":  [
+                                                    "null",
+                                                    "Oak Ridge",
+                                                    "Seymour"
+                                                ],
+                                     "percentage":  "0.67"
+                                 },
+                                 {
+                                     "areaCode":  "864",
+                                     "leadCount":  194,
+                                     "states":  [
+                                                    "SC",
+                                                    "WI",
+                                                    "NC",
+                                                    "NJ",
+                                                    "OH",
+                                                    "Pelzer",
+                                                    "FL",
+                                                    "GA",
+                                                    "AL"
+                                                ],
+                                     "cities":  [
+                                                    "Gaffney",
+                                                    "Pacolet",
+                                                    "Spartanburg"
+                                                ],
+                                     "percentage":  "0.67"
+                                 },
+                                 {
+                                     "areaCode":  "843",
+                                     "leadCount":  191,
+                                     "states":  [
+                                                    "SC",
+                                                    "NC",
+                                                    "PA",
+                                                    "TN",
+                                                    "sc",
+                                                    "WI",
+                                                    "TX",
+                                                    "HI",
+                                                    "GA",
+                                                    "FL"
+                                                ],
+                                     "cities":  [
+                                                    "Murrells Inlet",
+                                                    "null",
+                                                    "Myrtle Beach"
+                                                ],
+                                     "percentage":  "0.66"
+                                 },
+                                 {
+                                     "areaCode":  "931",
+                                     "leadCount":  187,
+                                     "states":  [
+                                                    "TN",
+                                                    "OH",
+                                                    "OR",
+                                                    "KY",
+                                                    "FL",
+                                                    "SC",
+                                                    "PA",
+                                                    "AL",
+                                                    "MI"
+                                                ],
+                                     "cities":  [
+                                                    "Carthage",
+                                                    "Van Wert",
+                                                    "Estill Springs"
+                                                ],
+                                     "percentage":  "0.64"
+                                 },
+                                 {
+                                     "areaCode":  "502",
+                                     "leadCount":  186,
+                                     "states":  [
+                                                    "KY",
+                                                    "MS",
+                                                    "OR",
+                                                    "TN",
+                                                    "IN",
+                                                    "TX",
+                                                    "PA"
+                                                ],
+                                     "cities":  [
+                                                    "Louisville",
+                                                    "Shepherdsville",
+                                                    "Cleveland"
+                                                ],
+                                     "percentage":  "0.64"
+                                 },
+                                 {
+                                     "areaCode":  "606",
+                                     "leadCount":  186,
+                                     "states":  [
+                                                    "KY",
+                                                    "TX",
+                                                    "IN",
+                                                    "TN",
+                                                    "NJ",
+                                                    "FL",
+                                                    "VA"
+                                                ],
+                                     "cities":  [
+                                                    "Williamsburg",
+                                                    "null",
+                                                    "Wallins Creek"
+                                                ],
+                                     "percentage":  "0.64"
+                                 },
+                                 {
+                                     "areaCode":  "352",
+                                     "leadCount":  184,
+                                     "states":  [
+                                                    "FL",
+                                                    "NJ",
+                                                    "TX",
+                                                    "IN",
+                                                    "RI",
+                                                    "KY",
+                                                    "Fleming Island",
+                                                    "PA"
+                                                ],
+                                     "cities":  [
+                                                    "Dunnellon",
+                                                    "Zephyrhills",
+                                                    "Eustis"
+                                                ],
+                                     "percentage":  "0.63"
+                                 },
+                                 {
+                                     "areaCode":  "918",
+                                     "leadCount":  183,
+                                     "states":  [
+                                                    "OK",
+                                                    "KS",
+                                                    "IA",
+                                                    "MO",
+                                                    "FL",
+                                                    "Fort Smith",
+                                                    "TN"
+                                                ],
+                                     "cities":  [
+                                                    "null",
+                                                    "Cherryvale",
+                                                    "Council Bluffs"
+                                                ],
+                                     "percentage":  "0.63"
+                                 },
+                                 {
+                                     "areaCode":  "208",
+                                     "leadCount":  183,
+                                     "states":  [
+                                                    "ID",
+                                                    "MS",
+                                                    "OR",
+                                                    "TN",
+                                                    "UT",
+                                                    "PA",
+                                                    "MN",
+                                                    "Seattle",
+                                                    "WA",
+                                                    "VA",
+                                                    "CO"
+                                                ],
+                                     "cities":  [
+                                                    "Pocatello",
+                                                    "Boise",
+                                                    "Lewiston"
+                                                ],
+                                     "percentage":  "0.63"
+                                 },
+                                 {
+                                     "areaCode":  "815",
+                                     "leadCount":  183,
+                                     "states":  [
+                                                    "VA",
+                                                    "IL",
+                                                    "WI",
+                                                    "FL",
+                                                    "IN",
+                                                    "AR",
+                                                    "IA",
+                                                    "Lanark",
+                                                    "null",
+                                                    "TN",
+                                                    "MI"
+                                                ],
+                                     "cities":  [
+                                                    "null",
+                                                    "Maple Park",
+                                                    "Plainfield"
+                                                ],
+                                     "percentage":  "0.63"
+                                 },
+                                 {
+                                     "areaCode":  "317",
+                                     "leadCount":  182,
+                                     "states":  [
+                                                    "IN",
+                                                    "MN",
+                                                    "OH",
+                                                    "FL",
+                                                    "NJ",
+                                                    "WI"
+                                                ],
+                                     "cities":  [
+                                                    "Danville",
+                                                    "Indianapolis",
+                                                    "Akron"
+                                                ],
+                                     "percentage":  "0.62"
+                                 },
+                                 {
+                                     "areaCode":  "612",
+                                     "leadCount":  182,
+                                     "states":  [
+                                                    "MN",
+                                                    "TN",
+                                                    "IL",
+                                                    "NM",
+                                                    "AZ",
+                                                    "WI",
+                                                    "FL"
+                                                ],
+                                     "cities":  [
+                                                    "Saint Louis Park",
+                                                    "Minneapolis",
+                                                    "Kilkenny"
+                                                ],
+                                     "percentage":  "0.62"
+                                 },
+                                 {
+                                     "areaCode":  "704",
+                                     "leadCount":  178,
+                                     "states":  [
+                                                    "NC",
+                                                    "CA",
+                                                    "TN",
+                                                    "TX",
+                                                    "IN",
+                                                    "GA",
+                                                    "AZ",
+                                                    "PA",
+                                                    "SC",
+                                                    "null",
+                                                    "Gastonia",
+                                                    "Woodleaf",
+                                                    "MN",
+                                                    "NJ",
+                                                    "MS"
+                                                ],
+                                     "cities":  [
+                                                    "Kings Mountain",
+                                                    "Wadesboro",
+                                                    "Shelby"
+                                                ],
+                                     "percentage":  "0.61"
+                                 },
+                                 {
+                                     "areaCode":  "313",
+                                     "leadCount":  178,
+                                     "states":  [
+                                                    "MI",
+                                                    "KY",
+                                                    "TN",
+                                                    "VA",
+                                                    "IN",
+                                                    "HI",
+                                                    "null"
+                                                ],
+                                     "cities":  [
+                                                    "Taylor",
+                                                    "null",
+                                                    "Dearborn"
+                                                ],
+                                     "percentage":  "0.61"
+                                 },
+                                 {
+                                     "areaCode":  "859",
+                                     "leadCount":  178,
+                                     "states":  [
+                                                    "KY",
+                                                    "NC",
+                                                    "TX",
+                                                    "TN",
+                                                    "IL",
+                                                    "IN",
+                                                    "OH"
+                                                ],
+                                     "cities":  [
+                                                    "Paris",
+                                                    "Covington",
+                                                    "Lexington"
+                                                ],
+                                     "percentage":  "0.61"
+                                 },
+                                 {
+                                     "areaCode":  "856",
+                                     "leadCount":  175,
+                                     "states":  [
+                                                    "NJ",
+                                                    "PA",
+                                                    "VA",
+                                                    "FL",
+                                                    "AL",
+                                                    "Facebook Request",
+                                                    "IN",
+                                                    "WI",
+                                                    "GA"
+                                                ],
+                                     "cities":  [
+                                                    "Philadelphia",
+                                                    "null",
+                                                    "Williamstown"
+                                                ],
+                                     "percentage":  "0.60"
+                                 },
+                                 {
+                                     "areaCode":  "509",
+                                     "leadCount":  175,
+                                     "states":  [
+                                                    "WA",
+                                                    "IL",
+                                                    "AZ",
+                                                    "CA",
+                                                    "MT",
+                                                    "ID",
+                                                    "OR",
+                                                    "PA"
+                                                ],
+                                     "cities":  [
+                                                    "null",
+                                                    "Mead",
+                                                    "Grandview"
+                                                ],
+                                     "percentage":  "0.60"
+                                 },
+                                 {
+                                     "areaCode":  "765",
+                                     "leadCount":  173,
+                                     "states":  [
+                                                    "IN",
+                                                    "WI",
+                                                    "TN"
+                                                ],
+                                     "cities":  [
+                                                    "null",
+                                                    "Flora",
+                                                    "Eaton"
+                                                ],
+                                     "percentage":  "0.59"
+                                 },
+                                 {
+                                     "areaCode":  "808",
+                                     "leadCount":  171,
+                                     "states":  [
+                                                    "TN",
+                                                    "NC",
+                                                    "HI",
+                                                    "MN",
+                                                    "Makawao",
+                                                    "CA",
+                                                    "AR",
+                                                    "WA",
+                                                    "IL",
+                                                    "FL",
+                                                    "NM"
+                                                ],
+                                     "cities":  [
+                                                    "Pearl City",
+                                                    "Honolulu",
+                                                    "Ewa Beach"
+                                                ],
+                                     "percentage":  "0.59"
+                                 },
+                                 {
+                                     "areaCode":  "706",
+                                     "leadCount":  170,
+                                     "states":  [
+                                                    "GA",
+                                                    "TN",
+                                                    "FL",
+                                                    "AL",
+                                                    "SC",
+                                                    "null",
+                                                    "LifeGuard Website Request",
+                                                    "sc",
+                                                    "OH",
+                                                    "WA",
+                                                    "IL",
+                                                    "NM",
+                                                    "KY"
+                                                ],
+                                     "cities":  [
+                                                    "null",
+                                                    "Lagrange",
+                                                    "Augusta"
+                                                ],
+                                     "percentage":  "0.58"
+                                 },
+                                 {
+                                     "areaCode":  "253",
+                                     "leadCount":  169,
+                                     "states":  [
+                                                    "WA",
+                                                    "HI",
+                                                    "FL",
+                                                    "AZ",
+                                                    "NE",
+                                                    "PA",
+                                                    "AL",
+                                                    "ID"
+                                                ],
+                                     "cities":  [
+                                                    "Tacoma",
+                                                    "Seattle",
+                                                    "Port Orchard"
+                                                ],
+                                     "percentage":  "0.58"
+                                 },
+                                 {
+                                     "areaCode":  "828",
+                                     "leadCount":  169,
+                                     "states":  [
+                                                    "NC",
+                                                    "VA",
+                                                    "SC",
+                                                    "IN",
+                                                    "TN",
+                                                    "MI"
+                                                ],
+                                     "cities":  [
+                                                    "Arden",
+                                                    "Rutherfordton",
+                                                    "null"
+                                                ],
+                                     "percentage":  "0.58"
+                                 },
+                                 {
+                                     "areaCode":  "217",
+                                     "leadCount":  168,
+                                     "states":  [
+                                                    "IN",
+                                                    "IL",
+                                                    "OK"
+                                                ],
+                                     "cities":  [
+                                                    "Whitestown",
+                                                    "Pana",
+                                                    "Greenview"
+                                                ],
+                                     "percentage":  "0.58"
+                                 },
+                                 {
+                                     "areaCode":  "410",
+                                     "leadCount":  168,
+                                     "states":  [
+                                                    "MD",
+                                                    "DE",
+                                                    "WV",
+                                                    "VA",
+                                                    "PA",
+                                                    "SC",
+                                                    "TN"
+                                                ],
+                                     "cities":  [
+                                                    "Dundalk",
+                                                    "Essex",
+                                                    "null"
+                                                ],
+                                     "percentage":  "0.58"
+                                 },
+                                 {
+                                     "areaCode":  "773",
+                                     "leadCount":  168,
+                                     "states":  [
+                                                    "IL",
+                                                    "IN",
+                                                    "MI",
+                                                    "TX",
+                                                    "FL",
+                                                    "Chicago",
+                                                    "WI",
+                                                    "CA",
+                                                    "IA",
+                                                    "CO"
+                                                ],
+                                     "cities":  [
+                                                    "La Porte",
+                                                    "null",
+                                                    "Grandville"
+                                                ],
+                                     "percentage":  "0.58"
+                                 }
+                             ],
+    "recommendations":  [
+                            {
+                                "areaCode":  "757",
+                                "leadCount":  379,
+                                "states":  [
+                                               "VA",
+                                               "TN",
+                                               "VT",
+                                               "FL",
+                                               "AR",
+                                               "MI",
+                                               "PA",
+                                               "CO",
+                                               "AL",
+                                               "Norfolk",
+                                               "NJ",
+                                               "NC",
+                                               "HI",
+                                               "AK",
+                                               "DE",
+                                               "IL"
+                                           ],
+                                "cities":  [
+                                               "Norfolk",
+                                               "null",
+                                               "Williamsburg"
+                                           ],
+                                "percentage":  "1.30",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "423",
+                                "leadCount":  365,
+                                "states":  [
+                                               "TN",
+                                               "SC",
+                                               "MI",
+                                               "VA",
+                                               "PA"
+                                           ],
+                                "cities":  [
+                                               "Riceville",
+                                               "Chattanooga",
+                                               "White Pine"
+                                           ],
+                                "percentage":  "1.25",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "540",
+                                "leadCount":  306,
+                                "states":  [
+                                               "VA",
+                                               "WA",
+                                               "MD",
+                                               "PA",
+                                               "NC",
+                                               "SC",
+                                               "FL"
+                                           ],
+                                "cities":  [
+                                               "Timberville",
+                                               "Fredericksburg",
+                                               "null"
+                                           ],
+                                "percentage":  "1.05",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "804",
+                                "leadCount":  287,
+                                "states":  [
+                                               "VA",
+                                               "WV",
+                                               "PA",
+                                               "FL",
+                                               "NC",
+                                               "GA",
+                                               "OH",
+                                               "OK",
+                                               "NJ"
+                                           ],
+                                "cities":  [
+                                               "Richmond",
+                                               "Mechanicsville",
+                                               "null"
+                                           ],
+                                "percentage":  "0.99",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "910",
+                                "leadCount":  246,
+                                "states":  [
+                                               "NC",
+                                               "VA",
+                                               "PA",
+                                               "DC",
+                                               "NV",
+                                               "MI",
+                                               "FL",
+                                               "TX",
+                                               "null",
+                                               "GA",
+                                               "Owings Mills",
+                                               "TN",
+                                               "WV"
+                                           ],
+                                "cities":  [
+                                               "Elizabethtown",
+                                               "FUQUAY-VARINA",
+                                               "Fayetteville"
+                                           ],
+                                "percentage":  "0.84",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "803",
+                                "leadCount":  241,
+                                "states":  [
+                                               "SC",
+                                               "NC",
+                                               "null",
+                                               "PA",
+                                               "sc",
+                                               "ID",
+                                               "Facebook Request",
+                                               "FL",
+                                               "GA"
+                                           ],
+                                "cities":  [
+                                               "Sumter",
+                                               "Cassatt",
+                                               "Alcolu"
+                                           ],
+                                "percentage":  "0.83",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "304",
+                                "leadCount":  237,
+                                "states":  [
+                                               "WV",
+                                               "PA",
+                                               "TN",
+                                               "KY",
+                                               "AZ",
+                                               "MD",
+                                               "OK",
+                                               "OH"
+                                           ],
+                                "cities":  [
+                                               "Oceana",
+                                               "Leon",
+                                               "Hinton"
+                                           ],
+                                "percentage":  "0.81",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "360",
+                                "leadCount":  234,
+                                "states":  [
+                                               "WA",
+                                               "NC",
+                                               "OK",
+                                               "MS",
+                                               "OR",
+                                               "PAVET",
+                                               "Rainier",
+                                               "IA",
+                                               "ND",
+                                               "AZ",
+                                               "AK",
+                                               "FL",
+                                               "NV"
+                                           ],
+                                "cities":  [
+                                               "Castle Rock",
+                                               "Burlington",
+                                               "null"
+                                           ],
+                                "percentage":  "0.80",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "215",
+                                "leadCount":  234,
+                                "states":  [
+                                               "PA",
+                                               "NJ",
+                                               "DE",
+                                               "FL",
+                                               "NC",
+                                               "TN",
+                                               "MD",
+                                               "VA",
+                                               "ID",
+                                               "CO"
+                                           ],
+                                "cities":  [
+                                               "Jersey Shore",
+                                               "Philadelphia",
+                                               "Springfield"
+                                           ],
+                                "percentage":  "0.80",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "615",
+                                "leadCount":  229,
+                                "states":  [
+                                               "TN",
+                                               "KY",
+                                               "FL",
+                                               "CO",
+                                               "VA",
+                                               "WI"
+                                           ],
+                                "cities":  [
+                                               "null",
+                                               "Boulder",
+                                               "La Vergne"
+                                           ],
+                                "percentage":  "0.79",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "609",
+                                "leadCount":  228,
+                                "states":  [
+                                               "NJ",
+                                               "ND",
+                                               "PA",
+                                               "UT",
+                                               "DE",
+                                               "TX",
+                                               "FL",
+                                               "SC",
+                                               "KY"
+                                           ],
+                                "cities":  [
+                                               "Wildwood",
+                                               "Williston",
+                                               "Hamilton Township"
+                                           ],
+                                "percentage":  "0.78",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "267",
+                                "leadCount":  222,
+                                "states":  [
+                                               "PA",
+                                               "IL",
+                                               "VA",
+                                               "NJ",
+                                               "MD",
+                                               "MN",
+                                               "IN",
+                                               "MI"
+                                           ],
+                                "cities":  [
+                                               "Philadelphia",
+                                               "Chester",
+                                               "Lansdale"
+                                           ],
+                                "percentage":  "0.76",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "270",
+                                "leadCount":  222,
+                                "states":  [
+                                               "KY",
+                                               "IL",
+                                               "TN",
+                                               "MS"
+                                           ],
+                                "cities":  [
+                                               "Irvington",
+                                               "Campbellsville",
+                                               "Providence"
+                                           ],
+                                "percentage":  "0.76",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "336",
+                                "leadCount":  216,
+                                "states":  [
+                                               "NC",
+                                               "VA",
+                                               "FL",
+                                               "SC"
+                                           ],
+                                "cities":  [
+                                               "Siloam",
+                                               "Cary",
+                                               "High Point"
+                                           ],
+                                "percentage":  "0.74",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "541",
+                                "leadCount":  214,
+                                "states":  [
+                                               "OR",
+                                               "NC",
+                                               "AZ",
+                                               "WA",
+                                               "CA",
+                                               "IN",
+                                               "MN"
+                                           ],
+                                "cities":  [
+                                               "Matthews",
+                                               "Eagle Point",
+                                               "Portland"
+                                           ],
+                                "percentage":  "0.73",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "484",
+                                "leadCount":  210,
+                                "states":  [
+                                               "PA",
+                                               "FL",
+                                               "TN",
+                                               "MS",
+                                               "VA",
+                                               "DE"
+                                           ],
+                                "cities":  [
+                                               "null",
+                                               "Reading",
+                                               "Melbourne"
+                                           ],
+                                "percentage":  "0.72",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "865",
+                                "leadCount":  196,
+                                "states":  [
+                                               "TN",
+                                               "WV",
+                                               "FL",
+                                               "KY",
+                                               "GA"
+                                           ],
+                                "cities":  [
+                                               "null",
+                                               "Oak Ridge",
+                                               "Seymour"
+                                           ],
+                                "percentage":  "0.67",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "864",
+                                "leadCount":  194,
+                                "states":  [
+                                               "SC",
+                                               "WI",
+                                               "NC",
+                                               "NJ",
+                                               "OH",
+                                               "Pelzer",
+                                               "FL",
+                                               "GA",
+                                               "AL"
+                                           ],
+                                "cities":  [
+                                               "Gaffney",
+                                               "Pacolet",
+                                               "Spartanburg"
+                                           ],
+                                "percentage":  "0.67",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "843",
+                                "leadCount":  191,
+                                "states":  [
+                                               "SC",
+                                               "NC",
+                                               "PA",
+                                               "TN",
+                                               "sc",
+                                               "WI",
+                                               "TX",
+                                               "HI",
+                                               "GA",
+                                               "FL"
+                                           ],
+                                "cities":  [
+                                               "Murrells Inlet",
+                                               "null",
+                                               "Myrtle Beach"
+                                           ],
+                                "percentage":  "0.66",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "931",
+                                "leadCount":  187,
+                                "states":  [
+                                               "TN",
+                                               "OH",
+                                               "OR",
+                                               "KY",
+                                               "FL",
+                                               "SC",
+                                               "PA",
+                                               "AL",
+                                               "MI"
+                                           ],
+                                "cities":  [
+                                               "Carthage",
+                                               "Van Wert",
+                                               "Estill Springs"
+                                           ],
+                                "percentage":  "0.64",
+                                "priority":  "high",
+                                "estimatedCost":  1
+                            }
+                        ],
+    "existingNumbers":  [
+                            {
+                                "phoneNumber":  "+19142289324",
+                                "friendlyName":  "State NY-local Katonah"
+                            },
+                            {
+                                "phoneNumber":  "+19806552155",
+                                "friendlyName":  "State NC-local Stanley"
+                            },
+                            {
+                                "phoneNumber":  "+15045004784",
+                                "friendlyName":  "State LA-local Jesuit Bend"
+                            },
+                            {
+                                "phoneNumber":  "+17179997303",
+                                "friendlyName":  "State PA-local Harrisburg City Zone"
+                            },
+                            {
+                                "phoneNumber":  "+14409701350",
+                                "friendlyName":  "State OH-local Burton"
+                            },
+                            {
+                                "phoneNumber":  "+19519035177",
+                                "friendlyName":  "State CA-local Mira Loma"
+                            },
+                            {
+                                "phoneNumber":  "+16672497593",
+                                "friendlyName":  "State MD-local Galena"
+                            },
+                            {
+                                "phoneNumber":  "+15136435351",
+                                "friendlyName":  "State OH-local Williamsburg"
+                            },
+                            {
+                                "phoneNumber":  "+13613373273",
+                                "friendlyName":  "State TX-local Berclair"
+                            },
+                            {
+                                "phoneNumber":  "+19133939602",
+                                "friendlyName":  "State KS-local Olathe"
+                            },
+                            {
+                                "phoneNumber":  "+14694550836",
+                                "friendlyName":  "State TX-local Lewisville"
+                            },
+                            {
+                                "phoneNumber":  "+15592585035",
+                                "friendlyName":  "State CA-local Del Rey"
+                            },
+                            {
+                                "phoneNumber":  "+19035231713",
+                                "friendlyName":  "State TX-local Gordonville"
+                            },
+                            {
+                                "phoneNumber":  "+13865171587",
+                                "friendlyName":  "State FL-local Flagler Beach"
+                            },
+                            {
+                                "phoneNumber":  "+16364357273",
+                                "friendlyName":  "State MO-local Valley Park"
+                            },
+                            {
+                                "phoneNumber":  "+17085723287",
+                                "friendlyName":  "State IL-local Oak Lawn"
+                            },
+                            {
+                                "phoneNumber":  "+19062929903",
+                                "friendlyName":  "State MI-local Brevort"
+                            },
+                            {
+                                "phoneNumber":  "+18478606816",
+                                "friendlyName":  "State IL-local Bensenville"
+                            },
+                            {
+                                "phoneNumber":  "+15712404954",
+                                "friendlyName":  "State VA-local null"
+                            },
+                            {
+                                "phoneNumber":  "+13313220312",
+                                "friendlyName":  "State IL-local Chicago"
+                            },
+                            {
+                                "phoneNumber":  "+19206718587",
+                                "friendlyName":  "State WI-local Oconto Falls"
+                            },
+                            {
+                                "phoneNumber":  "+18564434698",
+                                "friendlyName":  "State NJ-local Woodbury"
+                            },
+                            {
+                                "phoneNumber":  "+15624560323",
+                                "friendlyName":  "State CA-local Pico Rivera"
+                            },
+                            {
+                                "phoneNumber":  "+17604372265",
+                                "friendlyName":  "State CA-local Desert Center"
+                            },
+                            {
+                                "phoneNumber":  "+19294163194",
+                                "friendlyName":  "State NY-local New York City Zone"
+                            },
+                            {
+                                "phoneNumber":  "+15176988252",
+                                "friendlyName":  "State MI-local North Adams"
+                            },
+                            {
+                                "phoneNumber":  "+18106743543",
+                                "friendlyName":  "State MI-local Applegate"
+                            },
+                            {
+                                "phoneNumber":  "+16109917343",
+                                "friendlyName":  "State PA-local Easton"
+                            },
+                            {
+                                "phoneNumber":  "+19187255983",
+                                "friendlyName":  "State OK-local Cushing"
+                            },
+                            {
+                                "phoneNumber":  "+17372760367",
+                                "friendlyName":  "State TX-local null"
+                            },
+                            {
+                                "phoneNumber":  "+13345092182",
+                                "friendlyName":  "State AL-local Thomaston"
+                            },
+                            {
+                                "phoneNumber":  "+16506400735",
+                                "friendlyName":  "State CA-local null"
+                            },
+                            {
+                                "phoneNumber":  "+14255521662",
+                                "friendlyName":  "State WA-local null"
+                            },
+                            {
+                                "phoneNumber":  "+17067869544",
+                                "friendlyName":  "State GA-local Columbus"
+                            },
+                            {
+                                "phoneNumber":  "+14086927323",
+                                "friendlyName":  "State CA-local San Martin"
+                            },
+                            {
+                                "phoneNumber":  "+19523146552",
+                                "friendlyName":  "State MN-local Chaska"
+                            },
+                            {
+                                "phoneNumber":  "+16514091537",
+                                "friendlyName":  "State MN-local Scandia Marine"
+                            },
+                            {
+                                "phoneNumber":  "+19736202806",
+                                "friendlyName":  "State NJ-local Dover"
+                            },
+                            {
+                                "phoneNumber":  "+18166702995",
+                                "friendlyName":  "State MO-local Archie"
+                            },
+                            {
+                                "phoneNumber":  "+18314323684",
+                                "friendlyName":  "State CA-local null"
+                            },
+                            {
+                                "phoneNumber":  "+15103191943",
+                                "friendlyName":  "State CA-local Fremontnewark"
+                            },
+                            {
+                                "phoneNumber":  "+19476669527",
+                                "friendlyName":  "State MI-local Milfordwhite Lake"
+                            },
+                            {
+                                "phoneNumber":  "+15306700833",
+                                "friendlyName":  "State CA-local Corning"
+                            },
+                            {
+                                "phoneNumber":  "+16692218516",
+                                "friendlyName":  "State CA-local Los Gatos"
+                            },
+                            {
+                                "phoneNumber":  "+16075582064",
+                                "friendlyName":  "State NY-local Jasper"
+                            },
+                            {
+                                "phoneNumber":  "+17653085437",
+                                "friendlyName":  "State IN-local Modoc"
+                            },
+                            {
+                                "phoneNumber":  "+19049775082",
+                                "friendlyName":  "State FL-local Starke"
+                            },
+                            {
+                                "phoneNumber":  "+17405855085",
+                                "friendlyName":  "State OH-local Lower Salem"
+                            },
+                            {
+                                "phoneNumber":  "+16194892810",
+                                "friendlyName":  "State CA-local Chula Vista"
+                            },
+                            {
+                                "phoneNumber":  "+19565865707",
+                                "friendlyName":  "State TX-local Pharr"
+                            },
+                            {
+                                "phoneNumber":  "+14244874666",
+                                "friendlyName":  "State CA-local null"
+                            },
+                            {
+                                "phoneNumber":  "+19854653754",
+                                "friendlyName":  "State LA-local Dulac"
+                            },
+                            {
+                                "phoneNumber":  "+18123590210",
+                                "friendlyName":  "State IN-local Sand Ridge"
+                            },
+                            {
+                                "phoneNumber":  "+18142503465",
+                                "friendlyName":  "State PA-local Edinboro"
+                            },
+                            {
+                                "phoneNumber":  "+16467989933",
+                                "friendlyName":  "State NY-local New York City Zone"
+                            },
+                            {
+                                "phoneNumber":  "+17634017817",
+                                "friendlyName":  "State MN-local Cambridge"
+                            },
+                            {
+                                "phoneNumber":  "+17742385696",
+                                "friendlyName":  "State MA-local Osterville"
+                            },
+                            {
+                                "phoneNumber":  "+18506800822",
+                                "friendlyName":  "State FL-local Gretna"
+                            },
+                            {
+                                "phoneNumber":  "+17738973885",
+                                "friendlyName":  "State IL-local Chicago Zone"
+                            },
+                            {
+                                "phoneNumber":  "+15092849050",
+                                "friendlyName":  "State WA-local Tekoa"
+                            },
+                            {
+                                "phoneNumber":  "+19384003210",
+                                "friendlyName":  "State AL-local null"
+                            },
+                            {
+                                "phoneNumber":  "+17072320777",
+                                "friendlyName":  "State CA-local Trinidad"
+                            },
+                            {
+                                "phoneNumber":  "+19085406751",
+                                "friendlyName":  "State NJ-local Plainfield"
+                            },
+                            {
+                                "phoneNumber":  "+16265939798",
+                                "friendlyName":  "State CA-local Covina"
+                            },
+                            {
+                                "phoneNumber":  "+15867881599",
+                                "friendlyName":  "State MI-local Utica"
+                            },
+                            {
+                                "phoneNumber":  "+17343164801",
+                                "friendlyName":  "State MI-local Saline"
+                            },
+                            {
+                                "phoneNumber":  "+15706596981",
+                                "friendlyName":  "State PA-local Covington"
+                            },
+                            {
+                                "phoneNumber":  "+16083365340",
+                                "friendlyName":  "State WI-local Monroe"
+                            },
+                            {
+                                "phoneNumber":  "+18722735079",
+                                "friendlyName":  "State IL-local Chicago"
+                            },
+                            {
+                                "phoneNumber":  "+17543411253",
+                                "friendlyName":  "State FL-local null"
+                            },
+                            {
+                                "phoneNumber":  "+19167756510",
+                                "friendlyName":  "State CA-local Courtland"
+                            },
+                            {
+                                "phoneNumber":  "+19402906288",
+                                "friendlyName":  "State TX-local Aubrey"
+                            },
+                            {
+                                "phoneNumber":  "+14435438144",
+                                "friendlyName":  "State MD-local Arbutus"
+                            },
+                            {
+                                "phoneNumber":  "+18782014708",
+                                "friendlyName":  "State PA-local Rochester"
+                            },
+                            {
+                                "phoneNumber":  "+17164669816",
+                                "friendlyName":  "State NY-local Holland"
+                            },
+                            {
+                                "phoneNumber":  "+17125667975",
+                                "friendlyName":  "State IA-local Underwood"
+                            },
+                            {
+                                "phoneNumber":  "+14302435791",
+                                "friendlyName":  "State TX-local Henderson"
+                            },
+                            {
+                                "phoneNumber":  "+17793681306",
+                                "friendlyName":  "State IL-local New Milford"
+                            },
+                            {
+                                "phoneNumber":  "+19016757510",
+                                "friendlyName":  "State TN-local null"
+                            },
+                            {
+                                "phoneNumber":  "+19373659782",
+                                "friendlyName":  "State OH-local Rainsboro"
+                            },
+                            {
+                                "phoneNumber":  "+17727581141",
+                                "friendlyName":  "State FL-local Vero Beach"
+                            },
+                            {
+                                "phoneNumber":  "+19893682814",
+                                "friendlyName":  "State MI-local Harrison"
+                            },
+                            {
+                                "phoneNumber":  "+18583584836",
+                                "friendlyName":  "State CA-local null"
+                            },
+                            {
+                                "phoneNumber":  "+16419343838",
+                                "friendlyName":  "State IA-local Bladensburg"
+                            },
+                            {
+                                "phoneNumber":  "+16182495348",
+                                "friendlyName":  "State IL-local Irvington"
+                            },
+                            {
+                                "phoneNumber":  "+18596517426",
+                                "friendlyName":  "State KY-local Carlisle"
+                            },
+                            {
+                                "phoneNumber":  "+19783008814",
+                                "friendlyName":  "State MA-local Townsend"
+                            },
+                            {
+                                "phoneNumber":  "+15612209596",
+                                "friendlyName":  "State FL-local West Palm Beach"
+                            },
+                            {
+                                "phoneNumber":  "+17817466712",
+                                "friendlyName":  "State MA-local Canton"
+                            },
+                            {
+                                "phoneNumber":  "+16602422175",
+                                "friendlyName":  "State MO-local Montrose"
+                            },
+                            {
+                                "phoneNumber":  "+15747014177",
+                                "friendlyName":  "State IN-local Galveston"
+                            },
+                            {
+                                "phoneNumber":  "+13136310325",
+                                "friendlyName":  "State MI-local null"
+                            },
+                            {
+                                "phoneNumber":  "+18137338695",
+                                "friendlyName":  "State FL-local Tampa North"
+                            },
+                            {
+                                "phoneNumber":  "+17249326889",
+                                "friendlyName":  "State PA-local Jamestown"
+                            },
+                            {
+                                "phoneNumber":  "+16309310118",
+                                "friendlyName":  "State IL-local Itasca"
+                            },
+                            {
+                                "phoneNumber":  "+19124201945",
+                                "friendlyName":  "State GA-local Lyons"
+                            },
+                            {
+                                "phoneNumber":  "+14422553457",
+                                "friendlyName":  "State CA-local Victorville"
+                            },
+                            {
+                                "phoneNumber":  "+18322253161",
+                                "friendlyName":  "State TX-local Seabrook"
+                            },
+                            {
+                                "phoneNumber":  "+18053033189",
+                                "friendlyName":  "State CA-local Saticoy"
+                            },
+                            {
+                                "phoneNumber":  "+18623783241",
+                                "friendlyName":  "State NJ-local null"
+                            }
+                        ]
+}

@@ -1,0 +1,41 @@
+﻿≡ƒôè Processing VDP CSV Stats...
+
+≡ƒôä File: C:\Users\mmand\OneDrive\Desktop\AOI\0753d416-2d8e-4a7f-a84e-417ec0f28176.csv
+
+≡ƒôä Total rows: 3927
+
+Γ£à Parsed 3884 events
+
+≡ƒô₧ Connects: 0
+Γ¥î Missed Calls: 165
+
+====================================================================================================
+≡ƒôè VDP STATS BY MARKET
+====================================================================================================
+
+Market                 Connected Transferred   % Trans   Agent Ans     % Ans    Ring Dur    Billed  % Billed  Missed Agent   % Miss Ag    Miss NO Ag     % NO Ag  Total Missed    % Missed
+----------------------------------------------------------------------------------------------------
+Unknown                        0           0       0.0         416      67.0         0.0         0       0.0            86        13.8            79        12.7           165        26.6
+
+====================================================================================================
+≡ƒôè OVERALL TOTALS BROKEN DOWN BY MARKET
+====================================================================================================
+
+METRIC                   Veteran   aorecruit  Globe Market     Unknown    Will Kit       TOTAL
+----------------------------------------------------------------------------------------------------
+Total NEW Calls                0           0             0         621           0         621
+Connected                      0           0             0           0           0           0
+Transferred                    0           0             0           0           0           0
+% Transferred                0.0         0.0           0.0         0.0         0.0         0.0
+Agent Answered                 0           0             0         416           0         416
+% Answered                   0.0         0.0           0.0        67.0         0.0        67.0
+Ring Duration (s)            0.0         0.0           0.0         0.0         0.0         0.0
+Billed                         0           0             0           0           0           0
+% Billed                     0.0         0.0           0.0         0.0         0.0         0.0
+Missed w/ Agent                0           0             0          86           0          86
+% Missed Agent               0.0         0.0           0.0        13.8         0.0        13.8
+Missed NO AGENT                0           0             0          79           0          79
+% Missed NO AGENT            0.0         0.0           0.0        12.7         0.0        12.7
+Total Missed                   0           0             0         165           0         165
+% Total Missed               0.0         0.0           0.0        26.6         0.0        26.6
+

@@ -1,0 +1,9 @@
+{
+  "name": "aoirail-auth",
+  "private": true,
+  "description": "Standalone login + /api/auth only (dist/auth.js). Railway: set Root Directory to apps/auth; use same build as monolith; Start: npm run start. Keeps auth alive if main API is overloaded.",
+  "scripts": {
+    "build": "cd ../.. && npm ci && npm run build",
+    "start": "cd ../.. && node dist/auth.js"
+  }
+}

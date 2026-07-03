@@ -1,0 +1,16 @@
+{
+  "generatedAtUtc": "2026-05-20T21:02:48.440Z",
+  "totalIncorrectMasterleadRows": 4497,
+  "incorrectRowsCurrentlyInQueue": 0,
+  "incorrectRowsPendingLike": 0,
+  "byReason": {
+    "too_short": 2377,
+    "11_digits_not_starting_1": 203,
+    "invalid_nanp_shape": 870,
+    "too_long": 563,
+    "repeated_digit_placeholder": 404,
+    "sequence_placeholder": 27,
+    "empty_phone": 53
+  },
+  "reportCsv": "server/scripts/reports/masterlead-incorrect-format-2026-05-20T21-02-48-432Z.csv"
+}

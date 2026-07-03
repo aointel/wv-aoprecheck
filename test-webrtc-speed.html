@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC Speed Test - 5032018470</title>
+    <script src="https://sdk.twilio.com/js/client/releases/2.0.0/twilio.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .container {
+            background: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        .status {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background: #333;
+            font-family: monospace;
+        }
+        .status.ready { background: #2d5a2d; }
+        .status.connecting { background: #5a5a2d; }
+        .status.connected { background: #2d5a5a; }
+        .status.error { background: #5a2d2d; }
+        button {
+            padding: 12px 24px;
+            margin: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+        button:hover { background: #45a049; }
+        button:disabled { background: #666; cursor: not-allowed; }
+        button.stop { background: #f44336; }
+        button.stop:hover { background: #da190b; }
+        .timing {
+            margin-top: 20px;
+            padding: 15px;
+            background: #1a1a1a;
+            border-radius: 5px;
+        }
+        .timing-item {
+            margin: 5px 0;
+            padding: 5px;
+            font-family: monospace;
+        }
+        .test-results {
+            margin-top: 20px;
+            padding: 15px;
+            background: #1a1a1a;
+            border-radius: 5px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .log-entry {
+            margin: 3px 0;
+            padding: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .log-entry.success { color: #4CAF50; }
+        .log-entry.error { color: #f44336; }
+        .log-entry.info { color: #2196F3; }
+        .log-entry.warning { color: #FF9800; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 WebRTC Speed Test</h1>
+        <p>Testing rapid call start/stop with 5032018470</p>
+        
+        <div id="status" class="status">Initializing...</div>
+        
+        <div>
+            <button id="initBtn" onclick="initializeDevice()">1. Initialize Device</button>
+            <button id="dialBtn" onclick="dialNumber()" disabled>2. Dial 5032018470</button>
+            <button id="stopBtn" onclick="stopCall()" disabled class="stop">Stop Call</button>
+            <button id="rapidTestBtn" onclick="rapidTest()" disabled>Rapid Test (5 calls)</button>
+        </div>
+        
+        <div class="timing">
+            <h3>⏱️ Timing Metrics</h3>
+            <div id="timingInfo">
+                <div class="timing-item">Device Ready: <span id="readyTime">-</span></div>
+                <div class="timing-item">Last Dial Start: <span id="dialStartTime">-</span></div>
+                <div class="timing-item">Last Connection Time: <span id="connectTime">-</span></div>
+                <div class="timing-item">Last Disconnect Time: <span id="disconnectTime">-</span></div>
+                <div class="timing-item">Time Between Calls: <span id="betweenCalls">-</span></div>
+            </div>
+        </div>
+        
+        <div class="test-results">
+            <h3>📋 Test Log</h3>
+            <div id="log"></div>
+        </div>
+    </div>
+
+    <script>
+        let device = null;
+        let connection = null;
+        let deviceReadyTime = null;
+        let lastDialStart = null;
+        let lastConnectTime = null;
+        let lastDisconnectTime = null;
+        let callCount = 0;
+
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('log');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logDiv.appendChild(entry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+
+        function updateStatus(text, className) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = text;
+            statusDiv.className = `status ${className}`;
+        }
+
+        async function initializeDevice() {
+            try {
+                log('🔧 Initializing WebRTC device...', 'info');
+                updateStatus('Getting token...', 'connecting');
+                
+                const startTime = Date.now();
+                
+                // Get token
+                const identity = `test-${Date.now()}`;
+                const res = await fetch(`/api/twilio/token?identity=${identity}`);
+                if (!res.ok) {
+                    throw new Error(`Token request failed: ${res.status}`);
+                }
+                const tokenData = await res.json();
+                const token = tokenData.token;
+                
+                log(`✅ Got token (${token.length} chars) in ${Date.now() - startTime}ms`, 'success');
+                
+                // Check if Twilio SDK is loaded
+                if (!window.Twilio || !window.Twilio.Device) {
+                    throw new Error('Twilio SDK not loaded!');
+                }
+                
+                // Create device
+                log('🚀 Creating Twilio Device...', 'info');
+                device = new window.Twilio.Device(token, { debug: true });
+                window.twilioDevice = device;
+                
+                // Set up event listeners
+                device.on('ready', () => {
+                    deviceReadyTime = Date.now();
+                    const readyDelay = deviceReadyTime - startTime;
+                    log(`✅ Device READY in ${readyDelay}ms`, 'success');
+                    updateStatus('Device Ready', 'ready');
+                    document.getElementById('readyTime').textContent = `${readyDelay}ms`;
+                    document.getElementById('dialBtn').disabled = false;
+                    document.getElementById('rapidTestBtn').disabled = false;
+                });
+                
+                device.on('error', (error) => {
+                    log(`❌ Device error: ${error.message}`, 'error');
+                    updateStatus(`Error: ${error.message}`, 'error');
+                });
+                
+                device.on('registering', () => {
+                    log('📡 Registering with Twilio...', 'info');
+                });
+                
+                device.on('registered', () => {
+                    log('✅ Registered with Twilio', 'success');
+                });
+                
+                device.on('unregistered', () => {
+                    log('⚠️ Unregistered from Twilio', 'warning');
+                });
+                
+                device.on('incoming', (conn) => {
+                    log('📞 Incoming call received', 'info');
+                });
+                
+                // Register device
+                log('📝 Registering device...', 'info');
+                device.register();
+                
+            } catch (error) {
+                log(`❌ Initialization failed: ${error.message}`, 'error');
+                updateStatus(`Error: ${error.message}`, 'error');
+            }
+        }
+
+        async function dialNumber() {
+            if (!device) {
+                log('❌ Device not initialized', 'error');
+                return;
+            }
+            
+            try {
+                const phoneNumber = '5032018470';
+                const dialStart = Date.now();
+                lastDialStart = dialStart;
+                
+                log(`📞 Dialing ${phoneNumber}...`, 'info');
+                updateStatus('Dialing...', 'connecting');
+                document.getElementById('dialStartTime').textContent = `${dialStart - (deviceReadyTime || 0)}ms after ready`;
+                
+                // Disconnect existing connection if any
+                if (connection) {
+                    log('🔌 Disconnecting existing connection...', 'info');
+                    const disconnectStart = Date.now();
+                    connection.disconnect();
+                    connection = null;
+                    window.twilioConnection = null;
+                    const disconnectTime = Date.now() - disconnectStart;
+                    log(`✅ Disconnected in ${disconnectTime}ms`, 'success');
+                }
+                
+                // Small delay to ensure cleanup (but minimal)
+                await new Promise(resolve => setTimeout(resolve, 100));
+                
+                // Make new connection
+                const connectStart = Date.now();
+                connection = await device.connect({
+                    params: {
+                        To: phoneNumber,
+                        leadName: 'Test Lead',
+                        leadState: 'OR'
+                    }
+                });
+                
+                window.twilioConnection = connection;
+                const connectDelay = Date.now() - connectStart;
+                log(`✅ Connection created in ${connectDelay}ms`, 'success');
+                
+                // Set up connection event listeners
+                connection.on('accept', () => {
+                    lastConnectTime = Date.now();
+                    const totalTime = lastConnectTime - dialStart;
+                    log(`✅ Call ACCEPTED - Total time: ${totalTime}ms`, 'success');
+                    updateStatus('Call Connected', 'connected');
+                    document.getElementById('connectTime').textContent = `${totalTime}ms`;
+                    document.getElementById('stopBtn').disabled = false;
+                });
+                
+                connection.on('disconnect', () => {
+                    lastDisconnectTime = Date.now();
+                    const timeSinceConnect = lastConnectTime ? lastDisconnectTime - lastConnectTime : 0;
+                    log(`📴 Call DISCONNECTED (duration: ${timeSinceConnect}ms)`, 'info');
+                    updateStatus('Call Ended', 'ready');
+                    document.getElementById('disconnectTime').textContent = `${timeSinceConnect}ms`;
+                    document.getElementById('stopBtn').disabled = true;
+                    connection = null;
+                    window.twilioConnection = null;
+                });
+                
+                connection.on('cancel', () => {
+                    log('🚫 Call cancelled', 'warning');
+                    updateStatus('Call Cancelled', 'ready');
+                });
+                
+                connection.on('error', (error) => {
+                    log(`❌ Connection error: ${error.message}`, 'error');
+                    updateStatus(`Error: ${error.message}`, 'error');
+                });
+                
+                callCount++;
+                log(`📊 Call #${callCount} initiated`, 'info');
+                
+            } catch (error) {
+                log(`❌ Dial failed: ${error.message}`, 'error');
+                updateStatus(`Error: ${error.message}`, 'error');
+            }
+        }
+
+        function stopCall() {
+            if (!connection) {
+                log('⚠️ No active connection to stop', 'warning');
+                return;
+            }
+            
+            try {
+                const stopStart = Date.now();
+                log('🛑 Stopping call...', 'info');
+                connection.disconnect();
+                const stopTime = Date.now() - stopStart;
+                log(`✅ Call stopped in ${stopTime}ms`, 'success');
+                connection = null;
+                window.twilioConnection = null;
+                document.getElementById('stopBtn').disabled = true;
+            } catch (error) {
+                log(`❌ Stop failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function rapidTest() {
+            if (!device) {
+                log('❌ Device not initialized', 'error');
+                return;
+            }
+            
+            log('🚀 Starting rapid test (5 calls)...', 'info');
+            document.getElementById('rapidTestBtn').disabled = true;
+            document.getElementById('dialBtn').disabled = true;
+            
+            const testStart = Date.now();
+            const times = [];
+            
+            for (let i = 1; i <= 5; i++) {
+                log(`\n--- Test Call #${i} ---`, 'info');
+                const callStart = Date.now();
+                
+                // Stop previous call if exists
+                if (connection) {
+                    connection.disconnect();
+                    connection = null;
+                    window.twilioConnection = null;
+                    await new Promise(resolve => setTimeout(resolve, 200));
+                }
+                
+                // Dial
+                try {
+                    connection = await device.connect({
+                        params: {
+                            To: '5032018470',
+                            leadName: `Test Lead ${i}`,
+                            leadState: 'OR'
+                        }
+                    });
+                    
+                    window.twilioConnection = connection;
+                    const dialTime = Date.now() - callStart;
+                    times.push(dialTime);
+                    
+                    log(`✅ Call #${i} initiated in ${dialTime}ms`, 'success');
+                    
+                    // Wait for accept or timeout
+                    await new Promise((resolve) => {
+                        const timeout = setTimeout(() => {
+                            log(`⏱️ Call #${i} timeout (5s)`, 'warning');
+                            resolve();
+                        }, 5000);
+                        
+                        connection.on('accept', () => {
+                            clearTimeout(timeout);
+                            log(`✅ Call #${i} accepted`, 'success');
+                            resolve();
+                        });
+                        
+                        connection.on('disconnect', () => {
+                            clearTimeout(timeout);
+                            resolve();
+                        });
+                    });
+                    
+                    // Disconnect
+                    if (connection) {
+                        connection.disconnect();
+                        connection = null;
+                        window.twilioConnection = null;
+                    }
+                    
+                    // Calculate time between calls
+                    if (i > 1) {
+                        const betweenCalls = callStart - (times[i - 2] ? Date.now() - times[i - 2] : 0);
+                        log(`⏱️ Time between call #${i-1} and #${i}: ${betweenCalls}ms`, 'info');
+                        if (i === 2) {
+                            document.getElementById('betweenCalls').textContent = `${betweenCalls}ms`;
+                        }
+                    }
+                    
+                    // Small delay between calls
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                    
+                } catch (error) {
+                    log(`❌ Call #${i} failed: ${error.message}`, 'error');
+                }
+            }
+            
+            const totalTime = Date.now() - testStart;
+            const avgTime = times.reduce((a, b) => a + b, 0) / times.length;
+            const maxTime = Math.max(...times);
+            const minTime = Math.min(...times);
+            
+            log(`\n📊 Rapid Test Complete!`, 'success');
+            log(`Total time: ${totalTime}ms`, 'info');
+            log(`Average dial time: ${avgTime.toFixed(0)}ms`, 'info');
+            log(`Fastest: ${minTime}ms`, 'success');
+            log(`Slowest: ${maxTime}ms`, maxTime > 2000 ? 'error' : 'warning');
+            
+            if (maxTime > 2000) {
+                log(`⚠️ WARNING: Slowest call took ${maxTime}ms (>2000ms threshold)`, 'error');
+            }
+            
+            document.getElementById('rapidTestBtn').disabled = false;
+            document.getElementById('dialBtn').disabled = false;
+        }
+
+        // Auto-initialize on load
+        window.addEventListener('load', () => {
+            log('🌐 Page loaded - ready to test', 'info');
+        });
+    </script>
+</body>
+</html>

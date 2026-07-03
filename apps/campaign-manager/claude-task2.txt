@@ -1,0 +1,64 @@
+Revamp the `AgentDetail` component in src/components/Funnel.tsx. This is the right-side panel that slides in when you click an agent row in the table. DO NOT touch the data table, the FunnelRow data, or any other components.
+
+## Current state
+AgentDetail is already a fixed-position drawer that slides in. Currently it has one long scroll area with 3 sections stacked vertically: Score, Calls, Coaching. We need to convert those sections into proper tabs.
+
+## Change 1: Convert the long scroll into 3 proper tabs
+
+Add a tab state: `const [activeTab, setActiveTab] = useState<'score' | 'calls' | 'coaching'>('score')`
+
+Add a tab bar below the header (before the scrollable content area):
+- 3 tabs: Score | Calls | Coaching
+- Tab bar style: display flex, borderBottom 1px solid var(--border), background var(--bg-raised), flexShrink 0
+- Each tab button: padding 8px 18px, fontSize 10, fontWeight 700, textTransform uppercase, letterSpacing 0.06em, border none, background transparent, cursor pointer
+- Active tab: color var(--primary-fg), borderBottom 2px solid var(--primary-fg)
+- Inactive tab: color var(--fg-dim), borderBottom 2px solid transparent
+
+Move the existing Score section content into the Score tab (it's already there, just wrap it in `{activeTab === 'score' && (...)}`)
+Move the existing Calls section into the Calls tab
+Move the existing Coaching section into the Coaching tab
+
+Each tab content area should be: `flex: 1, overflowY: 'auto', padding: '12px 14px'`
+The outer wrapper should be: `flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column'`
+
+## Change 2: Calls tab improvements
+
+In the Calls tab:
+- Add filter pills row at the very top (before the calls list): All | Converted | Not Converted | Flagged
+  - State: `const [callFilter, setCallFilter] = useState<'all'|'converted'|'not_converted'|'flagged'>('all')`
+  - Filter logic: 'converted' = call.converted===true, 'not_converted' = call.converted===false, 'flagged' = call.flags && call.flags.length > 0
+  - Pill style: small buttons, padding 3px 10px, borderRadius 10, fontSize 9, fontWeight 700
+  - Active pill: background var(--primary-soft), color var(--primary-fg), border 1px solid rgba(99,102,241,0.3)
+  - Inactive pill: background var(--bg-raised), color var(--fg-dim), border 1px solid var(--border)
+
+- Each call row: add a 3px left border colored by grade (use existing gradeColor or similar: A=#4ade80, B=#6366f1, C=#fbbf24, D=#f97316, F=#f87171)
+
+- Click a call row to expand it (track with expandedCall state - already exists as `expandedCall`):
+  - Collapsed: show date + duration + grade badge + converted icon only (compact, ~32px tall)
+  - Expanded: show the existing content PLUS add the ai_summary in a paragraph below (italic, fontSize 11, color var(--fg-dim), lineHeight 1.6), and if call.flags?.length > 0 show flags as small red pill chips
+
+- The scorecard button (📋 or similar) should only appear in the expanded state
+
+## Change 3: Coaching tab - pin add-note form to bottom
+
+Currently the add-note form is somewhere in the coaching section. Restructure the Coaching tab as:
+- Outer div: display flex, flexDirection column, height 100%, overflow hidden
+- Top area (notes list): flex 1, overflowY auto, paddingBottom 8px
+- Bottom area (add-note form): flexShrink 0, borderTop 1px solid var(--border), padding 10px 14px, background var(--bg-raised)
+- Pre-fill managerName from localStorage.getItem('aoi_manager_name')
+- On successful note submit: localStorage.setItem('aoi_manager_name', managerName)
+
+## Change 4: Score tab - coaching warning banner
+
+In the Score tab, if aoiScore exists and aoiScore.grade is 'D' or 'F', show a red warning banner at the TOP of the score tab (before the radar chart):
+- background: rgba(239,68,68,0.1), border: 1px solid rgba(239,68,68,0.3), borderRadius 6, padding 8px 12px
+- Text: '⚠️ Needs Coaching — schedule a 1:1 with this agent'
+- fontSize 11, color var(--red) or #f87171
+
+## Constraints:
+- All changes in src/components/Funnel.tsx only, no new files
+- Keep all existing types, data fetching, and helper functions unchanged
+- Use only existing CSS variables
+- The panel header stays exactly as-is
+- Do NOT touch anything outside the AgentDetail component
+- After changes, run: npx tsc --noEmit and fix any TypeScript errors

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video WebSocket Test</title>
+</head>
+<body>
+    <h1>Video WebSocket Connection Test</h1>
+    <div id="status">Connecting...</div>
+    <div id="messages"></div>
+    
+    <script>
+        const status = document.getElementById('status');
+        const messages = document.getElementById('messages');
+        
+        function log(message) {
+            console.log(message);
+            const div = document.createElement('div');
+            div.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+            messages.appendChild(div);
+        }
+        
+        // Test WebSocket connection
+        const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+        const wsUrl = `${protocol}//${window.location.host}/ws`;
+        
+        log(`Connecting to: ${wsUrl}`);
+        
+        const socket = new WebSocket(wsUrl);
+        
+        socket.onopen = () => {
+            status.textContent = 'Connected!';
+            log('WebSocket connected successfully');
+            
+            // Test join room message
+            const joinMessage = {
+                type: 'join-room',
+                roomId: 'test-room-' + Date.now(),
+                participantName: 'Test User',
+                participantType: 'test'
+            };
+            
+            log(`Sending join message: ${JSON.stringify(joinMessage)}`);
+            socket.send(JSON.stringify(joinMessage));
+        };
+        
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            log(`Received: ${JSON.stringify(data)}`);
+        };
+        
+        socket.onclose = (event) => {
+            status.textContent = 'Disconnected';
+            log(`WebSocket closed: Code ${event.code}, Reason: ${event.reason || 'none'}`);
+        };
+        
+        socket.onerror = (error) => {
+            status.textContent = 'Error';
+            log(`WebSocket error: ${JSON.stringify(error)}`);
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+﻿{"query":"query { deployment(id: \"3c49dc28-63dc-41a0-96fa-685a2971b3e9\") { id status createdAt staticUrl } }"}

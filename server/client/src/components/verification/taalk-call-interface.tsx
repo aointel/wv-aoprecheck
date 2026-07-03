@@ -1,0 +1,268 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Phone, CheckCircle, AlertCircle, Clock, PhoneCall } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+
+interface TaalkCallInterfaceProps {
+  session: any;
+  onCallComplete: () => void;
+}
+
+export function TaalkCallInterface({ session, onCallComplete }: TaalkCallInterfaceProps) {
+  const [callStatus, setCallStatus] = useState<'ready' | 'initiating' | 'calling' | 'connected' | 'completed' | 'failed'>('ready');
+  const [callId, setCallId] = useState<string>('');
+  const { toast } = useToast();
+
+  const clientName = `${session.firstName} ${session.lastName}`;
+  const clientPhone = session.phone;
+
+  const initiateCall = async () => {
+    try {
+      setCallStatus('initiating');
+      
+      const response = await fetch(`/api/verification/session/${session.sessionId}/start-live-call`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          agentPhone: "+15032018470" // TODO: Get from agent profile
+        })
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        setCallId(result.callId);
+        setCallStatus('calling');
+        
+        toast({ 
+          title: "Call initiated", 
+          description: `Taalk is calling verification line for ${clientName}` 
+        });
+
+        // Simulate call connection after delay
+        setTimeout(() => {
+          setCallStatus('connected');
+        }, 5000);
+      } else {
+        const error = await response.json();
+        setCallStatus('failed');
+        toast({ 
+          title: "Call failed", 
+          description: error.message || "Failed to initiate call",
+          variant: "destructive" 
+        });
+      }
+    } catch (error) {
+      console.error('Failed to initiate call:', error);
+      setCallStatus('failed');
+      toast({ 
+        title: "Error", 
+        description: "Failed to initiate Taalk call",
+        variant: "destructive" 
+      });
+    }
+  };
+
+  const completeVerification = async () => {
+    try {
+      setCallStatus('completed');
+      
+      // Notify system that verification is complete
+      const response = await fetch(`/api/verification/session/${session.sessionId}/complete-verification`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          verified: true,
+          callId,
+          completedAt: new Date().toISOString()
+        })
+      });
+
+      if (response.ok) {
+        toast({ 
+          title: "Verification complete", 
+          description: "Static number verification completed successfully" 
+        });
+        onCallComplete();
+      }
+    } catch (error) {
+      console.error('Failed to complete verification:', error);
+    }
+  };
+
+  const getStatusInfo = () => {
+    switch (callStatus) {
+      case 'ready':
+        return { color: 'secondary', text: 'Ready to Call', icon: Phone };
+      case 'initiating':
+        return { color: 'default', text: 'Initiating Call...', icon: Clock };
+      case 'calling':
+        return { color: 'default', text: 'Calling Verification Line...', icon: PhoneCall };
+      case 'connected':
+        return { color: 'default', text: 'Agent Connected', icon: CheckCircle };
+      case 'completed':
+        return { color: 'secondary', text: 'Call Completed', icon: CheckCircle };
+      case 'failed':
+        return { color: 'destructive', text: 'Call Failed', icon: AlertCircle };
+      default:
+        return { color: 'secondary', text: 'Unknown', icon: AlertCircle };
+    }
+  };
+
+  const statusInfo = getStatusInfo();
+  const StatusIcon = statusInfo.icon;
+
+  return (
+    <div className="space-y-6">
+      {/* Call Status */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <PhoneCall className="w-5 h-5" />
+            Taalk Static Number Verification
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <p className="font-semibold">{clientName}</p>
+              <p className="text-gray-600">{clientPhone}</p>
+              {callId && <p className="text-sm text-gray-500">Call ID: {callId}</p>}
+            </div>
+            <Badge variant={statusInfo.color as any}>
+              <StatusIcon className="w-4 h-4 mr-1" />
+              {statusInfo.text}
+            </Badge>
+          </div>
+
+          {/* Client Information */}
+          <div className="grid grid-cols-2 gap-4 p-4 border rounded-lg mb-4">
+            <div>
+              <h4 className="font-semibold mb-2">Client Details</h4>
+              <div className="space-y-1 text-sm">
+                <p><strong>Name:</strong> {clientName}</p>
+                <p><strong>Phone:</strong> {clientPhone}</p>
+                {session.spouseName && <p><strong>Spouse:</strong> {session.spouseName}</p>}
+                <p><strong>Location:</strong> {session.city}, {session.state}</p>
+                <p><strong>Premium:</strong> {session.premium}</p>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-2">Process Overview</h4>
+              <div className="space-y-1 text-sm text-gray-600">
+                <p>1. Taalk calls +15032018470 (fixed number)</p>
+                <p>2. Agent receives call with client info</p>
+                <p>3. Agent calls client for verification</p>
+                <p>4. Agent takes screenshot during call</p>
+                <p>5. Agent confirms completion in system</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Call Actions */}
+          {callStatus === 'ready' && (
+            <Button onClick={initiateCall} className="w-full" size="lg">
+              <PhoneCall className="w-4 h-4 mr-2" />
+              Call Taalk Verification Line (+15032018470)
+            </Button>
+          )}
+
+          {callStatus === 'initiating' && (
+            <div className="text-center py-8">
+              <Clock className="w-8 h-8 mx-auto mb-2 animate-spin" />
+              <p className="text-lg font-medium">Initiating call through Taalk...</p>
+              <p className="text-sm text-gray-600">Setting up verification line connection</p>
+            </div>
+          )}
+
+          {callStatus === 'calling' && (
+            <div className="text-center py-8 bg-blue-50 rounded-lg">
+              <PhoneCall className="w-8 h-8 mx-auto mb-2 text-blue-600 animate-pulse" />
+              <p className="text-lg font-medium text-blue-800">Taalk is calling +15032018470...</p>
+              <p className="text-sm text-blue-600">Agent will receive call for {clientName} verification</p>
+              <p className="text-xs text-blue-500 mt-2">Call ID: {callId}</p>
+            </div>
+          )}
+
+          {callStatus === 'connected' && (
+            <div className="text-center py-8 bg-green-50 rounded-lg">
+              <CheckCircle className="w-8 h-8 mx-auto mb-2 text-green-600" />
+              <p className="text-lg font-medium text-green-800">Agent Connected!</p>
+              <p className="text-sm text-green-600">Now call {clientName} at {clientPhone} for verification</p>
+              <div className="mt-4 p-3 bg-white border border-green-200 rounded text-left">
+                <p className="text-sm text-green-700">
+                  <strong>Next Steps:</strong><br/>
+                  • Call {clientName} at {clientPhone}<br/>
+                  • Verify all client information<br/>
+                  • Take screenshot showing both parties during call<br/>
+                  • Click "Complete Verification" when finished
+                </p>
+              </div>
+              <Button 
+                onClick={completeVerification}
+                className="mt-4 bg-green-600 hover:bg-green-700"
+              >
+                Complete Verification Call
+              </Button>
+            </div>
+          )}
+
+          {callStatus === 'completed' && (
+            <div className="text-center py-8 bg-green-50 rounded-lg">
+              <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-600" />
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Verification Complete!</h3>
+              <p className="text-green-600">Static number verification call completed successfully</p>
+            </div>
+          )}
+
+          {callStatus === 'failed' && (
+            <div className="text-center py-8 bg-red-50 rounded-lg">
+              <AlertCircle className="w-8 h-8 mx-auto mb-2 text-red-600" />
+              <p className="text-lg font-medium text-red-800">Call Failed</p>
+              <p className="text-sm text-red-600">Unable to connect to verification line</p>
+              <Button 
+                onClick={initiateCall} 
+                className="mt-4"
+                variant="outline"
+              >
+                Try Again
+              </Button>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Verification Information */}
+      {['calling', 'connected'].includes(callStatus) && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Verification Information</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center p-3 border rounded-lg">
+                <span className="font-medium">Name Verification</span>
+                <Badge variant="outline">"{clientName}"</Badge>
+              </div>
+              {session.spouseName && (
+                <div className="flex justify-between items-center p-3 border rounded-lg">
+                  <span className="font-medium">Spouse Verification</span>
+                  <Badge variant="outline">"{session.spouseName}"</Badge>
+                </div>
+              )}
+              <div className="flex justify-between items-center p-3 border rounded-lg">
+                <span className="font-medium">Location Verification</span>
+                <Badge variant="outline">"{session.city}, {session.state}"</Badge>
+              </div>
+              <div className="flex justify-between items-center p-3 border rounded-lg">
+                <span className="font-medium">Premium Verification</span>
+                <Badge variant="outline">"{session.premium}"</Badge>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+}

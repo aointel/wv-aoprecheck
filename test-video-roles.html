@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Role Test</title>
+</head>
+<body>
+    <h1>Video Role Detection Test</h1>
+    
+    <h2>Agent URL Test</h2>
+    <p>Should detect as AGENT (HOST):</p>
+    <a href="https://aointelligence.replit.app/video-meeting?room=test-room&agentName=Agent&leadName=TestClient" target="_blank">
+        Open Agent Window
+    </a>
+    
+    <h2>Client URL Test</h2>
+    <p>Should detect as CLIENT (PARTICIPANT):</p>
+    <a href="https://aointelligence.replit.app/video-meeting?room=test-room&agentName=TestClient&leadName=TestClient" target="_blank">
+        Open Client Window
+    </a>
+    
+    <h2>Instructions</h2>
+    <ol>
+        <li>Open both links in separate windows</li>
+        <li>Check browser console logs in each window</li>
+        <li>Look for "🎭 Role detected:" messages</li>
+        <li>Agent should say "Agent (HOST)"</li>
+        <li>Client should say "Client (PARTICIPANT)"</li>
+    </ol>
+</body>
+</html>

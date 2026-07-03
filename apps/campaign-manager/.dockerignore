@@ -1,0 +1,9 @@
+node_modules
+dist
+dist-server
+.git
+.local
+.env
+*.md
+reports
+.DS_Store

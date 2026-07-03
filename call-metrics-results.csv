@@ -1,0 +1,101 @@
+Category,Metric,Value
+Vet AI Calls,Connected,337
+Vet AI Calls,Received,569
+Vet AI Calls,Transferred,471
+Vet AI Calls,% Transferred,82.8%
+Vet AI Calls,Agent Answered,418
+Vet AI Calls,% Answered,88.7%
+Vet AI Calls,Ring Duration,25.6s
+Vet AI Calls,Billed,293
+Vet AI Calls,% Billed,70.1%
+Vet AI Calls,Missed w/ Agent,42
+Vet AI Calls,% Missed Agent,7.4%
+Vet AI Calls,Missed NO AGENT,189
+Vet AI Calls,%Missed NO AGENT,33.2%
+Vet AI Calls,Total Missed,231
+Vet AI Calls,% Total Missed,40.6%
+Globe AI Calls,Connected,38
+Globe AI Calls,Received,59
+Globe AI Calls,Transferred,49
+Globe AI Calls,% Transferred,83.1%
+Globe AI Calls,Agent Answered,45
+Globe AI Calls,% Answered,91.8%
+Globe AI Calls,Ring Duration,23.6s
+Globe AI Calls,Billed,30
+Globe AI Calls,% Billed,66.7%
+Globe AI Calls,Missed w/ Agent,3
+Globe AI Calls,% Missed Agent,5.1%
+Globe AI Calls,Missed NO AGENT,18
+Globe AI Calls,%Missed NO AGENT,30.5%
+Globe AI Calls,Total Missed,21
+Globe AI Calls,% Total Missed,35.6%
+Globe Inbound,Received,259
+Globe Inbound,Transferred,166
+Globe Inbound,% Transferred,64.1%
+Globe Inbound,Agent Answered,127
+Globe Inbound,% Answered,76.5%
+Globe Inbound,Ring Duration,15.5s
+Globe Inbound,Billed,70
+Globe Inbound,% Billed,55.1%
+Globe Inbound,Missed w/ Agent,38
+Globe Inbound,% Missed Agent,14.7%
+Globe Inbound,Missed NO AGENT,115
+Globe Inbound,%Missed NO AGENT,44.4%
+Globe Inbound,Total Missed,153
+Globe Inbound,% Total Missed,59.1%
+Vet Callbacks,Received,0
+Vet Callbacks,Transferred,0
+Vet Callbacks,% Transferred,0%
+Vet Callbacks,Agent Answered,0
+Vet Callbacks,% Answered,0%
+Vet Callbacks,Ring Duration,N/A
+Vet Callbacks,Billed,0
+Vet Callbacks,% Billed,0%
+Vet Callbacks,Missed,0
+Vet Callbacks,% Missed,0%
+Globe Callbacks,Received,0
+Globe Callbacks,Transferred,0
+Globe Callbacks,% Transferred,0%
+Globe Callbacks,Agent Answered,0
+Globe Callbacks,% Answered,0%
+Globe Callbacks,Ring Duration,N/A
+Globe Callbacks,Billed,0
+Globe Callbacks,% Billed,0%
+Globe Callbacks,Missed w/ Agent,0
+Globe Callbacks,% Missed Agent,0%
+Globe Callbacks,Missed NO AGENT,0
+Globe Callbacks,%Missed NO AGENT,0%
+Globe Callbacks,Total Missed,0
+Globe Callbacks,% Total Missed,0%
+Missed Call Metrics,Missed Calls,537
+Missed Call Metrics,Total Charged,0
+Recruiting,Connected,32
+Recruiting,Received,72
+Recruiting,Transferred,53
+Recruiting,% Transferred,73.6%
+Recruiting,Agent Answered,32
+Recruiting,% Answered,60.4%
+Recruiting,Ring Duration,28.4s
+Recruiting,Billed,31
+Recruiting,% Billed,96.9%
+Recruiting,Missed w/ Agent,17
+Recruiting,% Missed Agent,23.6%
+Recruiting,Missed NO AGENT,22
+Recruiting,%Missed NO AGENT,30.6%
+Recruiting,Total Missed,39
+Recruiting,% Total Missed,54.2%
+Will Kit,Connected,1
+Will Kit,Received,30
+Will Kit,Transferred,3
+Will Kit,% Transferred,10.0%
+Will Kit,Agent Answered,2
+Will Kit,% Answered,66.7%
+Will Kit,Ring Duration,37.9s
+Will Kit,Billed,0
+Will Kit,% Billed,0.0%
+Will Kit,Missed w/ Agent,1
+Will Kit,% Missed Agent,3.3%
+Will Kit,Missed NO AGENT,27
+Will Kit,%Missed NO AGENT,90.0%
+Will Kit,Total Missed,28
+Will Kit,% Total Missed,93.3%

@@ -1,0 +1,15 @@
+[phases.setup]
+nixPkgs = ["nodejs-20_x", "git", "git-lfs"]
+
+[phases.install]
+cmds = ["npm ci", "npx playwright install --with-deps chromium", "git lfs install", "git lfs pull"]
+
+[phases.build]
+# Cache Vite/Rollup output so repeat builds are faster
+# Cache bust: 2026-04-12
+cacheDirectories = ["node_modules/.cache", "client/node_modules/.vite"]
+cmds = ["npm run build:staging"]
+
+[start]
+cmd = "npx cross-env SECTION=precheck node dist/index.js"
+

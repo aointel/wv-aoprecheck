@@ -1,0 +1,13 @@
+{
+    "timestamp":  "2026-04-13T12:05:06.9163487-07:00",
+    "sourceCsv":  "c:\\dev\\AOIrail\\client\\src\\components\\audio\\Globe Market and Pavet Leads Received Detail 4.13.26.csv",
+    "totalRows":  28072,
+    "selectedRows":  21094,
+    "skippedRows":  26,
+    "totalRequests":  191,
+    "successRows":  21094,
+    "errorRows":  0,
+    "pavetRows":  3349,
+    "vn125Rows":  17745,
+    "outputCsv":  "c:\\dev\\AOIrail\\server\\scripts\\output\\full-pavet-vn125-upload-2026-04-13T12-03-08.csv"
+}

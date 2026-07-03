@@ -1,0 +1,566 @@
+AssociateID,Name,OnlineStatus,agentStatus
+,13447 - Michael Mandella: AO,undefined,undefined
+,Michael Mandella,undefined,undefined
+,175738 - Logan Hand: Michael,undefined,undefined
+,{72017} - Christopher Rolph: [2],undefined,undefined
+,{67222} - Kingsley Ibeh: [2],undefined,undefined
+,{172205} - Samuel Smith: [2:3:4],undefined,undefined
+,{179209} - Richard Staudenmaier: [2],undefined,undefined
+,{125907} - Samuel Franchini: [2],undefined,undefined
+,188198 - Ryan Tierney: Michael,undefined,undefined
+,{127981} - Anthony Michael: [2],undefined,undefined
+,75183 - Keith Gindlesperger [2],undefined,undefined
+,{176832} - Julian Niewiadomski: [2],undefined,undefined
+,{179877} - Jack Pentek {2},undefined,undefined
+,{167872} - Marina Mora: [2],undefined,undefined
+,155903 - Alexandria Schaller: Sedeghat,undefined,undefined
+,{163607} - Duane Shaw: [2],undefined,undefined
+,188185 - Trevor Fey: Michael,undefined,undefined
+,98565 - Asata Walker [2],undefined,undefined
+,160903 - Rebecca Bryson: Ibeh,undefined,undefined
+,119600 - Nayely Alvarez [2],undefined,undefined
+,160188 - Stephanie Cahall: Marco,undefined,undefined
+,80028 - Krystal Pearlman: Ibeh,undefined,undefined
+,{188007} - Robert Holloway: [2],undefined,undefined
+,184319 - Stu Burdette: Michaels,undefined,undefined
+,146322 - Kylelasha Draper: Ibeh,undefined,undefined
+,{122254} - Erich Jackson: [1],undefined,undefined
+,173730 - Mary Greger: Ibeh,undefined,undefined
+,{409} - Chris La Fond: [1],undefined,undefined
+,Naleah Lambert,undefined,undefined
+,{63603} - Dianka Blash,undefined,undefined
+,{58363} - Russ Erhardt: [1],undefined,undefined
+,78434 - Rochelle Magpantay: La Fond,undefined,undefined
+,130661 - Candace Fimbres: La Fond,undefined,undefined
+,160969 - Christian Rudder: La Fond,undefined,undefined
+,173975 - Jaclyn Vieras: La Fond,undefined,undefined
+,181366 - William La Fond: La Fond,undefined,undefined
+,38431 - Tabitha Mcdermid: La Fond,undefined,undefined
+,Rhonda Ramirez,undefined,undefined
+,173456 - Nani Withrow: La Fond,undefined,undefined
+,92924 - Judith Hernandez: La Fond,undefined,undefined
+,159521 - Richard La Fond: La Fond,undefined,undefined
+,148199 - Zachary Jones: La Fond,undefined,undefined
+,130491 - Majella Villacorta: La Fond,undefined,undefined
+,103416 - Michelle Ferris: La Fond,undefined,undefined
+,146090 - Doris Magouirk: La Fond,undefined,undefined
+,59692 - Brenna Bailey: Ibeh,undefined,undefined
+,160196 - Trinity Salcedo: Marco,undefined,undefined
+,Luis Rodriguez Globe: Michaels,undefined,undefined
+,190766 - Ailin Dedios: Michaels,undefined,undefined
+,99596 - Royale Wilson: Ibeh,undefined,undefined
+,146090 - Doris Magouirk: La Fond,undefined,undefined
+,155190 - Jovan Mitchell: La Fond,undefined,undefined
+,{130786} - Martin Toma: [2:3],undefined,undefined
+,{116069} - Dani Jankowski: [3:4],undefined,undefined
+,{67401} - Jessica Chang: [2:4],undefined,undefined
+,124235 - David Fulfer: Gojcaj,undefined,undefined
+,{134400} - Faye Saad: [1:3:5],undefined,undefined
+,{117239} - Leyna Tran: [1:3:4:5],undefined,undefined
+,{126829} - Melissa Elam: [1:3:5],undefined,undefined
+,{131279} - Matthew Bostic: [1],undefined,undefined
+,{103005} - William Benline: [1],undefined,undefined
+,146095 - Baylee Giauque [2],undefined,undefined
+,{162574} - Aja Long: [3],undefined,undefined
+,{177616} - Brittany Fish: [3],undefined,undefined
+,{144880} - Shayanna Bleile: [1:3:4],undefined,undefined
+,187159 - Fantasia Moore: Tran,undefined,undefined
+,{178392} - Taylre Rivas: [3:4],undefined,undefined
+,{103128} - Brooklyn Brooks: [3:4],undefined,undefined
+,{171271} - Tiffany Givens: [1:4],undefined,undefined
+,178173 - Jovan Deshong: Scordos,undefined,undefined
+,{183561} - Mishia Morrison: [1:3:4],undefined,undefined
+,{177943} - Alisha Kish: [1:3:4],undefined,undefined
+,{183858} - Monica Montgomery: [1:3:4],undefined,undefined
+,{174877} - Stephanie Dunbar: [1:3:4],undefined,undefined
+,138644 - Makiya Barber [1:3:4],undefined,undefined
+,164169 - Becky Babatunde: Fields,undefined,undefined
+,{188614} - Ermanie Dulamar: [4],undefined,undefined
+,184431 - Madison Beavin: McCarty,undefined,undefined
+,{155251} - Ankita Das: [3:4],undefined,undefined
+,57056 - Sherrie McCarty [4],undefined,undefined
+,136868 - Emelyn Westerfield: McCarty,undefined,undefined
+,{79452} - Courtney Somsan: [3:4],undefined,undefined
+,157162 - Carmela Stiger: McCarty,undefined,undefined
+,{153450} - Pagaka Tysal: [1:3:4:5],undefined,undefined
+,{180935} - Laura Miranda: [1:3:4],undefined,undefined
+,{162649} - Julia Washington: [1:4],undefined,undefined
+,122345 - Heidi McMullin [1:3:4:5],undefined,undefined
+,{183457} - Carina Amaya: [1:3:4],undefined,undefined
+,162664 - Akeba Lawrence [1:4],undefined,undefined
+,40639 - Dylan White: La Fond,undefined,undefined
+,163500 - Ryan Lacayo: Maska,undefined,undefined
+,{176737} - Nicholas Opacian: [2],undefined,undefined
+,176778 - Brandon Gamagami: Dlabik,undefined,undefined
+,Madelyn Sanders,undefined,undefined
+,177342 - Teffoni Phillips: Kahwaji,undefined,undefined
+,182617 - Claudia Pineda: Scordos,undefined,undefined
+,59651 - Linda Marquez: Hermann,undefined,undefined
+,17315 - Carlos Flores: Maska,undefined,undefined
+,176725 - Adrian Bukowski: Dlabik,undefined,undefined
+,176773 - Stephanie Rosales: Frahm,undefined,undefined
+,176785 - Brendan Marsh: Maska,undefined,undefined
+,166629 - Dawn Martin: Ibeh,undefined,undefined
+,{176790} - Evan Ingram: [2],undefined,undefined
+,181152 - Zachery Houck: Ibeh,undefined,undefined
+,{176848} - Marek Biedrzycki: [2],undefined,undefined
+,176849 - Lane Ackerman: Frahm,undefined,undefined
+,{178788} - Oswaldo Gonzalez-Macias: [2],undefined,undefined
+,180074 - Deven Barnes: Maska,undefined,undefined
+,180210 - Matthew Schnur: Maska,undefined,undefined
+,{180303} - Khush Tailor {23},undefined,undefined
+,{180876} - David Dudek: [2],undefined,undefined
+,{176758} - Ryan Bucher: [2],undefined,undefined
+,131059 - James Davis: La Fond,undefined,undefined
+,159040 - Lisa Guerra: La Fond,undefined,undefined
+,162529 - Shawntel Taylor: La Fond,undefined,undefined
+,176783 - Tyler Otoole: Dlabik,undefined,undefined
+,{5904} - Tina Janti: [1],undefined,undefined
+,{409} - E Delzett: [1],undefined,undefined
+,{143946} - Wade Wolfe: [2],undefined,undefined
+,67647 - Kathryn Grant: La Fond,undefined,undefined
+,{65269} - Roger Fredericks: [1],undefined,undefined
+,161259 - Roshanak Razmpour: La Fond,undefined,undefined
+,{160711} - Javier Sandoval: [1:3],undefined,undefined
+,103010 - Michael Conner: Dushaj,undefined,undefined
+,176728 - Alec Rounsaville [2],undefined,undefined
+,180658 - Conner Progar [2:3],undefined,undefined
+,160984 - Danae De Guelle: La Fond,undefined,undefined
+,173293 - Udita Voznyak: La Fond,undefined,undefined
+,191629 - Kevin Willbur: La Fond,undefined,undefined
+,124422 - Verna Willbur: La Fond,undefined,undefined
+,53992 - Michael Hepner: La Fond,undefined,undefined
+,180883 - Russell Springer: La Fond,undefined,undefined
+,99787 - Margaret Rudy: La Fond,undefined,undefined
+,21256 - Patricia Santamarina: La Fond,undefined,undefined
+,{176824} - John Zalesky: [2],undefined,undefined
+,{180529} - Alexander Zaharopoulos [2],undefined,undefined
+,{188247} - Jack Twilla: [2:3],undefined,undefined
+,{98811} - Rea Alwan: [2:3],undefined,undefined
+,129135 - Jasmina Pataca [1:5],undefined,undefined
+,{183839} - Isaiah Calvin {15},undefined,undefined
+,37231 - Denny Snyder: Neilson,undefined,undefined
+,187726 - Brandon Chen: Maska,undefined,undefined
+,168294 - Misty Hale: Ibeh,undefined,undefined
+,176813 - Jacob Mucha: Dlabik,undefined,undefined
+,176822 - John Rings: Maska,undefined,undefined
+,180245 - Marcos Castellanos: Maska,undefined,undefined
+,180464 - Merritt Wadeson: Maska,undefined,undefined
+,180528 - Brian Hayes: Maska,undefined,undefined
+,185441 - Sara Francisco: La Fond,undefined,undefined
+,161290 - Valeriy Tsinovkin: La Fond,undefined,undefined
+,{167201} - Grace Iser: [2],undefined,undefined
+,Richie Altig,undefined,undefined
+,82585 - Carlos Sanchez: Meeks,undefined,undefined
+,180654 - Andrew Stephan: Maska,undefined,undefined
+,87025 - Samuel Benton: Mckiernan,undefined,undefined
+,{183966} - Joshua Krystosek: [2],undefined,undefined
+,{168921} - Brian Lopez: [1],undefined,undefined
+,{148993} - Tamika Johnson: [1:3:4:5],undefined,undefined
+,{187902} - Hector Cruz: [2],undefined,undefined
+,176739 - Nickolas Franklin [1:4:5],undefined,undefined
+,{189580} - Malikih Gillum: [2],undefined,undefined
+,{177800} - Neloofar Naderi: [4],undefined,undefined
+,145723 - Olivia Delanoy: Dushaj,undefined,undefined
+,12610 - Josh Hoover: Frazier,undefined,undefined
+,Jessica Schmuttermair,undefined,undefined
+,174785 - Trevor Morgan: Chang,undefined,undefined
+,188675 - Angel Lucero: Maska,undefined,undefined
+,{35466} - Steven Warner: [1],undefined,undefined
+,{128786} - Tom Shamon: [1],undefined,undefined
+,{128806} - John Haisha: [2:3],undefined,undefined
+,{155126} - Ted Abro: [1],undefined,undefined
+,{155783} - Austan Shephard: [1],undefined,undefined
+,{151956} - Divon Yono: [1],undefined,undefined
+,103000 - Nikolla Lulgjuraj: Dushaj,undefined,undefined
+,186212 - Michael Friend [2],undefined,undefined
+,{172131} - Darla Turner: [1:4],undefined,undefined
+,107127 - Meghan Hendrickson: Jantzen,undefined,undefined
+,189013 - Benjamin Nolte: Prieto,undefined,undefined
+,{169846} - Roscoe Parr: [1],undefined,undefined
+,{185781} - Jeremy Born: [1],undefined,undefined
+,163886 - America Gallegos: Tran,undefined,undefined
+,168318 - Rebecca Mattaliano: Dugan,undefined,undefined
+,150442 - Stephanie Seales [1],undefined,undefined
+,160420 - David Wade: Collins,undefined,undefined
+,182143 - Rebecca Coates: Tomanovich,undefined,undefined
+,184582 - Sarai Jones: Tran,undefined,undefined
+,{181883} - Daniel Thommen: [1],undefined,undefined
+,185078 - Rom Itskovich: Tomanovich,undefined,undefined
+,139657 - Raul Fossa: Bragas,undefined,undefined
+,188360 - Daniel Mooloo [1],undefined,undefined
+,187284 - Nayome Mooloo [1],undefined,undefined
+,119139 - Nicole Hinz: Lagios,undefined,undefined
+,{172746} - Collin Dickinson: [1],undefined,undefined
+,Mitchell Boehs,undefined,undefined
+,186946 - Trace Muse: Chang,undefined,undefined
+,139252 - Dania Dominguez: Tomonovich,undefined,undefined
+,187178 - Jacob ElHarrar: Tomanovich,undefined,undefined
+,Adrienne Bragas,undefined,undefined
+,186922 - Jordan Marshal: Tomonovich,undefined,undefined
+,kimberly loving: Tomonovich,undefined,undefined
+,174774 - Eric Green: Bragas,undefined,undefined
+,183624 - Bucky Sherrod: Contreras,undefined,undefined
+,183895 - Vanessa Donchev [1],undefined,undefined
+,192113 - Madison Darnell: Tomanovich,undefined,undefined
+,{118232} - Jacqueline Prieto: [1],undefined,undefined
+,{139162} - Mallory Sitto: [1:3],undefined,undefined
+,188564 - Madison Cummings: Dugan,undefined,undefined
+,183841 - Christian Cruz: Maska,undefined,undefined
+,{131540} - Marla Ballerini: [1:3:4],undefined,undefined
+,{187279} - Anthony Barletta: [1],undefined,undefined
+,{24330} - Jennifer Jantzen: [1:5],undefined,undefined
+,135694 - Helena Moreno: Dugan,undefined,undefined
+,131470 - Nicole Sanders [1:4],undefined,undefined
+,123243 - Dana Bell: Prieto,undefined,undefined
+,174340 - Kyle Wade: Chang,undefined,undefined
+,{106210} - Katelyn Ucar: [2],undefined,undefined
+,{168199} - Karami Kovar: [1:3],undefined,undefined
+,96212 - Sean Terry [1:5],undefined,undefined
+,58955 - Isaiah Banks: Warner,undefined,undefined
+,77299 - Stacie Freye: Warner,undefined,undefined
+,120876 - Rebecca Dwight: Warner,undefined,undefined
+,168435 - Micah Ortega: Seales,undefined,undefined
+,{134549} - Victoria Martinez: [1],undefined,undefined
+,137871 - Jennifer Schmid: Collins,undefined,undefined
+,137809 - Isaac Ortiz: Bragas,undefined,undefined
+,{65269} - Kristen Trammer: [1:3],undefined,undefined
+,{65269} - Jen Lopez: [1:3],undefined,undefined
+,{163585} - Kimberly Wheeler: [1],undefined,undefined
+,137862 - Mia Ricks [1],undefined,undefined
+,141718 - Hasan Nasser: Aljahmi,undefined,undefined
+,{160490} - Mehdi Elkhatib: [1],undefined,undefined
+,32358 - Levi Porto: La Fond,undefined,undefined
+,Janelle Fischer: Dushaj,undefined,undefined
+,{174701} - Anthony Lulgjuraj: [1],undefined,undefined
+,155419 - Kenneth Cathey: Dushaj,undefined,undefined
+,146950 - Retta Blackmore: Gojcaj,undefined,undefined
+,{106210} - Jordan Royce: [2:3],undefined,undefined
+,169484 - John Larson: Aljahmi,undefined,undefined
+,169586 - Aaron Burrell: Gojcaj,undefined,undefined
+,187868 - Denzel Owusu: Tran,undefined,undefined
+,186146 - Jocelyn Pletcher: Contreras,undefined,undefined
+,190277 - Jana Salyers: Prieto,undefined,undefined
+,{188306} - Carlos Vasquez: [2:3],undefined,undefined
+,Byron Banken,undefined,undefined
+,156974 - Kindy Ague: La Fond,undefined,undefined
+,Madison Siercke,undefined,undefined
+,107784 - Kyle Carpenter: Getz,undefined,undefined
+,Tasha Bratton,undefined,undefined
+,Leslie Griffin,undefined,undefined
+,Jillian Hildebrand,undefined,undefined
+,130081 - Serage Jamil: Alwatan,undefined,undefined
+,{107588} - Lance Manago: [2],undefined,undefined
+,169691 - Kimberly Clancy [1],undefined,undefined
+,176818 - Dylan Jackson: Maska,undefined,undefined
+,181787 - Shafay Sutton: Gojcaj,undefined,undefined
+,{103725} - Michael Ivanovic: [1:3],undefined,undefined
+,{170338} - Mandi Taylor: [1],undefined,undefined
+,172201 - Waleed Othman: Gojcaj,undefined,undefined
+,172831 - Aleskandar Murshed: Aljahmi,undefined,undefined
+,{94718} - Barbara King: [1:3:5],undefined,undefined
+,{190472} - Robert Hansen: [2:3],undefined,undefined
+,128450 - Paige Harms: Shmelzer,undefined,undefined
+,{168549} - Daniel Cohen: [1:3:5],undefined,undefined
+,5194 - Peer Shmelzer: Olin,undefined,undefined
+,{93051} - Kacey Morgan: [2:3:4],undefined,undefined
+,19078 - Igor Melcharek [1:3],undefined,undefined
+,{183470} - RaDonna Steele: [1],undefined,undefined
+,170670 - John Myers [1:3],undefined,undefined
+,15062 - Roberta Frazier: AO,undefined,undefined
+,174801 - Jennifer Gallego: Tran,undefined,undefined
+,{179921} - Michael Lapuz: [1:5],undefined,undefined
+,130157 - Garrett Amora: Kahwaji,undefined,undefined
+,{141059} - Aaron Muczynski: [1:5],undefined,undefined
+,{107037} - Justin Neal: [1],undefined,undefined
+,146303 - Clara RussellMartinez: Hanna,undefined,undefined
+,143897 - Dedan Gatewood: Hanna,undefined,undefined
+,148705 - Idalas Perez: Hanna,undefined,undefined
+,130622 - Jeremy Bruce [1],undefined,undefined
+,{169438} - Jesse Caver: [1],undefined,undefined
+,146100 - Jonathan Quintal: Hanna,undefined,undefined
+,152617 - Lance Slaughterbey: Hanna,undefined,undefined
+,182396 - Lisa Terry: Getz,undefined,undefined
+,169695 - Jonni Isaac: Irahetabarrientos,undefined,undefined
+,162270 - Omar Abed: Musai,undefined,undefined
+,159140 - Snoor Qaradaghi: Gojcaj,undefined,undefined
+,190213 - Ashlee Shelton: Gojcaj,undefined,undefined
+,Jeremy Coombs,undefined,undefined
+,72047 - Jonathan Ojendi: Olin,undefined,undefined
+,83088 - Chayson Williams: Olin,undefined,undefined
+,78814 - Rodney Williams: Ollin,undefined,undefined
+,28153 - Constance Tuitelelpaga: Globe,undefined,undefined
+,43974 - John Lamere: Olin,undefined,undefined
+,Michele Mathiesen,undefined,undefined
+,30504 - Lorena Herndon:  Olin,undefined,undefined
+,5121 - Hunter Houvener: Olin,undefined,undefined
+,185432 - Sara Sinnardd: Harjo,undefined,undefined
+,113589 - Saul Carcamo: Kahwaji,undefined,undefined
+,139828 - Jaxon Bellar: Kahwaji,undefined,undefined
+,147025 - Nicholas Keeley: Kahwaji,undefined,undefined
+,Megan Miller,undefined,undefined
+,176131 - Tanya Caverl: Hermann,undefined,undefined
+,{162269} - Amir Abed: [1],undefined,undefined
+,{185098} - Lisa Swart: [1:5],undefined,undefined
+,134570 - Makayla Carpenter: Musai,undefined,undefined
+,{102928} - Kevin Musai: [2],undefined,undefined
+,138782 - Justin Dunbar: Iftiu,undefined,undefined
+,188190 - Yoshio Leyba: Severson,undefined,undefined
+,97995 - Emily Rogers [1:3],undefined,undefined
+,{180772} - Susan Abruzzese: [1],undefined,undefined
+,113071 - Nadir Gjinatori: Iftiu,undefined,undefined
+,162000 - Tierra Jones: Iftiu,undefined,undefined
+,142232 - Tara Russell: Iftiu,undefined,undefined
+,{108938} - Ashley Rust: [1:3:4:5],undefined,undefined
+,108004 - Panaris Bregu [2],undefined,undefined
+,{128036} - Torian Fields: [1:3:4:5],undefined,undefined
+,{110970} - Ryan Cummings: [1:5],undefined,undefined
+,168572 - Lennard Burke [1],undefined,undefined
+,129865 - Dontae Reeves [1],undefined,undefined
+,177316 - Jamee Lamers: Stewart,undefined,undefined
+,{137474} - Sarah Desimone: [1:5],undefined,undefined
+,172253 - Lauren Minenok: Stewart,undefined,undefined
+,{134758} - Deandre Barber: [1],undefined,undefined
+,{131252} - Devin Gould: [1],undefined,undefined
+,{131250} - Martin Austin: [1:3:5],undefined,undefined
+,163750 - Marilyn Phan: Stewart,undefined,undefined
+,144807 - Enmanuel Grullon: Stewart,undefined,undefined
+,104982 - Melissa Grieb: Stewart,undefined,undefined
+,178265 - Robert Stanley [1:3],undefined,undefined
+,{129539} - Aubrie Koll: [1],undefined,undefined
+,{171064} - Shawna Scott: [1:3],undefined,undefined
+,185976 - Chayse Hilman: Rust,undefined,undefined
+,142627 - Bryson Brewer: Fields,undefined,undefined
+,125575 - Donald Cho: Martinaj,undefined,undefined
+,164466 - Lauren Melville: Martinaj,undefined,undefined
+,191782 - Jazmin Afuang: Alwan,undefined,undefined
+,110294 - Endri Shkambi: Martinaj,undefined,undefined
+,172318 - Diana Lang [1:3:5],undefined,undefined
+,{176526} - Deborah Scott: [1:3:5],undefined,undefined
+,153404 - Jessica Haydel: Martinaj,undefined,undefined
+,181260 - Aaron Axelrod [1:3:5],undefined,undefined
+,Michael Kampfer,undefined,undefined
+,Brooke Edstrom: Iftiu,undefined,undefined
+,Jeffrey Kline,undefined,undefined
+,Kathleen Lott: Iftiu,undefined,undefined
+,Brooke Beaver: Iftiu,undefined,undefined
+,Chris Vaughn: Iftiu,undefined,undefined
+,Fation Vrushi,undefined,undefined
+,Cole Bramhall: Iftiu,undefined,undefined
+,April Henry,undefined,undefined
+,Joseph Lance: Iftiu,undefined,undefined
+,140244 - Henny Omarmoscoso: Hanna,undefined,undefined
+,172476 - Shawn Sipes [1:3],undefined,undefined
+,180699 - Lauren McCully: Chesney,undefined,undefined
+,{178411} - Tanya Perez: [1],undefined,undefined
+,{185845} - Auday Putrus: [1:3],undefined,undefined
+,{137611} - Miya Mosley: [2:3],undefined,undefined
+,189435 - Colleen Flanagan [1:5],undefined,undefined
+,176766 - Sawyer Davis: Frahm,undefined,undefined
+,176767 - Semaj Henderson [2],undefined,undefined
+,150564 - Brady Kuhl: Martinaj,undefined,undefined
+,{118515} - Kasey Garcia: [1:3:5],undefined,undefined
+,145086 - Pedro Albuquerque: Hanna,undefined,undefined
+,131396 - Syed Quadri: Hajro,undefined,undefined
+,176854 - Mahmoud Sammour [2],undefined,undefined
+,180189 - Jerry Hsu: Sedaghat,undefined,undefined
+,72721 - Shahriar Mohammadi: Sedaghat,undefined,undefined
+,{91160} - Jillian Getz: [1:5],undefined,undefined
+,{115773} - Maria VelasquezFarley: [1:5],undefined,undefined
+,{167207} - Keith Larson: [1:5],undefined,undefined
+,121461 - Mary Malek: Getz,undefined,undefined
+,96099 - Brenna Behan [1:5],undefined,undefined
+,{153803} - Kimberley Moore: [1],undefined,undefined
+,{107966} - Morgan Boneberg: [1:4:5],undefined,undefined
+,184454 - LaShayla Thompson,undefined,undefined
+,{79454} - Dylan Grace: [5],undefined,undefined
+,{100426} - Tyrus Whitehead: [1],undefined,undefined
+,91879 - Andrea Mulder: Hajro,undefined,undefined
+,{151332} - Joy Vann-Austin: [1],undefined,undefined
+,140502 - Shayla Williamson [1:3:5],undefined,undefined
+,{180306} - Keith Flood: [1:3:5],undefined,undefined
+,{185187} - Laurie Schwartz: [5],undefined,undefined
+,176724 - Matthew Connors: Maska,undefined,undefined
+,145342 - SoonJen Pak: Bragas,undefined,undefined
+,{17834} - Tyler Mcknight: [3],undefined,undefined
+,Prisilla Minor,undefined,undefined
+,Pedro albuquerque: Iftiu,undefined,undefined
+,Lance Slaughgterbey,undefined,undefined
+,maria ackerfield,undefined,undefined
+,Britany Streeb,undefined,undefined
+,Jessica Stacey,undefined,undefined
+,176262 - Gary Nickleson: Sedaghat,undefined,undefined
+,177300 Terry Chung: Sedaghat,undefined,undefined
+,179676 - Marlene Petrell: Sedaghat,undefined,undefined
+,151698 - Anna Trujillo: Sedaghat,undefined,undefined
+,664 - Amir Sedaghat: Gurjal,undefined,undefined
+,Chris Braun: Getz,undefined,undefined
+,Jorge Delrio: Getz,undefined,undefined
+,Marie Lane: Getz,undefined,undefined
+,Shane Havel: Getz,undefined,undefined
+,Ruth Molloy,undefined,undefined
+,142536 - Bionande Barthelemy: Iftiu,undefined,undefined
+,146504 - Anisah Mohamed: Musai,undefined,undefined
+,{175447} - Kourtney Seals: [1],undefined,undefined
+,131251 - Keonte Riggs: Fields,undefined,undefined
+,{153147} - Laurey Nidever: [1],undefined,undefined
+,{164472} - Joshua Groves: [1],undefined,undefined
+,117017 - Karly Kelly: Kim,undefined,undefined
+,Alyson Oliver,undefined,undefined
+,{161968} - Charles Early: [2:3:4],undefined,undefined
+,{171977} - Alexander Wolff: [3],undefined,undefined
+,Cole Melius,undefined,undefined
+,{182349} - Shan Stanford: [2:3:4],undefined,undefined
+,Paige Taylor,undefined,undefined
+,Alexander Ball,undefined,undefined
+,144025 - Ashley Yanez: Prieto,undefined,undefined
+,190087 - Jacob Indestad [2],undefined,undefined
+,{176804} - David Wang: [2],undefined,undefined
+,{187949} - Dauntae Hobbs: [2],undefined,undefined
+,{139656} - Bridgett McDaniels-Russell: [1:5],undefined,undefined
+,{186518} - Damon VanNess: [1:3],undefined,undefined
+,{141392} - Xavier Rush: [3],undefined,undefined
+,{106210} - Firat Ucar: [2],undefined,undefined
+,{2243} - Josh Olin: [2],undefined,undefined
+,193776 - Lavy Simona [2],undefined,undefined
+,{180233} - Zackary Thomas: [1:3:5],undefined,undefined
+,91792 - Sara Hart [1:4],undefined,undefined
+,160882 - McKay Johnson [2:3:4],undefined,undefined
+,176840 - Ethan Lax: Frahm,undefined,undefined
+,184950 - Robert Buckley: Shamon,undefined,undefined
+,{160196} - Trinity Salcedo: [2],undefined,undefined
+,178765 - Mason Kipfmiller: Maska,undefined,undefined
+,{75996} - Roberto Samano: [1],undefined,undefined
+,{106208} - Katelyn Ucar: [2],undefined,undefined
+,{38431} - Tabitha McDermid: [1],undefined,undefined
+,Michele Stewart,undefined,undefined
+,Gage Harrington,undefined,undefined
+,Christian Johnson,undefined,undefined
+,Skylar Dial,undefined,undefined
+,Quanzhai Love,undefined,undefined
+,Michael M,undefined,undefined
+,12345 - Michael Mandella: AO,undefined,undefined
+,Hussein Kutkut,undefined,undefined
+,Nicolo Spatafora,undefined,undefined
+,John Torrecampo,undefined,undefined
+,DeShon Martin,undefined,undefined
+,144947 - Melissa Beale: Bane,undefined,undefined
+,MacAnthony Nwokenaka,undefined,undefined
+,Bruce Severson,undefined,undefined
+,Matthew Zang,undefined,undefined
+,Daniel Li,undefined,undefined
+,{155541} - Joshua Blum: [1],undefined,undefined
+,{185306} - Daniel Gil: [2:3],undefined,undefined
+,178763 - Colin Kappel: Frahm,undefined,undefined
+,{63603} - Dianka Blash: [1:3],undefined,undefined
+,{160041} - Afnan Al-fatlawy: [1],undefined,undefined
+,{115749} - Damian Woods: [2:3],undefined,undefined
+,{170236} - Richard Chabala: [1],undefined,undefined
+,{160984} - Danae De Guelle: [1:3:5],undefined,undefined
+,{99787} - Margaret Rudy: [1],undefined,undefined
+,{173975} - Jaclyn Vieras: [1],undefined,undefined
+,{53992} - Michael Hepner: [1:5],undefined,undefined
+,{192272} - Weston Verhulst: [2],undefined,undefined
+,{40639} - Dylan White: [1:5],undefined,undefined
+,{161259} - Roshanak Razmpour: [1],undefined,undefined
+,{184342} - Maricruz Palacios: [1],undefined,undefined
+,{174685} - Henry Jenkins: [1:5],undefined,undefined
+,78373 - Ladan Rahbary: Viaje,undefined,undefined
+,{128366} - Janelle Fischer: [1],undefined,undefined
+,{163622} - Christopher Lewis: [1],undefined,undefined
+,{186064} - Brittany Streeb: [1:3:5],undefined,undefined
+,{186669} - Silas Martens: [2:3],undefined,undefined
+,{130661} - Candace Fimbres: [1],undefined,undefined
+,{126619} - Gavin Thomas: [1:3],undefined,undefined
+,{180529} - Alexander Zaharopoulos: [2],undefined,undefined
+,{78434} - Rochelle Magpantay: [1:3],undefined,undefined
+,{171581} - Bobbi Herring: [1],undefined,undefined
+,{160969} - Christian Rudder: [1],undefined,undefined
+,{175662} - Lisa Berry: [1],undefined,undefined
+,{180883} - Russell Springer: [1],undefined,undefined
+,{61113} - Markus West: [1:5],undefined,undefined
+,Maher  Altairi,undefined,undefined
+,131059 - James Davis: LaFond,undefined,undefined
+,194713 - Thomas Fulton: Maska,undefined,undefined
+,175191 - Paige Chabala: Whitehead,undefined,undefined
+,121377 - Maher Altairi: Aljahmi,undefined,undefined
+,184577 - Melanie Hammer: Prieto,undefined,undefined
+,163625 - Carolyn George: Shaw,undefined,undefined
+,118421 - Rhonda Ramirez: Alford,undefined,undefined
+,186871 - Alexis Thibodeau: Taylor,undefined,undefined
+,Michael Sheehan,undefined,undefined
+,Esperanza Vasquez-Canales,undefined,undefined
+,Rusty Bertrand,undefined,undefined
+,John Pham,undefined,undefined
+,Sara Flanagan,undefined,undefined
+,Olivia Delanoy,undefined,undefined
+,Patricia Santamarina,undefined,undefined
+,Andrew Douglass,undefined,undefined
+,Russ Erhardt,undefined,undefined
+,Nicki Griffiths,undefined,undefined
+,Layne Stevens,undefined,undefined
+,{146090} - Doris Magouirk: [1:5],undefined,undefined
+,{181366} - William La Fond: [1],undefined,undefined
+,{156773} - Olive Martinez: [2],undefined,undefined
+,{106155} - Alyse Nicodemus: [1:3],undefined,undefined
+,{169042} - Mackenzie Cicci: [1:5],undefined,undefined
+,{192719} - James Niederriter: [1],undefined,undefined
+,{96952} - JoAnna Rowland: [1:3:4:5],undefined,undefined
+,{135929} - Colleen Chesney: [1],undefined,undefined
+,{178349} - Evelyn Yango Animashaun: [1:3:5],undefined,undefined
+,{162553} - Christina Shannon: [1],undefined,undefined
+,{165058} - Tracy Canning: [1],undefined,undefined
+,{35647} - Drew Severson: [1],undefined,undefined
+,{23668} - Bryon Eddinger: [1:3],undefined,undefined
+,{180345} - Marcos Sotelo: [1],undefined,undefined
+,{90029} - Andrea Schmitt: [1:5],undefined,undefined
+,{111329} - April Taylor: [1],undefined,undefined
+,{91244} - Shundra Hampton: [1:5],undefined,undefined
+,{162547} - Kari Hugel: [1],undefined,undefined
+,{162550} - Torrence Parham: [1],undefined,undefined
+,{162549} - Horace Pope: [1],undefined,undefined
+,{162560} - Eden VItacco: [1],undefined,undefined
+,{187524} - Tya Denefield: [1],undefined,undefined
+,{190121} - Zuleika Cadiz: [1],undefined,undefined
+,{162568} - Joselle Gontz: [1],undefined,undefined
+,"Hunter H [2,3]",undefined,undefined
+,Santosh Ghosh,undefined,undefined
+,{92924} - Judith Hernandez: [1],undefined,undefined
+,{76346} - John Crespin: [1],undefined,undefined
+,Roni Ramirez,undefined,undefined
+,Richard Lafond,undefined,undefined
+,Michael Harris,undefined,undefined
+,Icis Rucker,undefined,undefined
+,Jose Solorzano,undefined,undefined
+,Michael Ptacek,undefined,undefined
+,Anne Bass,undefined,undefined
+,Stefan Johannsson,undefined,undefined
+,Cheree Conway,undefined,undefined
+,Matias Wainfeld,undefined,undefined
+,Anthony Lulgjuraj,undefined,undefined
+,Laurie Wells,undefined,undefined
+,Taylor Hendershot,undefined,undefined
+,Blake Breitzke,undefined,undefined
+,175606 - Desiderio Torrez [1],undefined,undefined
+,174388 - Noreen Jenkins [1],undefined,undefined
+,181426 - Jerome Ey [1],undefined,undefined
+,184454 - LaShayla Thompson [1],undefined,undefined
+,86227 - Tabetha Kleingartner [1],undefined,undefined
+,139162 - Mallory Sitto [1:3:4],undefined,undefined
+,94667 - Angela Perez-Gomez [5],undefined,undefined
+,119139 - Nicole Hinz [1:3],undefined,undefined
+,{77522} - Scott Leathers: [1],undefined,undefined
+,{96963} - Laura Chavez: [1:3:4],undefined,undefined
+,{193854} - Taylor Bass: [3:4],undefined,undefined
+,{47679} - Nicholas Wang: [1],undefined,undefined
+,{190773} - Susan Webster: [2],undefined,undefined
+,{183777} - Dillon Thompson: [1:3],undefined,undefined
+,{142325} - Sierra Kirk: [1],undefined,undefined
+,122887 - Theresa Monaghan [1],undefined,undefined
+,Stephen Reeves [1:3],undefined,undefined
+,175399 - Zachary Quinn [1],undefined,undefined
+,188408 - Chandrika Vuppalapati [1],undefined,undefined
+,190669 - Robert Tacian [1],undefined,undefined
+,187499 - Mikaela Hayes [1],undefined,undefined
+,184877 - Sandy Frazier [1],undefined,undefined
+,154581 - Mitchell Boehs [1],undefined,undefined

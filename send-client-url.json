@@ -1,0 +1,11 @@
+{
+  "sessionId": "VER-1753330203517-Kctzrp",
+  "phone": "+15032018470", 
+  "clientName": "Michael Mandella",
+  "verificationMethod": "phone",
+  "eventType": "start_verification_call",
+  "timestamp": "2025-01-24T13:25:00Z",
+  "webhookUrl": "https://aointelligence.replit.app/api/webhook/sms-events",
+  "clientApprovalUrl": "https://aointelligence.replit.app/client-verify/VER-1753330203517-Kctzrp",
+  "smsMessage": "AO Precheck Verification for Michael Mandella. Please visit: https://aointelligence.replit.app/client-verify/VER-1753330203517-Kctzrp to approve verification before your call. This is for your use only."
+}

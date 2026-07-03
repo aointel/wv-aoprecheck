@@ -1,0 +1,9 @@
+{
+  "name": "aoirail-precheck-admin",
+  "private": true,
+  "description": "Precheck Admin server – AOIPrecheckAdmin, aoi-precheck APIs. Set Railway Root Directory to apps/precheck-admin.",
+  "scripts": {
+    "build": "cd ../.. && npm ci && npm run build",
+    "start": "cd ../.. && npx cross-env SECTION=precheck-admin node dist/index.js"
+  }
+}

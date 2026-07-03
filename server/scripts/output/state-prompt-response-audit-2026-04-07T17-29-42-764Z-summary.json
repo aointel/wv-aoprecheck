@@ -1,0 +1,14 @@
+{
+  "inputFile": "C:\\dev\\AOIrail\\server\\scripts\\output\\taalk-vbeu1-missing-city-2026-04-07T17-23-16-008Z-calls.json",
+  "db": "michaelmandella",
+  "counts": {
+    "totalCallsAnalyzed": 1037,
+    "promptsFound": 890,
+    "withUserResponse": 403,
+    "match_yes": 187,
+    "match_explicit_state": 54,
+    "mismatch_no": 38,
+    "mismatch_explicit_state": 36,
+    "unknown": 722
+  }
+}

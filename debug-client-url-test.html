@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client URL Debug Test</title>
+    <script>
+        function testClientURL() {
+            const clientUrl = '/video-meeting?room=client-test-123&role=client&leadName=Test%20Client';
+            console.log('Testing client URL:', clientUrl);
+            window.open(clientUrl, '_blank');
+        }
+        
+        function testAgentURL() {
+            const agentUrl = '/video-meeting?room=agent-test-123&role=agent&leadName=Test%20Client';
+            console.log('Testing agent URL:', agentUrl);
+            window.open(agentUrl, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <h1>Role Detection Debug Test</h1>
+    <p>Open browser console before clicking to see URL parameters</p>
+    
+    <button onclick="testClientURL()" style="padding: 10px; margin: 5px; background: blue; color: white;">
+        Test CLIENT URL (role=client)
+    </button>
+    
+    <button onclick="testAgentURL()" style="padding: 10px; margin: 5px; background: green; color: white;">
+        Test AGENT URL (role=agent)
+    </button>
+    
+    <p><strong>Expected Results:</strong></p>
+    <ul>
+        <li>Client URL should show: "Joining Meeting... - Connecting to agent..."</li>
+        <li>Agent URL should show: "Agent Meeting Room - Waiting for Test Client to join..."</li>
+    </ul>
+</body>
+</html>

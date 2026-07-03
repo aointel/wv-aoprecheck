@@ -1,0 +1,884 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Prevent outer page scrolling for live card pages */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+/* Long public pages (e.g. /downloads): inner scrollport; global * rule hides scrollbars */
+.downloads-page-root {
+  scrollbar-width: thin;
+  -ms-overflow-style: auto;
+}
+.downloads-page-root::-webkit-scrollbar {
+  display: block;
+  width: 10px;
+}
+.downloads-page-root::-webkit-scrollbar-thumb {
+  background: rgb(148 163 184 / 0.8);
+  border-radius: 9999px;
+}
+.dark .downloads-page-root::-webkit-scrollbar-thumb {
+  background: rgb(100 116 139 / 0.8);
+}
+
+/* Volume Slider Styling */
+.slider {
+  -webkit-appearance: none;
+  height: 8px;
+  border-radius: 5px;
+  background: #475569;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #06b6d4;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #06b6d4;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+}
+
+/* Hide scrollbars but keep scroll functionality */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* WebKit browsers */
+}
+
+/* Fiery Hot Lead Animation */
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scaleY(1) scaleX(1); }
+  25% { opacity: 0.8; transform: scaleY(1.1) scaleX(0.95); }
+  50% { opacity: 0.9; transform: scaleY(0.95) scaleX(1.05); }
+  75% { opacity: 0.85; transform: scaleY(1.05) scaleX(0.98); }
+}
+
+@keyframes flame-dance {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+  25% { transform: translateY(-5px) rotate(-2deg); opacity: 1; }
+  50% { transform: translateY(-8px) rotate(1deg); opacity: 0.9; }
+  75% { transform: translateY(-3px) rotate(-1deg); opacity: 0.95; }
+  100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+}
+
+/* Hot lead counter transition: scale + glow when count updates */
+@keyframes hotlead-flame-pop {
+  0% { transform: scale(1); filter: brightness(1); }
+  40% { transform: scale(1.35); filter: brightness(1.4); }
+  70% { transform: scale(1.1); filter: brightness(1.2); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+
+/* CCP Inbound header: queue position count-down animation */
+@keyframes queue-slide {
+  0% { transform: translateY(6px); opacity: 0.5; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* CCP Inbound: Fortnite-style queue position pop/glow */
+@keyframes fortnite-pop {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.5)); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 16px rgba(251, 191, 36, 0.8)); }
+}
+
+/* CCP Inbound header: iTunes-style marquee */
+@keyframes inbound-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-container {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: inbound-marquee 15s linear infinite;
+}
+
+@keyframes ember-float {
+  0% { transform: translateY(100%) scale(0); opacity: 0; }
+  20% { opacity: 1; }
+  50% { transform: translateY(20%) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-20%) scale(0.5); opacity: 0; }
+}
+
+@keyframes fire-wave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Gamification Achievement Overlays */
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes achievement-bounce {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(-10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes celebration-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+  }
+}
+
+/* Season Pass Shield Animations */
+@keyframes shield-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+  }
+}
+
+@keyframes tier-unlock {
+  0% {
+    transform: scale(0.8) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rank-progression {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes dragon-flame {
+  0%, 100% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+  25% {
+    background-position: 25% 60%;
+    transform: scale(1.05);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: scale(1.1);
+  }
+  75% {
+    background-position: 75% 40%;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes crystal-shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+@keyframes shield-hover {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Tier Color Classes */
+.bronze-glow {
+  box-shadow: 0 0 15px rgba(205, 127, 50, 0.4);
+}
+
+.silver-glow {
+  box-shadow: 0 0 15px rgba(192, 192, 192, 0.4);
+}
+
+.gold-glow {
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.platinum-glow {
+  box-shadow: 0 0 15px rgba(229, 228, 226, 0.4);
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out;
+}
+
+.animate-achievement-bounce {
+  animation: achievement-bounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.animate-celebration-pulse {
+  animation: celebration-pulse 2s ease-in-out infinite;
+}
+
+.fire-animation {
+  background: transparent;
+  border-radius: 8px;
+}
+
+.ember {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ffff00 0%, #ff6b00 40%, #ff2200 70%, transparent 90%);
+  border-radius: 50%;
+  animation: ember-float 3s linear infinite;
+  box-shadow: 0 0 6px #ff4500, 0 0 10px #ff6b00;
+}
+
+.ember-1 {
+  left: 20%;
+  animation-delay: 0s;
+  animation-duration: 2.5s;
+}
+
+.ember-2 {
+  left: 50%;
+  animation-delay: 0.8s;
+  animation-duration: 3.2s;
+}
+
+.ember-3 {
+  left: 75%;
+  animation-delay: 1.5s;
+  animation-duration: 2.8s;
+}
+
+.ember-4 {
+  left: 35%;
+  animation-delay: 2.2s;
+  animation-duration: 3.5s;
+}
+
+.ember-5 {
+  left: 65%;
+  animation-delay: 0.5s;
+  animation-duration: 2.2s;
+}
+
+.ember-6 {
+  left: 85%;
+  animation-delay: 1.8s;
+  animation-duration: 4s;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll-horizontal 60s linear infinite;
+}
+
+.animate-scroll-slow {
+  animation: scroll-horizontal 90s linear infinite;
+}
+
+.animate-scroll-fast {
+  animation: scroll-horizontal 30s linear infinite;
+}
+
+.animate-scroll-slow {
+  animation: scroll-horizontal 90s linear infinite;
+}
+
+.animate-scroll-fast {
+  animation: scroll-horizontal 30s linear infinite;
+}
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222.2 84% 4.9%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96%;
+  --accent-foreground: 222.2 84% 4.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+}
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(240, 10%, 3.9%);
+  --muted: hsl(210, 40%, 98%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(240, 10%, 3.9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(240, 10%, 3.9%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(210, 40%, 96%);
+  --secondary-foreground: hsl(222, 84%, 5%);
+  --accent: hsl(210, 40%, 96%);
+  --accent-foreground: hsl(222, 84%, 5%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(221, 83%, 53%);
+  --radius: 0.5rem;
+  
+  /* Custom brand colors */
+  --brand-blue: hsl(221, 83%, 53%);
+  --brand-blue-dark: hsl(221, 83%, 45%);
+  --brand-purple: hsl(258, 90%, 66%);
+  --brand-purple-light: hsl(258, 90%, 72%);
+  --brand-purple-dark: hsl(258, 90%, 60%);
+}
+
+/* Season Pass Background Utilities */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    overflow: auto;
+  }
+
+  body {
+    @apply font-sans antialiased bg-gray-50 text-foreground;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+  }
+
+  #root {
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@layer components {
+  .brand-purple {
+    background-color: var(--brand-purple);
+  }
+  
+  .brand-purple-light {
+    background-color: var(--brand-purple-light);
+  }
+  
+  .brand-blue {
+    background-color: var(--brand-blue);
+  }
+  
+  .brand-blue-dark {
+    background-color: var(--brand-blue-dark);
+  }
+  
+  .text-brand-purple {
+    color: var(--brand-purple);
+  }
+  
+  .text-brand-blue {
+    color: var(--brand-blue);
+  }
+  
+  .border-brand-purple {
+    border-color: var(--brand-purple);
+  }
+  
+  .verification-method-selected {
+    @apply border-2 border-purple-500 bg-purple-50;
+  }
+  
+  .verification-method {
+    @apply border-2 border-gray-200 hover:border-purple-300 transition-colors duration-200;
+  }
+}
+
+/* Fire Animation for Hot Leads */
+@keyframes fire-flicker {
+  0% {
+    background: linear-gradient(180deg, 
+      rgba(255, 165, 0, 0.8) 0%, 
+      rgba(255, 69, 0, 0.7) 30%,
+      rgba(255, 0, 0, 0.6) 60%,
+      rgba(255, 255, 0, 0.5) 100%);
+    transform: scaleY(1) scaleX(1);
+  }
+  25% {
+    background: linear-gradient(180deg, 
+      rgba(255, 140, 0, 0.9) 0%, 
+      rgba(255, 99, 71, 0.8) 35%,
+      rgba(220, 20, 60, 0.7) 65%,
+      rgba(255, 215, 0, 0.6) 100%);
+    transform: scaleY(1.1) scaleX(0.95);
+  }
+  50% {
+    background: linear-gradient(180deg, 
+      rgba(255, 215, 0, 0.85) 0%, 
+      rgba(255, 165, 0, 0.75) 25%,
+      rgba(255, 69, 0, 0.65) 70%,
+      rgba(255, 0, 0, 0.55) 100%);
+    transform: scaleY(0.9) scaleX(1.05);
+  }
+  75% {
+    background: linear-gradient(180deg, 
+      rgba(255, 99, 71, 0.9) 0%, 
+      rgba(255, 140, 0, 0.8) 40%,
+      rgba(255, 215, 0, 0.7) 75%,
+      rgba(255, 165, 0, 0.6) 100%);
+    transform: scaleY(1.05) scaleX(0.98);
+  }
+  100% {
+    background: linear-gradient(180deg, 
+      rgba(255, 165, 0, 0.8) 0%, 
+      rgba(255, 69, 0, 0.7) 30%,
+      rgba(255, 0, 0, 0.6) 60%,
+      rgba(255, 255, 0, 0.5) 100%);
+    transform: scaleY(1) scaleX(1);
+  }
+}
+
+@keyframes ember-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(80%) scale(1);
+  }
+  70% {
+    opacity: 0.8;
+    transform: translateY(20%) scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20%) scale(0.2);
+  }
+}
+
+@keyframes ember-drift {
+  0% {
+    transform: translateX(0px) translateY(100%) rotate(0deg);
+  }
+  25% {
+    transform: translateX(5px) translateY(75%) rotate(90deg);
+  }
+  50% {
+    transform: translateX(-3px) translateY(50%) rotate(180deg);
+  }
+  75% {
+    transform: translateX(7px) translateY(25%) rotate(270deg);
+  }
+  100% {
+    transform: translateX(0px) translateY(-20%) rotate(360deg);
+  }
+}
+
+.fire-animation {
+  background: linear-gradient(180deg, 
+    rgba(255, 165, 0, 0.8) 0%, 
+    rgba(255, 69, 0, 0.7) 30%,
+    rgba(255, 0, 0, 0.6) 60%,
+    rgba(255, 255, 0, 0.5) 100%);
+  animation: fire-flicker 2s ease-in-out infinite;
+  border-radius: 0.375rem;
+}
+
+.ember {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 0.8) 50%, rgba(255, 69, 0, 0) 100%);
+  border-radius: 50%;
+  animation: ember-rise 3s ease-out infinite;
+}
+
+.ember-1 {
+  left: 15%;
+  animation-delay: 0s;
+  animation-duration: 2.5s;
+}
+
+.ember-2 {
+  left: 35%;
+  animation-delay: 0.8s;
+  animation-duration: 3.2s;
+}
+
+.ember-3 {
+  left: 65%;
+  animation-delay: 1.6s;
+  animation-duration: 2.8s;
+}
+
+.ember-4 {
+  left: 85%;
+  animation-delay: 0.4s;
+  animation-duration: 3.5s;
+  animation-name: ember-drift;
+}
+
+/* Animated Gradient Border for Active Calls */
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}
+
+/* Badge Icon Effects */
+@keyframes badge-glow-subtle {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.4));
+  }
+}
+
+@keyframes badge-glow-moderate {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(148, 163, 184, 0.5)) drop-shadow(0 0 12px rgba(148, 163, 184, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(148, 163, 184, 0.7)) drop-shadow(0 0 18px rgba(148, 163, 184, 0.4));
+  }
+}
+
+@keyframes badge-glow-bold {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.8)) 
+            drop-shadow(0 0 20px rgba(59, 130, 246, 0.6))
+            drop-shadow(0 0 30px rgba(59, 130, 246, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(59, 130, 246, 1)) 
+            drop-shadow(0 0 30px rgba(59, 130, 246, 0.8))
+            drop-shadow(0 0 45px rgba(59, 130, 246, 0.6));
+  }
+}
+
+@keyframes badge-shine {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 0px currentColor);
+  }
+  25% {
+    filter: brightness(1.3) drop-shadow(0 0 8px currentColor);
+  }
+  50% {
+    filter: brightness(1.5) drop-shadow(0 0 12px currentColor);
+  }
+  75% {
+    filter: brightness(1.3) drop-shadow(0 0 8px currentColor);
+  }
+  100% {
+    filter: brightness(1) drop-shadow(0 0 0px currentColor);
+  }
+}
+
+@keyframes badge-glisten {
+  0%, 100% {
+    filter: brightness(1) saturate(1);
+  }
+  25% {
+    filter: brightness(1.2) saturate(1.3);
+  }
+  50% {
+    filter: brightness(1.4) saturate(1.5);
+  }
+  75% {
+    filter: brightness(1.2) saturate(1.3);
+  }
+}
+
+/* Blue diamond – inbound lead: dark blue glow + animated border */
+@keyframes blue-diamond-glow {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(30, 58, 138, 0.9), 0 0 24px rgba(30, 58, 138, 0.6), 0 0 36px rgba(59, 130, 246, 0.4), inset 0 0 0 2px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(30, 58, 138, 1), 0 0 32px rgba(30, 58, 138, 0.8), 0 0 48px rgba(59, 130, 246, 0.5), inset 0 0 0 2px rgba(96, 165, 250, 0.7);
+  }
+}
+
+@keyframes blue-diamond-border {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/** Sweeping shine on the inbound panel bottom bar (light → heated gradient). */
+@keyframes sweep-shine {
+  0% { transform: translateX(-100%); opacity: 0.2; }
+  50% { opacity: 0.5; }
+  100% { transform: translateX(100%); opacity: 0.2; }
+}
+
+.inbound-blue-diamond {
+  animation: blue-diamond-glow 2s ease-in-out infinite;
+  border: 2px solid rgba(30, 58, 138, 0.8);
+}
+
+.inbound-blue-diamond-border-wrap {
+  padding: 3px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 25%, #1e40af 50%, #2563eb 75%, #1e3a8a 100%);
+  background-size: 200% 200%;
+  animation: blue-diamond-border 3s ease infinite;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 20px rgba(30, 58, 138, 0.7), 0 0 40px rgba(59, 130, 246, 0.4);
+}
+
+/* AO Precheck standalone workflow — match /app shell (Inter, violet accents, white cards) */
+.precheck-stage,
+.precheck-workflow-panel,
+.precheck-workflow-inner {
+  font-family: Inter, system-ui, sans-serif;
+  color: #0f1729;
+}
+
+.precheck-workflow-panel .bg-gray-50,
+.precheck-workflow-inner.bg-gray-50 {
+  background: transparent !important;
+}
+
+.precheck-workflow-panel [class*="bg-card"],
+.precheck-workflow-panel .rounded-lg.border.bg-card {
+  background: #fff;
+  border-color: #e7eaf0;
+}
+
+.precheck-workflow-panel button.bg-primary,
+.precheck-workflow-panel .bg-blue-600,
+.precheck-workflow-panel .bg-blue-600:hover,
+.precheck-workflow-panel .hover\:bg-blue-700:hover {
+  background: linear-gradient(135deg, #7c3aed, #6366f1) !important;
+  border-color: transparent;
+  color: #fff;
+}
+
+.precheck-workflow-panel .text-blue-600,
+.precheck-workflow-panel .text-blue-700 {
+  color: #7c2fce !important;
+}
+
+.precheck-workflow-panel .border-blue-200,
+.precheck-workflow-panel .border-blue-800 {
+  border-color: #e7eaf0 !important;
+}
+
+.precheck-workflow-panel .bg-blue-50\/50,
+.precheck-workflow-panel .bg-blue-950\/30 {
+  background: #f4eafe !important;
+}
+
+.precheck-workflow-panel {
+  overflow-x: hidden;
+}
+
+.precheck-workflow-inner {
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.precheck-client-form .space-y-4 > * + * {
+  margin-top: 0;
+}
+
+.precheck-unified-verification {
+  font-family: Inter, system-ui, sans-serif;
+  color: #0f1729;
+}
+
+/* Precheck Manager iframe / embedded admin — dialogs must sit above content */
+html.precheck-mgr-embed,
+html.precheck-mgr-embed body,
+html.precheck-mgr-embed #root {
+  height: 100%;
+  min-height: 100%;
+}
+
+html.precheck-mgr-embed body > div[data-radix-portal],
+html.precheck-mgr-embed [role="dialog"],
+html.precheck-mgr-embed [data-radix-popper-content-wrapper] {
+  z-index: 200 !important;
+}

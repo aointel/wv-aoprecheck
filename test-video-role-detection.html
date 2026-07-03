@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Role Detection Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-link { display: block; margin: 10px 0; padding: 10px; background: #f0f0f0; }
+        .agent { background: #e6f3ff; }
+        .client { background: #ffe6e6; }
+    </style>
+</head>
+<body>
+    <h1>Video Role Detection Test</h1>
+    
+    <h2>Agent URLs (should show "Agent Meeting Room")</h2>
+    <a href="/video-meeting?room=agent-lead-12345&role=agent&leadName=John%20Doe" class="test-link agent" target="_blank">
+        Agent URL: room=agent-lead-12345&role=agent&leadName=John Doe
+    </a>
+    
+    <h2>Client URLs (should show "Joining Meeting...")</h2>
+    <a href="/video-meeting?room=client-lead-12345&role=client&leadName=John%20Doe" class="test-link client" target="_blank">
+        Client URL: room=client-lead-12345&role=client&leadName=John Doe
+    </a>
+    
+    <h2>Expected Behavior:</h2>
+    <ul>
+        <li><strong>Agent:</strong> Shows "Agent Meeting Room - Waiting for John Doe to join..."</li>
+        <li><strong>Client:</strong> Shows "Joining Meeting... - Connecting to agent..."</li>
+    </ul>
+    
+    <h2>Debug Console Logs:</h2>
+    <p>Check browser console for "🎭 Role detected:" messages to verify role detection logic.</p>
+</body>
+</html>
+</html>

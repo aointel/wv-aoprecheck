@@ -1,0 +1,168 @@
+## 1. Current Usage Tracking (What We Found)
+
+- **Lead-level fields in `masterlead`:**  
+  `try_count`, `contact_count`, `called_at`, `last_contacted`, `duration`, `duration_after_transfer`, `status`, `cnresolution`, `resolved_at`, `resolution_notes`, `callback_date`, `appointment_date`, `appointment_type`, `appointment_details`, `has_sent_sms`, `has_open_link`, `has_redirect_call`, `has_summary`, `previous_cn_email`, `last_assigned_date`, `FTCRESTRICTED`, `assigned_date`.  
+  Most are written sporadically (dispositions, manual updates); there is no unified “usage” concept.
+
+- **Other tables touching usage:**
+  - `call_logs` – raw Twilio call activity (`call_status`, `call_duration`, `is_reached`, `is_booked`).
+  - `war_connects` / `war_metrics` – higher-level production totals (dials, reached, booked) for dashboards.
+  - `outbound_call_history` – per-call dispositions and notes.
+  - `agent_lead_progress` – tracks dialer queue position.
+  - `agent_live_call_status`, trackers (`callConnectorTracker`, `taalkVDPPoller`, etc.) – online/heartbeat info, not usage counts.
+
+- **Key update touchpoints in `server/routes.ts`:**
+  - `POST /api/outbound-dialer/log-contact`: updates `masterlead.last_contacted` and `agent_lead_progress`; no attempt counters.
+  - `POST /api/outbound-call-history`: writes `outbound_call_history`, logs to `war_connects`, updates `masterlead` (cnresolution, appointment/callback info, `last_contacted`, `status`, `resolution_notes`, `resolved_at`), and may trigger webhooks. It mixes many responsibilities and is the closest thing to “usage” we have.
+  - Admin/scheduler endpoints (`force-assign`, recycling) reassign or reset leads without tracking usage; history is lost beyond `previous_cn_email`.
+  - Twilio/Taalk ingest feeds `call_logs` but never rolls up to `masterlead.try_count` or per-agent ledgers.
+
+- **Practical definition today:** unclear. A lead is “used” if someone manually changes `cnresolution`, records a disposition, or touches `last_contacted`. There is no consistent increment of attempts, no authoritative source for “leads worked per agent per day,” and recycled leads lose their history when `cn_email` is cleared.
+
+---
+
+## 2. Problems & Gaps
+
+1. **Counters never increment.** `try_count`/`contact_count` are never updated anywhere. Agents can dial forever without “burning” leads.
+2. **Usage is inferred from multiple tables.** Dashboards read from `war_connects`, dispositions modify `masterlead`, and Twilio logs sit in `call_logs`. They frequently disagree.
+3. **Lead recycling erases historical ownership.** When we trim leads (`cn_email = null`), no audit ties previous attempts to an agent beyond a single `previous_cn_email` pointer.
+4. **No agent-level daily usage fact table.** We cannot answer “How many leads did Agent X work today?” without joining several inconsistent sources.
+5. **Missed events.** Automated actions (hotlead auto-assign, schedulers, FTC skips, SMS-only touches) never log usage.
+
+---
+
+## 3. Proposed Clean Usage Model
+
+### Principles
+- Treat usage as an **event stream** (attempts, connects, dispositions, assignments, recycling).
+- Centralize logging via a helper so every route/scheduler records through one API.
+- Keep usage history independent of the current `cn_email` assignment.
+- Drive dashboards, retirement logic, and compliance off this event log.
+
+### Table: `lead_usage_events`
+```sql
+create table lead_usage_events (
+  id bigserial primary key,
+  lead_id bigint not null,
+  agent_email text not null,
+  event_type text not null,
+  disposition text,
+  outcome text,
+  source text not null,
+  call_sid text,
+  connect_id text,
+  previous_cn_email text,
+  metadata jsonb default '{}'::jsonb,
+  created_at timestamptz default now()
+);
+create index on lead_usage_events (agent_email, created_at);
+create index on lead_usage_events (lead_id, created_at);
+create index on lead_usage_events (event_type);
+```
+Event types: `attempt_started`, `attempt_completed`, `contact`, `disposition`, `appointment`, `callback`, `assign`, `recycle`.
+
+### Helper Module `server/lead-usage-tracker.ts`
+```ts
+import { SupabaseClient } from '@supabase/supabase-js';
+
+type UsageEvent = {
+  leadId: number;
+  agentEmail: string;
+  eventType: 'attempt_started' | 'attempt_completed' | 'contact' | 'disposition' | 'appointment' | 'callback' | 'assign' | 'recycle';
+  disposition?: string;
+  outcome?: string;
+  source: string;
+  callSid?: string;
+  connectId?: string;
+  metadata?: Record<string, unknown>;
+};
+
+export async function recordLeadUsage(supabaseAdmin: SupabaseClient, event: UsageEvent) {
+  const payload = {
+    lead_id: event.leadId,
+    agent_email: event.agentEmail?.toLowerCase(),
+    event_type: event.eventType,
+    disposition: event.disposition ?? null,
+    outcome: event.outcome ?? null,
+    source: event.source,
+    call_sid: event.callSid ?? null,
+    connect_id: event.connectId ?? null,
+    metadata: event.metadata ?? {},
+    previous_cn_email: event.metadata?.previousCnEmail ?? null,
+  };
+
+  const { error } = await supabaseAdmin.from('lead_usage_events').insert(payload);
+  if (error) {
+    console.error('lead_usage_events insert failed', error, payload);
+  }
+}
+
+export const recordAttemptStart = (client, leadId, agentEmail, metadata) =>
+  recordLeadUsage(client, { leadId, agentEmail, eventType: 'attempt_started', source: 'dialer', metadata });
+
+export const recordAttemptComplete = (client, leadId, agentEmail, outcome, callSid, metadata) =>
+  recordLeadUsage(client, { leadId, agentEmail, eventType: 'attempt_completed', source: 'dialer', outcome, callSid, metadata });
+
+export const recordDisposition = (client, leadId, agentEmail, disposition, metadata) =>
+  recordLeadUsage(client, { leadId, agentEmail, eventType: 'disposition', source: 'dialer', disposition, metadata });
+
+export const recordRecycle = (client, leadId, previousAgent) =>
+  recordLeadUsage(client, { leadId, agentEmail: previousAgent ?? 'system', eventType: 'recycle', source: 'scheduler', metadata: { previousAgent } });
+```
+
+### Integration Targets
+1. **Dialer contact flows (`/api/outbound-dialer/log-contact`, Twilio call handlers):**
+   - `recordAttemptStart` on call initiation.
+   - `recordAttemptComplete` when the call ends (use `call_logs`/Twilio status for `outcome`).
+2. **Dispositions (`/api/outbound-call-history`):**
+   - After saving, call `recordDisposition` with resolution, notes, callback/appointment metadata.
+3. **Schedulers / recycling:**
+   - When unassigning leads in `lead-assignment-scheduler.ts` or admin trim endpoints, call `recordRecycle` before wiping `cn_email`.
+   - Optional `recordAssign` when the atomic RPC assigns leads.
+4. **AO Meet / appointment updates:** log `appointment` events whenever meet status changes.
+5. **Hotlead auto-assign / VDP auto events:** log `assign` to capture funnel usage.
+
+### Reporting View (example)
+```sql
+create view agent_daily_lead_usage as
+select
+  agent_email,
+  date_trunc('day', created_at) as usage_day,
+  count(distinct lead_id) filter (where event_type in ('attempt_started','disposition')) as leads_worked,
+  count(*) filter (where event_type = 'attempt_started') as attempts,
+  count(*) filter (where event_type = 'disposition' and disposition in ('booked','sale')) as booked
+from lead_usage_events
+group by 1,2;
+```
+Dashboards pull from this view instead of inferring from `masterlead` or `war_connects`.
+
+### Compatibility
+- Keep legacy columns (e.g., `try_count`) for now; optionally maintain them via triggers on `lead_usage_events` if older reports need them.
+- The new event table is independent of assignment caps (10–50 buffer) and works even when leads are recycled.
+
+---
+
+## 4. Relevant Files & Functions (Summary)
+
+- `server/routes.ts`
+  - `/api/outbound-dialer/log-contact`: updates `masterlead.last_contacted`, `agent_lead_progress`.
+  - `/api/outbound-call-history`: saves call history, updates `masterlead`, logs to `war_connects`.
+  - `/api/admin/force-assign-leads` & recycling endpoints: shuffle leads but no usage audit.
+- `server/lead-assignment-scheduler.ts`: assignment & recycling logic; no usage tracking today.
+- `server/hotlead-auto-assign.ts`: auto-assign; no usage logging.
+- `server/outbound-dialer-lead-cache.ts`: caches lead sets; will need to display new stats once recorded.
+- Trackers (`callConnectorTracker`, `taalkVDPPoller`, etc.): heartbeat only.
+
+---
+
+## 5. Implementation Checklist
+
+1. Create `lead_usage_events` table + indexes.
+2. Add `server/lead-usage-tracker.ts` helper (above).
+3. Instrument:
+   - Dialer contact routes (attempt start/end).
+   - Outbound call history (disposition, appointment, callback).
+   - Scheduler recycle/assign operations.
+   - Optional: AO Meet actions, hotlead auto-assign.
+4. Build reporting view(s) for dashboards.
+5. Gradually migrate analytics to this unified source and retire ad-hoc counters.

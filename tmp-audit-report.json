@@ -1,0 +1,770 @@
+{
+  "timestamp": "2026-04-21T19:03:14.894Z",
+  "consoleMessages": [
+    {
+      "type": "log",
+      "text": "✅ Userpilot initialized",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "💓 UsageHeartbeat: useEffect triggered, user: none",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "warning",
+      "text": "⚠️ UsageHeartbeat: No user email, component will not send heartbeats",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔍 HP Pro Tracker disabled (startup safety mode)",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔍 CCPro primer useEffect: {checkingPrimer: false, needsCCProPrimer: undefined, email: undefined, initialized: false, showCCProPrimer: false}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ Version check: Server will handle version errors with HTML page",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔍 CCPro primer useEffect: {checkingPrimer: false, needsCCProPrimer: undefined, email: undefined, initialized: true, showCCProPrimer: false}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "verbose",
+      "text": "[DOM] Input elements should have autocomplete attributes (suggested: \"username\"): (More info: https://goo.gl/9p2vKq) %o",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/login",
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔑 Password input change - length: 11 value: aointel202...",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔐 Frontend form submission - Original Email: chrislafond@aoglobelife.com Normalized Email: chrislafond@aoglobelife.com Password length: 11",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔄 Calling login with: chrislafond@aoglobelife.com password length: 11",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔐 Authenticating user: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ Authentication successful for: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ User authenticated and session created: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ Userpilot user identified: chrislafond@aoglobelife.com chrislafond",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "💓 UsageHeartbeat: useEffect triggered, user: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "💓 UsageHeartbeat: Component mounted for chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "💓 UsageHeartbeat: Sending heartbeat for chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "💓 UsageHeartbeat: Interval set for 60 seconds",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Fetching notifications from Supabase for: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Setting up real-time subscription for: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Notification state: {email: chrislafond@aoglobelife.com, notificationsCount: 0, unreadCount: 0, creditNotificationsCount: 0, allNotificationsCount: 0}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔌 ConnectNow (Connect) page loaded",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔍 Admin Check: {userEmail: chrislafond@aoglobelife.com, isAdmin: true}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "⏭️ Global WebRTC auto-init disabled; initialize on-demand only",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "📺 CCPro primer: Checking access and dismissal status for chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔍 CCPro primer useEffect: {checkingPrimer: true, needsCCProPrimer: undefined, email: chrislafond@aoglobelife.com, initialized: true, showCCProPrimer: false}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "warning",
+      "text": "Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "error",
+      "text": "WebSocket connection to 'wss://chunderw-vpc-gll.twilio.com/' failed: Error during WebSocket handshake: Unexpected response code: 403",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 978,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "log",
+      "text": "🟢 VDP Heartbeat sent successfully",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ UsageHeartbeat sent successfully: {success: true, userEmail: chrislafond@aoglobelife.com, timestamp: 2026-04-21T19:01:43.719Z}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ HeaderToolbar credits loaded: {credits_remaining: 0, credits_used: 0, credits_purchased: 0, bonus_connects_remaining: 10, bonus_connects_max: 10}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ Call Connector Pro disclaimer already accepted (from API)",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ Agent ONLINE status sent to Supabase: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ CCPro rank data: {rank: gold, weeklyALP: 0, progressToNext: 0, nextTier: Object, currentTier: Object}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Subscription status: SUBSCRIBED",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ Successfully subscribed to real-time notifications",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "📺 CCPro primer: User has access - no modal needed",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ Userpilot user identified: 409 Chris La Fond",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔍 CCPro primer useEffect: {checkingPrimer: false, needsCCProPrimer: false, email: chrislafond@aoglobelife.com, initialized: true, showCCProPrimer: false}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Initializing notification tracking with 50 notifications (no toasts)",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Notification state: {email: chrislafond@aoglobelife.com, notificationsCount: 50, unreadCount: 50, creditNotificationsCount: 0, allNotificationsCount: 50}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Fetching notifications from Supabase for: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Fetching notifications from Supabase for: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🟢 VDP Heartbeat sent successfully",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ HeaderToolbar credits loaded: {credits_remaining: 0, credits_used: 0, credits_purchased: 0, bonus_connects_remaining: 10, bonus_connects_max: 10}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Fetching notifications from Supabase for: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "error",
+      "text": "❌ CRITICAL: No associate_id for phone reveal webhook. Cannot send (never send 999).",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 978,
+        "columnNumber": 86694
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Fetching notifications from Supabase for: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Fetching notifications from Supabase for: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "💓 UsageHeartbeat: Sending heartbeat for chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🟢 VDP Heartbeat sent successfully",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ UsageHeartbeat sent successfully: {success: true, userEmail: chrislafond@aoglobelife.com, timestamp: 2026-04-21T19:02:43.657Z}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ CCPro rank data: {rank: gold, weeklyALP: 0, progressToNext: 0, nextTier: Object, currentTier: Object}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "✅ HeaderToolbar credits loaded: {credits_remaining: 0, credits_used: 3615, credits_purchased: 3615, bonus_connects_remaining: 10, bonus_connects_max: 10}",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Fetching notifications from Supabase for: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Fetching notifications from Supabase for: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "log",
+      "text": "🔔 Fetching notifications from Supabase for: chrislafond@aoglobelife.com",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    },
+    {
+      "type": "error",
+      "text": "Access to fetch at 'https://aoirail-data-production.up.railway.app/api/outbound-dialer/leads?userEmail=chrislafond%40aoglobelife.com' from origin 'https://aoirail-production.up.railway.app' has been blocked by CORS policy: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'.",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/connect",
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED",
+      "location": {
+        "url": "https://aoirail-data-production.up.railway.app/api/outbound-dialer/leads?userEmail=chrislafond%40aoglobelife.com",
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/api/update-resolution",
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/api/ccp-disposition",
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/api/disposition",
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "error",
+      "text": "Access to fetch at 'https://aoirail-data-production.up.railway.app/api/outbound-dialer/leads' from origin 'https://aoirail-production.up.railway.app' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'.",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/connect",
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED",
+      "location": {
+        "url": "https://aoirail-data-production.up.railway.app/api/outbound-dialer/leads",
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/api/update-resolution",
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/api/ccp-disposition",
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "log",
+      "text": "🟢 VDP Heartbeat sent successfully",
+      "location": {
+        "url": "https://aoirail-production.up.railway.app/assets/index-CzGDXCPj.js",
+        "lineNumber": 1601,
+        "columnNumber": 287
+      }
+    }
+  ],
+  "networkErrors": [
+    {
+      "url": "https://aoirail-production.up.railway.app/api/health",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/health",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://ycztjetxwpfgtrzeyytt.supabase.co/rest/v1/agent_notifications?select=*&agent_email=eq.chrislafond%40aoglobelife.com&read=eq.false",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://ycztjetxwpfgtrzeyytt.supabase.co/storage/v1/object/public/installers/profile-pictures/chrislafond%2540aoglobelife.com/1772124610355.png",
+      "method": "GET",
+      "failure": {
+        "errorText": "net::ERR_BLOCKED_BY_ORB"
+      }
+    },
+    {
+      "url": "https://ycztjetxwpfgtrzeyytt.supabase.co/rest/v1/agent_notifications?select=*&agent_email=eq.chrislafond%40aoglobelife.com&read=eq.false",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://ycztjetxwpfgtrzeyytt.supabase.co/rest/v1/agent_notifications?select=*&agent_email=eq.chrislafond%40aoglobelife.com&read=eq.false",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/health",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://ycztjetxwpfgtrzeyytt.supabase.co/rest/v1/agent_notifications?select=*&agent_email=eq.chrislafond%40aoglobelife.com&read=eq.false",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://ycztjetxwpfgtrzeyytt.supabase.co/rest/v1/agent_notifications?select=*&agent_email=eq.chrislafond%40aoglobelife.com&read=eq.false",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://ycztjetxwpfgtrzeyytt.supabase.co/rest/v1/agent_notifications?select=*&agent_email=eq.chrislafond%40aoglobelife.com&read=eq.false",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/health",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://ycztjetxwpfgtrzeyytt.supabase.co/rest/v1/agent_notifications?select=*&agent_email=eq.chrislafond%40aoglobelife.com&read=eq.false",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://ycztjetxwpfgtrzeyytt.supabase.co/rest/v1/agent_notifications?select=*&agent_email=eq.chrislafond%40aoglobelife.com&read=eq.false",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://ycztjetxwpfgtrzeyytt.supabase.co/rest/v1/agent_notifications?select=*&agent_email=eq.chrislafond%40aoglobelife.com&read=eq.false",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://aoirail-data-production.up.railway.app/api/outbound-dialer/leads?userEmail=chrislafond%40aoglobelife.com",
+      "method": "GET",
+      "failure": {
+        "errorText": "net::ERR_FAILED"
+      }
+    },
+    {
+      "url": "https://aoirail-data-production.up.railway.app/api/outbound-dialer/leads",
+      "method": "GET",
+      "failure": {
+        "errorText": "net::ERR_FAILED"
+      }
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/health",
+      "method": "HEAD",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    }
+  ],
+  "badResponses": [
+    {
+      "url": "https://aoirail-production.up.railway.app/api/update-resolution",
+      "status": 404,
+      "statusText": "",
+      "body": "{\"error\":\"API route not found\",\"path\":\"/api/update-resolution\",\"method\":\"GET\"}"
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/ccp-disposition",
+      "status": 404,
+      "statusText": "",
+      "body": "{\"error\":\"API route not found\",\"path\":\"/api/ccp-disposition\",\"method\":\"GET\"}"
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/disposition",
+      "status": 404,
+      "statusText": "",
+      "body": "{\"error\":\"API route not found\",\"path\":\"/api/disposition\",\"method\":\"GET\"}"
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/update-resolution",
+      "status": 404,
+      "statusText": "",
+      "body": "{\"error\":\"API route not found\",\"path\":\"/api/update-resolution\",\"method\":\"POST\"}"
+    },
+    {
+      "url": "https://aoirail-production.up.railway.app/api/ccp-disposition",
+      "status": 404,
+      "statusText": "",
+      "body": "{\"error\":\"API route not found\",\"path\":\"/api/ccp-disposition\",\"method\":\"POST\"}"
+    }
+  ]
+}

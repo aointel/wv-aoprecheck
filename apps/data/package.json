@@ -1,0 +1,9 @@
+{
+  "name": "aoirail-data",
+  "private": true,
+  "description": "Data server - hot tables (masterlead, twilio_call_logs, agent_dial_metrics). Set Railway Root Directory to apps/data.",
+  "scripts": {
+    "build": "cd ../.. && (if [ -f package-lock.json ]; then npm ci; else npm install; fi) && npm run build:data",
+    "start": "cd ../.. && node dist/data.js"
+  }
+}

@@ -1,0 +1,39 @@
+Refactor the layout in src/components/Funnel.tsx and src/components/MyScore.tsx so the Call Examination panel lives at the Funnel level as a sibling column, not inside MyScore.
+
+## Current layout (wrong):
+[Table] | [MyScore panel (contains both agent stats AND call examination inside it)]
+
+## Target layout:
+[Table — flex:1, scrolls horizontally] | [Call Examination — 480px, slides in when call selected] | [Agent Stats — 480px, always visible]
+
+## Changes needed:
+
+### In src/components/MyScore.tsx:
+1. The `selectedCallId` state and call examination panel currently live inside MyScore. We need to LIFT them out.
+2. Add two new props to MyScore: `selectedCallId: string | null` and `onCallSelect: (callId: string | null) => void`
+3. Remove the internal `selectedCallId` state from MyScore — use the prop instead
+4. Remove the call examination panel div (the right-side panel inside MyScore that shows FakeCallPlayer/ScorecardView) — it will now live in Funnel
+5. Keep everything else in MyScore unchanged (agent workflow, tabs, calls list, coaching). The calls list should call `onCallSelect(call.vdp_call_id)` when a call is clicked instead of `setSelectedCallId`.
+6. MyScore should still fetch scorecards and expose the selected call data. Add a new prop `onCallDataReady?: (call: CallRecord | null, scorecard: Scorecard | null, notes: CoachingNote[]) => void` — call this whenever selectedCallId changes and the data is available.
+
+### In src/components/Funnel.tsx:
+1. Add state: `const [selectedCallId, setSelectedCallId] = useState<string | null>(null)`
+2. Add state: `const [callExamData, setCallExamData] = useState<{ call: CallRecord; scorecard: Scorecard | null; notes: CoachingNote[]; agentEmail: string; stats: AgentStats | null } | null>(null)`
+3. The layout outer div should be: `display: flex, overflow: hidden, height: 100%` (no overflowX on the outer)
+4. Left section: `flex: 1, minWidth: 0, overflow hidden, display flex, flexDirection column` — contains SectionDivider + AgentTable (AgentTable itself handles horizontal scroll internally)
+5. Middle section (Call Examination) — only shown when `callExamData` is set:
+   - `width: 480, flexShrink: 0, borderLeft: 1px solid var(--border), display flex, flexDirection column, overflow hidden, background var(--bg-surface)`  
+   - `transition: width 220ms ease` (width goes 0 → 480 when shown)
+   - Header: "Call Examination" + Close button (sets selectedCallId to null and callExamData to null)
+   - Body: renders ScorecardView component (already exists in MyScore.tsx — either import it or copy a simplified version inline) with the call data
+   - Actually: just render the existing MyScore ScorecardView but pass callExamData.call, callExamData.scorecard, callExamData.agentEmail, callExamData.stats, callExamData.notes
+6. Right section (Agent Stats): `width: 480, flexShrink: 0, borderLeft: 1px solid var(--border), display flex, flexDirection column, overflow hidden`
+   - Renders `<MyScore email={...} selectedCallId={selectedCallId} onCallSelect={setSelectedCallId} onCallDataReady={(call, sc, notes) => { if (call) setCallExamData({ call, scorecard: sc, notes, agentEmail: selectedRow.email, stats: myStats }) else setCallExamData(null) }} />`
+7. Remove the old `selectedCallPanel` state and middle panel (the 260px scorecard from the AgentTable) — that's being replaced by this new Call Examination column
+
+## Important constraints:
+- Keep ScorecardView, FakeCallPlayer, ConversationTracks components in MyScore.tsx — export ScorecardView so Funnel can use it OR duplicate just enough to render in Funnel
+- The simplest approach: export `ScorecardView` from MyScore.tsx and import it in Funnel.tsx  
+- Keep all existing data fetching in MyScore unchanged
+- Run npx tsc --noEmit after and fix any TypeScript errors
+- No new files — changes only in Funnel.tsx and MyScore.tsx

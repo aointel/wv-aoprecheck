@@ -1,0 +1,86 @@
+[33m8a205e9[m feat: Live Call Board shows agents active in last hour + individual Dialed/Reached/Booked columns
+[33m11adbe2[m fix: implement presentation-live-tracker for Live Call Board
+[33m5457b0f[m Update agent tracking to use CN email for lead assignment
+[33m74f83af[m Show active outbound callers instead of all agents
+[33md3bbb6e[m Update agent call tracking to use correct email field
+[33mdd10dc8[m Add real-time agent tracking and improve call board statistics
+[33mef36ec4[m Update agent status and activity tracking for live calls and presentations
+[33m984470e[m Improve navigation between different sections of the website
+[33m234e249[m Enhance agent tracking with new call statuses and real-time stats
+[33m0aa2348[m fix: reset disposition dropdown after each call completes
+[33med10d2e[m Send leads to Planet ALTIG when marked as Meet or booked
+[33me688e58[m Add button to schedule meetings with other users
+[33m93398a5[m Add page tracking to improve user navigation and site analysis
+[33m833abd4[m fix: verification screenshot URLs - store 2-year signed URLs directly
+[33m251917b[m asdfasfdsag
+[33mb9fa721[m Update project documentation to reflect Replit deployment and configuration
+[33m3186166[m oik
+[33m0d99fab[m Remove download endpoint fallback - return NULL if signed URL fails instead of hash
+[33mf374065[m FIX: Use absolute URLs for verification screenshots instead of hashes - update LiveCallBoardNew with outbound/presentation sections
+[33md4ff7ba[m FIX: Add missing closing brace in routes.ts + hook up ElectronAutoCapture to Live Board
+[33m94aaabc[m ACTUAL FUCKING CHANGES: Add outbound calls and presentations to Live Call Board UI
+[33m40dae81[m Add Call Connector Pro tracker for Live Board - track outbound calls real-time
+[33m7c193ca[m FIX: Restore disposition dropdown in CallControls - remove CallDispositionComponent panel
+[33m760d004[m FIX: Remove cnsysop fallback in ElectronAutoCapture - use actual logged-in user for presentation tracking
+[33m8ca100b[m Remove ALL access restrictions from Presentation Analytics page
+[33m0f1223e[m Remove duplicate disposition dropdown from CallControls - keep only CallDispositionComponent
+[33m6e072fd[m Fix credits API - add x-user-email header fallback
+[33mca79160[m Fix outbound dialer leads API - market=hotleads should return all pending leads
+[33md155288[m REMOVE lead queue display - show only current lead with progress bar (X of Y)
+[33m9f0dab6[m BACKEND: Remove ALL filtering - only cn_email and cnresolution=pending, pass through all fields
+[33m11ac061[m REMOVE PAGINATION - show ALL assigned leads not just first 3
+[33m94fadac[m REMOVE queue filter buttons - show only assigned leads in simple list
+[33m017b60a[m FINAL QUEUE FIX: One queue, all leads assigned to agent, no market filtering
+[33mb6758ac[m HOTFIX: Remove remaining loadLeadsFromAPI references causing ReferenceError
+[33m3ac7c65[m COMPLETELY REBUILD QUEUE SYSTEM: Remove old persistent queues, implement simple loadQueue, tie dispositions to new queue
+[33mdde4a35[m refactor: Complete rebuild of hotleads queue - simple query by cn_email and cnresolution, no complex filtering or FTC checks
+[33mc5a9891[m fix: Hotleads filtering - only show leads assigned to agent, disable FTC filtering, fix timezone calculation, add comprehensive debug logging
+[33m426c23c[m fix: Correct FTC timezone calculation using Intl.DateTimeFormat instead of broken string parsing
+[33m31feeea[m fix: Disable FTC time filtering for hotleads - agents manage their own assigned leads
+[33m179a835[m fix: Only show hotleads OWNED by agent - no unassigned leads or auto-assignment
+[33m5b28918[m fix: Correct access logic for Presentation Analytics - allow cnsysop
+[33m6154ee5[m fix: Only cnsysop and michaelmandella can access Presentation Analytics
+[33m47cd699[m fix: Grant cnsysop access to Presentation Analytics
+[33ma60b35e[m fix: Use screenshot_url instead of screenshot_path in frontend modal
+[33m464c4e9[m feat: Rebrand to AO Precheck Report and remove emojis
+[33m3a2feec[m fix: Deduplicate verification sessions by phone number - more accurate counts
+[33m3a21d4a[m feat: Add Total ALP to daily report + auto-generate recording URLs every 10 mins
+[33m6decec8[m fix: Count ALL verification sessions regardless of status in daily report
+[33mab3a31d[m fix: Only count unique agents from COMPLETED sessions in daily report
+[33m291c5fa[m fix: Recording scheduler now auto-generates recording_url with 2-year signed URLs
+[33m009c2ff[m fix: Use hardcoded Mailgun API key for daily reports
+[33m0d35360[m feat: Add compact recording player modal with play/pause and download
+[33ma370379[m fix: Use supabaseAdmin for screenshot signed URLs
+[33m31455aa[m Delete ALL recording modals - play button now downloads MP3 directly
+[33md4e02a2[m Fix: Remove pagination from recording URL populate script - all 77 URLs now populated
+[33m7d37f62[m Fix: Play button downloads MP3, populate recording_url, fix search pagination, add daily verification report
+[33m0faf2d3[m Use recording_url from database directly + grey out play button when no recording
+[33m950dd28[m ONLY use Supabase MP3 URLs for recordings - no Taalk fallback
+[33m6b98746[m Fix pagination: Add currentPage to query key so React Query refetches
+[33mcb90a6f[m Add debug logging for recording URL generation
+[33m91c1477[m FINAL FIX: Recordings now use recording_url with direct Supabase signed URLs
+[33mc9f540e[m Audio player now uses direct Supabase signed URLs for recordings
+[33m1f71491[m Fix audio element - remove broken source tags, use direct src
+[33m97ec675[m 77 recordings downloaded! Endpoint now serves from Supabase with 2-year URLs
+[33mf5fe9db[m Serve downloaded MP3s from Supabase with 2-year signed URLs
+[33m731b92c[m Fix recording scheduler to store permanent Taalk URLs
+[33m139e1e9[m CRITICAL: Disable all auto-refresh, implement batch loading + fix recording redirects
+[33m34e55cd[m Fix infinite refresh loop - disable auto-fetch
+[33m2b7a4ea[m CRITICAL FIXES: /connect crash + screenshot Supabase signed URLs
+[33m3bd0994[m Fix screenshot URLs to use proper API endpoint
+[33mdf05b25[m Add live call timer to Call Connector Pro
+[33m1da587f[m Add animated gradient border to current lead during active calls
+[33m867e283[m Add lead pre-loading auto-fetch - smoother transitions between calls
+[33ma6df12f[m Remove pagination limit - fetch ALL Twilio numbers for local presence
+[33me0a28d2[m Fix local presence service initialization in voice webhook
+[33m5da5d5e[m Use lead ID instead of phone for dispositions - only mark specific lead
+[33m8222c31[m Fix lead cycling race condition and add FTC dual timezone safety + local presence support
+[33m20eb046[m Add enhanced logging to voice webhook to debug call parameters
+[33m3f76510[m Remove large files and update gitignore
+[33med3a189[m Fix Whereby meetings: Host can enter immediately without knocking
+[33m2d3b06e[m Make Launch HP PRO button match toolbar HP PRO button behavior
+[33m6a4472b[m Fix Planet link and use spread operator for all lead fields
+[33md66cd84[m Add taalk_secretkey and all missing taalk fields to lead mapping
+[33m259d88e[m CRITICAL: Update all webhook URLs from Replit to Railway domain
+[33mdf9df9e[m Fix lead data field mappings: Use taalk_lead_id and correct field names
+[33mee93722[m CRITICAL SECURITY FIX: Stop agents hearing each other calls - implement direct calling

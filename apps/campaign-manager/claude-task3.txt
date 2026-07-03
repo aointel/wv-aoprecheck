@@ -1,0 +1,63 @@
+Revamp src/components/MyScore.tsx. This is the component that actually renders when you click an agent in the Intelligence tab. DO NOT touch anything else.
+
+Currently the left side is one long vertical scroll with: Agent Workflow, Performance Tiles, Conversion Trend, Recent Calls all stacked. The right side is the Call Examination panel that slides in when you pick a call.
+
+## Change 1: Convert left side into 3 tabs
+
+Add tab state: `const [activeTab, setActiveTab] = useState<'overview' | 'calls' | 'coaching'>('overview')`
+
+Add a tab bar directly below the Agent Workflow section header area. The tab bar should be: display flex, borderBottom 1px solid var(--border), background var(--bg-raised), marginBottom 10px, flexShrink 0.
+
+Tab buttons: padding 8px 18px, fontSize 10, fontWeight 700, textTransform uppercase, letterSpacing 0.06em, border none, background transparent, cursor pointer.
+Active: color var(--primary-fg), borderBottom 2px solid var(--primary-fg).
+Inactive: color var(--fg-dim), borderBottom 2px solid transparent.
+
+Tab 1 - Overview:
+- Agent Workflow section (keep as-is)
+- Performance Tiles section (keep as-is)  
+- Conversion Trend section (keep as-is)
+
+Tab 2 - Calls:
+- Recent Calls section (the filterable list with call buttons)
+- Add "Flagged" filter option: calls where call.flags && call.flags.length > 0
+- Each call row: add 3px left border colored by grade (A=#4ade80, B=#6366f1, C=#fbbf24, D=#f97316, F=#f87171)
+- Keep existing click behavior (setSelectedCallId)
+
+Tab 3 - Coaching:
+- Show coachingNotes list (currently not displayed anywhere in the main view)
+- Each note: border 1px solid var(--border), borderRadius 8, padding 10px, background var(--bg-raised), marginBottom 6px
+- Show: manager name (fontSize 11, fontWeight 700, color var(--primary-fg)), date (fontSize 10, color var(--fg-dim)), note text (fontSize 12, color var(--fg), lineHeight 1.5)
+- Add-note form pinned to bottom: textarea (2 rows), manager name input (pre-fill from localStorage 'aoi_manager_name'), Add button
+- On submit: POST to /api/call-intelligence/coaching/{email}, save manager name to localStorage 'aoi_manager_name', prepend new note to list
+
+## Change 2: Performance Tiles - visual weight
+
+In the Overview tab, replace the plain MetricTile grid for performance with enhanced tiles:
+
+- Show Rate tile: add a small horizontal bar below the value (height 4px, borderRadius 2px, background gradient from var(--green) at 100% down to red at 0%, filled to the percentage value)
+- Close Rate tile: same bar treatment  
+- Call Grade tile: make the grade letter larger (fontSize 28, fontWeight 900) with background color matching gradeSoft(grade)
+- Momentum tile: show X/10 with a small row of 10 dots (filled dots = score, empty dots = remaining), dot size 8px, borderRadius 50%, gap 3px
+
+## Change 3: Call Examination panel (right side) UX fixes
+
+In the right panel (the Call Examination section that opens when selectedCallId is set):
+
+- Pre-fill "Your name" / manager name fields from localStorage 'aoi_manager_name'
+- In ScorecardView component: at the very top, before the Call Header card, if call.ai_summary exists show it in a box: background var(--bg-raised), border 1px solid var(--border), borderRadius 8, padding 10px 12px, fontSize 12, color var(--fg-dim), fontStyle italic, lineHeight 1.6. Label it with a small "AI Summary" uppercase label above it.
+- In ScorecardView: if call.flags && call.flags.length > 0, show flag chips below the AI summary box. Each chip: background rgba(239,68,68,0.1), border 1px solid rgba(239,68,68,0.3), color #f87171, fontSize 10, padding 2px 8px, borderRadius 10, marginRight 4px.
+- In Coaching Actions section of ScorecardView: show the actual call.ai_summary text as a coaching insight block if no manager notes exist (italic, var(--fg-dim))
+
+## Change 4: Agent Workflow section - coaching warning
+
+In the Agent Workflow SectionCard, after the stats row at the bottom, if aoiScore exists and aoiScore.grade === 'D' or aoiScore.grade === 'F', show a red warning banner:
+background rgba(239,68,68,0.1), border 1px solid rgba(239,68,68,0.3), borderRadius 6, padding 8px 12px, marginTop 8px
+Text: '⚠️ Needs Coaching — grade {aoiScore.grade} agent, schedule a 1:1'
+fontSize 12, color #f87171
+
+## Constraints:
+- All changes in src/components/MyScore.tsx ONLY
+- No new files
+- Keep all existing types, interfaces, helper functions, data fetching
+- Use only existing CSS variables
+- Run npx tsc --noEmit after and fix any TypeScript errors

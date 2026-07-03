@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Direct Google Calendar Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .button { background: #4285f4; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; display: inline-block; margin: 10px; }
+        .status { background: #f5f5f5; padding: 15px; border-radius: 4px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Google Calendar Integration Test</h1>
+    
+    <div class="status">
+        <h3>Step 1: Access the Google Calendar Setup Page</h3>
+        <p>The correct URL is: <strong>/dashboard/google-calendar-setup</strong></p>
+        <p>NOT: /google-calendar-setup (which won't work)</p>
+        <a href="/dashboard/google-calendar-setup" class="button">Go to Google Calendar Setup</a>
+    </div>
+
+    <div class="status">
+        <h3>Step 2: Check API Status</h3>
+        <button onclick="checkStatus()" class="button">Check Google Calendar Status</button>
+        <div id="status-result"></div>
+    </div>
+
+    <div class="status">
+        <h3>Step 3: Get Auth URL</h3>
+        <button onclick="getAuthUrl()" class="button">Get Google Auth URL</button>
+        <div id="auth-result"></div>
+    </div>
+
+    <script>
+        async function checkStatus() {
+            try {
+                const response = await fetch('/api/google-calendar/status');
+                const data = await response.json();
+                document.getElementById('status-result').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            } catch (error) {
+                document.getElementById('status-result').innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+            }
+        }
+
+        async function getAuthUrl() {
+            try {
+                const response = await fetch('/api/google-calendar/auth-url');
+                const data = await response.json();
+                if (data.success) {
+                    document.getElementById('auth-result').innerHTML = '<p style="color: green;">Auth URL generated successfully!</p><a href="' + data.authUrl + '" target="_blank" class="button">Open Google Auth</a>';
+                } else {
+                    document.getElementById('auth-result').innerHTML = '<p style="color: red;">Failed to generate auth URL</p>';
+                }
+            } catch (error) {
+                document.getElementById('auth-result').innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>

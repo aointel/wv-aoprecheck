@@ -1,0 +1,1437 @@
+﻿{
+    "success":  true,
+    "summary":  {
+                    "totalLeads":  1000,
+                    "uniqueAreaCodes":  231,
+                    "existingNumbers":  100,
+                    "existingAreaCodes":  [
+                                              "914",
+                                              "980",
+                                              "504",
+                                              "717",
+                                              "440",
+                                              "951",
+                                              "667",
+                                              "513",
+                                              "361",
+                                              "913",
+                                              "469",
+                                              "559",
+                                              "903",
+                                              "386",
+                                              "636",
+                                              "708",
+                                              "906",
+                                              "847",
+                                              "571",
+                                              "331",
+                                              "920",
+                                              "856",
+                                              "562",
+                                              "760",
+                                              "929",
+                                              "517",
+                                              "810",
+                                              "610",
+                                              "918",
+                                              "737",
+                                              "334",
+                                              "650",
+                                              "425",
+                                              "706",
+                                              "408",
+                                              "952",
+                                              "651",
+                                              "973",
+                                              "816",
+                                              "831",
+                                              "510",
+                                              "947",
+                                              "530",
+                                              "669",
+                                              "607",
+                                              "765",
+                                              "904",
+                                              "740",
+                                              "619",
+                                              "956",
+                                              "424",
+                                              "985",
+                                              "812",
+                                              "814",
+                                              "646",
+                                              "763",
+                                              "774",
+                                              "850",
+                                              "773",
+                                              "509",
+                                              "938",
+                                              "707",
+                                              "908",
+                                              "626",
+                                              "586",
+                                              "734",
+                                              "570",
+                                              "608",
+                                              "872",
+                                              "754",
+                                              "916",
+                                              "940",
+                                              "443",
+                                              "878",
+                                              "716",
+                                              "712",
+                                              "430",
+                                              "779",
+                                              "901",
+                                              "937",
+                                              "772",
+                                              "989",
+                                              "858",
+                                              "641",
+                                              "618",
+                                              "859",
+                                              "978",
+                                              "561",
+                                              "781",
+                                              "660",
+                                              "574",
+                                              "313",
+                                              "813",
+                                              "724",
+                                              "630",
+                                              "912",
+                                              "442",
+                                              "832",
+                                              "805",
+                                              "862"
+                                          ],
+                    "coveredLeads":  312,
+                    "coveragePercentage":  "31.20%",
+                    "recommendedPurchases":  20,
+                    "estimatedMonthlyCost":  "$20.00"
+                },
+    "areaCodeDistribution":  [
+                                 {
+                                     "areaCode":  "423",
+                                     "leadCount":  21,
+                                     "states":  [
+                                                    "TN"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "2.10"
+                                 },
+                                 {
+                                     "areaCode":  "865",
+                                     "leadCount":  20,
+                                     "states":  [
+                                                    "TN",
+                                                    "WV"
+                                                ],
+                                     "cities":  [
+                                                    "null",
+                                                    "Oak Ridge"
+                                                ],
+                                     "percentage":  "2.00"
+                                 },
+                                 {
+                                     "areaCode":  "901",
+                                     "leadCount":  20,
+                                     "states":  [
+                                                    "TN"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "2.00"
+                                 },
+                                 {
+                                     "areaCode":  "757",
+                                     "leadCount":  19,
+                                     "states":  [
+                                                    "VA"
+                                                ],
+                                     "cities":  [
+                                                    "Norfolk",
+                                                    "null"
+                                                ],
+                                     "percentage":  "1.90"
+                                 },
+                                 {
+                                     "areaCode":  "484",
+                                     "leadCount":  19,
+                                     "states":  [
+                                                    "PA"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "1.90"
+                                 },
+                                 {
+                                     "areaCode":  "570",
+                                     "leadCount":  18,
+                                     "states":  [
+                                                    "PA",
+                                                    "FL"
+                                                ],
+                                     "cities":  [
+                                                    "Hawley",
+                                                    "Millerstown",
+                                                    "Davenport"
+                                                ],
+                                     "percentage":  "1.80"
+                                 },
+                                 {
+                                     "areaCode":  "307",
+                                     "leadCount":  17,
+                                     "states":  [
+                                                    "WV",
+                                                    "WY"
+                                                ],
+                                     "cities":  [
+                                                    "Williamson"
+                                                ],
+                                     "percentage":  "1.70"
+                                 },
+                                 {
+                                     "areaCode":  "443",
+                                     "leadCount":  16,
+                                     "states":  [
+                                                    "MD",
+                                                    "PA",
+                                                    "DE"
+                                                ],
+                                     "cities":  [
+                                                    "BELAIR",
+                                                    "Elkridge",
+                                                    "Mount Airy"
+                                                ],
+                                     "percentage":  "1.60"
+                                 },
+                                 {
+                                     "areaCode":  "931",
+                                     "leadCount":  16,
+                                     "states":  [
+                                                    "TN",
+                                                    "OH"
+                                                ],
+                                     "cities":  [
+                                                    "Carthage",
+                                                    "Van Wert",
+                                                    "Estill Springs"
+                                                ],
+                                     "percentage":  "1.60"
+                                 },
+                                 {
+                                     "areaCode":  "615",
+                                     "leadCount":  15,
+                                     "states":  [
+                                                    "TN",
+                                                    "KY",
+                                                    "FL"
+                                                ],
+                                     "cities":  [
+                                                    "null"
+                                                ],
+                                     "percentage":  "1.50"
+                                 },
+                                 {
+                                     "areaCode":  "317",
+                                     "leadCount":  13,
+                                     "states":  [
+                                                    "IN",
+                                                    "MN"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "1.30"
+                                 },
+                                 {
+                                     "areaCode":  "603",
+                                     "leadCount":  13,
+                                     "states":  [
+                                                    "NH",
+                                                    "VT"
+                                                ],
+                                     "cities":  [
+                                                    "Tilton",
+                                                    "Laconia",
+                                                    "Hampton"
+                                                ],
+                                     "percentage":  "1.30"
+                                 },
+                                 {
+                                     "areaCode":  "773",
+                                     "leadCount":  13,
+                                     "states":  [
+                                                    "IL",
+                                                    "IN"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "1.30"
+                                 },
+                                 {
+                                     "areaCode":  "717",
+                                     "leadCount":  12,
+                                     "states":  [
+                                                    "PA"
+                                                ],
+                                     "cities":  [
+                                                    "Hummelstown",
+                                                    "Denver"
+                                                ],
+                                     "percentage":  "1.20"
+                                 },
+                                 {
+                                     "areaCode":  "304",
+                                     "leadCount":  12,
+                                     "states":  [
+                                                    "WV",
+                                                    "PA",
+                                                    "TN"
+                                                ],
+                                     "cities":  [
+                                                    "Oceana",
+                                                    "Leon",
+                                                    "Hinton"
+                                                ],
+                                     "percentage":  "1.20"
+                                 },
+                                 {
+                                     "areaCode":  "540",
+                                     "leadCount":  12,
+                                     "states":  [
+                                                    "VA",
+                                                    "WA"
+                                                ],
+                                     "cities":  [
+                                                    "Timberville"
+                                                ],
+                                     "percentage":  "1.20"
+                                 },
+                                 {
+                                     "areaCode":  "731",
+                                     "leadCount":  12,
+                                     "states":  [
+                                                    "TN"
+                                                ],
+                                     "cities":  [
+                                                    "Union City",
+                                                    "Ripley"
+                                                ],
+                                     "percentage":  "1.20"
+                                 },
+                                 {
+                                     "areaCode":  "804",
+                                     "leadCount":  12,
+                                     "states":  [
+                                                    "VA"
+                                                ],
+                                     "cities":  [
+                                                    "Richmond",
+                                                    "Mechanicsville"
+                                                ],
+                                     "percentage":  "1.20"
+                                 },
+                                 {
+                                     "areaCode":  "609",
+                                     "leadCount":  11,
+                                     "states":  [
+                                                    "NJ"
+                                                ],
+                                     "cities":  [
+                                                    "Wildwood"
+                                                ],
+                                     "percentage":  "1.10"
+                                 },
+                                 {
+                                     "areaCode":  "215",
+                                     "leadCount":  10,
+                                     "states":  [
+                                                    "PA",
+                                                    "NJ"
+                                                ],
+                                     "cities":  [
+                                                    "Jersey Shore",
+                                                    "Philadelphia"
+                                                ],
+                                     "percentage":  "1.00"
+                                 },
+                                 {
+                                     "areaCode":  "201",
+                                     "leadCount":  9,
+                                     "states":  [
+                                                    "NJ"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "0.90"
+                                 },
+                                 {
+                                     "areaCode":  "267",
+                                     "leadCount":  9,
+                                     "states":  [
+                                                    "PA",
+                                                    "IL"
+                                                ],
+                                     "cities":  [
+                                                    "Philadelphia"
+                                                ],
+                                     "percentage":  "0.90"
+                                 },
+                                 {
+                                     "areaCode":  "704",
+                                     "leadCount":  9,
+                                     "states":  [
+                                                    "NC",
+                                                    "CA",
+                                                    "TN",
+                                                    "TX"
+                                                ],
+                                     "cities":  [
+                                                    "Kings Mountain",
+                                                    "Wadesboro",
+                                                    "Shelby"
+                                                ],
+                                     "percentage":  "0.90"
+                                 },
+                                 {
+                                     "areaCode":  "302",
+                                     "leadCount":  9,
+                                     "states":  [
+                                                    "DE"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "0.90"
+                                 },
+                                 {
+                                     "areaCode":  "610",
+                                     "leadCount":  9,
+                                     "states":  [
+                                                    "PA"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "0.90"
+                                 },
+                                 {
+                                     "areaCode":  "862",
+                                     "leadCount":  9,
+                                     "states":  [
+                                                    "PA",
+                                                    "NJ"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "0.90"
+                                 },
+                                 {
+                                     "areaCode":  "812",
+                                     "leadCount":  9,
+                                     "states":  [
+                                                    "IN"
+                                                ],
+                                     "cities":  [
+                                                    "Oakland City"
+                                                ],
+                                     "percentage":  "0.90"
+                                 },
+                                 {
+                                     "areaCode":  "843",
+                                     "leadCount":  8,
+                                     "states":  [
+                                                    "SC"
+                                                ],
+                                     "cities":  [
+                                                    "Murrells Inlet",
+                                                    "null",
+                                                    "Myrtle Beach"
+                                                ],
+                                     "percentage":  "0.80"
+                                 },
+                                 {
+                                     "areaCode":  "434",
+                                     "leadCount":  8,
+                                     "states":  [
+                                                    "VA"
+                                                ],
+                                     "cities":  [
+                                                    "Colonial Beach",
+                                                    "Lynchburg"
+                                                ],
+                                     "percentage":  "0.80"
+                                 },
+                                 {
+                                     "areaCode":  "908",
+                                     "leadCount":  8,
+                                     "states":  [
+                                                    "NJ"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "0.80"
+                                 },
+                                 {
+                                     "areaCode":  "814",
+                                     "leadCount":  8,
+                                     "states":  [
+                                                    "PA"
+                                                ],
+                                     "cities":  [
+                                                    "null"
+                                                ],
+                                     "percentage":  "0.80"
+                                 },
+                                 {
+                                     "areaCode":  "856",
+                                     "leadCount":  8,
+                                     "states":  [
+                                                    "NJ",
+                                                    "PA"
+                                                ],
+                                     "cities":  [
+                                                    "Philadelphia"
+                                                ],
+                                     "percentage":  "0.80"
+                                 },
+                                 {
+                                     "areaCode":  "910",
+                                     "leadCount":  8,
+                                     "states":  [
+                                                    "NC",
+                                                    "VA",
+                                                    "PA",
+                                                    "DC"
+                                                ],
+                                     "cities":  [
+                                                    "Elizabethtown",
+                                                    "FUQUAY-VARINA"
+                                                ],
+                                     "percentage":  "0.80"
+                                 },
+                                 {
+                                     "areaCode":  "937",
+                                     "leadCount":  7,
+                                     "states":  [
+                                                    "OH",
+                                                    "NC",
+                                                    "MS"
+                                                ],
+                                     "cities":  [
+                                                    "Hillsboro",
+                                                    "Stokesdale",
+                                                    "Dayton"
+                                                ],
+                                     "percentage":  "0.70"
+                                 },
+                                 {
+                                     "areaCode":  "410",
+                                     "leadCount":  7,
+                                     "states":  [
+                                                    "MD",
+                                                    "DE"
+                                                ],
+                                     "cities":  [
+                                                    "Dundalk"
+                                                ],
+                                     "percentage":  "0.70"
+                                 },
+                                 {
+                                     "areaCode":  "218",
+                                     "leadCount":  7,
+                                     "states":  [
+                                                    "MN",
+                                                    "ND"
+                                                ],
+                                     "cities":  [
+                                                    "Pequot Lakes",
+                                                    "null",
+                                                    "Fargo"
+                                                ],
+                                     "percentage":  "0.70"
+                                 },
+                                 {
+                                     "areaCode":  "208",
+                                     "leadCount":  7,
+                                     "states":  [
+                                                    "ID"
+                                                ],
+                                     "cities":  [
+                                                    "Pocatello"
+                                                ],
+                                     "percentage":  "0.70"
+                                 },
+                                 {
+                                     "areaCode":  "503",
+                                     "leadCount":  7,
+                                     "states":  [
+                                                    "OR",
+                                                    "WA",
+                                                    "MT"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "0.70"
+                                 },
+                                 {
+                                     "areaCode":  "708",
+                                     "leadCount":  7,
+                                     "states":  [
+                                                    "IL"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "0.70"
+                                 },
+                                 {
+                                     "areaCode":  "509",
+                                     "leadCount":  7,
+                                     "states":  [
+                                                    "WA"
+                                                ],
+                                     "cities":  [
+                                                    "null"
+                                                ],
+                                     "percentage":  "0.70"
+                                 },
+                                 {
+                                     "areaCode":  "973",
+                                     "leadCount":  7,
+                                     "states":  [
+                                                    "NJ"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "0.70"
+                                 },
+                                 {
+                                     "areaCode":  "870",
+                                     "leadCount":  7,
+                                     "states":  [
+                                                    "TN",
+                                                    "AR"
+                                                ],
+                                     "cities":  [
+                                                    "Norfork",
+                                                    "null",
+                                                    "Star City"
+                                                ],
+                                     "percentage":  "0.70"
+                                 },
+                                 {
+                                     "areaCode":  "608",
+                                     "leadCount":  7,
+                                     "states":  [
+                                                    "WI"
+                                                ],
+                                     "cities":  [
+
+                                                ],
+                                     "percentage":  "0.70"
+                                 },
+                                 {
+                                     "areaCode":  "715",
+                                     "leadCount":  6,
+                                     "states":  [
+                                                    "WV",
+                                                    "WI",
+                                                    "Menasha"
+                                                ],
+                                     "cities":  [
+                                                    "null",
+                                                    "Amherst"
+                                                ],
+                                     "percentage":  "0.60"
+                                 },
+                                 {
+                                     "areaCode":  "407",
+                                     "leadCount":  6,
+                                     "states":  [
+                                                    "FL",
+                                                    "TN",
+                                                    "AK"
+                                                ],
+                                     "cities":  [
+                                                    "Sanford",
+                                                    "Orlando",
+                                                    "Longwood"
+                                                ],
+                                     "percentage":  "0.60"
+                                 },
+                                 {
+                                     "areaCode":  "360",
+                                     "leadCount":  6,
+                                     "states":  [
+                                                    "WA"
+                                                ],
+                                     "cities":  [
+                                                    "Castle Rock",
+                                                    "Burlington"
+                                                ],
+                                     "percentage":  "0.60"
+                                 },
+                                 {
+                                     "areaCode":  "336",
+                                     "leadCount":  6,
+                                     "states":  [
+                                                    "NC",
+                                                    "VA"
+                                                ],
+                                     "cities":  [
+                                                    "Siloam",
+                                                    "Cary"
+                                                ],
+                                     "percentage":  "0.60"
+                                 },
+                                 {
+                                     "areaCode":  "803",
+                                     "leadCount":  6,
+                                     "states":  [
+                                                    "SC"
+                                                ],
+                                     "cities":  [
+                                                    "Sumter",
+                                                    "Cassatt",
+                                                    "Alcolu"
+                                                ],
+                                     "percentage":  "0.60"
+                                 },
+                                 {
+                                     "areaCode":  "816",
+                                     "leadCount":  6,
+                                     "states":  [
+                                                    "MO"
+                                                ],
+                                     "cities":  [
+                                                    "Kansas City",
+                                                    "Independence",
+                                                    "Callao"
+                                                ],
+                                     "percentage":  "0.60"
+                                 },
+                                 {
+                                     "areaCode":  "850",
+                                     "leadCount":  6,
+                                     "states":  [
+                                                    "AL",
+                                                    "FL",
+                                                    "NC"
+                                                ],
+                                     "cities":  [
+                                                    "Niceville",
+                                                    "Fort Walton Beach",
+                                                    "Crestview"
+                                                ],
+                                     "percentage":  "0.60"
+                                 }
+                             ],
+    "recommendations":  [
+                            {
+                                "areaCode":  "423",
+                                "leadCount":  21,
+                                "states":  [
+                                               "TN"
+                                           ],
+                                "cities":  [
+
+                                           ],
+                                "percentage":  "2.10",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "865",
+                                "leadCount":  20,
+                                "states":  [
+                                               "TN",
+                                               "WV"
+                                           ],
+                                "cities":  [
+                                               "null",
+                                               "Oak Ridge"
+                                           ],
+                                "percentage":  "2.00",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "757",
+                                "leadCount":  19,
+                                "states":  [
+                                               "VA"
+                                           ],
+                                "cities":  [
+                                               "Norfolk",
+                                               "null"
+                                           ],
+                                "percentage":  "1.90",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "484",
+                                "leadCount":  19,
+                                "states":  [
+                                               "PA"
+                                           ],
+                                "cities":  [
+
+                                           ],
+                                "percentage":  "1.90",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "307",
+                                "leadCount":  17,
+                                "states":  [
+                                               "WV",
+                                               "WY"
+                                           ],
+                                "cities":  [
+                                               "Williamson"
+                                           ],
+                                "percentage":  "1.70",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "931",
+                                "leadCount":  16,
+                                "states":  [
+                                               "TN",
+                                               "OH"
+                                           ],
+                                "cities":  [
+                                               "Carthage",
+                                               "Van Wert",
+                                               "Estill Springs"
+                                           ],
+                                "percentage":  "1.60",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "615",
+                                "leadCount":  15,
+                                "states":  [
+                                               "TN",
+                                               "KY",
+                                               "FL"
+                                           ],
+                                "cities":  [
+                                               "null"
+                                           ],
+                                "percentage":  "1.50",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "317",
+                                "leadCount":  13,
+                                "states":  [
+                                               "IN",
+                                               "MN"
+                                           ],
+                                "cities":  [
+
+                                           ],
+                                "percentage":  "1.30",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "603",
+                                "leadCount":  13,
+                                "states":  [
+                                               "NH",
+                                               "VT"
+                                           ],
+                                "cities":  [
+                                               "Tilton",
+                                               "Laconia",
+                                               "Hampton"
+                                           ],
+                                "percentage":  "1.30",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "304",
+                                "leadCount":  12,
+                                "states":  [
+                                               "WV",
+                                               "PA",
+                                               "TN"
+                                           ],
+                                "cities":  [
+                                               "Oceana",
+                                               "Leon",
+                                               "Hinton"
+                                           ],
+                                "percentage":  "1.20",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "540",
+                                "leadCount":  12,
+                                "states":  [
+                                               "VA",
+                                               "WA"
+                                           ],
+                                "cities":  [
+                                               "Timberville"
+                                           ],
+                                "percentage":  "1.20",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "731",
+                                "leadCount":  12,
+                                "states":  [
+                                               "TN"
+                                           ],
+                                "cities":  [
+                                               "Union City",
+                                               "Ripley"
+                                           ],
+                                "percentage":  "1.20",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "804",
+                                "leadCount":  12,
+                                "states":  [
+                                               "VA"
+                                           ],
+                                "cities":  [
+                                               "Richmond",
+                                               "Mechanicsville"
+                                           ],
+                                "percentage":  "1.20",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "609",
+                                "leadCount":  11,
+                                "states":  [
+                                               "NJ"
+                                           ],
+                                "cities":  [
+                                               "Wildwood"
+                                           ],
+                                "percentage":  "1.10",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "215",
+                                "leadCount":  10,
+                                "states":  [
+                                               "PA",
+                                               "NJ"
+                                           ],
+                                "cities":  [
+                                               "Jersey Shore",
+                                               "Philadelphia"
+                                           ],
+                                "percentage":  "1.00",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "201",
+                                "leadCount":  9,
+                                "states":  [
+                                               "NJ"
+                                           ],
+                                "cities":  [
+
+                                           ],
+                                "percentage":  "0.90",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "267",
+                                "leadCount":  9,
+                                "states":  [
+                                               "PA",
+                                               "IL"
+                                           ],
+                                "cities":  [
+                                               "Philadelphia"
+                                           ],
+                                "percentage":  "0.90",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "704",
+                                "leadCount":  9,
+                                "states":  [
+                                               "NC",
+                                               "CA",
+                                               "TN",
+                                               "TX"
+                                           ],
+                                "cities":  [
+                                               "Kings Mountain",
+                                               "Wadesboro",
+                                               "Shelby"
+                                           ],
+                                "percentage":  "0.90",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "302",
+                                "leadCount":  9,
+                                "states":  [
+                                               "DE"
+                                           ],
+                                "cities":  [
+
+                                           ],
+                                "percentage":  "0.90",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            },
+                            {
+                                "areaCode":  "843",
+                                "leadCount":  8,
+                                "states":  [
+                                               "SC"
+                                           ],
+                                "cities":  [
+                                               "Murrells Inlet",
+                                               "null",
+                                               "Myrtle Beach"
+                                           ],
+                                "percentage":  "0.80",
+                                "priority":  "low",
+                                "estimatedCost":  1
+                            }
+                        ],
+    "existingNumbers":  [
+                            {
+                                "phoneNumber":  "+19142289324",
+                                "friendlyName":  "State NY-local Katonah"
+                            },
+                            {
+                                "phoneNumber":  "+19806552155",
+                                "friendlyName":  "State NC-local Stanley"
+                            },
+                            {
+                                "phoneNumber":  "+15045004784",
+                                "friendlyName":  "State LA-local Jesuit Bend"
+                            },
+                            {
+                                "phoneNumber":  "+17179997303",
+                                "friendlyName":  "State PA-local Harrisburg City Zone"
+                            },
+                            {
+                                "phoneNumber":  "+14409701350",
+                                "friendlyName":  "State OH-local Burton"
+                            },
+                            {
+                                "phoneNumber":  "+19519035177",
+                                "friendlyName":  "State CA-local Mira Loma"
+                            },
+                            {
+                                "phoneNumber":  "+16672497593",
+                                "friendlyName":  "State MD-local Galena"
+                            },
+                            {
+                                "phoneNumber":  "+15136435351",
+                                "friendlyName":  "State OH-local Williamsburg"
+                            },
+                            {
+                                "phoneNumber":  "+13613373273",
+                                "friendlyName":  "State TX-local Berclair"
+                            },
+                            {
+                                "phoneNumber":  "+19133939602",
+                                "friendlyName":  "State KS-local Olathe"
+                            },
+                            {
+                                "phoneNumber":  "+14694550836",
+                                "friendlyName":  "State TX-local Lewisville"
+                            },
+                            {
+                                "phoneNumber":  "+15592585035",
+                                "friendlyName":  "State CA-local Del Rey"
+                            },
+                            {
+                                "phoneNumber":  "+19035231713",
+                                "friendlyName":  "State TX-local Gordonville"
+                            },
+                            {
+                                "phoneNumber":  "+13865171587",
+                                "friendlyName":  "State FL-local Flagler Beach"
+                            },
+                            {
+                                "phoneNumber":  "+16364357273",
+                                "friendlyName":  "State MO-local Valley Park"
+                            },
+                            {
+                                "phoneNumber":  "+17085723287",
+                                "friendlyName":  "State IL-local Oak Lawn"
+                            },
+                            {
+                                "phoneNumber":  "+19062929903",
+                                "friendlyName":  "State MI-local Brevort"
+                            },
+                            {
+                                "phoneNumber":  "+18478606816",
+                                "friendlyName":  "State IL-local Bensenville"
+                            },
+                            {
+                                "phoneNumber":  "+15712404954",
+                                "friendlyName":  "State VA-local null"
+                            },
+                            {
+                                "phoneNumber":  "+13313220312",
+                                "friendlyName":  "State IL-local Chicago"
+                            },
+                            {
+                                "phoneNumber":  "+19206718587",
+                                "friendlyName":  "State WI-local Oconto Falls"
+                            },
+                            {
+                                "phoneNumber":  "+18564434698",
+                                "friendlyName":  "State NJ-local Woodbury"
+                            },
+                            {
+                                "phoneNumber":  "+15624560323",
+                                "friendlyName":  "State CA-local Pico Rivera"
+                            },
+                            {
+                                "phoneNumber":  "+17604372265",
+                                "friendlyName":  "State CA-local Desert Center"
+                            },
+                            {
+                                "phoneNumber":  "+19294163194",
+                                "friendlyName":  "State NY-local New York City Zone"
+                            },
+                            {
+                                "phoneNumber":  "+15176988252",
+                                "friendlyName":  "State MI-local North Adams"
+                            },
+                            {
+                                "phoneNumber":  "+18106743543",
+                                "friendlyName":  "State MI-local Applegate"
+                            },
+                            {
+                                "phoneNumber":  "+16109917343",
+                                "friendlyName":  "State PA-local Easton"
+                            },
+                            {
+                                "phoneNumber":  "+19187255983",
+                                "friendlyName":  "State OK-local Cushing"
+                            },
+                            {
+                                "phoneNumber":  "+17372760367",
+                                "friendlyName":  "State TX-local null"
+                            },
+                            {
+                                "phoneNumber":  "+13345092182",
+                                "friendlyName":  "State AL-local Thomaston"
+                            },
+                            {
+                                "phoneNumber":  "+16506400735",
+                                "friendlyName":  "State CA-local null"
+                            },
+                            {
+                                "phoneNumber":  "+14255521662",
+                                "friendlyName":  "State WA-local null"
+                            },
+                            {
+                                "phoneNumber":  "+17067869544",
+                                "friendlyName":  "State GA-local Columbus"
+                            },
+                            {
+                                "phoneNumber":  "+14086927323",
+                                "friendlyName":  "State CA-local San Martin"
+                            },
+                            {
+                                "phoneNumber":  "+19523146552",
+                                "friendlyName":  "State MN-local Chaska"
+                            },
+                            {
+                                "phoneNumber":  "+16514091537",
+                                "friendlyName":  "State MN-local Scandia Marine"
+                            },
+                            {
+                                "phoneNumber":  "+19736202806",
+                                "friendlyName":  "State NJ-local Dover"
+                            },
+                            {
+                                "phoneNumber":  "+18166702995",
+                                "friendlyName":  "State MO-local Archie"
+                            },
+                            {
+                                "phoneNumber":  "+18314323684",
+                                "friendlyName":  "State CA-local null"
+                            },
+                            {
+                                "phoneNumber":  "+15103191943",
+                                "friendlyName":  "State CA-local Fremontnewark"
+                            },
+                            {
+                                "phoneNumber":  "+19476669527",
+                                "friendlyName":  "State MI-local Milfordwhite Lake"
+                            },
+                            {
+                                "phoneNumber":  "+15306700833",
+                                "friendlyName":  "State CA-local Corning"
+                            },
+                            {
+                                "phoneNumber":  "+16692218516",
+                                "friendlyName":  "State CA-local Los Gatos"
+                            },
+                            {
+                                "phoneNumber":  "+16075582064",
+                                "friendlyName":  "State NY-local Jasper"
+                            },
+                            {
+                                "phoneNumber":  "+17653085437",
+                                "friendlyName":  "State IN-local Modoc"
+                            },
+                            {
+                                "phoneNumber":  "+19049775082",
+                                "friendlyName":  "State FL-local Starke"
+                            },
+                            {
+                                "phoneNumber":  "+17405855085",
+                                "friendlyName":  "State OH-local Lower Salem"
+                            },
+                            {
+                                "phoneNumber":  "+16194892810",
+                                "friendlyName":  "State CA-local Chula Vista"
+                            },
+                            {
+                                "phoneNumber":  "+19565865707",
+                                "friendlyName":  "State TX-local Pharr"
+                            },
+                            {
+                                "phoneNumber":  "+14244874666",
+                                "friendlyName":  "State CA-local null"
+                            },
+                            {
+                                "phoneNumber":  "+19854653754",
+                                "friendlyName":  "State LA-local Dulac"
+                            },
+                            {
+                                "phoneNumber":  "+18123590210",
+                                "friendlyName":  "State IN-local Sand Ridge"
+                            },
+                            {
+                                "phoneNumber":  "+18142503465",
+                                "friendlyName":  "State PA-local Edinboro"
+                            },
+                            {
+                                "phoneNumber":  "+16467989933",
+                                "friendlyName":  "State NY-local New York City Zone"
+                            },
+                            {
+                                "phoneNumber":  "+17634017817",
+                                "friendlyName":  "State MN-local Cambridge"
+                            },
+                            {
+                                "phoneNumber":  "+17742385696",
+                                "friendlyName":  "State MA-local Osterville"
+                            },
+                            {
+                                "phoneNumber":  "+18506800822",
+                                "friendlyName":  "State FL-local Gretna"
+                            },
+                            {
+                                "phoneNumber":  "+17738973885",
+                                "friendlyName":  "State IL-local Chicago Zone"
+                            },
+                            {
+                                "phoneNumber":  "+15092849050",
+                                "friendlyName":  "State WA-local Tekoa"
+                            },
+                            {
+                                "phoneNumber":  "+19384003210",
+                                "friendlyName":  "State AL-local null"
+                            },
+                            {
+                                "phoneNumber":  "+17072320777",
+                                "friendlyName":  "State CA-local Trinidad"
+                            },
+                            {
+                                "phoneNumber":  "+19085406751",
+                                "friendlyName":  "State NJ-local Plainfield"
+                            },
+                            {
+                                "phoneNumber":  "+16265939798",
+                                "friendlyName":  "State CA-local Covina"
+                            },
+                            {
+                                "phoneNumber":  "+15867881599",
+                                "friendlyName":  "State MI-local Utica"
+                            },
+                            {
+                                "phoneNumber":  "+17343164801",
+                                "friendlyName":  "State MI-local Saline"
+                            },
+                            {
+                                "phoneNumber":  "+15706596981",
+                                "friendlyName":  "State PA-local Covington"
+                            },
+                            {
+                                "phoneNumber":  "+16083365340",
+                                "friendlyName":  "State WI-local Monroe"
+                            },
+                            {
+                                "phoneNumber":  "+18722735079",
+                                "friendlyName":  "State IL-local Chicago"
+                            },
+                            {
+                                "phoneNumber":  "+17543411253",
+                                "friendlyName":  "State FL-local null"
+                            },
+                            {
+                                "phoneNumber":  "+19167756510",
+                                "friendlyName":  "State CA-local Courtland"
+                            },
+                            {
+                                "phoneNumber":  "+19402906288",
+                                "friendlyName":  "State TX-local Aubrey"
+                            },
+                            {
+                                "phoneNumber":  "+14435438144",
+                                "friendlyName":  "State MD-local Arbutus"
+                            },
+                            {
+                                "phoneNumber":  "+18782014708",
+                                "friendlyName":  "State PA-local Rochester"
+                            },
+                            {
+                                "phoneNumber":  "+17164669816",
+                                "friendlyName":  "State NY-local Holland"
+                            },
+                            {
+                                "phoneNumber":  "+17125667975",
+                                "friendlyName":  "State IA-local Underwood"
+                            },
+                            {
+                                "phoneNumber":  "+14302435791",
+                                "friendlyName":  "State TX-local Henderson"
+                            },
+                            {
+                                "phoneNumber":  "+17793681306",
+                                "friendlyName":  "State IL-local New Milford"
+                            },
+                            {
+                                "phoneNumber":  "+19016757510",
+                                "friendlyName":  "State TN-local null"
+                            },
+                            {
+                                "phoneNumber":  "+19373659782",
+                                "friendlyName":  "State OH-local Rainsboro"
+                            },
+                            {
+                                "phoneNumber":  "+17727581141",
+                                "friendlyName":  "State FL-local Vero Beach"
+                            },
+                            {
+                                "phoneNumber":  "+19893682814",
+                                "friendlyName":  "State MI-local Harrison"
+                            },
+                            {
+                                "phoneNumber":  "+18583584836",
+                                "friendlyName":  "State CA-local null"
+                            },
+                            {
+                                "phoneNumber":  "+16419343838",
+                                "friendlyName":  "State IA-local Bladensburg"
+                            },
+                            {
+                                "phoneNumber":  "+16182495348",
+                                "friendlyName":  "State IL-local Irvington"
+                            },
+                            {
+                                "phoneNumber":  "+18596517426",
+                                "friendlyName":  "State KY-local Carlisle"
+                            },
+                            {
+                                "phoneNumber":  "+19783008814",
+                                "friendlyName":  "State MA-local Townsend"
+                            },
+                            {
+                                "phoneNumber":  "+15612209596",
+                                "friendlyName":  "State FL-local West Palm Beach"
+                            },
+                            {
+                                "phoneNumber":  "+17817466712",
+                                "friendlyName":  "State MA-local Canton"
+                            },
+                            {
+                                "phoneNumber":  "+16602422175",
+                                "friendlyName":  "State MO-local Montrose"
+                            },
+                            {
+                                "phoneNumber":  "+15747014177",
+                                "friendlyName":  "State IN-local Galveston"
+                            },
+                            {
+                                "phoneNumber":  "+13136310325",
+                                "friendlyName":  "State MI-local null"
+                            },
+                            {
+                                "phoneNumber":  "+18137338695",
+                                "friendlyName":  "State FL-local Tampa North"
+                            },
+                            {
+                                "phoneNumber":  "+17249326889",
+                                "friendlyName":  "State PA-local Jamestown"
+                            },
+                            {
+                                "phoneNumber":  "+16309310118",
+                                "friendlyName":  "State IL-local Itasca"
+                            },
+                            {
+                                "phoneNumber":  "+19124201945",
+                                "friendlyName":  "State GA-local Lyons"
+                            },
+                            {
+                                "phoneNumber":  "+14422553457",
+                                "friendlyName":  "State CA-local Victorville"
+                            },
+                            {
+                                "phoneNumber":  "+18322253161",
+                                "friendlyName":  "State TX-local Seabrook"
+                            },
+                            {
+                                "phoneNumber":  "+18053033189",
+                                "friendlyName":  "State CA-local Saticoy"
+                            },
+                            {
+                                "phoneNumber":  "+18623783241",
+                                "friendlyName":  "State NJ-local null"
+                            }
+                        ]
+}

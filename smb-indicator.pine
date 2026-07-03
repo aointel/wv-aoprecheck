@@ -1,0 +1,105 @@
+//@version=5
+indicator("SMB Single-Row Levels", overlay = true, max_lines_count = 100, max_labels_count = 50)
+
+// === INPUTS ===
+
+// One single SMB line format: Support,Resistance,Inflexion,Notes (tab-separated)
+smbRow = input.string("335, 337.50, 340\t347.50, 350, 352.50\t345\tmargins down 50bps y/y. large EPS for Q4.", "SMB Row (Support\tResistance\tInflexion\tNotes)", text_area = true)
+
+supColor = input.color(color.new(color.green, 0), "Support color")
+resColor = input.color(color.new(color.red,   0), "Resistance color")
+infColor = input.color(color.new(color.orange,0), "Inflexion color")
+lineWidth = input.int(1, "Line width", minval = 1, maxval = 4)
+
+// === HELPERS ===
+
+// Remove all spaces from a string
+f_removeSpaces(strIn) =>
+    result = strIn
+    // Pine Script v5 doesn't have replace_all, so we use replace in a loop
+    // Since we can't loop strings easily, we'll handle spaces during parsing
+    result
+
+// Parse comma-separated price list into float[]
+f_parseLevels(strIn) =>
+    float[] levels = array.new_float()
+    if not na(strIn) and str.length(strIn) > 0
+        // Split by comma
+        parts = str.split(strIn, ",")
+        for i = 0 to array.size(parts) - 1
+            piece = str.trim(array.get(parts, i))
+            if str.length(piece) > 0
+                val = str.tonumber(piece)
+                if not na(val)
+                    array.push(levels, val)
+    levels
+
+// === STATE ===
+
+var line[] supLines = array.new_line()
+var line[] resLines = array.new_line()
+var line[] infLines = array.new_line()
+var label  noteLabel = na
+
+// Delete all stored lines
+f_clearLines() =>
+    for i = 0 to array.size(supLines) - 1
+        line.delete(array.get(supLines, i))
+    for i = 0 to array.size(resLines) - 1
+        line.delete(array.get(resLines, i))
+    for i = 0 to array.size(infLines) - 1
+        line.delete(array.get(infLines, i))
+    array.clear(supLines)
+    array.clear(resLines)
+    array.clear(infLines)
+    if not na(noteLabel)
+        label.delete(noteLabel)
+        noteLabel := na
+
+// Build all lines from current smbRow
+f_buildFromRow() =>
+    f_clearLines()
+    
+    // Normalize row: remove CR, convert tabs to a pipe separator
+    // Pine Script v5: use str.replace() - need to handle tabs and CR
+    rowNoCR = str.replace(smbRow, "\r", "")
+    rowNoCR = str.replace(rowNoCR, "\n", "")
+    // Replace tabs with pipe separator
+    rowPiped = str.replace(rowNoCR, "\t", "|")
+    
+    // Split by pipe
+    fields = str.split(rowPiped, "|")
+    
+    supStr    = array.size(fields) > 0 ? array.get(fields, 0) : ""
+    resStr    = array.size(fields) > 1 ? array.get(fields, 1) : ""
+    infStr    = array.size(fields) > 2 ? array.get(fields, 2) : ""
+    notesStr  = array.size(fields) > 3 ? array.get(fields, 3) : ""
+    
+    supLevels = f_parseLevels(supStr)
+    resLevels = f_parseLevels(resStr)
+    infLevels = f_parseLevels(infStr)
+    
+    // Create right-extended horizontal lines at these prices
+    for i = 0 to array.size(supLevels) - 1
+        lvl = array.get(supLevels, i)
+        ln  = line.new(bar_index, lvl, bar_index + 1, lvl, extend = extend.right, color = supColor, width = lineWidth)
+        array.push(supLines, ln)
+    
+    for i = 0 to array.size(resLevels) - 1
+        lvl = array.get(resLevels, i)
+        ln  = line.new(bar_index, lvl, bar_index + 1, lvl, extend = extend.right, color = resColor, width = lineWidth)
+        array.push(resLines, ln)
+    
+    for i = 0 to array.size(infLevels) - 1
+        lvl = array.get(infLevels, i)
+        ln  = line.new(bar_index, lvl, bar_index + 1, lvl, extend = extend.right, color = infColor, width = lineWidth)
+        array.push(infLines, ln)
+    
+    // Optional: show notes in a label near current bar
+    if str.length(str.trim(notesStr)) > 0
+        noteLabel := label.new(bar_index, high, "Notes: " + notesStr, style = label.style_label_left, textcolor = color.white, color = color.new(color.black, 70))
+
+// Rebuild once on first bar and whenever script is recompiled (e.g. you change smbRow)
+if barstate.isfirst
+    f_buildFromRow()
+

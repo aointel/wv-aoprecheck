@@ -1,0 +1,3295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>User List</title>
+    <link rel="icon" type="image/x-icon" href="/Content/Images/favicon.png">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css" />
+
+
+    <script src="/common/scripts?v=2BDNJmnbg3aRp0e0_W5EfbuETd2F7HgQ62imnNha1A41"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+    <script src="/common/scriptsOther?v=g_u6o9Eb4Wlq-sF9CsMZgyMaUVIKE_elgv8bkhAtYrE1"></script>
+
+    <script src="/custom/customScript?v=8OTd2za8YanWv6oY9A3wLBRdNKKPXMOaFxgXwZb_QsE1"></script>
+
+    <script src="/custom/slidermenu?v=epFqfxY4big7UPIGqDXyd4UF31O6BG7L1Vlqe56fmuc1"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.9/js/jquery.dataTables.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.10/js/dataTables.bootstrap.min.js"></script>
+
+    <script src="https://cdn.datatables.net/responsive/2.0.0/js/dataTables.responsive.min.js"></script>
+
+    <script src="https://cdn.datatables.net/responsive/2.0.0/js/responsive.bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.2/jquery.timepicker.js"></script>
+
+    <script src="/glDatePicker/scripts?v=CZ35N2D_9sirjXf2V1voK_JImISWlQ0SK9Yp97j4QL41"></script>
+
+    <script src="/bootstrap-typeahead/scripts?v=INI7Zgf0JzhRny18z336_TlUg2wpb2xnq-8oNEXeY481"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.6/jquery.slimscroll.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.2/metisMenu.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+
+    <script src="/Scripts/app/inspinia?v=IycKpdkiKF4NQLMcCkN1L8jS9mrYxzd6REto6Kold-E1"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+
+    <script src="/bundles/bootstrap?v=a0JlrK3HWJYO4CANWtnjZQ6r-FHTgFewh3ItuNGmfr41"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" rel="stylesheet"/>
+
+
+    <link href="/datatables/css?v=0C7rJmrOU0ahjpc-gImByYKoS2Qt0aImebYrd91GcKY1" rel="stylesheet"/>
+
+    <link href="/jquery.timepicker/css?v=OvbYAIbJCyOQ-yD93zW3l920Ho6Jsy8r22rrTWPgaDg1" rel="stylesheet"/>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet"/>
+
+    <link href="/common/css?v=m1Vn7ht3Ki-Fh74OaDpaTMT2qLq_oFgtBDHwFBeaQsU1" rel="stylesheet"/>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.24/themes/base/jquery-ui.min.css" rel="stylesheet"/>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/awesome-bootstrap-checkbox/v0.2.3/awesome-bootstrap-checkbox.css" rel="stylesheet"/>
+
+
+
+
+</head>
+<script>
+    var AjaxGlobalHandler = {
+        Initiate: function () {
+            $.ajaxSetup({ cache: false });
+
+            $(document)
+
+            .ajaxSend(function (e, xhr, data) {
+
+                try {
+                    if (data.disableApplicationLoader === true) {
+
+                    }
+
+                    else {
+                        waitingDialog.show();
+                    }
+
+                }
+                catch (e) {
+
+                }
+            })
+                .ajaxError(function (x, status, data) {
+                    var string = "draw";
+                    var string2 = "columns";
+                    try {
+
+                        if (data.data.indexOf(string) > -1 && data.data.indexOf(string2) > -1) {
+                            if (status.status == 401) {
+                                sessionExpired();
+                            }
+                            else if (status.status == 403) {
+                                unAuthorizeAjax();
+                            }
+                            return;
+                        }
+                    }
+                    catch (e) {
+                    }
+                    if (status.status == 401) {
+                        sessionExpired();
+                    }
+                    else if (status.status == 403) {
+                        unAuthorizeView();
+                    }
+                })
+                .ajaxStop(function () {
+                    waitingDialog.hide();
+                });
+        }
+    };
+
+    $(document).ready(function () {
+        AjaxGlobalHandler.Initiate();
+    });
+    $.fn.dataTable.ext.errMode = 'none';
+    $(document.body).on('xhr.dt', function (e, settings, json, xhr) {
+
+
+    });
+
+    function sessionExpired() {
+        bootbox.alert("Session Expired", function (result) {
+            var url = '/Account/login';
+            window.location.href = url;
+        });
+    }
+
+    function unAuthorizeAjax() {
+        bootbox.alert("Oops! Not enough permission(s) to perform this operation. Please, contact system administrator for help.", function (result) {
+            var url = '/home';
+            window.location.href = url;
+        });
+    }
+
+    function unAuthorizeView() {
+        bootbox.alert("Oops! Not enough permission(s) to perform this operation. Please, contact system administrator for help.", function (result) {
+            var url = '/home';
+            window.location.href = url;
+        });
+    }
+
+</script>
+
+<body class="fixed-sidebar">
+    <!--[if lte IE 8]>
+        <script language="javascript">
+            alert("You are currently using an unsupported browser. Please upgrade to the latest version of this browser to access the website.");
+        </script>
+    <![endif]-->
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse leftmenu">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="m-b-md m-t-xs text-center impmanglogo">
+                                <span class="block-inline"><img src="/Content/images/AO Logo 75x75.png" class="w-55-px" /></span> <span class="appName text-white AOLogotext">AO NY Planet Online Directory – POD</span>
+                        </div>
+
+                        <div class="m-b-0 mobuserprofile">
+
+                            <!-- Profile PIC & Name inclue when user enter mobile Device -->
+
+                        </div>
+                    </li>
+                                    <li class="">
+                                        <a href="/">
+                                            <div class="nav-box">
+                                                <i class="fa  fa fa-home" aria-hidden="true"></i>
+                                                <span>Home</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class=" active">
+                                        <a href="/Account/List">
+                                            <div class="nav-box">
+                                                <i class="fa  far fa-list-alt" aria-hidden="true"></i>
+                                                <span>User List</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown ">
+                                        <a data-target="#view245" onclick="return false;" href="/">
+                                            <div class="nav-box">
+                                                <i class="fa fa fa-files-o" aria-hidden="true"></i>
+                                                <span>Reports</span>
+                                                <span class="fa fa-angle-right pull-right right-icon"></span>
+                                            </div>
+                                        </a>
+                                        <ul class="nav nav-second-level collapse " id="view245">
+                                            <li class="inner-sidebar-collapse">
+                                                <ul>
+                                                        <li class="">
+                                                            <a href="/HeldBusiness">Held Business Summary</a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="/Report/LeadAssignedReport">Leads Assigned Report</a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="/Report/LeadAvailabilityReport">Lead Availability by City &amp; Zip</a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="/Report/LeadSearch">Lead Search Report</a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="/Report/PolicySearchReport">Policy Search Report</a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="/Report/GroupSearch">Group Search Report</a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="/GroupDetailsReport">Group Details Report</a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="/MediaDownloadReport/TimeFrameDocument">Media Downloads Documents</a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="/MediaDownloadReport/TimeFrameLinks">Media Downloads Links</a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="/Report/RetentionReport">Retention Report</a>
+                                                        </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="">
+                                        <a href="/Account/CustomContract">
+                                            <div class="nav-box">
+                                                <i class="fa far fa-map" aria-hidden="true"></i>
+                                                <span>Custom Contract</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/Report/SalesWorkBookReport">
+                                            <div class="nav-box">
+                                                <i class="fa fa fa-bar-chart" aria-hidden="true"></i>
+                                                <span>Sales WorkBook Report</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/Office">
+                                            <div class="nav-box">
+                                                <i class="fa fa fa-building" aria-hidden="true"></i>
+                                                <span>Office</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/Policy">
+                                            <div class="nav-box">
+                                                <i class="fa  fas fa-gavel" aria-hidden="true"></i>
+                                                <span>Policy</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="/Account/PasswordSettings">
+                                            <div class="nav-box">
+                                                <i class="fa fa fa-list-alt" aria-hidden="true"></i>
+                                                <span>Password Reset Settings</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                </ul>
+                </div>
+            </nav>
+                        <script>
+
+                            $('.leftmenu').slimScroll({
+                                alwaysVisible: true,
+                                railVisible: true,
+                                disableFadeOut: true,
+                                useFixedHeight: true,
+                                railOpacity: 0,
+                                color: '#ffffff',
+                                borderRadius: '0px',
+                                size: '5px',
+                            });
+                            $('.sidebar-collapse').slimScroll().bind('slimscrolling', function (e, pos) {
+                                $('#side-menu > li').each(function (index, value) {
+                                    var LiPosition = $(this).position();
+                                    var liCount = $('#side-menu > li').length;
+                                    var countDropdown = $('#side-menu > li .inner-sidebar-collapse').children('ul')
+
+                                    //menu item 6 onwards will come up from bottom and index start from 0 thats why 7
+                                    if (liCount > 6 && index > 7) {
+                                        if ($(this).hasClass('dropdown')) {
+                                            var LastLiBottom = $(".slimScrollDiv").height() - (LiPosition.top + $(this).height());
+                                            $(this).children('.nav-second-level').css({ 'bottom': LastLiBottom + 'px', 'top': '' });
+                                        }
+                                    }
+
+                                    else {
+                                        $(this).children('.nav-second-level').css({ 'top': LiPosition.top + 'px' });
+                                    }
+
+                                    if (countDropdown.hasClass('collapse')) {
+                                        countDropdown.removeClass('collapse')
+                                    }
+
+                                });
+                            });
+
+                            $('.inner-sidebar-collapse').slimScroll({
+                                alwaysVisible: true,
+                                railVisible: true,
+                                disableFadeOut: true,
+                                useFixedHeight: true,
+                                railOpacity: 0,
+                                color: '#ffffff',
+                                size: '7px',
+                                railBorderRadius: '0px',
+                                opacity: 0.6,
+                                borderRadius: '0px',
+                                // the fixed height of the scroll bar
+                                fixedHeight: 50
+                            });
+
+
+                            var userId = 231
+    $(document).ready(function () {
+        var profilePictureClientData = localStorage.getItem("ProfilePicture");
+        if (profilePictureClientData == null || profilePictureClientData == undefined || profilePictureClientData == "" || profilePictureClientData == "undefined") {
+            GetProfilePictureAjax(userId, true);
+        }
+        else {
+            $('#profileImageClientSide').attr('src', profilePictureClientData);
+        }
+    });
+
+    function GetProfilePictureAjax(userId, isLoggedinUser) {
+        console.log(userId);
+        (function (isLoggedinUser) {
+            $.ajax({
+                type: "Get",
+                url: '/Account/GetProfilePic?userId=' + userId,
+                contentType: false,
+                processData: false,
+            })
+            .done(function (data, textStatus, jqXHR) {
+                console.log(isLoggedinUser);
+                if (isLoggedinUser == true) {
+                    $('#profileImageClientSide').attr('src', data.Data.ImageUrl);
+                    localStorage.setItem("ProfilePicture", data.Data.ImageUrl);
+                }
+                else {
+                    $('#profileImage').attr('src', data.Data.ImageUrl);
+                    if (data.Data.SoundUrl != null && data.Data.SoundUrl != undefined && data.Data.SoundUrl != "") {
+                        $('#soundUrlSrc').val(data.Data.SoundUrl);
+                        $('#btnSoundPlay').show();
+                    }
+                    else {
+                        $('#btnSoundPlay').hide();
+                        $('#soundUrlSrc').val("");
+                    }
+                }
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+
+            });
+        })(isLoggedinUser);
+        
+    }
+</script>
+                
+
+
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg">
+
+            <!-- Top Navbar -->
+                    <div class="row border-bottom">
+            <nav class="navbar navbar-static-top m-b-0" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-theme " href="#"><i class="fa fa-bars"></i> </a>
+                 
+                </div>
+
+                <input type="hidden" value="" id="hiddenUserType" />
+
+                <ul class="nav navbar-top-links navbar-right mob-Search">
+
+
+
+
+                     <li class="typeaheadSearch macuser pointer-none">
+
+                         <div class="dropdown">
+                             <div class="col-sm-5 col-xs-5 m-t-sm m-b-sm p-0 select w-70p">
+                                 <select class="form-control contextselected">
+                                     <option>Both</option>
+                                 </select>
+                             </div>
+                         </div>
+                    </li>
+                    <li class="typeaheadSearch macuser" style="">
+
+                        <div class="dropdown">
+                            <div class="dropdown-toggle hidden-lg hidden-md p-10" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-id-card"></i>
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </div>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <div class="col-sm-5 col-xs-5 m-t-sm m-b-sm p-0 select" id="contextDiv">
+                                        <select class="form-control" id="changecontext" name="changecontext"><option value="1">Hierarchy</option>
+<option value="2">MAC</option>
+</select>
+                                    </div>
+
+                                    <div class="select m-t-sm m-b-sm p-r-0 col-sm-7 col-xs-7" style="display:" id="ddDivOffice">
+                                        <select class="form-control" id="office" name="office"><option selected="selected" value="0">All Offices</option>
+<option value="151">AIL PNW</option>
+<option value="163">AILPNW Vet</option>
+<option value="127">Ala Moana, HI</option>
+<option value="158">Albuquerque, NM</option>
+<option value="20">Anchorage, AK</option>
+<option value="222">AO Alpha</option>
+<option value="230">AO Apex</option>
+<option value="242">AO Beyer</option>
+<option value="233">AO California</option>
+<option value="245">AO Canada</option>
+<option value="226">AO Capital</option>
+<option value="244">AO Coast to Coast</option>
+<option value="243">AO Corporate Sales</option>
+<option value="238">AO Customer Service</option>
+<option value="237">AO East Coast</option>
+<option value="241">AO Elite</option>
+<option value="240">AO Empire</option>
+<option value="231">AO Global</option>
+<option value="239">AO Heritage</option>
+<option value="228">AO Illinois</option>
+<option value="221">AO Lead Dept</option>
+<option value="234">AO Luxor</option>
+<option value="232">AO Miami</option>
+<option value="215">AO Missouri</option>
+<option value="227">AO Nation</option>
+<option value="246">AO Neilson</option>
+<option value="208">AO NORTH</option>
+<option value="209">AO Office</option>
+<option value="212">AO ONE</option>
+<option value="219">AO Pacific</option>
+<option value="214">AO PREMIER</option>
+<option value="136">AO Resurrection</option>
+<option value="207">AO SoCal</option>
+<option value="201">AO South</option>
+<option value="1">AO Support</option>
+<option value="218">AO Support ALT</option>
+<option value="217">AO TenX</option>
+<option value="73">AO United</option>
+<option value="223">AO Universe</option>
+<option value="198">AO Vamos</option>
+<option value="224">AO Vamos North</option>
+<option value="213">AO Vamos South</option>
+<option value="235">AO Vamos Tempe</option>
+<option value="225">AO Vamos West</option>
+<option value="189">AO Worldwide</option>
+<option value="250">AO-Carpenter</option>
+<option value="249">AO-GOJCAJ</option>
+<option value="247">AO-Iftiu (Bowling)</option>
+<option value="248">AO-Iftiu (Prata-Wilson)</option>
+<option value="220">AOProject</option>
+<option value="25">Asheville, NC</option>
+<option value="22">Boise, ID</option>
+<option value="167">Bountiful, UT</option>
+<option value="186">Bozeman, MT</option>
+<option value="85">Burnaby, BC</option>
+<option value="162">Calgary East, AB</option>
+<option value="6">Calgary, AB</option>
+<option value="183">Cedar Rapids, IA</option>
+<option value="229">CFOffice</option>
+<option value="110">Chattanooga, TN</option>
+<option value="179">Chicago AO, IL</option>
+<option value="178">Chicago Ven, IL</option>
+<option value="147">Chico, CA</option>
+<option value="205">Clackamas</option>
+<option value="157">Clackamas, OR</option>
+<option value="194">Corona, CA</option>
+<option value="195">Cruise Office</option>
+<option value="182">Dallas AO</option>
+<option value="181">Dallas VEN</option>
+<option value="193">Denver, CO</option>
+<option value="185">Des Moines, IA</option>
+<option value="101">Edmonton, AB</option>
+<option value="159">El Paso, TX</option>
+<option value="48">Globe Life SoCal</option>
+<option value="65">Helena, MT</option>
+<option value="203">Hillsboro</option>
+<option value="13">Honolulu, HI</option>
+<option value="144">Idaho Falls, ID</option>
+<option value="105">Kirkland, WA</option>
+<option value="45">Knoxville, TN</option>
+<option value="166">Las Vegas, NV</option>
+<option value="15">London, ON</option>
+<option value="113">Maui, HI</option>
+<option value="204">Memphis</option>
+<option value="145">Memphis West, TN</option>
+<option value="216">Mesa, AZ</option>
+<option value="197">Midwest</option>
+<option value="175">Milwaukee, WI</option>
+<option value="3">Minneapolis, MN</option>
+<option value="140">Missoula, MT</option>
+<option value="12">Nashville East, TN</option>
+<option value="202">Orange County</option>
+<option value="16">Ottawa, ON</option>
+<option value="184">Ottumwa, IA</option>
+<option value="160">Phoenix, AZ</option>
+<option value="87">Rapid City, SD</option>
+<option value="96">Reno, NV</option>
+<option value="23">Richmond, VA</option>
+<option value="190">Sacramento, CA</option>
+<option value="176">Salem, OR</option>
+<option value="149">Salt Lake City North, UT</option>
+<option value="170">San Jose, CA</option>
+<option value="187">Santa Rosa, CA</option>
+<option value="19">Saskatoon, SK</option>
+<option value="191">Seattle South, WA</option>
+<option value="123">Seattle, WA</option>
+<option value="52">Sioux Falls South, SD</option>
+<option value="56">Spokane, WA</option>
+<option value="196">St Johns East, NF</option>
+<option value="7">St Johns, NF</option>
+<option value="109">Tacoma, WA</option>
+<option value="180">Tempe, AZ</option>
+<option value="156">Toronto, ON</option>
+<option value="174">Tucson, AZ</option>
+<option value="192">Tukwila, WA</option>
+<option value="133">Tysons Corner, VA</option>
+<option value="236">Vertex</option>
+<option value="43">Virginia Beach, VA</option>
+<option value="21">Winnipeg South, MB</option>
+</select>
+                                    </div>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+
+
+                                <li class="typeaheadSearch activeuser">
+                                    <div class="pull-left m-t-sm m-b-sm p-l-0-xs">
+                                        <div class="dropdown">
+                                            <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-user color-green" id="spanUserIcon" aria-hidden="true"></i>
+                                                <span class="hidden-xs m-l-xs" id="spanUser">Active User</span>
+                                                <i class="fa fa-angle-down visible-xs" aria-hidden="true"></i>
+
+                                                <span class="m-l-sm hidden-xs f-16 vr-align-middle">
+                                                    <i class="fa fa-caret-down"></i>
+                                                </span>
+                                            </div>
+                                            <ul class="dropdown-menu p-0" id="userDropdownMenu">
+                                                    <li data-text="Active User" data-value="A">
+                                                        <a href="#" data-text="Active User" data-value="A">
+                                                                <i class="fa fa-user color-green" aria-hidden="true"></i>
+
+                                                            <span class="m-l-xs">Active User</span>
+                                                        </a>
+                                                    </li>
+                                                    <li data-text="Terminated User" data-value="T">
+                                                        <a href="#" data-text="Terminated User" data-value="T">
+                                                                <i class="fa fa-user-times color-drkred" aria-hidden="true"></i>
+
+                                                            <span class="m-l-xs">Terminated User</span>
+                                                        </a>
+                                                    </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                <li class="typeaheadSearch macuser">
+                        <div id="searchTypeDropdown" class="dropdown">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div class="col-xs-5 m-t-sm m-b-sm p-0 select col-sm-12" id="searchTypeDiv">
+                                    <select class="form-control" id="changeSearchType" name="changeSearchType">
+                                        <option name="Associate" value="Search by Associate" data-desc="1" style="display:none">Search by Associate</option>
+                                        <option name="Associate" value="Search by Associate" data-desc="1">Associate</option>
+                                        <option name="Agent Number" value="Search by Agent Number" data-desc="2">Agent Number</option>
+                                        <option name="Phone Number" value="Search by Phone Number" data-desc="3">Phone Number</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                </li>
+                            <div class="searchAssociate searchAssociateDiv p-l-15 p-l-5-xs ">
+                                <form role="search" method="post" action="">
+                                    <div class="navbar-form-custom ps-relative search-box dynamicWidth">
+                                        <input type="text" placeholder="Search Associate" class="form-control" name="top-search"
+                                               id="SearchAssociate" autocomplete="off">
+                                        <div class="HomeSearch cursor-pointer">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                    <li id="mobileMoveIntoLeftMenu" class="userpicture">
+                        <div class="dropdown userProfileDropdown">
+                            <div class="userProfile block-inline dropdown-toggle" data-toggle="dropdown">
+                                <div class="userPic block-inline m-r-xs">
+
+                                    <img src="" id="profileImageClientSide" class="m-w-100">
+                                </div>
+                                <span class="block-inline m-r-xs userpicname nowrap">
+MANDELLA, MICHAEL
+                                </span>
+                                <i class="fa fa-angle-down block-inline f-16"></i>
+                            </div>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a href="/Account/Logout">
+                                        <i class="fa fa-sign-out"></i> Log out
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom page-heading top-user agent-breadcrum">
+            <div class="col-md-4">
+                <div class="agent-name">
+                    <h2 class="f-w-600 nowrap">MANDELLA, MICHAEL</h2>
+                </div>
+            </div>
+
+                    <div>
+
+                        
+                        <div class="sub-menu pull-right" id="myNavbar">
+                            <ul class="agent-link">
+                                                    <li>
+                                                        <a href="/AssociateDetails">Profile</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/AssociateDetails/Hierarchy">Hierarchy</a>
+                                                    </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="/">
+                                                        LSR Report
+                                                        <span class="caret"></span>
+                                                    </a>
+
+                                                    <div class="dropdown-menu   manageTopMenuDropDown">
+                                                        <ul>
+                                                                <li>
+                                                                    <a href="/Report/ProductionWeeklyLSRReport">Production LSR Report</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/Report/HiringWeeklyLSRReport">Hiring LSR Report</a>
+                                                                </li>
+                                                        </ul>
+                                                        <div class="more-Actions hidden-lg hidden-md hidden-sm">
+                                                            <i class="fa fa-ellipsis-h"></i>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                    <li>
+                                                        <a href="/Lead">Lead Report</a>
+                                                    </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="/">
+                                                        Reports
+                                                        <span class="caret"></span>
+                                                    </a>
+
+                                                    <div class="dropdown-menu   manageTopMenuDropDown">
+                                                        <ul>
+                                                                <li>
+                                                                    <a href="/Report/AdvanceReport">Agent Advance Report</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/Report/LedgerReport">Agent Ledger Report</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/Report/APAndPReport">AP&amp;P</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/Report/ChargeReport">Agent Charge Report</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/Report/FinanceReport">Agent Finance Report</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/Report/EmailReport">Email Report</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/DRBReport">DRB Report</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/RYGReport">RYG Report</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/Report/AgentRecapReport">Agent Recap</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="/Report/FivePercentPVFCRepoert">5% PVFC</a>
+                                                                </li>
+                                                        </ul>
+                                                        <div class="more-Actions hidden-lg hidden-md hidden-sm">
+                                                            <i class="fa fa-ellipsis-h"></i>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                            </ul>
+                            <div class="more-Actions hidden-lg hidden-md hidden-sm">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+<script type="text/javascript">
+
+    var byAgentNumber = false;
+    var byPhoneNumber = false;
+
+    $('#changeSearchType').change(function () {
+        $('#changeSearchType option')[0].value = $('#changeSearchType option:selected').val();
+        $('#changeSearchType option')[0].innerHTML = $('#changeSearchType option:selected').val();
+        $("#changeSearchType").val($('#changeSearchType option:selected').val());
+        $("#changeSearchType option").css({ "background-color": "", "color": "" });
+
+        if ($('#changeSearchType option')[0].value == 'Search by Agent Number') {
+            byAgentNumber = true;
+            byPhoneNumber = false;
+            $("#SearchAssociate").attr('placeholder', 'Search Agent Number');
+        }
+        else if ($('#changeSearchType option')[0].value == 'Search by Associate') {
+            byAgentNumber = false;
+            byPhoneNumber = false;
+            $("#SearchAssociate").attr('placeholder', 'Search Associate');
+        }
+        else {
+            byAgentNumber = false;
+            byPhoneNumber = true;
+            $("#SearchAssociate").attr('placeholder', 'Search Phone Number');
+        }
+        $("#SearchAssociate").val('');
+        $(".searchAssociateDiv form div ul").remove();
+        ClearTypeHead();
+        LoadTypeHead();
+    });
+
+
+
+    $(window).on('load', function () {
+        if ($(window).width() < 768) {
+            $('.breadcrumb').appendTo('.agent-name');
+        }
+    });
+
+    if ($(window).width() < 768) {
+
+
+        var parentListView = $(".sub-menu").width()
+        var listViewWidthCalculate = 0;
+
+        $('#mobileMoveIntoLeftMenu').appendTo('.mobuserprofile');
+
+        $(".macuser .dropdown").click(function (e) {
+            e.stopPropagation();
+            $('.macuser .dropdown .dropdown-menu').toggle();
+        });
+
+        $('.agent-link > li').each(function () {
+            listViewWidthCalculate += $(this).outerWidth(true)
+
+        });
+
+        $('.agent-link > li').on('shown.bs.dropdown', function () {
+
+
+            var subListViewWidthCalculate = 0;
+            var innerListView = $(".agent-link li .dropdown-menu").width()
+
+            $($(this).find('.dropdown-menu li')).each(function (i) {
+
+                subListViewWidthCalculate += $(this).outerWidth(true)
+
+            });
+
+            if (subListViewWidthCalculate > innerListView) {
+
+                $($(this).find('ul')).scroll(function () {
+
+                    if ($(this).scrollLeft() > 50) {
+                        $($(this).parent().find('.more-Actions')).fadeOut();
+                        $($(this).parent().find('.more-Actions')).css('display', 'none');
+                    }
+                    else {
+                        $($(this).parent().find('.more-Actions')).fadeIn();
+                        $($(this).parent().find('.more-Actions')).css('display', 'block');
+                    }
+
+                });
+
+            }
+            else {
+                $($(this).find('.more-Actions')).css('display', 'none');
+            }
+
+        });
+
+        if (listViewWidthCalculate > parentListView) {
+
+            $(".sub-menu > .more-Actions").css('display', 'block');
+
+            $('.sub-menu .agent-link').scroll(function () {
+
+                if ($(this).scrollLeft() > 50) {
+                    $('.sub-menu > .more-Actions').fadeOut();
+                    $('.sub-menu > .more-Actions').css('display', 'none');
+                }
+                else {
+                    $('.sub-menu > .more-Actions').fadeIn();
+                    $('.sub-menu > .more-Actions').css('display', 'block');
+                }
+
+            });
+
+        }
+        else {
+            $(".sub-menu > .more-Actions").css('display', 'none');
+        }
+
+    }
+
+
+
+    var linkName = "";
+    var searchtypehead = null;
+    var _USERTYPE = "USERTYPECONSTANT";
+    var resetMenu = '';
+    
+    if (resetMenu == 'True') {
+        sessionStorage.removeItem(_USERTYPE);
+    }
+
+    function GetUsertype() {
+        if (IsUserTypeAva()) {
+            return $('#hiddenUserType').val();
+        }
+        else {
+            return 'A';
+        }
+    }
+
+
+
+    function GetLookupUrl() {
+        var baseurl = "/Home/AutoCompleteAssociateHierarchy";
+        var istrue = GetUsertype() == 'T';
+        return baseurl + "?showterminatedonly=" + istrue;
+    }
+
+    function LoadTypeHead() {
+
+        searchtypehead = $("#SearchAssociate").typeahead({
+            onSelect: function (item) {
+
+                var showterminate = GetUsertype() == 'T';
+                window.location = '/AssociateDetails' + '?userid=' + item.value + '&includeterminated=' + showterminate;
+            },
+            ajax: {
+                url: GetLookupUrl() + "&officeID=" + parseInt($('#office').val()) + "&contextID=" + parseInt($('#changecontext').val()) + "&searchByAgentNumber=" + byAgentNumber + "&searchByPhoneNumber=" + byPhoneNumber,
+                timeout: 500,
+                displayField: "FullName",
+                valueField: "UserId",
+                triggerLength: 2,
+                method: "get",
+                replace: function (url, uriEncodedQuery) {
+                    return url;
+                },
+                disableApplicationLoader: true,
+                loadingClass: "loading-circle",
+                preDispatch: function (query) {
+                    return {
+                        search: query
+                    };
+                },
+                preProcess: function (data) {
+                    if (data.success === false) {
+                        return false;
+                    }
+                    return data;
+                }
+            },
+            highlighter: function (item) {
+                var query = this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&');
+                query = query.replace(" ", "");
+                var ros = item.slice(item.indexOf("<i"), item.indexOf("sm'>") + 4);
+                var ros1 = "</span>";
+                var initial = item.indexOf("sm'>");
+                var final = item.indexOf("</span");
+                var slicedItem = item.slice(initial + 4, final);
+                return ros + slicedItem.replace(new RegExp('(' + query + ')', 'ig'), function ($1, match) {
+                    return '<strong>' + match + '</strong>';
+                }) + ros1;
+            }
+        });
+    }
+
+    function ClearTypeHead() {
+        if (searchtypehead != null && searchtypehead != undefined) {
+            searchtypehead.typeahead('destroy');
+            searchtypehead = null;
+        }
+    }
+
+    var sessionItem = sessionStorage.getItem(_USERTYPE);
+    //Order of execution matters
+    if (sessionItem != null && sessionItem != undefined && sessionItem != "") {
+
+        $("#userDropdownMenu li").each(function (index) {
+            var text = $(this).attr("data-text");
+            var value = $(this).attr("data-value");
+
+            if (sessionItem == value) {
+                $('#spanUser').html(text);
+                $('#hiddenUserType').val(value);
+            }
+        });
+
+        //$("#Usertype").val(sessionItem);
+    }
+
+    function IsUserTypeAva() {
+        var element = document.getElementById('userDropdownMenu'); ;
+        if (element != null && element != undefined) {
+            element = document.getElementById('userDropdownMenu').getElementsByTagName('li');
+            return element != null && element.length >= 1;
+        } else {
+            return false;
+        }
+
+
+
+
+    }
+
+    $(function () {
+        LoadTypeHead();
+        if (IsUserTypeAva()) {
+            $("#userDropdownMenu li a").click(function () {
+                $('#hiddenUserType').val($(this).attr("data-value"));
+                sessionStorage.setItem(_USERTYPE, GetUsertype());
+                ClearTypeHead();
+                LoadTypeHead();
+
+                var text = $(this).attr("data-text");
+                $('#spanUser').html(text);
+
+                if (text == "Terminated User" || text == "T") {
+                    $('#spanUserIcon').removeClass("fa fa-user color-green").addClass("fa fa-user-times color-drkred");
+                }
+                else if (text == "Active User" || text == "A") {
+                    $('#spanUserIcon').removeClass("fa fa-user-times color-drkred").addClass("fa fa-user color-green");
+                }
+            });
+        }
+    })
+
+
+    $(function () {
+        $('#office').change(function () {
+            var selectedOffice = $('#office').val();
+            var changecontextId = $('#changecontext').val();
+            ClearTypeHead();
+            LoadTypeHead();
+        });
+
+        function HideDropDownOnHierarachySelection(){
+            var changecontextId = $('#changecontext').val();
+
+            if (changecontextId == "1") {
+                $('#ddDivOffice').css("display", "none");
+                $("#contextDiv").removeClass("col-sm-5");
+                $("#contextDiv").addClass("m-t-sm m-b-sm col-sm-12");
+                return;
+            }
+            else if (!$('#ddDivOffice').is(":visible")) {
+                $('#ddDivOffice').css("display", "inline");
+                $("#contextDiv").addClass("m-t-sm m-b-sm col-sm-5");
+                $("#contextDiv").removeClass("col-sm-12");
+            }
+        }
+
+        $('#changecontext').change(function () {
+            var changecontextId = $('#changecontext').val();
+            HideDropDownOnHierarachySelection();
+
+            $.getJSON("/Home/GetChangeContextOffice?ChangeContextId=" + changecontextId, function (data) {
+                $("select#office").empty();
+                if (data.length == 0) {
+                    $('#ddDivOffice').removeClass("block-inline");
+                    $('#ddDivOffice').css("display", "none");
+                }
+                $.each(data, function (i, c) {
+                    $('select#office').append('<option value="' + c.OfficeId + '">' + c.OfficeName + '</option>');
+                });
+                $("#office").change();
+            });
+        });
+
+        HideDropDownOnHierarachySelection();
+    });
+
+    var hiddenUserType = $('#hiddenUserType').val() == "" ? "A" : $('#hiddenUserType').val();
+    $("#userDropdownMenu li").each(function (index) {
+        var text = $(this).attr("data-text");
+        var value = $(this).attr("data-value");
+
+        if (hiddenUserType == value) {
+            $('#spanUser').html(text);
+
+        }
+
+        if (hiddenUserType == "Terminated User" || hiddenUserType == "T") {
+            $('#spanUserIcon').removeClass("fa fa-user color-green").addClass("fa fa-user-times color-drkred");
+        }
+        else if (hiddenUserType == "Active User" || hiddenUserType == "A") {
+            $('#spanUserIcon').removeClass("fa fa-user-times color-drkred").addClass("fa fa-user color-green");
+        }
+    });
+
+</script>
+
+            <div id="ResponseMessage" class="message-show"></div>
+            <div id="ErrorMessage" class="message-show"></div>
+            <!-- Main view  -->
+            <input id="IsAdministrator" name="IsAdministrator" type="hidden" value="true" /><input data-val="true" data-val-required="The Boolean field is required." id="IsSearchBarAccess" name="IsSearchBarAccess" type="hidden" value="true" />
+
+<input type="hidden" id="fetchManagersFromContext" value="" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
+
+<style>
+    .actiondropdown a {
+        display: block !important;
+    }
+
+    .actiondropdown a {
+        display: block !important;
+        padding: 7px;
+        text-decoration: none;
+    }
+
+    .actiondropdown .dropdown-menu {
+        box-shadow: 0 0 3px rgba(86, 96, 117, 0.7);
+        position: absolute;
+        left: -100px;
+    }
+
+    .modal .btn {
+        transform: none;
+    }
+
+    .switch-btn {
+        display: flex;
+        justify-content: center;
+    }
+        .switch-btn label {
+            margin-left: 0px;
+        }
+        .switch-btn label {
+            width: 95px;
+        }
+</style>
+
+
+<div class="row wrapper border-bottom white-bg page-heading stick-header">
+    <div class="col-lg-10">
+        <h2>User List</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li class="active">
+                <strong>User List</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content">
+
+    <div class="ibox">
+        <div class="ibox-content ps-relative">
+
+            <div id="Messages" class="message-show m-b-sm"></div>
+                <div class="clearfix">
+                    <div class="pull-right">
+                        <div class="block-inline">
+                            <form method="post">
+                                <a href='/Account/Create' class="pull-right btn btn-primary btn-theme-green">Create New User</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            <form method="post" class="row form-group">
+                <div class="col-md-4 p-0">
+                        <div class="col-lg-4 col-md-4">
+                            <label class="mrrght10p">Location Context </label>
+                            <div class="switch-btn" data-toggle="buttons">
+                                <label id="AOLabel" class="btn btn-secondary active">
+                                    <input type="radio" name="isAOFilter" value="AO"> AO
+                                </label>
+                                <label id="NYLabel" class="btn btn-secondary">
+                                    <input type="radio" name="isNYFilter" value="NY"> NY
+                                </label>
+                            </div>
+                        </div>
+
+                    <div id="userStatusDiv" class="col-lg-4 col-md-4 p-l-0">
+                        <label class="mrrght10p">User Status </label>
+                        <div class="select display-inlineblock vr-align-middle">
+                            <select class="form-control" id="UserStatus" name="UserStatus"><option value="Active">Active</option>
+<option selected="selected" value="AllActive">All Active</option>
+<option value="Disabled">Disabled</option>
+<option value="Locked">Locked</option>
+<option value="NoHierarchy">NoHierarchy</option>
+<option value="NonLicensed">NonLicensed</option>
+<option value="Reonboarding">Reonboarding</option>
+<option value="Terminated">Terminated</option>
+<option value="UnEstablished">UnEstablished</option>
+</select>
+                        </div>
+                    </div>
+                    <div id="roleDiv" class="col-lg-4 col-md-4 p-0">
+                        <label class="mrrght10p">Roles</label>
+                        <div class="select display-inlineblock vr-align-middle">
+                            <select class="form-control" id="SearchByRole" name="SearchByRole"><option value="0">Please Select Role</option>
+<option value="8">Administrator</option>
+<option value="9">SGA Proxy</option>
+<option value="14">Agency Support Coordinator</option>
+<option value="15">License Support Coordinator</option>
+<option value="19">Reviewer</option>
+<option value="20">Director</option>
+<option value="21">Lead Admin</option>
+<option value="22">Call Center Admin</option>
+<option value="23">Call Center Caller</option>
+<option value="24">Corporate</option>
+<option value="25">Validator</option>
+<option value="26">MAC</option>
+<option value="27">PODAssociateAdmin</option>
+<option value="28">Unlimited Policy Search</option>
+<option value="29">Block Policy Search</option>
+<option value="30">Bank Verification</option>
+<option value="31">Administrator (V)</option>
+<option value="32">EApp Mac Admin</option>
+<option value="33">EApp Mac</option>
+<option value="34">Reviewer (V)</option>
+<option value="35">Lock User</option>
+<option value="37">Non Count</option>
+<option value="38">Retention Report</option>
+<option value="39">Retention Report (V)</option>
+<option value="42">Lock HpPro MMS</option>
+<option value="43">Reviewer (NILICO)</option>
+<option value="45">AOWS IP Address Details</option>
+<option value="46">Administrator NILICO</option>
+<option value="47">PODAssociateAdmin (NI)</option>
+<option value="48">Retention Report (NI)</option>
+<option value="49">Allow NOPRD request</option>
+<option value="50">EApp Mac (NI)</option>
+<option value="51">Campaign Tool</option>
+<option value="52">Lead Admin - Market Mapping</option>
+<option value="53">Reply Tool</option>
+<option value="54">Limited Policy Search</option>
+<option value="55">Associate Admin</option>
+<option value="56">MFA Manager</option>
+<option value="57">MFA Suspend</option>
+</select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 p-0">
+                    <div class="col-lg-4 col-md-4">
+                        <label class="mrrght10p">Office</label>
+                        <div class="select display-inlineblock vr-align-middle">
+                            <select class="form-control" id="ddlOffice" name="ddlOffice"><option value="0">Please Select Office</option>
+<option value="151">AIL PNW</option>
+<option value="163">AILPNW Vet</option>
+<option value="127">Ala Moana, HI</option>
+<option value="158">Albuquerque, NM</option>
+<option value="20">Anchorage, AK</option>
+<option value="222">AO Alpha</option>
+<option value="230">AO Apex</option>
+<option value="242">AO Beyer</option>
+<option value="233">AO California</option>
+<option value="245">AO Canada</option>
+<option value="226">AO Capital</option>
+<option value="244">AO Coast to Coast</option>
+<option value="243">AO Corporate Sales</option>
+<option value="238">AO Customer Service</option>
+<option value="237">AO East Coast</option>
+<option value="241">AO Elite</option>
+<option value="240">AO Empire</option>
+<option value="231">AO Global</option>
+<option value="239">AO Heritage</option>
+<option value="228">AO Illinois</option>
+<option value="221">AO Lead Dept</option>
+<option value="234">AO Luxor</option>
+<option value="232">AO Miami</option>
+<option value="215">AO Missouri</option>
+<option value="227">AO Nation</option>
+<option value="246">AO Neilson</option>
+<option value="208">AO NORTH</option>
+<option value="209">AO Office</option>
+<option value="212">AO ONE</option>
+<option value="219">AO Pacific</option>
+<option value="214">AO PREMIER</option>
+<option value="136">AO Resurrection</option>
+<option value="207">AO SoCal</option>
+<option value="201">AO South</option>
+<option value="1">AO Support</option>
+<option value="218">AO Support ALT</option>
+<option value="217">AO TenX</option>
+<option value="73">AO United</option>
+<option value="223">AO Universe</option>
+<option value="198">AO Vamos</option>
+<option value="224">AO Vamos North</option>
+<option value="213">AO Vamos South</option>
+<option value="235">AO Vamos Tempe</option>
+<option value="225">AO Vamos West</option>
+<option value="189">AO Worldwide</option>
+<option value="250">AO-Carpenter</option>
+<option value="249">AO-GOJCAJ</option>
+<option value="247">AO-Iftiu (Bowling)</option>
+<option value="248">AO-Iftiu (Prata-Wilson)</option>
+<option value="220">AOProject</option>
+<option value="25">Asheville, NC</option>
+<option value="22">Boise, ID</option>
+<option value="167">Bountiful, UT</option>
+<option value="186">Bozeman, MT</option>
+<option value="85">Burnaby, BC</option>
+<option value="162">Calgary East, AB</option>
+<option value="6">Calgary, AB</option>
+<option value="183">Cedar Rapids, IA</option>
+<option value="229">CFOffice</option>
+<option value="110">Chattanooga, TN</option>
+<option value="179">Chicago AO, IL</option>
+<option value="178">Chicago Ven, IL</option>
+<option value="147">Chico, CA</option>
+<option value="205">Clackamas</option>
+<option value="157">Clackamas, OR</option>
+<option value="194">Corona, CA</option>
+<option value="195">Cruise Office</option>
+<option value="182">Dallas AO</option>
+<option value="181">Dallas VEN</option>
+<option value="193">Denver, CO</option>
+<option value="185">Des Moines, IA</option>
+<option value="101">Edmonton, AB</option>
+<option value="159">El Paso, TX</option>
+<option value="48">Globe Life SoCal</option>
+<option value="65">Helena, MT</option>
+<option value="203">Hillsboro</option>
+<option value="13">Honolulu, HI</option>
+<option value="144">Idaho Falls, ID</option>
+<option value="105">Kirkland, WA</option>
+<option value="45">Knoxville, TN</option>
+<option value="166">Las Vegas, NV</option>
+<option value="15">London, ON</option>
+<option value="113">Maui, HI</option>
+<option value="204">Memphis</option>
+<option value="145">Memphis West, TN</option>
+<option value="216">Mesa, AZ</option>
+<option value="197">Midwest</option>
+<option value="175">Milwaukee, WI</option>
+<option value="3">Minneapolis, MN</option>
+<option value="140">Missoula, MT</option>
+<option value="12">Nashville East, TN</option>
+<option value="202">Orange County</option>
+<option value="16">Ottawa, ON</option>
+<option value="184">Ottumwa, IA</option>
+<option value="160">Phoenix, AZ</option>
+<option value="87">Rapid City, SD</option>
+<option value="96">Reno, NV</option>
+<option value="23">Richmond, VA</option>
+<option value="190">Sacramento, CA</option>
+<option value="176">Salem, OR</option>
+<option value="149">Salt Lake City North, UT</option>
+<option value="170">San Jose, CA</option>
+<option value="187">Santa Rosa, CA</option>
+<option value="19">Saskatoon, SK</option>
+<option value="191">Seattle South, WA</option>
+<option value="123">Seattle, WA</option>
+<option value="52">Sioux Falls South, SD</option>
+<option value="56">Spokane, WA</option>
+<option value="196">St Johns East, NF</option>
+<option value="7">St Johns, NF</option>
+<option value="109">Tacoma, WA</option>
+<option value="180">Tempe, AZ</option>
+<option value="156">Toronto, ON</option>
+<option value="174">Tucson, AZ</option>
+<option value="192">Tukwila, WA</option>
+<option value="133">Tysons Corner, VA</option>
+<option value="236">Vertex</option>
+<option value="43">Virginia Beach, VA</option>
+<option value="21">Winnipeg South, MB</option>
+</select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 p-l-0">
+                        <label>&nbsp;</label>
+                        <select class="form-control" id="SearchBy" name="SearchBy"><option value="0">Select Search By</option>
+<option selected="selected" value="1">Username</option>
+<option value="2">First Name</option>
+<option value="3">Last Name</option>
+<option value="4">Phone No</option>
+<option value="5">Email</option>
+</select>
+                    </div>
+                    <div class="col-lg-4 col-md-4 p-l-0">
+                        <label>&nbsp;</label>
+                        <input class="form-control theme-input" id="SearchTxt" name="SearchTxt" placeholder="Searching Text" type="text" value="" />
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 p-l-0">
+                    <label class="ds-block">&nbsp;</label>
+                    <button type="submit" value="Search User" title="Search User" class="btn btn-success" id="btnSubmit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <button type="reset" value="Reset" class="btn btn-danger" title="Reset" id="btnReset">
+                        <i class="fa fa-refresh"></i>
+                    </button>
+                </div>
+            </form>
+
+            <div>
+                <table id="UserList" class="table table-bordered table-striped w-100">
+                    <thead class="webgrid-header">
+                        <tr>
+                            <th width="10%">Associate ID</th>
+                            <th width="11%">First Name</th>
+                            <th width="11%">Last Name</th>
+                            <th width="8%">Middle Initial</th>
+                            <th width="10%">Office</th>
+                            <th width="9%">User Name</th>
+                            <th width="8%" style="min-width:68px;">Phone</th>
+                            <th width="11%">Email</th>
+                            <th width="12%" style="min-width:88px;">User Status</th>
+                            <th style="width: 100px;min-width:100px"></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="dialogcontainer" class="modal fade"
+     tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+
+</div>
+<div id="dialogcontainerlist" class="modal fade"
+     tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+
+</div>
+<div id="policySettingPopup" class="modal fade"
+     tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+</div>
+<div id="terminatecontainer" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content border-radius0">
+            <div class="p-t-15 p-l-15 p-r-15" id="terminatedatacontainer" style="padding:20px">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="optIndialogcontainer" class="modal fade"
+     tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+
+</div>
+<input type="hidden" id="hdnManager" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-mask-plugin@1/dist/jquery.mask.min.js"></script>
+
+<script type="text/javascript">
+    var selectedRoles = [];
+    var terminationData = [];
+    var userinfo = null;
+    var searchdata = null;
+    var isRedirect = false;
+    var locationContext = $('#IsAdministrator').val() == "true" ? 'AO' :'NY';
+    function InitializeParameters(){
+        if(searchdata != null && searchdata != undefined){
+
+
+            $("#SearchTxt").val(searchdata.SearchText);
+            $("select#SearchBy").val(searchdata.SearchBy);
+            $("select#UserStatus").val(searchdata.UserStatus);
+            $("select#ddlOffice").val(searchdata.OfficeId);
+            $("select#SearchByRole").val(searchdata.UserRole);
+            if(searchdata.LocationContextCode=='NY'){
+             $('#NYLabel').addClass('active');
+             $('#AOLabel').removeClass('active');
+            locationContext='NY';
+
+            }
+            isRedirect = true;
+        }
+        else
+        {
+            var applieduserFilter = getCookie('filter_user_cookie_'+ 231);
+            if(applieduserFilter != null && applieduserFilter != undefined && applieduserFilter != "[object Object]")
+            {
+
+                applieduserFilter = JSON.parse(applieduserFilter);
+                if (applieduserFilter.SelectedLocationContext!= "") {
+                    if(applieduserFilter.SelectedLocationContext=='NY'){
+                        $('#NYLabel').addClass('active');
+                        $('#AOLabel').removeClass('active');
+                    }
+                    locationContext=applieduserFilter.SelectedLocationContext};
+                if (applieduserFilter.SelectedUserStatus!= "") $("select#UserStatus").val(applieduserFilter.SelectedUserStatus);
+                if (applieduserFilter.SelectedUserRole!= "") $("select#SearchByRole").val(applieduserFilter.SelectedUserRole);
+                if (applieduserFilter.SelectedOffice!= "") $("select#ddlOffice").val(applieduserFilter.SelectedOffice);
+                if (applieduserFilter.SelectedSearchBy!= "") $("select#SearchBy").val(applieduserFilter.SelectedSearchBy);
+                if (applieduserFilter.SearchedText!= "") $("#SearchTxt").val(applieduserFilter.SearchedText);
+            }
+        }
+
+    }
+
+    $('.switch-btn').on('click', function (event) {
+        var clickedElement = event.target;
+        var radioButton = $(clickedElement).find('input');
+        if (radioButton.length > 0) {
+            var context = radioButton.val();
+            if (context === 'AO') {
+                if (!$(clickedElement).hasClass('active')) {
+                    locationContext =radioButton.val();
+                }
+            } else if (context === 'NY') {
+                if (!$(clickedElement).hasClass('active')) {
+                    locationContext = radioButton.val();
+                }
+            }
+            $("#UserList").dataTable().fnDestroy();
+            $('#UserList tbody').empty();
+            reloadDatable(1);
+
+        }
+    });
+
+    $(document).ready(function () {
+
+        InitializeParameters();
+        reloadDatable(0);
+
+        var selectedAssociateIdtoMove = 0;
+
+
+        $(document).keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                if(!($('#userlist:visible').length == 0))
+                {
+                    $('#btnNext').click();
+                    return;
+                }
+                else if( !($('#reasonlist:visible').length == 0))
+                {
+                    $('#btnReasonPopupSubmit').click();
+                    return;
+                }
+                else  if(!($('#TerminatedUserUpdateDiv:visible').length == 0))
+                {
+                    $('#btnPopupCloseTerminal').click();
+                    return;
+                }
+            }
+        });
+        if ($('#HideAllRoles').val() == "true" && $('#IsAdministrator').val() != "true" && $('#IsSearchBarAccess').val() != 'true') {
+            $('.typeaheadSearch').hide();
+            $('#SearchAssociate').hide();
+            $('.HomeSearch').hide();
+
+        }
+        if ($('#AOLabel').length==0) {
+            $('#userStatusDiv').removeClass('col-lg-4').addClass('col-lg-6');
+            $('#userStatusDiv').removeClass('p-l-0');
+            $('#roleDiv').removeClass('col-lg-4 ').addClass('col-lg-6');
+        }
+    });
+
+
+    function GetUserInfo(userids) {
+        var tmpdata = null;
+
+        var dataval = userids.join();
+
+        $.ajax({
+            type:"POST",
+            url: "/Account/LoadUserBasicDetail",
+            data: { postData: dataval },
+            async: false,
+            dataType: "json"
+        })
+        .done(function (data, textStatus, jqXHR) {
+            if (data.IsSuccess == true || data.IsSuccess == 'true') {
+                tmpdata = data.Data;
+            }
+            else {
+                bootbox.alert(data.Message);
+            }
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            bootbox.alert(textStatus + ". " + errorThrown);
+        });
+        return tmpdata;
+    }
+
+    function BindEvent(){
+        $('a[name=terminateUserModel]').on('click', function () {
+            $('#terminatecontainer').modal('toggle');
+            var filteredData = [];
+            filteredData.push($(this).data("userid"));
+            var isAssociateMapped = $(this).data("isassociatemapped") == "1" ? true : false;
+
+            let userids = filteredData.join();
+            $.post('/Account/ValidUserForTerminateRoleNonCountUser', {
+                userids: userids,
+                status: 4
+            })
+               .done(function (data) {
+                   if (data.IsSuccess == true) {
+                       var mapDto = GetUserInfo(filteredData);
+                       userinfo = mapDto;
+
+                       var table = "<div id='userlist'><label class='m-b-md'>Would you like to Terminate following Associate(s)?</label><br/><table cellpadding='5' class='webgrid-table table-bordered table-striped table-condensed w-100 table-bdr-btm no-footer m-0'><thead><th>Associate Name</th><th>Associate Roles</th></thead>";
+                       $.each(mapDto, function (indx, item) {
+                           table += "<tr><td style='padding:10px'>" + item.FullName + "</td><td style='padding:10px'>" + item.RoleList + "</td></tr>"
+                       });
+                       table += "</table><br/><button type='button' autofocus onclick='ShowReasonTab()' id='btnNext' class='btn btn-success'>Next</button>&nbsp;&nbsp;<input  type='button' value='Cancel' onclick='CloseTerminateModel();' class='btn btn-danger'></div><div style='display:none' id='reasonlist'>" + CreateTerminateModel() + "</div>";
+
+                       if (filteredData != null && filteredData != undefined && filteredData.length >= 1) {
+                           $("#terminatedatacontainer").html(table);
+                           InitializeFormSubmittionHandler(filteredData, isAssociateMapped);
+                           $('input[type=radio][name=optype]').change(function () {
+                               LoadReasons(this.value);
+                           });
+                           LoadReasons($("input:radio[name='optype']:checked").val());
+                       }
+                   }
+
+                   else {
+                       $('#terminatecontainer').modal('toggle');
+                       bootbox.alert(data.Message);
+                }
+            });
+
+        });
+    }
+
+    $('.modal').on('shown.bs.modal', function () {
+        $('#btnNext').focus();
+    });
+
+    $( "#btnSubmit" ).click(function(event) {
+        event.preventDefault();
+        $("#UserList").dataTable().fnDestroy();
+        reloadDatable(1);
+    });
+
+    $( "#btnReset" ).click(function(event) {
+        event.preventDefault();
+        $("#SearchTxt").val('');
+        $("select#SearchBy").val($("select#SearchBy option:first").val());
+        $("select#UserStatus").val($("select#UserStatus option:eq(1)").val());
+        $("select#ddlOffice").val($("select#ddlOffice option:first").val());
+        $("select#SearchByRole").val($("select#SearchByRole option:first").val());
+
+        // hack to empty the datatable on client side.
+        // Datatable does not get cleared when server-side is set to true.
+        // For every fnClearTable, clear(), draw() datatable make a request on server. We implemented this to overcome the extra request from server.
+
+        // Below is Hack
+        $("#UserList").dataTable().fnDestroy();
+        $('#UserList tbody').empty();
+        reloadDatable();
+        // This is proper solution
+        //var table = $("#UserList").dataTable();
+        //table.one( 'preXhr.dt', function ( e, settings, data ) { data.clear = true; } ).fnDraw();
+    });
+
+    function OnboardKey(userid) {
+        $.ajax({
+            url: '/Account/OnboardKey',
+            data: { userId: userid },
+            success: function (data) {
+
+                var result = Boolean(data);
+                if (result == true) {
+                    bootbox.alert("<div class='m-t-md m-b-n-lg'><span class='m-0'>Key has been successfully sent to the user</span></div>", function (result) {
+
+                    });
+                }
+                else {
+                    bootbox.alert("<div class='m-t-md m-b-n-lg'><span class='m-0'l>Unable to send the key</span></div>", function (result) {
+
+                    });
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                bootbox.alert("<div class='m-t-md m-b-n-lg'><span class='m-0'>Unable to send the key</span></div>", function (result) {
+
+                });
+            }
+        });
+    }
+
+    function markTerminate(userid) {
+        var TerminateStatus = "Terminated";
+        BootBoxDialoug("Are you sure you want to terminate this user's account?").then(function (data) {
+            if (data == false) return;
+            $('#Messages').bs_info('Terminating user...', '', 30000);
+            $.post('/Account/UpdateStatus', {
+                id: userid,
+                status: TerminateStatus,
+            })
+                .done(function (data) {
+                    if (data.IsSuccess == true) {
+                        $('#Messages').bs_success('User has been terminated', '', 5000);
+                        $("#UserList").dataTable().fnDestroy();
+                        reloadDatable(0);
+                    }
+
+                    else {
+                        if (data.Errors != null)
+                        {
+                            $('#Messages').bs_alert(data.Errors[0], '', 5000);
+                        }
+                        else{
+                            $('#Messages').bs_alert('Error occurred, cannot terminate this user', '', 5000);
+                        }
+                    }
+                });
+        });
+    }
+
+    function markDisable(userid) {
+        var DisabledStatus = "Disabled";
+        BootBoxDialoug("Are you sure you want to disable this user's account?").then(function (data) {
+            if (data == false) return;
+            $('#Messages').bs_info('Disabling user...', '', 30000);
+
+            $.post('/Account/UpdateStatus', {
+                id: userid,
+                status: DisabledStatus,
+            })
+                   .done(function (data) {
+                       if (data.IsSuccess == true) {
+                           $('#Messages').bs_success('User has been disabled', '', 5000);
+
+                           $("#UserList").dataTable().fnDestroy();
+                           reloadDatable(0);
+                       }
+                       else {
+                           if (data.Errors != null)
+                           {
+                               $('#Messages').bs_alert(data.Errors[0], '', 5000);
+                           }else{
+                               $('#Messages').bs_alert('Error occurred, cannot disabled this user', '', 5000);
+                           }
+                       }
+                   });
+        });
+    }
+    function markUnlocked(userid) {
+        var UnlockedStatus = "Active";
+
+        BootBoxDialoug("Are you sure you want to unlock this user's account?").then(function (data) {
+            if (data == false) return;
+            $('#Messages').bs_info('Unclocking User...', '', 30000);
+
+            $.post('/Account/UpdateStatus', {
+                id: userid,
+                status: UnlockedStatus,
+            })
+                   .done(function (data) {
+                       if (data.IsSuccess == true) {
+                           $('#Messages').bs_success('User has been unlocked', '', 5000);
+
+                           $("#UserList").dataTable().fnDestroy();
+                           reloadDatable(0);
+                       }
+                       else {
+                           $('#Messages').bs_alert('Error occurred, cannot unlocked this user', '', 5000);
+                       }
+                   });
+        });
+    }
+    function EscapeFunction(){
+        $('.modal.fade.in').modal('hide');
+    }
+    function markActive(userid) {
+        var ActiveStatus = "Active";
+
+        BootBoxDialougWithEscape("Are you sure you want to reactivate this user's account?", EscapeFunction).then(function (data) {
+            if (data == false) return;
+
+            $('#Messages').bs_info('Reactivating user...', '', 30000);
+
+            $.post('/Account/UpdateStatus', {
+                id: userid,
+                status: ActiveStatus,
+            })
+                .done(function (data) {
+                    if (data.IsSuccess == true) {
+                        $('#Messages').bs_success('User has been reactivated', '', 5000);
+
+                        $("#UserList").dataTable().fnDestroy();
+                        reloadDatable(0);
+                    }
+                    else {
+                        if (data.Errors != null ){
+                            $('#Messages').bs_alert(data.Errors, '', 5000);
+                        }
+                        else {
+                            $('#Messages').bs_alert('Error occurred, cannot reactivate this user', '', 5000);
+                        }
+                    }
+                });
+        });
+    }
+
+    function markTerminateActiveForPOD(userid, userName)
+    {
+        //var isUserNameAlreadyExist =  CheckUserNameIsAlreadyExist(userid, userName);
+        $("#dialogcontainer").html('');
+        var _url = "/Account/GetUserRoleWithStatus?userId=" + userid + "&userName=" + userName;
+        $.ajax({
+            url: _url,
+            type: 'GET',
+            contentType: 'application/json; charset=utf-8',
+            success: function(data) {
+
+                if(data != null && data != undefined && data.roles.length > 0){
+                    var rowitems = '<div class="row form-group">' +
+                                       '<div> '+
+                                           '<div class="checkbox checkbox-success checkbox-inline roles-list ds-block">';
+                    $.each(data.roles , function(indx , obj)
+                    {
+                        var chkstatus = obj.Disabled == "true" || obj.Disabled == true ? "" : " checked = 'checked'";
+                        rowitems = rowitems +  "<input id='RoleIds"+obj.RoleId+"' name='chkrolevalue' type='checkbox' value='" + obj.RoleId + "'  onclick='setRoleValue(this)' " + chkstatus + "><label class='v-align-m' for='RoleIds"+obj.RoleId+"'>"  + obj.RoleShortName + "</label> &nbsp;"
+                    });
+
+                    rowitems = rowitems + "</div></div></div>";
+                    var errorDiv = '<div class="row"><div id="PopupMessageDiv"></div></div>';
+
+                    var userNameTextBox = "";
+                    if (data.IsUserNameAlreadyExist) {
+                        userNameTextBox = "<div class='row'> This username already exists in the system. In order to reactivate this user please change the username first. </div> <br> "+
+                                           "<div class='row'>"+
+                                              "<div><label>UserName</label><input type='text' id='txtPopupUserName' class='form-control theme-input'></div>"+
+                                           "</div><br>";
+                    }
+
+                    var content = errorDiv + userNameTextBox + rowitems + " <div class='text-center m-b-n-sm'><a class='btn btn-success underline-none'  onclick='return ValidateAndMarkActive(" + userid + ");'>Submit</a></div>";
+                    $("#dialogcontainer").html('');
+                    $("#dialogcontainer").html(CreateModelBody(content, 'User Roles'));
+                }
+                else{
+                    markTerminateActive(userid, data.IsUserNameAlreadyExist);
+                }
+            }
+        });
+    }
+
+    function NonLicensedMovedToPipeline(userid, userName)
+    {
+        $("#dialogcontainer").html('');
+        BootBoxDialougWithEscape("Are you sure you want move to pipeline this user's account?. ", EscapeFunction).then(function (data) {
+            if (data == false) return;
+
+            $.post('/Account/NonLicensedMoveToPipelineStatus', {
+                id: userid
+            }).done(function (data) {
+                if (data.IsSuccess == true) {
+                    $('#Messages').bs_success('User moved to pipeline', '', 5000);
+
+                    $("#UserList").dataTable().fnDestroy();
+                    reloadDatable();
+                }
+                else {
+                    if (data.Errors != null ){
+                        $('#Messages').bs_alert(data.Errors, '', 5000);
+                    }
+                    else {
+                        $('#Messages').bs_alert('Error occurred, cannot move to pipeline this user', '', 5000);
+                    }
+                }
+            });
+        });
+    }
+
+    function CheckThenMarkTerminateActive(userid, userName)
+    {
+        $("#dialogcontainer").html('');
+
+        var _url = "/Account/VerifyUserNameIsAlreadyExist?userId=" + userid + "&userName=" + userName;
+        $.ajax({
+            url: _url,
+            type: 'GET',
+            contentType: 'application/json; charset=utf-8',
+            success: function(data) {
+                if (data.StatusUserNameExist) {
+                    markTerminateActive(userid, true);
+                }
+                else {
+                    markTerminateActive(userid, false);
+                }
+            }
+        });
+
+    }
+    async function CheckThenMarkTerminateActiveForAssociate(userid, userName)
+    {
+        const ReactivatingUserLocationCode = await CheckLastContractLocationCode(userid);
+        $('#fetchManagersFromContext').val(ReactivatingUserLocationCode);
+        $("#dialogcontainer").html('');
+
+        var _url = "/Account/VerifyUserNameIsAlreadyExist?userId=" + userid + "&userName=" + userName;
+        $.ajax({
+            url: _url,
+            type: 'GET',
+            contentType: 'application/json; charset=utf-8',
+            success: function(data) {
+                if (data.StatusUserNameExist) {
+                    markTerminateActiveForAssociate(userid, true);
+                }
+                else {
+                    markTerminateActiveForAssociate(userid, false);
+                }
+            }
+        });
+
+    }
+
+    function setRoleValue(obj){
+        var roleinfo = $(obj).val();
+        var checked = $(obj).prop('checked');
+        selectedRoles = RemoveRole(selectedRoles , roleinfo);
+        selectedRoles.push({RoleId : roleinfo , IsActive : checked });
+
+    }
+
+    function RemoveRole(arr, value) {
+        return arr.filter(function(ele){
+            return ele.RoleId != value;
+        });
+    }
+
+    function ValidateAndMarkActive(userid){
+        var ischek = false;
+
+        if ($('#txtPopupUserName') != undefined && $('#txtPopupUserName').val() == "") {
+            $('#PopupMessageDiv').bs_alert("Please enter username", '', 5000);
+            return false;
+        }
+
+        var regex = new RegExp("^[a-zA-Z0-9]+$");
+
+        if (!regex.test($('#txtPopupUserName').val())) {
+            $('#PopupMessageDiv').bs_alert("Username should be Alphabets and Numbers only. Please do not include any special characters.", '', 5000);
+            return false;
+        }
+
+        $('input[type=checkbox][name=chkrolevalue]').each(function () {
+            if ($(this).prop('checked') == true) {
+                ischek = true;
+            }
+        });
+
+        if(!ischek){
+            $('#PopupMessageDiv').bs_alert("Please select a user role before reactivation", '', 5000);
+            //BootBoxDialoug("Please select a user role before reactivation");
+            return false;
+        }
+        else{
+            markTerminateActive(userid)
+        }
+        $('#dialogcontainer').modal('toggle');
+        return true;
+    }
+
+    function markTerminateActive(userid, isUserNameAlreadyExist)
+    {
+        var username = $('#txtPopupUserName').val();
+        $("#dialogcontainer").html('');
+        BootBoxDialougWithEscape("Are you sure you want to reactivate this user's account? ", EscapeFunction).then(function (data) {
+            if (data == false) return;
+
+            if (isUserNameAlreadyExist != undefined && isUserNameAlreadyExist) {
+                var userNameTextBox = "<div class='row'>"+
+                                   "This username already exists in the system. In order to reactivate this user please change the username first. "+
+                                   "<div id='PopupMessageDiv'></div></div> "+
+                                   "<div class='row'> "+
+                                      "<div><label>UserName</label><input type='text' id='txtPopupUserName' class='form-control theme-input'></div> "+
+                                      "<div></div> "+
+                                   "</div> <br> "+
+                                   "<div class='row'> <div class='col-md-12 col-lg-12 col-sm-12'> <div class='clearfix'><div class='pull-right'><button id='btnSave' class='btn btn-success' onclick='TerminatToActive("+userid+")'>Save</button></div></div></div></div> "+
+                               "</div>";
+
+                setTimeout(
+                        function()
+                        {
+                            $("#dialogcontainer").html(CreateModelBody(userNameTextBox, 'User Edit'));
+                            $('#dialogcontainer').modal('show');
+
+                        }, 700);
+            }
+            else {
+                TerminatToActive(userid, username)
+            }
+        });
+    }
+
+    function markTerminateActiveForAssociate(userid, isUserNameAlreadyExist)
+    {
+        var username = $('#txtPopupUserName').val();
+        $("#dialogcontainer").html('');
+        BootBoxDialougWithEscape("Are you sure you want to reactivate this user's account? ", EscapeFunction).then(function (data) {
+            if (data == false) return;
+
+            if (isUserNameAlreadyExist != undefined && isUserNameAlreadyExist) {
+                var userNameTextBox = "<div class='row'>"+
+                                   "This username already exists in the system. In order to reactivate this user please change the username first. "+
+                                   "<div id='PopupMessageDiv'></div></div> "+
+                                   "<div class='row'> "+
+                                      "<div><label>UserName</label><input type='text' id='txtPopupUserName' class='form-control theme-input'></div> "+
+                                      "<div></div> "+
+                                   "</div> <br> "+
+                                   "<div class='row'> <div class='col-md-12 col-lg-12 col-sm-12'> <div class='clearfix'><div class='pull-right'><button id='btnSave' class='btn btn-success' onclick='LoadManagerList("+userid+")'>Save</button></div></div></div></div> "+
+                               "</div>";
+
+
+
+                setTimeout(
+                        function()
+                        {
+                            $("#dialogcontainer").html(CreateModelBody(userNameTextBox, 'User Edit'));
+                            $('#dialogcontainer').modal('show');
+
+                        }, 700);
+            }
+            else {
+                LoadManagerList(userid)
+            }
+        });
+    }
+
+
+    $(document).on("hidden.bs.modal .closepopup", ".bootbox.modal", function (e) {
+        $('.modal-backdrop').remove();
+    });
+
+    function LoadManagerList(userid){
+        setTimeout(
+                        function()
+                        {
+                            if($('#dialogcontainer').hasClass('in')){
+                                $('#dialogcontainer').modal('hide');
+                            }
+                            ShowManagerList(userid);
+                        }, 700);
+    }
+
+    function ShowManagerList(userid){
+
+        var popupdata = "<div class='row'>"+
+                                   "<div class='row'> "+
+                                      "<div class='col-lg-6 col-md-6'><label class='mrrght10p'>Office Name </label><div class='select display-inlineblock vr-align-middle'><select class='form-control' id='ddlPopupOfficeList' ><option value=''>Select Office</option></select></div></div>" +
+                                       "<div class='col-lg-6 col-md-6'><label class='mrrght10p'>Manager Name </label><div class='select display-inlineblock vr-align-middle'><select class='form-control' id='ddlPopupManagerList' ><option value=''>Select Office</option></select></div></div>" +
+                                      "<div></div> "+
+                                   "</div> <br> "+
+                                   "<div class='row'> <div class='col-md-12 col-lg-12 col-sm-12'> <div class='clearfix'><div class='pull-right'><button id='btnSave' class='btn btn-success' onclick='HideModalAndTerminateToAcive("+userid+")'>Save</button>&nbsp;&nbsp;&nbsp;</div></div></div></div> "+
+                               "</div>";
+        $("#dialogcontainerlist").html('');
+        $("#dialogcontainerlist").html(CreateModelBody(popupdata, 'Select Manager'));
+        $('#dialogcontainerlist')
+            .removeData('bs.modal')
+            .modal('show');
+
+        FillPopupOfficeDropDown();
+
+        $("#ddlPopupOfficeList").change(function(){
+            var officeid = $(this).val();
+            FillManagerDropDown(officeid);
+        });
+
+        $("#ddlPopupManagerList").change(function(){
+            var manager = $(this).val();
+            $("#hdnManager").val(manager);
+        });
+
+    }
+
+
+
+    function FillPopupOfficeDropDown(){
+        $.getJSON("/Account/GetOfficesSelectListData", function(result) {
+            var options = $("#ddlPopupOfficeList");
+            options.empty();
+            $.each(result.Data, function(indx , item) {
+                options.append($("<option />").val(item.Value).text(item.Text));
+            });
+            var firstoffice = result.Data[0].Value;
+            if(firstoffice != null && firstoffice != undefined)
+                FillManagerDropDown(firstoffice);
+        });
+    }
+    function FillManagerDropDown(officeId){
+        $.getJSON("/Account/GetAvailableManagersByOffice?officeId=" + officeId + "&reactivationUserLocationContextCode=" + $('#fetchManagersFromContext').val(), function(result) {
+            var options = $("#ddlPopupManagerList");
+            options.empty();
+            $.each(result.Data, function(indx , item) {
+                options.append($("<option />").val(item.AssociateContractId).text(item.FullNameWithBusinessCode));
+            });
+
+            if(result.Data.length > 0){
+                $("#ddlPopupManagerList option:first").attr('selected','selected');
+                $("#hdnManager").val(result.Data[0].AssociateContractId);
+            }
+
+        });
+    }
+
+    function HideModalAndTerminateToAcive(userid, username){
+        $('#dialogcontainerlist').modal('hide');
+        TerminatToActive(userid, username)
+    }
+
+    function TerminatToActive(userid, username)
+    {
+        var ActiveStatus = "Active";
+        $('#Messages').bs_info('Sending Reactivation Email to user', '', 30000);
+
+        var tmpactiverole = [];
+        var tmpinactiveRole = [];
+        $.each(selectedRoles , function(indx, obj){
+            if(obj.IsActive){
+                tmpactiverole.push(obj.RoleId);
+            }
+            else{
+                tmpinactiveRole.push(obj.RoleId);
+            }
+        });
+
+        var userName = null;
+
+
+        if ($('#txtPopupUserName') != undefined && $('#txtPopupUserName').val() == "") {
+            $('#PopupMessageDiv').bs_alert("Please enter username", '', 5000);
+            return false;
+        }
+
+        var regex = new RegExp("^[a-zA-Z0-9]+$");
+
+        if (!regex.test($('#txtPopupUserName').val())) {
+            $('#PopupMessageDiv').bs_alert("Username should be Alphabets and Numbers only. Please do not include any special characters.", '', 5000);
+            return false;
+        }
+
+        if ($('#txtPopupUserName') != undefined && $('#txtPopupUserName').val() != "" && $('#txtPopupUserName').val() != undefined) {
+            userName = $('#txtPopupUserName').val();
+            $("#dialogcontainer").modal('hide');
+            $("#dialogcontainer").html('');
+        }
+
+        if (username != undefined && username != "") {
+            userName = username;
+        }
+
+        $.post('/Account/ReactivateFromTerminateStatus', {
+            id: userid,
+            ActiveRoles: tmpactiverole.join(),
+            InActiveRoles: tmpinactiveRole.join(),
+            status: ActiveStatus,
+            UserName: userName,
+            ManagerId : $("#hdnManager").val()
+        }).done(function (data) {
+            if (data.IsSuccess == true) {
+                $('#Messages').bs_success("A reactivation email has been sent to the user's email address.", '', 5000);
+                //$('#Messages').bs_success('User has been reactivated', '', 5000);
+
+                $("#UserList").dataTable().fnDestroy();
+                reloadDatable(0);
+            }
+            else {
+                if (data.Errors != null ){
+                    $('#Messages').bs_alert(data.Errors, '', 5000);
+                }
+                else {
+                    $('#Messages').bs_alert('Error occurred, cannot reactivate this user', '', 5000);
+                }
+            }
+        });
+
+    }
+
+    function AddRequestAPI(userids, notes) {
+        $.post('/Account/AddPasswordSettings', {
+            UserIdStr: userids,
+            SettingsType: 8,
+            Notes : notes
+        }).done(function (data) {
+            bootbox.alert(data.Message);
+        });
+    }
+
+    function ReEmailReactivationVerificationSendLink(userId) {
+        var url = '/Account/ReSendReOnboardEmailVerificationLink?userId=' + userId;
+        $('#Messages').bs_info('Sending Reonboarding Email', '', 5000);
+        $.ajax({
+            type: "GET",
+            url: url,
+            contentType: "application/json",
+            success: function (data, textStatus, jqXHR) {
+                if (data.Status) {
+                    $('#Messages').bs_success("Reonboarding Key successfully sent to the user's email!", '', 5000);
+                }
+                else if (data.Status == false) {
+                    $('#Messages').bs_alert("Couldn't send Reonboarding Email", '', 5000);
+                }
+            },
+            fail: function (jqXHR, textStatus, errorThrown) {
+                $('#Messages').bs_alert("Unknown error encountered while sending Reonboarding Key", '', 5000);
+            }
+        });
+    }
+
+    function AddRequest(userids) {
+        var template = "<div class='row m-b-n-sm'>"
+                    + "<div><label>You have selected to force a password reset for the user. Press Confirm to schedule this password reset</label></div>"
+                    + "<br/><div class='col-md-12 p-b-10 p-l-0 p-r-0'> <textarea placeholder='Enter Notes' class='form-control' name='Notes' id='txtnotes' rows='5' cols='40'  style='resize: none;'></textarea></div>"
+                    + "</div>";
+
+
+        bootbox.dialog({
+            message: template,
+            onEscape: function () { },
+            title: "Apply Password Settings",
+            buttons: {
+                success: {
+                    label: "Yes",
+                    className: "btn-success",
+                    callback: function () {
+                        var notes = $("#txtnotes").val();
+                        return AddRequestAPI(userids, notes);
+                    }
+                },
+                danger: {
+                    label: "No",
+                    className: "btn-danger",
+                    callback: function () {
+
+                    }
+                }
+            }
+        });
+
+
+
+
+    }
+
+    function setCookie(key, value) {
+        var expires = new Date();
+        expires.setTime(expires.getTime() +(24 * 60 * 60 * 1000));
+        document.cookie = key + '=' +value + ';expires=' +expires.toUTCString();
+    }
+
+    function getCookie(key) {
+        var keyValue = document.cookie.match('(^|;) ?' +key + '=([^;]*)(;|$)');
+        return keyValue ? keyValue[2]: null;
+    }
+
+    function markUnlocked(userid) {
+        var ActiveStatus = "Active";
+        BootBoxDialoug("Are you sure you want to unlock this user's account?").then(function (data) {
+            if (data == false) return;
+            $('#Messages').bs_info('Unlocking user...', '', 30000);
+
+            $.post('/Account/UpdateStatus', {
+                id: userid,
+                status: ActiveStatus,
+            })
+                   .done(function (data) {
+                       if (data.IsSuccess == true) {
+                           $('#Messages').bs_success('User has been unlocked', '', 5000);
+
+                           $("#UserList").dataTable().fnDestroy();
+                           reloadDatable(0);
+                       }
+                       else {
+                           $('#Messages').bs_alert('Error occurred, cannot unlocked this user', '', 5000);
+                       }
+                   });
+        });
+    }
+    var dt = null;
+    function reloadDatable(searhtype) {
+        var currentStatus = $("select#UserStatus option:selected").val();
+        var SearchByRole = $("select#SearchByRole option:selected").val();
+        var OfficeId = $("select#ddlOffice option:selected").val();
+        var searchBy = $("select#SearchBy option:selected").val();
+        var searchText = $("#SearchTxt").val();
+        var unEstablishedStatus = 1;
+        var ActiveStatus = 2;
+        var DisableStatus = 5;
+        var LockedStatus = 3;
+        var TerminateStatus = 4;
+        var nonLicensedStatus = 6;
+        var ReonboardingStatus = 7
+
+        var filteredValue= {SelectedUserStatus:currentStatus, SelectedUserRole :SearchByRole, SelectedOffice :OfficeId, SelectedSearchBy :searchBy, SearchedText:searchText , SelectedLocationContext:locationContext};
+
+        setCookie('filter_user_cookie_' + 231, JSON.stringify(filteredValue));
+        dt = $('#UserList').DataTable({
+            "searching": false,
+            "responsive": true,
+            "serverSide": true,
+            "processing": true,
+            aaSorting: [[1, 'asc']],
+            "ajax": {
+                "url": '/account/getUserList' + '?userstatus=' + currentStatus + '&SearchByRole=' + SearchByRole+ '&OfficeId=' + OfficeId,
+                "type": "POST",
+                "datatype": "json",
+                "data" : function (reqParams) {
+                    reqParams.Username = "";
+                    reqParams.FirstName = "";
+                    reqParams.LastName = "";
+                    reqParams.Phone = "";
+                    reqParams.Email = "";
+                    reqParams.SearchStatus = searchBy;
+                    reqParams.SortBy = searchdata != null && searchdata != undefined ? searchdata.SortBy : null;
+                    reqParams.SortOrder = searchdata != null && searchdata != undefined ? searchdata.SortOrder : null;
+                    reqParams.IsNewSearch = searhtype == 0 ? false : true;
+                    reqParams.isRedirect = isRedirect;
+                    reqParams.locationContext = locationContext;
+                    if(isRedirect)isRedirect =!isRedirect;
+
+                    if (searchBy == 0) {
+                        return;
+                    }
+                    if (searchBy == 1) {
+                        reqParams.Username = searchText;
+                    }
+                    else if (searchBy == 2) {
+                        reqParams.FirstName = searchText;
+                    }
+                    else if (searchBy == 3) {
+                        reqParams.LastName = searchText;
+                    }
+                    else if (searchBy == 4) {
+                        reqParams.Phone = searchText;
+                    }
+                    else if (searchBy == 5) {
+                        reqParams.Email = searchText;
+                    }
+                }
+            },
+            "fnDrawCallback": function (oSettings) {
+                BindEvent();
+                $(".toolTip").qtip({
+
+                    show: {
+                        solo: true
+                    },
+                    content: {
+                        title: 'Office',
+                        button: 'Close'
+                    },
+                    hide: {
+                        fixed: true,
+                        event: false,
+                        inactive: 2000
+                    },
+                    style: {
+                        classes: 'qtip-light qtip-shadow'
+                    }
+                });
+                $(".emailtoolTip").qtip({
+
+                    show: {
+                        solo: true
+                    },
+                    content: {
+                        title: 'Email',
+                        button: 'Close'
+                    },
+                    hide: {
+                        fixed: true,
+                        event: false,
+                        inactive: 1000
+                    },
+                    style: {
+                        classes: 'qtip-light qtip-shadow'
+                    }
+                });
+
+                $('body .dropdown-toggle').dropdown();
+            },
+            "columnDefs": [
+                { "orderable": false, "targets": -1 }
+            ],
+            "columns": [
+                 { "name": "AssociateId", "data": "AssociateId",responsivePriority: 2 },
+                { "name": "FirstName", "data": "UserInfo.FirstName",responsivePriority: 3   },
+                { "name": "LastName", "data": "UserInfo.LastName",responsivePriority: 4  },
+                { "name": "MiddleInit", "data": "UserInfo.MiddleInitial" ,responsivePriority: 5},
+                {responsivePriority: 6,
+                    "name": "OfficeName",
+                    "data": "OfficeInfo.OfficeName", "render": function (data, type, row, meta) {
+
+                        try {
+                            var html = "";
+
+                            if (typeof data != "undefined" && data != "") {
+
+                                html = "<div class='m-b-sm'>" + data + "</div>"
+                                    + "<div>"
+                                    + "<span class='toolTip btn-xs btn-primary m-r-xs cursor-pointer' title='"+ getToolTip(row.UserOffices) +"' onclick ='officeModel(" + row.UserId + "," + row.OfficeInfo.OfficeId + ")'><i class='fa fa-pencil'></i></span>"
+                                    + "<span class='btn-xs btn-danger cursor-pointer' onclick ='removeOffice(" + row.UserId + ")'><i class='fa fa-trash'></i></span></div>";
+                            }
+                            else {
+                                html = "<span class='link-theme cursor-pointer' onclick ='officeModel(" + row.UserId + ", null)'>Set Office</span>";
+                            }
+                            return html;
+                        }
+                        catch (ex) {
+                            return "<span class='link-theme cursor-pointer' onclick ='officeModel(" + row.UserId + ", null)'>Set Office</span>";
+                        }
+                    }
+                },
+                { "name": "UserName", "data": "UserName" ,responsivePriority: 7 },
+                { "name": "Phone", "data": "UserInfo.FormattedPhone",responsivePriority: 8 },
+                //{ "name": "Email", "data": "UserInfo.Email",responsivePriority: 9},
+                {responsivePriority: 9,
+                "name": "Email",
+                "data": "UserInfo.Email", "render": function (data, type, row, meta) {
+
+                        try {
+                            var html = "";
+                            if (row.EmailVerificationStatus == 1) {
+                                  html = "<div class='m-b-sm'>" + data + "</div>"
+                                    + "<div>"
+                                  + "<span class='emailtoolTip btn-xs btn-primary m-r-xs cursor-pointer' title='Resend Email Verification Link' onclick ='onclick=ResendVerificationLink(" + row.UserId + ")'><i class='fa fa-share-square-o'></i></span></div>";
+                            }
+                            else {
+                                html = "<div class='m-b-sm'>" + data + "</div>"
+                            }
+                            return html;
+                        }
+                        catch (ex) {
+                            return "<div class='m-b-sm'>" + data + "</div>";
+                        }
+                    }
+                },
+                {responsivePriority: 10,
+                    "name": "UserStatus",
+                    "data": "null",
+                    "render": function (data, type, row, meta) {
+                        if (row.UserStatus == 4) { //Terminated
+                            return '<div><i class="fa fa-user-times color-drkred" aria-hidden="true"></i> <span class="m-l-sm">' + row.UserStatusName + '</span>';
+                        }
+                        else if (row.UserStatus == 2) { //Active
+                            return '<div><i class="fa fa-user color-green" aria-hidden="true"></i> <span class="m-l-sm">' + row.UserStatusName + '</span>';
+                        }
+                        else if (row.UserStatus == 6) { //Non Licensed
+                            return '<div><i class="fa fa-user color-yellow" aria-hidden="true"></i> <span class="m-l-sm">' + row.UserStatusName + '</span>';
+                        }
+                        else { //Other Status
+                            return '<div><i class="fa fa-user color-grey" aria-hidden="true"></i> <span class="m-l-sm">' + row.UserStatusName + '</span>';
+                        }
+                    }
+                },
+                {responsivePriority: 1,
+                    "data": null, "render": function (data, type, row, meta) {
+                        currentStatus = data.UserStatus;
+                        var rowbutton = null;
+                        var disablebutton = '';
+                        var terminatebutton = '';
+                        var isAssociateMapped = data.IsAssociateMapped == true ? 1 : 0;
+
+                        if (data.IsAssociateMapped)
+                        {
+
+                            rowbutton = '<a href="#" onclick=GetAilUserById('+ data.UserId+') class="btn btn-primary m-r-xs underline-none" data-toggle="modal"  data-target="#dialogcontainer" data-backdrop="static" data-keyboard="false">Edit</a>';
+                        }
+                        else
+                            rowbutton = '<a class="btn btn-primary m-r-xs underline-none" href="Edit/' + data.UserId + '">Edit</a>';
+
+                        rowbutton += '<div class="dropdown actiondropdown policyacceptance inline"><button class="btn btn-primary fa fa-ellipsis-v dropdown-toggle" type="button" id="' + data.UserId + '" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>';
+                        rowbutton = rowbutton + '<div class="dropdown-menu" aria-labelledby="' + data.UserId + '">';
+
+                        if (unEstablishedStatus == currentStatus) {
+                            rowbutton += '<a href="#" class="dropdown-item" onclick="OnboardKey(' + data.UserId + '); return false;">Send Onboard Key</a>';
+                            if(data.ShowSkipVerificationLink == true || data.ShowSkipVerificationLink == 'true') {
+                                rowbutton += '<a href="#" class="dropdown-item" onclick="Skipphoneverification(' + data.UserId + '); return false;">Skip Phone Verification</a>';
+                            }
+                            rowbutton += disablebutton;
+                            rowbutton += '<a href="#" class="dropdown-item" name="terminateUserModel"  data-isassociatemapped="' + isAssociateMapped + '"  data-toggle="modal" data-userid="' + data.UserId + '" data-target="#terminatecontainer" data-backdrop="static" data-keyboard="false" >Terminate</a>' ;
+                        }
+                        else if (DisableStatus == currentStatus) {
+                            rowbutton += '<a href="#" class="dropdown-item" onclick="markActive(' + data.UserId + '); return false;">Reactivate</a>';
+                            rowbutton += terminatebutton;
+                        }
+                        else if (LockedStatus == currentStatus) {
+                            rowbutton += '<a href="#" class="dropdown-item" onclick="markUnlocked(' + data.UserId + '); return false;">Unlock</a>';
+                            rowbutton += disablebutton;
+                            rowbutton += terminatebutton;
+                        }
+                        else if (ActiveStatus == currentStatus) {
+                            rowbutton += disablebutton;
+                            rowbutton += terminatebutton == ''  ? '<a href="#" class="dropdown-item" name="terminateUserModel" data-toggle="modal" data-isassociatemapped="' + isAssociateMapped + '" data-userid="' + data.UserId + '" data-target="#terminatecontainer" data-backdrop="static" data-keyboard="false" >Terminate</a>' :   terminatebutton;
+                        }
+                        else if (nonLicensedStatus == currentStatus) {
+                            rowbutton += '<a href="#" class="dropdown-item" data-toggle="modal" data-target="#dialogcontainer" onclick="NonLicensedMovedToPipeline(' + data.UserId + ', \'' + data.UserName + '\' ); return false;">Move to Pipeline</a>';
+                            rowbutton += terminatebutton == ''  ? '<a href="#" class="dropdown-item" name="terminateUserModel"  data-isassociatemapped="' + isAssociateMapped + '"  data-toggle="modal" data-userid="' + data.UserId + '" data-target="#terminatecontainer" data-backdrop="static" data-keyboard="false" >Terminate</a>' :   terminatebutton;
+                        }
+                        else if (TerminateStatus == currentStatus) {
+                            if(data.IsPODUser && data.IsAssociateMapped == false){
+                                rowbutton += '<a href="#" class="dropdown-item" data-toggle="modal" data-target="#dialogcontainer" onclick="markTerminateActiveForPOD(' + data.UserId + ', \'' + data.UserName + '\'); return false;">Reactivate</a>';
+                            }
+                            else if(!data.IsPODUser && data.IsHeld == false && data.IsAssociateMapped == true){
+                                rowbutton += '<a href="#" class="dropdown-item" data-toggle="modal" data-target="#dialogcontainer" onclick="CheckThenMarkTerminateActive(' + data.UserId + ', \'' + data.UserName + '\'); return false;">Reactivate</a>';
+                            }
+                            else if(!data.IsPODUser && data.IsHeld == true && data.IsAssociateMapped == true){
+                                rowbutton += '<a href="#" class="dropdown-item" data-toggle="modal" data-target="#dialogcontainer" onclick="CheckThenMarkTerminateActiveForAssociate(' + data.UserId + ', \'' + data.UserName + '\'); return false;">Reactivate</a>';
+                            }
+                            else if(!data.IsPODUser && data.IsAssociateMapped == false && data.HasActivePipelineContractsOnly){
+                                rowbutton += '<a href="#" class="dropdown-item" data-toggle="modal" data-target="#dialogcontainer" onclick="CheckThenMarkTerminateActive(' + data.UserId + ', \'' + data.UserName + '\' ); return false;">Reactivate</a>';
+                            }
+                            else if(!data.IsPODUser && data.IsAssociateMapped == false){
+                                rowbutton += '<a href="#" class="dropdown-item" data-toggle="modal" data-target="#dialogcontainer" onclick="CheckThenMarkTerminateActiveForAssociate(' + data.UserId + ', \'' + data.UserName + '\'); return false;">Reactivate</a>';
+                            }
+                        }
+                        else if (ReonboardingStatus == currentStatus) {
+                            if (data.ShowSkipVerificationLink == true || data.ShowSkipVerificationLink == 'true') {
+                                rowbutton += '<a href="#" class="dropdown-item" onclick="Skipphoneverification(' + data.UserId + '); return false;">Skip Phone Verification</a>';
+                            }
+                            rowbutton += '<a href="#" class="dropdown-item"  onclick="ReEmailReactivationVerificationSendLink(' + data.UserId + '); return false;">Send Reonboarding Key</a>'
+                        }
+
+                        rowbutton += '<a href="#" class="dropdown-item"  onclick="AddRequest(' + data.UserId + '); return false;">Force Password Change</a>';
+                        rowbutton += '<a href="#" class="dropdown-item" data-toggle="PolicySettings" data-target="#policySettings" onclick="OpenPolicySettings(' + data.UserId + '); return false;">Policy Settings</a>';
+                        if (false) {
+                            rowbutton += '<a href="#" onclick="OpenUnmapAssociateDialog(' + data.AssociateId + '); return false;">Unmap Associate</a>';
+                        }
+
+                        if (currentStatus == ActiveStatus || currentStatus == LockedStatus) {
+                            rowbutton += '<a href="#" onclick="RecreateMailContact(' + data.UserId + '); return false;">Recreate Mail Contact</a>';
+                        }
+                        var currentContext = $(".switch-btn .active input").val();
+                        var moveToContext = currentContext === "AO" ? "NY" : "AO";
+                        rowbutton += '<a href="#" onclick="IsUserEligibleToMove(' + data.AssociateId + '); return false;">Move To ' + moveToContext + '</a>';
+
+
+                        rowbutton = rowbutton +'</div>';
+                        rowbutton = rowbutton + '</div>';
+                        return  rowbutton;
+                    }
+                }
+            ],
+            "iDisplayLength": 50,
+            "lengthMenu": [[10, 25, 50, 100], [10, 25, 50, 100]]
+        });
+        $.fn.dataTableExt.pager.numbers_length = 10;
+    }
+
+    function EditModel(id) {
+        $.post('/Account/Edit' + '?id=' + id, {
+
+        })
+        .done(function (data) {
+            if (data.length >= 1) {
+                openModel(data, id, officeId);
+            }
+            else {
+                alert("No office found or Error occurred")
+            }
+        });
+    }
+
+
+
+    function CloseTerminateModel() {
+        $('#terminatecontainer').modal('hide');
+        $('.modal-backdrop').remove();
+    }
+
+    function ShowReasonTab() {
+        $('#btnReasonPopupSubmit').focus()
+        $("#userlist").hide();
+        $("#reasonlist").show();
+    }
+
+    function InitializeFormSubmittionHandler(filteredData) {
+        $("#terminationform").submit(function (event) {
+            var formDataTObj = {};
+            var formJqObj = $(this);
+            $.validator.unobtrusive.parse(formJqObj);
+            event.preventDefault();
+            if (formJqObj.valid()) {
+                formJqObj.find(":input").not("[type='submit']").not("[type='reset']").each(function () {
+                    var thisInput = $(this);
+                    formDataTObj[thisInput.attr("name")] = thisInput.val();
+                });
+                event.preventDefault();
+                checkTaalkCampaignThenTerminate(filteredData, formDataTObj);
+            }
+        });
+    }
+
+    function FillTerminateUserResonse(data) {
+        var table = "<div style='padding:10px' id='TerminatedUserUpdateDiv'><div><label class='m-b-md'>The following User(s) have been Terminated</label><br/><table cellpadding='5' class='webgrid-table table-bordered table-striped table-condensed w-100 table-bdr-btm no-footer m-0'><thead><th>Associate Name</th><th>Status</th></thead>";
+        $.each(data, function (indx, item) {
+            var userinfoItem = userinfo.filter(
+                    function (data) { return data.UserId == item.Key }
+            );
+            if (userinfoItem != null && userinfoItem != undefined && userinfoItem.length > 0) {
+                table += "<tr><td style='padding:10px'>" + userinfoItem[0].FullName + "</td><td style='padding:10px'>" + (item.Value == true ? "Terminated" : "Error") + "</td></tr>"
+            }
+        });
+        table = table + '</table></div><br/><div> <button type="button" id="btnPopupCloseTerminal" style="float:right" onclick="CloseTerminateModel();" tabindex="1" class="btn btn-danger" autofocus >Close</button> </div><br/></div>';
+        $("#terminatedatacontainer").html(table);
+    }
+
+    function Skipphoneverification(userid){
+        $.post('/Account/SkipPhoneVerification', {
+            userid: userid,
+        }).done(function (data) {
+            if (data.IsSuccess == true || data.IsSuccess == 'true') {
+                $('#Messages').bs_success('Phone no verification has been skipped for the user', '', 5000);
+                $('.modal-backdrop').remove();
+
+                if (dt != null && dt != undefined) {
+                    dt.clear();
+                    dt.ajax.reload();
+                }
+            }
+            else {
+                if (data.Message != null)
+                {
+                    $('#Messages').bs_alert(data.Message, '', 5000);
+                }
+                else{
+                    $('#Messages').bs_alert('Error occurred, cannot Skip Phone verification this user', '', 5000);
+                }
+            }
+        });
+    }
+
+    function _TerminateUsers(Userids, formDataTObj)
+    {
+        $.post('/Account/TerminateUser', {
+            userids: Userids,
+            status: 4,
+            byPassReason: $('#ddlOperationReasonsList').val() == "" ? true : false,
+            OperationReasonTypeId: formDataTObj.OperationReasonTypeId,
+            Notes: formDataTObj.Notes,
+            isAssociateMapped: formDataTObj.IsAssociateMapped,
+            agencyOperationTypeId: $("input[name='optype']:checked").val()
+        }).done(function (data) {
+            if (data.IsSuccess == true || data.IsSuccess == 'true') {
+                $('.modal-backdrop').remove();
+                FillTerminateUserResonse(data.Data);
+
+                if (dt != null && dt != undefined) {
+                    dt.clear();
+                    dt.ajax.reload();
+                }
+
+
+                //reloadDatable();
+            }
+            else {
+                if (data.Message != null)
+                {
+                    $('#terminationDivMessages').bs_alert(data.Message, '', 5000);
+                }
+                else{
+                    $('#terminationDivMessages').bs_alert('Error occurred, cannot terminate this user', '', 5000);
+                }
+            }
+        });
+    }
+
+    function LoadReasons(id) {
+        $("select#ddlOperationReasonsList").empty();
+        $('select#ddlOperationReasonsList').append('<option  value="" selected="selected">Select a reason</option>');
+        if (id != null && id != "") {
+            $.getJSON("/Account/LoadOperationReasons",
+                { typeId: id },
+                function (data) {
+                    $.each(data,
+                        function (i, c) {
+                            $('select#ddlOperationReasonsList')
+                                .append('<option value="' + c.Value + '">' + c.Text + '</option>');
+                        });
+                });
+        }
+    }
+
+    function CreateModelBody(content, title) {
+
+        return '<div id="popupModal" class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header">' +
+                            '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>' +
+                            '<h4 class="modal-title" id="headingTitle">' + title + '</h4></div><div class="modal-body">' + content + '</div></div></div>'
+    }
+
+    function CreateModelBodyForPolicySetting(content, title) {
+        return '<div id="popupModal" class="modal-dialog modal-md"><div class="modal-content"><div class="modal-header">' +
+            '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>' +
+            '<h4 class="modal-title" id="headingTitle">' + title + '</h4></div><div class="modal-body">' + content + '</div></div></div>'
+    }
+
+    function GetAilUserById(userId) {
+        $.ajax({
+            url: '/Account/Edit?id=' + userId + '&isAilMappedUser=' + true,
+            type: 'GET',
+            success: function(data) {
+                if (data != null && data != undefined) {
+                    $("#dialogcontainer").html('');
+                    $("#dialogcontainer").html(CreateModelBody(data, "Edit User"));
+                }
+            }
+        });
+    }
+
+    function getToolTip(userOffices){
+        var toolTip = "No Office";
+        if(userOffices.length > 0){
+            toolTip = "<b>Total Offices = " + userOffices.length + "</b>";
+            userOffices.forEach( function (arrayItem)
+            {
+                toolTip += "<br/>" + arrayItem.OfficeName;
+            });
+        }
+        return toolTip;
+    }
+
+    function officeModel(id, officeId) {
+        $.post('/Account/GetActiveOfficesAjax' + '?officeId=' + officeId + "&userId=" + id, {
+
+        })
+        .done(function (data) {
+            if (data.length >= 1) {
+                openModel(data, id, officeId);
+            }
+            else {
+                alert("No office found or Error occurred")
+            }
+        });
+    }
+
+    $('#UserList').on('draw.dt', function () {
+        $("#UserList_length > label").css("float", "right");
+        $("#UserList_info").css("margin-top", "16px");
+        $("#UserList_paginate").css("margin-top", "16px");
+    });
+
+    function openModel(data, id, officeId) {
+        var multiDropDown = "<select id='ddlMultiOffice' multiple='true' style='display: none;'></select>";
+        var dropdown = "<select id='officeDropdown' class='form-control'></select>";
+        bootbox.dialog({
+            message: "<div class='row m-b-n-sm'><div id = 'errorDiv'></div><div class='col-sm-6 p-l-0 multi-dropdown'><label>Select Offices</label>" + multiDropDown + "</div><div class='col-sm-6 p-r-0'><label>Home Office</label>" + dropdown + "</div></div>",
+            title: "Office",
+            buttons: {
+                success: {
+                    label: "Save",
+                    className: "btn-success",
+                    callback: function () {
+                        return setOffice(id);
+                    }
+                },
+                danger: {
+                    label: "Cancel",
+                    className: "btn-danger",
+                    callback: function () {
+                    }
+                }
+            }
+        });
+        var multiList = $('select#ddlMultiOffice');
+        multiList.find('option').remove();
+
+        $(data).each(function (index, office) {
+            if (office.Selected == true) {
+                multiList.append('<option  value="' + office.Value + '" Selected = "' + office.Selected + '">' + office.Text + '</option>');
+            }
+            else {
+                multiList.append('<option value="' + office.Value + '">' + office.Text + '</option>');
+            }
+        });
+
+        $('.selectpicker').selectpicker('show');
+        multiList.multiselect({
+            includeSelectAllOption: true,
+            enableFiltering: true,
+            filterPlaceholder: 'Search Office',
+            onFiltering: function($filter) {
+
+                var search_query = $("#ddlMultiOffice").next(".btn-group").find('.multiselect-search').val().trim().split('%*/');
+                var search_label = $('#ddlMultiOffice').next('.btn-group').find('.multiselect-container > li:not(".multiselect-item") > a > label ');
+                search_label.each(function(idx, elem) {
+                    //$(elem).css('display', 'none');
+                    $(search_query).each(function(q_idx, q_elem) {
+                        if (elem.title.toLowerCase().indexOf(q_elem.toLowerCase()) == 0) {
+                            $(elem).closest('li').removeClass('multiselect-filter-hidden');
+                            $(elem).closest('li').css('display', 'block');
+
+                        } else {
+                            $(elem).closest('li').css('display', 'none');
+                            return false;
+                        }
+                    });
+                });
+
+            }
+
+        });
+        multiList.change(function(){
+            populateHomeOffices(officeId);
+        });
+
+        populateHomeOffices(officeId);
+        $("#ddlMultiOffice + .btn-group").on('click', function () {
+            if ($(this).hasClass("open")){ $(this).removeClass("open") } else { $(this).addClass("open") }
+        });
+    }
+
+    function populateHomeOffices(officeId){
+        var homeOfficeDDL = $("#officeDropdown");
+        var option = $('<option></option>').attr("value", "").text("Select Home Office");
+        homeOfficeDDL.empty().append(option);
+        $("#ddlMultiOffice option:selected").each(function () {
+            if ($(this).length) {
+                if($(this).val() == officeId){
+                    homeOfficeDDL.append($('<option></option>').attr("value", $(this).val()).attr("selected", "selected").text($(this).text()));
+                }
+                else{
+                    homeOfficeDDL.append($('<option></option>').attr("value", $(this).val()).text($(this).text()));
+                }
+            }
+        });
+    }
+
+    function setOffice(id) {
+        var officeDropdown = document.getElementById("officeDropdown");
+        var officeId = officeDropdown.options[officeDropdown.selectedIndex].value;
+        var offices = [];
+
+        if (officeId == "") {
+            $('#errorDiv').bs_alert('Please Select Office', '', 5000);
+            return false;
+        }
+
+        $("#ddlMultiOffice option:selected").each(function () {
+            if ($(this).length) {
+                offices.push($(this).val())
+            }
+        });
+
+        _Setoffice(id, officeId, offices);
+    }
+
+    function removeOffice(userId) {
+        BootBoxDialoug("Are you sure you want to Remove Office?").then(function (data) {
+            if (data == false) return;
+            _Setoffice(userId, null, null);
+        });
+    }
+
+    function _Setoffice(id, officeId, offices) {
+        $.ajax({
+            url: '/Account/setOffice',
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                UserId: id,
+                OfficeId: officeId,
+                OfficeIds: offices
+            }),
+            success: function(data) {
+                if (data == true) {
+                    //var UserStatus = document.getElementById("UserStatus");
+                    //var UserStatusEnum = UserStatus.options[UserStatus.selectedIndex].value;
+                    //var url = '/Account/List?UserStatus=' + UserStatusEnum;
+                    //window.location.href = url;
+                    dt.ajax.reload(null, false);
+                }
+            }
+        });
+    }
+
+
+    function ResendVerificationLink(id) {
+        $.ajax({
+            url: '/Account/SendVerificationLink',
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                UserID: id
+            }),
+            success: function(data) {
+                if (data.Status){
+                    $('#Messages').bs_success(data.Message, '' , 5000);
+                    dt.ajax.reload(null, false);
+                }
+                else{
+                    $('#Messages').bs_alert(data.Message, '' , 5000);
+                }
+            }
+        });
+    }
+
+
+
+    function showError(){
+
+        var error =  null;
+        var message =  null;
+
+        if (error != null){
+            $('#Messages').bs_alert(error, '' , 5000);
+        }
+
+        if (message != null){
+            $('#Messages').bs_success(message, '' , 5000);
+        }
+    }
+    showError();
+
+    function CreateTerminateModel() {
+        return '<form name="terminationform" id="terminationform" method="POST"> <div id="terminationDivMessages"></div>  <div class="form-group row m-b-sm"> <span class="p-l-15 p-r-15"> <label for="Operation_Type">Operation Type</label> </span><span class="select"> <label class="m-r-md"><input type="radio" name="optype" value="3" class="v-align-m"><span class="m-l-xs">Terminate</span></label><label><input type="radio" name="optype" checked="checked"  value="4" class="v-align-m"><span class="m-l-xs">Resignation</span></label><span class="field-validation-valid" data-valmsg-for="AgencyOperationTypeId" data-valmsg-replace="true"></span> </span></div><div class="form-group row"> <div class="col-md-12"> <label for="Reason">Reason</label> </div><div class="select col-md-12"> <select class="form-control theme-input" id="ddlOperationReasonsList" name="OperationReasonTypeId"><option value="" selected="selected">Select a reason</option></select> <span class="field-validation-valid" data-valmsg-for="OperationReasonTypeId" data-valmsg-replace="true"></span> </div></div><div class="form-group row"> <div class="col-md-12"> <label for="Note">Note</label> </div><div class="select col-md-12"> <textarea placeholder="Enter Notes" class="form-control" name="Notes" id="notesForTermination" rows="5" cols="40"></textarea> </div></div><div class="row"> <div class="col-md-12 text-right"> <input type="submit" value="Submit" class="btn btn-success" id="btnReasonPopupSubmit" autofocus>&nbsp;&nbsp;<input type="button" onclick="CloseTerminateModel();" value="Cancel" class="btn btn-danger"> </div></div></form>';
+    }
+
+
+    function InitializeFormSubmittionHandler(filteredData, isAssociateMapped) {
+        $("#terminationform").submit(function (event) {
+            var formDataTObj = {};
+            var formJqObj = $(this);
+            $.validator.unobtrusive.parse(formJqObj);
+            event.preventDefault();
+            if (formJqObj.valid()) {
+                formJqObj.find(":input").not("[type='submit']").not("[type='reset']").each(function () {
+                    var thisInput = $(this);
+                    formDataTObj[thisInput.attr("name")] = thisInput.val();
+                });
+                event.preventDefault();
+                //if ((formDataTObj.OperationReasonTypeId == "16" || formDataTObj.OperationReasonTypeId == "18") && (formDataTObj.Notes == null ||  formDataTObj.Notes == undefined || formDataTObj.Notes == '')){
+                //    bootbox.alert({
+                //        message: "Please mention Other reason in the notes.",
+                //        backdrop: false
+                //    })
+                //    return;
+                //}
+
+                if (isAssociateMapped != undefined && isAssociateMapped == true) {
+                    formDataTObj.IsAssociateMapped = true;
+                }
+                else {
+                    formDataTObj.IsAssociateMapped = false;
+                }
+
+                checkTaalkCampaignThenTerminate(filteredData.toString(), formDataTObj);
+            }
+        });
+    }
+
+    function OpenPolicySettings(userId) {
+        $.ajax({
+            url: '/Account/PolicySetting?userId=' + userId,
+            type: 'GET',
+            success: function (data) {
+                if (data != null && data != undefined) {
+                    $("#policySettingPopup").html('');
+                    $("#policySettingPopup").html(CreateModelBodyForPolicySetting(data, "Policy Settings"));
+                    $("#policySettingPopup").modal('show');
+                }
+            }
+        });
+    }
+    function OpenForceOptIn(firstname, lastname, userId, isForceOptIn) {
+        var optinValue = isForceOptIn;
+        var optindivVal = "#optindiv_" + userId;
+
+        if ($(optindivVal).val() != '' && $(optindivVal).val() != undefined) {
+            optinValue = $(optindivVal).val();
+        }
+        $("#optIndialogcontainer").html('');
+        $('.modal-backdrop').remove();
+        $('#optIndialogcontainer').modal('hide');
+
+        if (optinValue) {
+            bootbox.alert("Opt-in request already sent for this user.");
+        }
+        else {
+            data = "<label>Click Confirm to trigger text opt-in for this user at their next login.</label><div class=\"m-t-5\"><table cellpadding=\"5\" class=\"webgrid-table table-bordered table-striped table-condensed w-100 table-bdr-btm no-footer m-0\"><thead><tr><th>First Name</th><th>Last Name</th></tr></thead><tbody><tr><td style=\"padding: 10px\">" + firstname + "</td><td style=\"padding: 10px\">" + lastname + "</td></tr></tbody></table></div><div class=\"modal-footer p-b-0\"><div class=\"row m-t-15\"><div class=\"col-sm-3\"></div><div class=\"col-sm-3\"> <div class=\"btn btn-success\" onclick=\"UpdateForceOptinForUser(" + userId + ") \">Confirm</div>  </div> <div class=\"col-sm-3\"> <button type=\"button\" id=\"btnPopupforceOptin\" onclick=\"CloseForceOptInModel(); \" tabindex=\"1\" class=\"btn btn-danger w-100\" autofocus >Cancel</button> </div><div class=\"col-sm-3\"></div></div></div></div>";
+            $("#optIndialogcontainer").html('');
+            $("#optIndialogcontainer").html(CreateModelBodyForForceOptin(data, "Force opt-in confirmation"));
+        }
+    }
+
+    function CloseForceOptInModel() {
+        $('#optIndialogcontainer').modal('hide');
+        $('.modal-backdrop').remove();
+    }
+
+    function UpdateForceOptinForUser(userId) {
+        var optindivVal = "#optindiv_" + userId;
+        $.ajax({
+            url: '/Account/UpdateForceOptinForUser?userId=' + userId,
+            type: 'GET',
+            success: function (data) {
+                if (data) {
+                    $(optindivVal).val(data.status)
+                    bootbox.alert(data.message)
+                    $("#optIndialogcontainer").html('');
+                    $('#optIndialogcontainer').modal('hide');
+                }
+            }
+        });
+    }
+    function CheckLastContractLocationCode(userid) {
+        return new Promise((resolve, reject) => {
+            const _url = "/Account/GetLastContractLocationCode?userId=" + userid;
+            $.ajax({
+                url: _url,
+                type: 'GET',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    resolve(data.locationCode); // lowercase 'l'
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    resolve(null); // or reject(errorThrown) if you want to handle errors upstream
+                }
+            });
+        });
+    }
+
+    function OpenUnmapAssociateDialog(associateId) {
+        bootbox.dialog({
+            closeButton: true,
+            title: 'Confirmation',
+            message: "Are you sure you want to unmap this associate? The contract will be removed and will be available to map to any associate later.",
+            buttons: {
+                success: {
+                    label: 'Confirm',
+                    className: "btn-danger",
+                    callback: function () {
+                        $.ajax({
+                            url: '/Account/AssociateUnmap',
+                            type: 'POST',
+                            data: { associateId: associateId },
+                            success: function (data) {
+                                if (data.Status === true) {
+                                    dt.ajax.reload(null, false);
+                                    bootbox.alert("Associate unmapped successfully!");
+                                    localStorage.removeItem("modifiedRowsData");
+                                } else {
+                                    bootbox.alert(data.Message);
+                                }
+                            },
+                            error: function () {
+                                bootbox.alert("An unexpected error occurred. Please try again.");
+                            }
+                        });
+                    }
+                },
+                danger: {
+                    label: "Cancel",
+                    className: "btn-success",
+                    callback: function () {
+                        return;
+                    }
+                }
+            }
+        });
+    }
+
+    
+    function checkTaalkCampaignThenTerminate(Userids, formDataTObj) {
+        $.ajax({
+            url: "/Account/UserHasActiveTaalkCampaignRunning",
+            method: "GET",
+            data: { userId: Userids},
+            success: function (response) {
+                if (response.Status) {
+                    if (response.StatusUserHasActiveTaalkCampaignRunning) {
+                        BootBoxDialoug("This user has an active Taalk Campaign(s) running on it. Terminating this user will remove the leads from this user.</br>Do you wish to disable the Taalk Campaign(s) running on this user?").then(function (data) {
+                            if (data == false) {}
+                            $.ajax({
+                                type: "POST",
+                                url: "/Account/PauseUserPlusLeadCampaigns",
+                                data: { userId: Userids },
+                                success: function (response) {
+                                    if (response.Status) {
+                                        _TerminateUsers(Userids, formDataTObj);
+                                    }
+                                    else {
+                                        ErrorMessage(response.Errors);
+                                    }
+                                },
+                                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                    ErrorMessage(textStatus + ". " + errorThrown);
+                                }
+                            });
+                        });
+                    }
+                    else {
+                        _TerminateUsers(Userids, formDataTObj);
+                    }
+                }
+            },
+            error: function (err) {
+                console.error("Error:", err);
+                _TerminateUsers(Userids, formDataTObj);
+            }
+        });
+    }
+
+
+    function IsUserEligibleToMove(associateId) {
+
+        var currentContext = $(".switch-btn .active input").val();
+        var macLocationContext = currentContext === "AO" ? "NY" : "AO";
+
+        $.ajax({
+            url: '/Account/IsUserEligibleToMove',
+            type: 'POST',
+            data: { associateId: associateId, contextToMove: macLocationContext },
+            success: function (data) {
+                if (data.Status === true) {
+                    $("#dialogcontainer").html('');
+                    loadChangeContextOffices(2)
+                    selectedAssociateIdtoMove = associateId;
+                }
+                else {
+                    bootbox.alert(data.Message);
+                }
+            }
+        });
+    }
+
+    function RecreateMailContact(userId) {
+        BootBoxDialoug("Are you sure you want to re-create mail contact for selected user?").then(function (data) {
+            if (data == false) return;
+            $('#Messages').bs_info('Re-creating mail contact...', '', 30000);
+
+             $.ajax({
+                 url: '/Account/RecreateMailContact',
+                 type: 'POST',
+                 data: { userId: userId, },
+                 success: function (res) {
+                     if (res.Status == true) {
+                         $('#Messages').bs_success(res.Msg, '', 5000);
+                     }
+                     else {
+                         $('#Messages').bs_alert(res.Msg, '', 5000);
+                     }
+                 },
+                 error: function () {
+                     $('#Messages').bs_alert("Unable to re-create user contact mail.", '', 5000);
+                 }
+             });
+        });
+    }
+
+    function loadChangeContextOffices(contextId) {
+        $.ajax({
+            url: '/Account/GetChangeContextOffice',
+            type: 'POST',
+            data: { ChangeContextId: contextId },
+            success: function (offices) {
+                //console.log(offices);
+                $("#dialogcontainer").html(CreateModelBody(renderMoveUserForm(), "Move User"));
+                populateOfficeDropdown(offices);
+                $("#dialogcontainer").modal('show');
+            },
+            error: function () {
+                bootbox.alert("Something went wrong while loading offices.");
+            }
+        });
+    }
+
+    function populateOfficeDropdown(offices) {
+        var $ddl = $("#ddloffice");
+        $ddl.empty().append($("<option>").val("0").text("Please Select Office"));
+        $.each(offices, function (i, office) {
+            $ddl.append($("<option>").val(office.OfficeId).text(office.OfficeName));
+        });
+    }
+
+
+    function renderMoveUserForm() {
+        return `
+            <div class="row">
+                <div class="row form-group">
+                    <div class="col-md-4">
+                        <label>Offices </label>
+                        <span class="mandatory">*</span>
+                        <div class="select panelselect">
+                            <select class="form-control theme-input" 
+                                    data-val="true" 
+                                    data-val-number="The field OfficeId must be a number."
+                                    data-val-range-max="2147483647" 
+                                    data-val-range-min="1"
+                                    data-val-required=" "
+                                    id="ddloffice" 
+                                    name="OfficeId">
+                                <option value="0">Please Select Office</option>
+                            </select>
+                            <input id="OfficeId" name="OfficeId" type="hidden" value="">
+                            <span class="field-validation-valid" data-valmsg-for="OfficeId" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Managers </label>
+                        <span class="mandatory">*</span>
+                        <div class="select panelselect">
+                            <select class="form-control theme-input" 
+                                    data-val="true" 
+                                    data-val-required=" "
+                                    id="ddlmanagers" 
+                                    name="ManagerId">
+                                <option value="">Please Select Manager</option>
+                            </select>
+                            <input id="ManagerId" name="ManagerId" type="hidden" value="">
+                            <span class="field-validation-valid" data-valmsg-for="ManagerId" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <input type="submit" id="btnMoveUser" value="Move" class="btn btn-success">
+                        <input type="button" id="btnCancelMove" value="Cancel" class="btn btn-delete btnCancel1">
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    $(document).on("change", "#ddloffice", function () {
+        var selectedOffice = $(this).val();
+        var changecontextId = 2;
+        var currentContext = $(".switch-btn .active input").val();
+        var macLocationContext = currentContext === "AO" ? "NY" : "AO";
+
+        $.getJSON("/Account/GetManagersByOfficeId?ChangeContextId=" + changecontextId +
+            "&officeID=" + selectedOffice +
+            "&MacLocationContext=" + macLocationContext,
+            function (data) {
+                var $ddlManagers = $("#ddlmanagers");
+                $ddlManagers.empty().append('<option value="">Please Select Manager</option>');
+
+                $.each(data, function (i, c) {
+                    $ddlManagers.append('<option value="' + c.Value + '">' + c.Text + '</option>');
+                });
+            });
+    });
+
+
+    $(document).on("click", "#btnMoveUser", function () {
+
+        if ((!$("#ddlmanagers").val() || $("#ddlmanagers").val().length === 0) || $("#ddloffice").val() == 0) {
+            bootbox.alert("Please select manager");
+            return;
+        }
+
+        $.ajax({
+            url: '/Account/MoveUserContext',
+            type: 'POST',
+            data: { associateId: selectedAssociateIdtoMove, managerInfo: $("#ddlmanagers").val() },
+            success: function (data) {
+                $("#dialogcontainer").modal('hide');
+                bootbox.alert(data.Message);
+                dt.ajax.reload(null, false);
+            },
+            error: function () {
+                bootbox.alert("Something went wrong while moving user!");
+            }
+        });
+    });
+
+    $(document).on("click", "#btnCancelMove", function () {
+        $("#dialogcontainer").modal('hide');
+    });
+
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.min.js"></script>
+
+
+        </div>
+
+    </div>
+
+    
+
+
+    <script>
+
+        $(document).ready(function () {
+            $(".dropdown-toggle").dropdown();
+        });
+
+        $(document).ready(function () {
+            $("body").click(function () {
+
+                $('#side-menu .nav-second-level').removeClass('in');
+                $('.dropdown').removeClass('active');
+
+            });
+
+        });
+
+        var waitingDialog = waitingDialog || (function ($) {
+            'use strict';
+            var $dialog = $(
+                '<div class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="false" style="padding-top:15%; overflow-y:visible;background-color:rgba(51, 51, 51, 0.12);">' +
+                '<div class="modal-dialog modal-m">' +
+                '<div class="modal-content" style="text-align : center;background: transparent;box-shadow: none;border: 0;">' +
+                '</div>' +
+                '</div></div>');
+
+            return {
+                show: function () {
+                    var settings = $.extend({
+                        dialogSize: 'm',
+                        onHide: null
+                    });
+
+                    $dialog.find('.modal-dialog').attr('class', 'modal-dialog').addClass('modal-' + settings.dialogSize);
+                    $dialog.find('.modal-content').html("<div class='sk-spinner sk-spinner-wave'><div class='sk-rect1'></div><div class='sk-rect2'></div><div class='sk-rect3'></div><div class='sk-rect4'></div><div class='sk-rect5'></div></div>");
+                    $dialog.find('.modal-backdrop.in').css('opacity', -.5);
+
+                    if (typeof settings.onHide === 'function') {
+                        $dialog.off('hidden.bs.modal').on('hidden.bs.modal', function (e) {
+                            settings.onHide.call($dialog);
+                        });
+                    }
+                    $dialog.modal();
+                    $(document).find('.modal-backdrop.in').css('opacity', -.5);
+                },
+
+                hide: function () {
+                    $dialog.modal('hide');
+                }
+            };
+
+        })(jQuery);
+    </script>
+</body>
+</html>

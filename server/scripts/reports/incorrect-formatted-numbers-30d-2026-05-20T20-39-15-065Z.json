@@ -1,0 +1,131 @@
+{
+  "sourcePath": "server/scripts/reports/bad-failed-targets-30d-2026-05-20T18-15-49-034Z.csv",
+  "totalIncorrectNumbers": 1451,
+  "byReason": {
+    "not_e164_length_too_short": 1303,
+    "not_e164_length_too_long": 148
+  },
+  "top20ByFailedCalls": [
+    {
+      "digits": "1555555555",
+      "last10": "1555555555",
+      "failedCalls": 35,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1773441309",
+      "last10": "1773441309",
+      "failedCalls": 14,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1843990842",
+      "last10": "1843990842",
+      "failedCalls": 12,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1231233598",
+      "last10": "1231233598",
+      "failedCalls": 12,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1000000000",
+      "last10": "1000000000",
+      "failedCalls": 11,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1455257554",
+      "last10": "1455257554",
+      "failedCalls": 11,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1204471478",
+      "last10": "1204471478",
+      "failedCalls": 11,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1352584173",
+      "last10": "1352584173",
+      "failedCalls": 10,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1707867870",
+      "last10": "1707867870",
+      "failedCalls": 10,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1256753463",
+      "last10": "1256753463",
+      "failedCalls": 10,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1234567890",
+      "last10": "1234567890",
+      "failedCalls": 10,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "152073975836",
+      "last10": "2073975836",
+      "failedCalls": 10,
+      "formatIssue": "not_e164_length_too_long"
+    },
+    {
+      "digits": "1111111111",
+      "last10": "1111111111",
+      "failedCalls": 10,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "133479711691",
+      "last10": "3479711691",
+      "failedCalls": 10,
+      "formatIssue": "not_e164_length_too_long"
+    },
+    {
+      "digits": "155555555",
+      "last10": "155555555",
+      "failedCalls": 9,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1407201925",
+      "last10": "1407201925",
+      "failedCalls": 9,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1510326577",
+      "last10": "1510326577",
+      "failedCalls": 9,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1502650002",
+      "last10": "1502650002",
+      "failedCalls": 9,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1334282514",
+      "last10": "1334282514",
+      "failedCalls": 9,
+      "formatIssue": "not_e164_length_too_short"
+    },
+    {
+      "digits": "1256412767",
+      "last10": "1256412767",
+      "failedCalls": 9,
+      "formatIssue": "not_e164_length_too_short"
+    }
+  ],
+  "outCsvPath": "server/scripts/reports/incorrect-formatted-numbers-30d-2026-05-20T20-39-15-065Z.csv"
+}

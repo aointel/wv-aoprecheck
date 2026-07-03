@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebRTC Call Test - 5032018470</title>
+    <script src="https://sdk.twilio.com/js/client/v1.15/twilio.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .container {
+            background: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        .status {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 15px;
+            background: #333;
+            border-radius: 5px;
+            border-left: 4px solid #4CAF50;
+        }
+        .status.error {
+            border-left-color: #f44336;
+            color: #f44336;
+        }
+        .status.warning {
+            border-left-color: #ff9800;
+            color: #ff9800;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+        button:hover:not(:disabled) {
+            background: #45a049;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #666;
+        }
+        button.danger {
+            background: #f44336;
+        }
+        button.danger:hover:not(:disabled) {
+            background: #da190b;
+        }
+        #log {
+            margin-top: 20px;
+            padding: 15px;
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            height: 400px;
+            overflow-y: auto;
+            border-radius: 5px;
+            border: 1px solid #333;
+        }
+        .log-entry {
+            margin: 5px 0;
+            padding: 5px;
+        }
+        .log-entry.error {
+            color: #f44336;
+        }
+        .log-entry.success {
+            color: #4CAF50;
+        }
+        .log-entry.warning {
+            color: #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔊 WebRTC Call Test</h1>
+        <p>Testing call to <strong>5032018470</strong> using Twilio WebRTC</p>
+        
+        <div id="status" class="status">Ready to test</div>
+        
+        <div>
+            <button id="testTokenBtn" onclick="testTokenGeneration()">1. Test Token Generation</button>
+            <button id="initDeviceBtn" onclick="initializeDevice()" disabled>2. Initialize Device</button>
+            <button id="callBtn" onclick="makeCall()" disabled>3. Call 5032018470</button>
+            <button id="hangupBtn" class="danger" onclick="hangup()" disabled>Hang Up</button>
+        </div>
+        
+        <div id="log"></div>
+    </div>
+
+    <script>
+        let device = null;
+        let connection = null;
+        let token = null;
+        let identity = null;
+
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('log');
+            const time = new Date().toLocaleTimeString();
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.textContent = `[${time}] ${message}`;
+            logDiv.appendChild(entry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+
+        function updateStatus(message, type = '') {
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = message;
+            statusDiv.className = `status ${type}`;
+        }
+
+        async function testTokenGeneration() {
+            try {
+                updateStatus('🔄 Testing token generation...', 'warning');
+                log('🔑 Fetching WebRTC token from /api/twilio/token...', 'info');
+                
+                const res = await fetch('/api/twilio/token', {
+                    credentials: 'include'
+                });
+
+                if (!res.ok) {
+                    const error = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
+                    throw new Error(error.error || error.message || 'Failed to get token');
+                }
+
+                const data = await res.json();
+                token = data.token;
+                identity = data.identity;
+                
+                log(`✅ Token received successfully!`, 'success');
+                log(`   Identity: ${identity}`, 'info');
+                log(`   Token length: ${token.length} characters`, 'info');
+                log(`   App SID: ${data.appSid || 'N/A'}`, 'info');
+                
+                // Decode token to verify
+                try {
+                    const parts = token.split('.');
+                    if (parts.length === 3) {
+                        const payload = JSON.parse(atob(parts[1]));
+                        log(`   Token expires: ${new Date(payload.exp * 1000).toLocaleString()}`, 'info');
+                        log(`   Token issued: ${new Date(payload.iat * 1000).toLocaleString()}`, 'info');
+                    }
+                } catch (e) {
+                    log(`   ⚠️ Could not decode token: ${e.message}`, 'warning');
+                }
+                
+                updateStatus('✅ Token generation successful!', '');
+                document.getElementById('initDeviceBtn').disabled = false;
+                
+            } catch (error) {
+                log(`❌ Token generation failed: ${error.message}`, 'error');
+                updateStatus(`❌ Token Error: ${error.message}`, 'error');
+                console.error('Token error:', error);
+            }
+        }
+
+        async function initializeDevice() {
+            if (!token) {
+                log('❌ No token available. Please test token generation first.', 'error');
+                return;
+            }
+
+            try {
+                updateStatus('🔄 Initializing Twilio Device...', 'warning');
+                log('🚀 Creating Twilio Device...', 'info');
+                
+                if (typeof Twilio === 'undefined') {
+                    throw new Error('Twilio SDK not loaded. Check script tag.');
+                }
+
+                device = new Twilio.Device(token, {
+                    debug: true,
+                    codecPreferences: ['opus', 'pcmu'],
+                    allowIncomingWhileBusy: true,
+                    enableRingingState: true
+                });
+
+                device.on('ready', () => {
+                    log('✅ Device ready - ready to make calls!', 'success');
+                    updateStatus('✅ Device Ready - Can make calls', '');
+                    document.getElementById('callBtn').disabled = false;
+                });
+
+                device.on('error', (error) => {
+                    log(`❌ Device error: ${error.message}`, 'error');
+                    updateStatus(`❌ Device Error: ${error.message}`, 'error');
+                });
+
+                device.on('registered', () => {
+                    log('✅ Device registered with Twilio', 'success');
+                });
+
+                device.on('unregistered', () => {
+                    log('⚠️ Device unregistered', 'warning');
+                });
+
+                device.on('incoming', (conn) => {
+                    log('📲 Incoming call received', 'info');
+                });
+
+                log('⏳ Waiting for device to be ready...', 'info');
+                
+            } catch (error) {
+                log(`❌ Device initialization failed: ${error.message}`, 'error');
+                updateStatus(`❌ Device Error: ${error.message}`, 'error');
+                console.error('Device error:', error);
+            }
+        }
+
+        function makeCall() {
+            if (!device) {
+                log('❌ Device not initialized. Please initialize device first.', 'error');
+                return;
+            }
+
+            try {
+                updateStatus('📞 Calling 5032018470...', 'warning');
+                log('📞 Initiating call to 5032018470...', 'info');
+                
+                connection = device.connect({
+                    params: {
+                        To: '5032018470',
+                        agentEmail: identity,
+                        leadName: 'WebRTC Test Call',
+                        leadState: 'OR'
+                    }
+                });
+
+                connection.on('accept', () => {
+                    log('✅ Call connected!', 'success');
+                    updateStatus('✅ Connected to 5032018470', '');
+                    document.getElementById('callBtn').disabled = true;
+                    document.getElementById('hangupBtn').disabled = false;
+                });
+
+                connection.on('disconnect', () => {
+                    log('📴 Call disconnected', 'info');
+                    updateStatus('📴 Call ended', '');
+                    document.getElementById('callBtn').disabled = false;
+                    document.getElementById('hangupBtn').disabled = true;
+                    connection = null;
+                });
+
+                connection.on('error', (error) => {
+                    log(`❌ Call error: ${error.message}`, 'error');
+                    updateStatus(`❌ Call Error: ${error.message}`, 'error');
+                    document.getElementById('callBtn').disabled = false;
+                    document.getElementById('hangupBtn').disabled = true;
+                });
+
+                connection.on('cancel', () => {
+                    log('🚫 Call cancelled', 'warning');
+                    updateStatus('🚫 Call cancelled', 'warning');
+                });
+
+                log('⏳ Waiting for call to connect...', 'info');
+                
+            } catch (error) {
+                log(`❌ Failed to initiate call: ${error.message}`, 'error');
+                updateStatus(`❌ Call Error: ${error.message}`, 'error');
+                console.error('Call error:', error);
+            }
+        }
+
+        function hangup() {
+            if (connection) {
+                log('📴 Hanging up...', 'info');
+                connection.disconnect();
+            } else {
+                log('⚠️ No active connection to hang up', 'warning');
+            }
+        }
+
+        // Auto-test token on load
+        window.addEventListener('load', () => {
+            log('🚀 WebRTC Call Test Page Loaded', 'success');
+            log('Click "Test Token Generation" to start', 'info');
+        });
+    </script>
+</body>
+</html>

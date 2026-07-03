@@ -1,0 +1,8 @@
+# valid-sales.csv
+# source,file: submitted-apps-paste.txt
+# criteria,Sales = portal rows tied to a connect or booked. Step 1: all connects/booked in date range (sga_submit ±30d). Step 2: name match = portal insured + masterlead (last_name) name variants vs lead_name (any case). Step 3: same agent OR same MGA. Exclude Cancel/Declined.
+# total_rows_in_source,100
+# valid_count,0
+# total_cwa,0
+#
+insured,sga_submit,policy_number,lob,cwa,submit_type,nilico_status,agent,office,verification_result,mac_status,transfer_type,matched_billing_transaction_id,matched_agent_dial_metric_id

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Video Test</title>
+</head>
+<body>
+    <h1>Simple Video Connection Test</h1>
+    <div id="log"></div>
+    
+    <h2>Test URLs</h2>
+    <p><strong>Agent URL:</strong></p>
+    <a href="https://aointelligence.replit.app/video-meeting?room=test-simple&agentName=Agent&leadName=TestLead" target="_blank">
+        Agent (should show "Agent Meeting Room")
+    </a>
+    
+    <p><strong>Client URL:</strong></p>
+    <a href="https://aointelligence.replit.app/video-meeting?room=test-simple&agentName=TestClient&leadName=TestLead" target="_blank">
+        Client (should show "Joining Meeting...")
+    </a>
+    
+    <script>
+        const log = document.getElementById('log');
+        
+        function addLog(msg) {
+            log.innerHTML += '<div>' + new Date().toLocaleTimeString() + ': ' + msg + '</div>';
+        }
+        
+        // Test direct WebSocket connection
+        addLog('Testing WebSocket connection...');
+        const ws = new WebSocket('wss://aointelligence.replit.app/ws');
+        
+        ws.onopen = () => {
+            addLog('✅ WebSocket connected successfully');
+            ws.send(JSON.stringify({
+                type: 'join-room',
+                roomId: 'test-simple',
+                participantName: 'TestUser',
+                participantType: 'test'
+            }));
+            addLog('📤 Sent test message');
+        };
+        
+        ws.onmessage = (event) => {
+            addLog('📡 Received: ' + event.data);
+        };
+        
+        ws.onerror = (error) => {
+            addLog('❌ WebSocket error: ' + JSON.stringify(error));
+        };
+        
+        ws.onclose = (event) => {
+            addLog('🔌 WebSocket closed: ' + event.code + ' ' + event.reason);
+        };
+    </script>
+</body>
+</html>

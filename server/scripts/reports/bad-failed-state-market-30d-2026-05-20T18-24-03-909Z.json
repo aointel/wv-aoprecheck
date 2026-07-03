@@ -1,0 +1,4797 @@
+{
+  "generatedAtUtc": "2026-05-20T18:24:03.910Z",
+  "window": "30 days",
+  "matchedLeadRows": 408,
+  "distinctBadLast10Matched": 144,
+  "stateBreakdown": [
+    {
+      "state": "FL",
+      "lead_rows": 51
+    },
+    {
+      "state": "CA",
+      "lead_rows": 50
+    },
+    {
+      "state": "IL",
+      "lead_rows": 30
+    },
+    {
+      "state": "AZ",
+      "lead_rows": 19
+    },
+    {
+      "state": "GA",
+      "lead_rows": 18
+    },
+    {
+      "state": "PA",
+      "lead_rows": 13
+    },
+    {
+      "state": "AL",
+      "lead_rows": 13
+    },
+    {
+      "state": "HI",
+      "lead_rows": 13
+    },
+    {
+      "state": "MI",
+      "lead_rows": 12
+    },
+    {
+      "state": "OH",
+      "lead_rows": 12
+    },
+    {
+      "state": "AR",
+      "lead_rows": 11
+    },
+    {
+      "state": "MD",
+      "lead_rows": 11
+    },
+    {
+      "state": "MO",
+      "lead_rows": 10
+    },
+    {
+      "state": "MN",
+      "lead_rows": 10
+    },
+    {
+      "state": "LA",
+      "lead_rows": 9
+    },
+    {
+      "state": "TN",
+      "lead_rows": 8
+    },
+    {
+      "state": "SC",
+      "lead_rows": 8
+    },
+    {
+      "state": "WA",
+      "lead_rows": 8
+    },
+    {
+      "state": "VA",
+      "lead_rows": 8
+    },
+    {
+      "state": "NM",
+      "lead_rows": 7
+    },
+    {
+      "state": "IA",
+      "lead_rows": 7
+    },
+    {
+      "state": "AK",
+      "lead_rows": 7
+    },
+    {
+      "state": "CO",
+      "lead_rows": 6
+    },
+    {
+      "state": "CT",
+      "lead_rows": 5
+    },
+    {
+      "state": "DE",
+      "lead_rows": 5
+    },
+    {
+      "state": "IN",
+      "lead_rows": 5
+    },
+    {
+      "state": "OR",
+      "lead_rows": 5
+    },
+    {
+      "state": "KS",
+      "lead_rows": 5
+    },
+    {
+      "state": "WI",
+      "lead_rows": 4
+    },
+    {
+      "state": "ID",
+      "lead_rows": 4
+    },
+    {
+      "state": "MS",
+      "lead_rows": 3
+    },
+    {
+      "state": "MA",
+      "lead_rows": 3
+    },
+    {
+      "state": "MT",
+      "lead_rows": 3
+    },
+    {
+      "state": "NC",
+      "lead_rows": 3
+    },
+    {
+      "state": "UT",
+      "lead_rows": 3
+    },
+    {
+      "state": "WV",
+      "lead_rows": 2
+    },
+    {
+      "state": "ME",
+      "lead_rows": 2
+    },
+    {
+      "state": "DC",
+      "lead_rows": 2
+    },
+    {
+      "state": "OK",
+      "lead_rows": 2
+    },
+    {
+      "state": "ND",
+      "lead_rows": 2
+    },
+    {
+      "state": "KY",
+      "lead_rows": 2
+    },
+    {
+      "state": "NY",
+      "lead_rows": 2
+    },
+    {
+      "state": "NJ",
+      "lead_rows": 1
+    },
+    {
+      "state": "VI",
+      "lead_rows": 1
+    },
+    {
+      "state": "SD",
+      "lead_rows": 1
+    },
+    {
+      "state": "WY",
+      "lead_rows": 1
+    },
+    {
+      "state": "TX",
+      "lead_rows": 1
+    }
+  ],
+  "marketBreakdown": [
+    {
+      "market": "Plus Lead",
+      "lead_rows": 225
+    },
+    {
+      "market": "Veteran",
+      "lead_rows": 162
+    },
+    {
+      "market": "Globe Market",
+      "lead_rows": 17
+    },
+    {
+      "market": "Hot Lead",
+      "lead_rows": 3
+    },
+    {
+      "market": "Will Kit",
+      "lead_rows": 1
+    }
+  ],
+  "topMarketStatePairs": [
+    {
+      "market": "Plus Lead",
+      "state": "CA",
+      "lead_rows": 27
+    },
+    {
+      "market": "Veteran",
+      "state": "FL",
+      "lead_rows": 26
+    },
+    {
+      "market": "Plus Lead",
+      "state": "FL",
+      "lead_rows": 24
+    },
+    {
+      "market": "Plus Lead",
+      "state": "IL",
+      "lead_rows": 23
+    },
+    {
+      "market": "Veteran",
+      "state": "CA",
+      "lead_rows": 20
+    },
+    {
+      "market": "Plus Lead",
+      "state": "HI",
+      "lead_rows": 10
+    },
+    {
+      "market": "Plus Lead",
+      "state": "AZ",
+      "lead_rows": 10
+    },
+    {
+      "market": "Plus Lead",
+      "state": "GA",
+      "lead_rows": 10
+    },
+    {
+      "market": "Veteran",
+      "state": "AZ",
+      "lead_rows": 9
+    },
+    {
+      "market": "Plus Lead",
+      "state": "MI",
+      "lead_rows": 8
+    },
+    {
+      "market": "Plus Lead",
+      "state": "OH",
+      "lead_rows": 8
+    },
+    {
+      "market": "Veteran",
+      "state": "GA",
+      "lead_rows": 8
+    },
+    {
+      "market": "Veteran",
+      "state": "AL",
+      "lead_rows": 7
+    },
+    {
+      "market": "Plus Lead",
+      "state": "MO",
+      "lead_rows": 7
+    },
+    {
+      "market": "Veteran",
+      "state": "IL",
+      "lead_rows": 7
+    },
+    {
+      "market": "Plus Lead",
+      "state": "TN",
+      "lead_rows": 6
+    },
+    {
+      "market": "Plus Lead",
+      "state": "PA",
+      "lead_rows": 6
+    },
+    {
+      "market": "Plus Lead",
+      "state": "AL",
+      "lead_rows": 6
+    },
+    {
+      "market": "Plus Lead",
+      "state": "MN",
+      "lead_rows": 6
+    },
+    {
+      "market": "Veteran",
+      "state": "VA",
+      "lead_rows": 6
+    },
+    {
+      "market": "Veteran",
+      "state": "PA",
+      "lead_rows": 6
+    },
+    {
+      "market": "Veteran",
+      "state": "AR",
+      "lead_rows": 6
+    },
+    {
+      "market": "Veteran",
+      "state": "MD",
+      "lead_rows": 6
+    },
+    {
+      "market": "Plus Lead",
+      "state": "AR",
+      "lead_rows": 5
+    },
+    {
+      "market": "Plus Lead",
+      "state": "LA",
+      "lead_rows": 5
+    },
+    {
+      "market": "Plus Lead",
+      "state": "IA",
+      "lead_rows": 5
+    },
+    {
+      "market": "Veteran",
+      "state": "NM",
+      "lead_rows": 5
+    },
+    {
+      "market": "Plus Lead",
+      "state": "SC",
+      "lead_rows": 4
+    },
+    {
+      "market": "Plus Lead",
+      "state": "OR",
+      "lead_rows": 4
+    },
+    {
+      "market": "Plus Lead",
+      "state": "WA",
+      "lead_rows": 4
+    },
+    {
+      "market": "Veteran",
+      "state": "OH",
+      "lead_rows": 4
+    },
+    {
+      "market": "Plus Lead",
+      "state": "AK",
+      "lead_rows": 4
+    },
+    {
+      "market": "Veteran",
+      "state": "LA",
+      "lead_rows": 4
+    },
+    {
+      "market": "Plus Lead",
+      "state": "MD",
+      "lead_rows": 4
+    },
+    {
+      "market": "Veteran",
+      "state": "MI",
+      "lead_rows": 4
+    },
+    {
+      "market": "Plus Lead",
+      "state": "WI",
+      "lead_rows": 3
+    },
+    {
+      "market": "Plus Lead",
+      "state": "MA",
+      "lead_rows": 3
+    },
+    {
+      "market": "Veteran",
+      "state": "DE",
+      "lead_rows": 3
+    },
+    {
+      "market": "Plus Lead",
+      "state": "KS",
+      "lead_rows": 3
+    },
+    {
+      "market": "Plus Lead",
+      "state": "NC",
+      "lead_rows": 3
+    },
+    {
+      "market": "Plus Lead",
+      "state": "ID",
+      "lead_rows": 3
+    },
+    {
+      "market": "Veteran",
+      "state": "SC",
+      "lead_rows": 3
+    },
+    {
+      "market": "Veteran",
+      "state": "CT",
+      "lead_rows": 3
+    },
+    {
+      "market": "Veteran",
+      "state": "WA",
+      "lead_rows": 3
+    },
+    {
+      "market": "Veteran",
+      "state": "MO",
+      "lead_rows": 3
+    },
+    {
+      "market": "Veteran",
+      "state": "MN",
+      "lead_rows": 3
+    },
+    {
+      "market": "Veteran",
+      "state": "CO",
+      "lead_rows": 3
+    },
+    {
+      "market": "Plus Lead",
+      "state": "CT",
+      "lead_rows": 2
+    },
+    {
+      "market": "Veteran",
+      "state": "MS",
+      "lead_rows": 2
+    },
+    {
+      "market": "Plus Lead",
+      "state": "WV",
+      "lead_rows": 2
+    },
+    {
+      "market": "Plus Lead",
+      "state": "IN",
+      "lead_rows": 2
+    },
+    {
+      "market": "Plus Lead",
+      "state": "ME",
+      "lead_rows": 2
+    },
+    {
+      "market": "Plus Lead",
+      "state": "NM",
+      "lead_rows": 2
+    },
+    {
+      "market": "Plus Lead",
+      "state": "CO",
+      "lead_rows": 2
+    },
+    {
+      "market": "Veteran",
+      "state": "IN",
+      "lead_rows": 2
+    },
+    {
+      "market": "Veteran",
+      "state": "MT",
+      "lead_rows": 2
+    },
+    {
+      "market": "Plus Lead",
+      "state": "OK",
+      "lead_rows": 2
+    },
+    {
+      "market": "Plus Lead",
+      "state": "ND",
+      "lead_rows": 2
+    },
+    {
+      "market": "Veteran",
+      "state": "NY",
+      "lead_rows": 2
+    },
+    {
+      "market": "Veteran",
+      "state": "KS",
+      "lead_rows": 2
+    },
+    {
+      "market": "Veteran",
+      "state": "HI",
+      "lead_rows": 2
+    },
+    {
+      "market": "Veteran",
+      "state": "TN",
+      "lead_rows": 2
+    },
+    {
+      "market": "Veteran",
+      "state": "AK",
+      "lead_rows": 2
+    },
+    {
+      "market": "Hot Lead",
+      "state": "CA",
+      "lead_rows": 1
+    },
+    {
+      "market": "Plus Lead",
+      "state": "NJ",
+      "lead_rows": 1
+    },
+    {
+      "market": "Plus Lead",
+      "state": "DC",
+      "lead_rows": 1
+    },
+    {
+      "market": "Plus Lead",
+      "state": "MS",
+      "lead_rows": 1
+    },
+    {
+      "market": "Plus Lead",
+      "state": "DE",
+      "lead_rows": 1
+    },
+    {
+      "market": "Plus Lead",
+      "state": "VI",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "DC",
+      "lead_rows": 1
+    },
+    {
+      "market": "Veteran",
+      "state": "UT",
+      "lead_rows": 1
+    },
+    {
+      "market": "Hot Lead",
+      "state": "WA",
+      "lead_rows": 1
+    },
+    {
+      "market": "Veteran",
+      "state": "WI",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "HI",
+      "lead_rows": 1
+    },
+    {
+      "market": "Veteran",
+      "state": "SD",
+      "lead_rows": 1
+    },
+    {
+      "market": "Plus Lead",
+      "state": "UT",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "MT",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "MN",
+      "lead_rows": 1
+    },
+    {
+      "market": "Plus Lead",
+      "state": "VA",
+      "lead_rows": 1
+    },
+    {
+      "market": "Plus Lead",
+      "state": "KY",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "AK",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "ID",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "IA",
+      "lead_rows": 1
+    },
+    {
+      "market": "Hot Lead",
+      "state": "DE",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "WY",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "IN",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "UT",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "CO",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "PA",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "VA",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "MD",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "SC",
+      "lead_rows": 1
+    },
+    {
+      "market": "Veteran",
+      "state": "OR",
+      "lead_rows": 1
+    },
+    {
+      "market": "Veteran",
+      "state": "TX",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "FL",
+      "lead_rows": 1
+    },
+    {
+      "market": "Veteran",
+      "state": "IA",
+      "lead_rows": 1
+    },
+    {
+      "market": "Will Kit",
+      "state": "CA",
+      "lead_rows": 1
+    },
+    {
+      "market": "Globe Market",
+      "state": "CA",
+      "lead_rows": 1
+    },
+    {
+      "market": "Veteran",
+      "state": "KY",
+      "lead_rows": 1
+    }
+  ],
+  "rows": [
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "934732",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "CT",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "2821379947",
+      "lead_id": "645520",
+      "phone": "22821379947",
+      "lead_last10": "2821379947",
+      "state_value": "MS",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "569474",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "577393",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "TN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "628323",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "PA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "668751",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "PA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "856570",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "WV",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "859977",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "WI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1153543",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "636874",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "TN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "967130",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "554349",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "SC",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "999478",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AR",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "687371",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "688328",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "828675",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "621294",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "2416000090",
+      "lead_id": "847654",
+      "phone": "302416000090",
+      "lead_last10": "2416000090",
+      "state_value": "DE",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "531893",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "CA",
+      "market_value": "Hot Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567891",
+      "lead_id": "1149650",
+      "phone": "1234567891",
+      "lead_last10": "1234567891",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "546960",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "IN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1231231234",
+      "lead_id": "1183021",
+      "phone": "1231231234",
+      "lead_last10": "1231231234",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "835973",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "859647",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "ME",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "863682",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "NJ",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "920557",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "HI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "930341",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "HI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "942515",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "950734",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "MI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "961747",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1010054",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "551980",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MO",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "554895",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "OR",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "813793",
+      "phone": "00000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1159882",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "631450",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1006549",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "565200",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AZ",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "635185",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CT",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "666401",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "PA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "667135",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "822212",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "831116",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "LA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "837060",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "NM",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "846195",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "850674",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "855634",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "864723",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "865810",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "882875",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "912227",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "GA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1084191",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "915518",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "PA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "618996",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1147461",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MO",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "992536",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "686225",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "HI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1009610",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "GA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "990911",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "984125",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "CO",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "1182150",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "548056",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "549784",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "569473",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "GA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "688994",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "TN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1231231234",
+      "lead_id": "684792",
+      "phone": "1231231234",
+      "lead_last10": "1231231234",
+      "state_value": "AZ",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "550767",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "615495",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "WA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "629931",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "KS",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "631330",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "SC",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "637172",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "OH",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "798215",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "KS",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "810732",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "MI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "821024",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "DC",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "3956996300",
+      "lead_id": "625459",
+      "phone": "3173956996300",
+      "lead_last10": "3956996300",
+      "state_value": "IN",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "560035",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "928461",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "OH",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "606634",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "OH",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1001243",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1124536",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "WA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "811475",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "829021",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "851092",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "HI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "972150",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "SC",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "563625",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "TN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "563717",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "MS",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1761901230",
+      "lead_id": "538455",
+      "phone": "31761901230",
+      "lead_last10": "1761901230",
+      "state_value": "OH",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "567137",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "AK",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1000000000",
+      "lead_id": "593744",
+      "phone": "1000000000",
+      "lead_last10": "1000000000",
+      "state_value": "MT",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1234567891",
+      "lead_id": "587888",
+      "phone": "1234567891",
+      "lead_last10": "1234567891",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "589027",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "OH",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1231231234",
+      "lead_id": "589701",
+      "phone": "1231231234",
+      "lead_last10": "1231231234",
+      "state_value": "OR",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1154909",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "WI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0125452145",
+      "lead_id": "652012",
+      "phone": "20125452145",
+      "lead_last10": "0125452145",
+      "state_value": "AL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "614489",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "617125",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "3540908711",
+      "lead_id": "545280",
+      "phone": "32333540908711",
+      "lead_last10": "3540908711",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "860609",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "DE",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "646667",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "549685",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "OH",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "579270",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1131612",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "840031",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "ME",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "617146",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "TN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "669638",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "VI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "564795",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "NC",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "827453",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "HI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "917210",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "921341",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "NM",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1163711",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "DC",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "971280",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AZ",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "639895",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "958071",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "661696",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "683798",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "624056",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "OK",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "923287",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "UT",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1081745",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "OR",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "8820941844",
+      "lead_id": "625431",
+      "phone": "22588820941844",
+      "lead_last10": "8820941844",
+      "state_value": "LA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "629125",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "631612",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "631693",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "632442",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1153189",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AR",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "634544",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "WA",
+      "market_value": "Hot Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "636281",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "645589",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "9039228186",
+      "lead_id": "1053967",
+      "phone": "2349039228186",
+      "lead_last10": "9039228186",
+      "state_value": "WI",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1231231234",
+      "lead_id": "650415",
+      "phone": "1231231234",
+      "lead_last10": "1231231234",
+      "state_value": "ID",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "8919758999",
+      "lead_id": "970194",
+      "phone": "308919758999",
+      "lead_last10": "8919758999",
+      "state_value": "LA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "2285677023",
+      "lead_id": "677388",
+      "phone": "2132285677023",
+      "lead_last10": "2285677023",
+      "state_value": "MS",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1234567891",
+      "lead_id": "665132",
+      "phone": "1234567891",
+      "lead_last10": "1234567891",
+      "state_value": "AR",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1157759",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "TN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567891",
+      "lead_id": "687841",
+      "phone": "1234567891",
+      "lead_last10": "1234567891",
+      "state_value": "MN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1161995",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "HI",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1159387",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MO",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "706764",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "IA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "6394403939",
+      "lead_id": "997890",
+      "phone": "216394403939",
+      "lead_last10": "6394403939",
+      "state_value": "SC",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1160822",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "NC",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "713090",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "GA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "714004",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "AZ",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "714071",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "MN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "714192",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "GA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "731999",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "GA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1146746",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1234567891",
+      "lead_id": "1161426",
+      "phone": "1234567891",
+      "lead_last10": "1234567891",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "744740",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1144065",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "HI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "callback"
+    },
+    {
+      "bad_last10": "9187858804",
+      "lead_id": "1115629",
+      "phone": "09187858804",
+      "lead_last10": "9187858804",
+      "state_value": "AZ",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "760808",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "IA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "767069",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "GA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "767970",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "AZ",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "768037",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "MN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "768154",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "GA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1111111111",
+      "lead_id": "785715",
+      "phone": "1111111111",
+      "lead_last10": "1111111111",
+      "state_value": "GA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "3435076543",
+      "lead_id": "757355",
+      "phone": "33435076543",
+      "lead_last10": "3435076543",
+      "state_value": "OH",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0520995311",
+      "lead_id": "849574",
+      "phone": "20520995311",
+      "lead_last10": "0520995311",
+      "state_value": "AL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "4254343432",
+      "lead_id": "827695",
+      "phone": "324254343432",
+      "lead_last10": "4254343432",
+      "state_value": "SD",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "7628889495",
+      "lead_id": "592349",
+      "phone": "27628889495",
+      "lead_last10": "7628889495",
+      "state_value": "VA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1234567891",
+      "lead_id": "971529",
+      "phone": "1234567891",
+      "lead_last10": "1234567891",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1234567891",
+      "lead_id": "998999",
+      "phone": "1234567891",
+      "lead_last10": "1234567891",
+      "state_value": "AZ",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1231231234",
+      "lead_id": "1039666",
+      "phone": "1231231234",
+      "lead_last10": "1231231234",
+      "state_value": "MI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567891",
+      "lead_id": "1080130",
+      "phone": "1234567891",
+      "lead_last10": "1234567891",
+      "state_value": "PA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1234567891",
+      "lead_id": "1113950",
+      "phone": "1234567891",
+      "lead_last10": "1234567891",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "552430",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "562112",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "569609",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "UT",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1163561",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MT",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1162198",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MN",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "6734555917",
+      "lead_id": "933637",
+      "phone": "26734555917",
+      "lead_last10": "6734555917",
+      "state_value": "PA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "635731",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "683692",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "2140908333",
+      "lead_id": "698339",
+      "phone": "32140908333",
+      "lead_last10": "2140908333",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3435076543",
+      "lead_id": "703266",
+      "phone": "33435076543",
+      "lead_last10": "3435076543",
+      "state_value": "OH",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3468860646",
+      "lead_id": "737593",
+      "phone": "23468860646",
+      "lead_last10": "3468860646",
+      "state_value": "AR",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "744663",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "KS",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "824842",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "3003190753",
+      "lead_id": "612919",
+      "phone": "03003190753",
+      "lead_last10": "3003190753",
+      "state_value": "AL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "9456421175",
+      "lead_id": "1178004",
+      "phone": "309369456421175",
+      "lead_last10": "9456421175",
+      "state_value": "IL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1004158",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "649964",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "651613",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AZ",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "652654",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "OH",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1148578",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "VA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "979919",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AK",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "544354",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "ND",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1151256",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "WV",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "587539",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "987594",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "927479",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "933262",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "ID",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "817810",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "NC",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "818462",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "OK",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "860115",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "993280",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "LA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1001689",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "OH",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "621413",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MN",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1089501",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MD",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1092780",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "633708",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1093423",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "947484",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "975285",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "OR",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "649215",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MD",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "684486",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "948558",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "958599",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "961186",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AK",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1151605",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1149177",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "836034",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "WI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "853605",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "KY",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "862731",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "921190",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "HI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "690305",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CO",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "937537",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "939239",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "SC",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "558542",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "693695",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "HI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "810700",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "HI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "815203",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MO",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "815571",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "GA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "820487",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1082205",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "942053",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MD",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "863781",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "996908",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "561904",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "LA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1084700",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "ND",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1085935",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "609542",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "OH",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "613957",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "655030",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AZ",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "690372",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "691786",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "983626",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MD",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1164232",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AK",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1162002",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "ID",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1162208",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IA",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "9047038960",
+      "lead_id": "998085",
+      "phone": "09047038960",
+      "lead_last10": "9047038960",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1157275",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "PA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1149646",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AR",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "864061",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AK",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "581870",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AZ",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "589361",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "828402",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MO",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "607307",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AZ",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "968268",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "969442",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "969903",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AZ",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "614743",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "DE",
+      "market_value": "Hot Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "636271",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "811289",
+      "phone": "00000000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MI",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "671432",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "674906",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "FL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "681758",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "812978",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "HI",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "814241",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MO",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "921964",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "AR",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "929903",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MO",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "934873",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "LA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "685383",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "ID",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "551682",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "WA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "934133",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CT",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1162134",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "WY",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "648173",
+      "phone": "911234567890",
+      "lead_last10": "1234567890",
+      "state_value": "SC",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1164130",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "IN",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "623780",
+      "phone": "00000000000000",
+      "lead_last10": "0000000000",
+      "state_value": "VA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1163244",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "UT",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "846218",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "IL",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0294558361",
+      "lead_id": "853783",
+      "phone": "30294558361",
+      "lead_last10": "0294558361",
+      "state_value": "DE",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "832889",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MD",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1212121212",
+      "lead_id": "829022",
+      "phone": "1212121212",
+      "lead_last10": "1212121212",
+      "state_value": "LA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1175031",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "GA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1163733",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "CO",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1161806",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "PA",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1161944",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "VA",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1161832",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "MD",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0986712642",
+      "lead_id": "830914",
+      "phone": "30986712642",
+      "lead_last10": "0986712642",
+      "state_value": "IL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0000000000",
+      "lead_id": "1163331",
+      "phone": "0000000000",
+      "lead_last10": "0000000000",
+      "state_value": "SC",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "2154331950",
+      "lead_id": "1154189",
+      "phone": "22154331950",
+      "lead_last10": "2154331950",
+      "state_value": "PA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1234567890",
+      "lead_id": "913700",
+      "phone": "1234567890",
+      "lead_last10": "1234567890",
+      "state_value": "WA",
+      "market_value": "Plus Lead",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "5668455133",
+      "lead_id": "860369",
+      "phone": "25668455133",
+      "lead_last10": "5668455133",
+      "state_value": "AL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "5941735088",
+      "lead_id": "630148",
+      "phone": "55941735088",
+      "lead_last10": "5941735088",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "4242342332",
+      "lead_id": "838389",
+      "phone": "34242342332",
+      "lead_last10": "4242342332",
+      "state_value": "NM",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "9133699712",
+      "lead_id": "1179990",
+      "phone": "4129133699712",
+      "lead_last10": "9133699712",
+      "state_value": "PA",
+      "market_value": "Veteran",
+      "cn_email": "jessicaboll@aoglobelife.com",
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3454566756",
+      "lead_id": "709728",
+      "phone": "53454566756",
+      "lead_last10": "3454566756",
+      "state_value": "GA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0999399238",
+      "lead_id": "966779",
+      "phone": "50999399238",
+      "lead_last10": "0999399238",
+      "state_value": "WA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "8626529887",
+      "lead_id": "862436",
+      "phone": "38626529887",
+      "lead_last10": "8626529887",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "3686785938",
+      "lead_id": "655834",
+      "phone": "33686785938",
+      "lead_last10": "3686785938",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "2576500075",
+      "lead_id": "808400",
+      "phone": "42576500075",
+      "lead_last10": "2576500075",
+      "state_value": "AZ",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "2576500075",
+      "lead_id": "754982",
+      "phone": "42576500075",
+      "lead_last10": "2576500075",
+      "state_value": "AZ",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "9515383941",
+      "lead_id": "635992",
+      "phone": "519515383941",
+      "lead_last10": "9515383941",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "2087088349",
+      "lead_id": "949650",
+      "phone": "52087088349",
+      "lead_last10": "2087088349",
+      "state_value": "AZ",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "5225199652",
+      "lead_id": "656641",
+      "phone": "35225199652",
+      "lead_last10": "5225199652",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1720873056",
+      "lead_id": "1236210",
+      "phone": "41720873056",
+      "lead_last10": "1720873056",
+      "state_value": "MO",
+      "market_value": "Veteran",
+      "cn_email": "chrislafond@aoglobelife.com",
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3675056841",
+      "lead_id": "941411",
+      "phone": "33675056841",
+      "lead_last10": "3675056841",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0456534926",
+      "lead_id": "1091279",
+      "phone": "50456534926",
+      "lead_last10": "0456534926",
+      "state_value": "LA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3454566756",
+      "lead_id": "763739",
+      "phone": "53454566756",
+      "lead_last10": "3454566756",
+      "state_value": "GA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "4632643764",
+      "lead_id": "838580",
+      "phone": "34632643764",
+      "lead_last10": "4632643764",
+      "state_value": "MN",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3463463436",
+      "lead_id": "919293",
+      "phone": "463463463436",
+      "lead_last10": "3463463436",
+      "state_value": "AL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "5225972340",
+      "lead_id": "548724",
+      "phone": "4915225972340",
+      "lead_last10": "5225972340",
+      "state_value": "MN",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "2079219680",
+      "lead_id": "556689",
+      "phone": "52079219680",
+      "lead_last10": "2079219680",
+      "state_value": "AZ",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "9043290602",
+      "lead_id": "656922",
+      "phone": "449043290602",
+      "lead_last10": "9043290602",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "7379696505",
+      "lead_id": "934097",
+      "phone": "497379696505",
+      "lead_last10": "7379696505",
+      "state_value": "CO",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "6055662256",
+      "lead_id": "1173781",
+      "phone": "36055662256",
+      "lead_last10": "6055662256",
+      "state_value": "WA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3019917673",
+      "lead_id": "554068",
+      "phone": "493019917673",
+      "lead_last10": "3019917673",
+      "state_value": "MD",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "8035122531",
+      "lead_id": "822651",
+      "phone": "48035122531",
+      "lead_last10": "8035122531",
+      "state_value": "MT",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0560330966",
+      "lead_id": "1037799",
+      "phone": "50560330966",
+      "lead_last10": "0560330966",
+      "state_value": "NM",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "dnc"
+    },
+    {
+      "bad_last10": "4192864161",
+      "lead_id": "814211",
+      "phone": "54192864161",
+      "lead_last10": "4192864161",
+      "state_value": "OR",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "4224375380",
+      "lead_id": "834224",
+      "phone": "44224375380",
+      "lead_last10": "4224375380",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "4136213215",
+      "lead_id": "622933",
+      "phone": "54136213215",
+      "lead_last10": "4136213215",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "6137155720",
+      "lead_id": "1200262",
+      "phone": "56137155720",
+      "lead_last10": "6137155720",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "2073975836",
+      "lead_id": "936050",
+      "phone": "52073975836",
+      "lead_last10": "2073975836",
+      "state_value": "AZ",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "4348000486",
+      "lead_id": "999421",
+      "phone": "44348000486",
+      "lead_last10": "4348000486",
+      "state_value": "MD",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "3019917673",
+      "lead_id": "842890",
+      "phone": "493019917673",
+      "lead_last10": "3019917673",
+      "state_value": "MD",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3479711691",
+      "lead_id": "941028",
+      "phone": "33479711691",
+      "lead_last10": "3479711691",
+      "state_value": "AL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0587318171",
+      "lead_id": "861858",
+      "phone": "50587318171",
+      "lead_last10": "0587318171",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0134837483",
+      "lead_id": "532593",
+      "phone": "50134837483",
+      "lead_last10": "0134837483",
+      "state_value": "AR",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0140047870",
+      "lead_id": "534827",
+      "phone": "50140047870",
+      "lead_last10": "0140047870",
+      "state_value": "AR",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0476750609",
+      "lead_id": "654895",
+      "phone": "40476750609",
+      "lead_last10": "0476750609",
+      "state_value": "GA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0761521756",
+      "lead_id": "711257",
+      "phone": "50761521756",
+      "lead_last10": "0761521756",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1056315909",
+      "lead_id": "1181116",
+      "phone": "41056315909",
+      "lead_last10": "1056315909",
+      "state_value": "MD",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0493150444",
+      "lead_id": "1206978",
+      "phone": "540493150444",
+      "lead_last10": "0493150444",
+      "state_value": "VA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1961901115",
+      "lead_id": "940055",
+      "phone": "41961901115",
+      "lead_last10": "1961901115",
+      "state_value": "OH",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1927763223",
+      "lead_id": "1124634",
+      "phone": "51927763223",
+      "lead_last10": "1927763223",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "5574830682",
+      "lead_id": "1206948",
+      "phone": "525574830682",
+      "lead_last10": "5574830682",
+      "state_value": "TX",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "5505161591",
+      "lead_id": "945453",
+      "phone": "50265505161591",
+      "lead_last10": "5505161591",
+      "state_value": "MI",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0240480086",
+      "lead_id": "620174",
+      "phone": "60240480086",
+      "lead_last10": "0240480086",
+      "state_value": "AZ",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "7009710962",
+      "lead_id": "1108090",
+      "phone": "57009710962",
+      "lead_last10": "7009710962",
+      "state_value": "PA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "7272190996",
+      "lead_id": "946656",
+      "phone": "7272190996",
+      "lead_last10": "7272190996",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "7272190996",
+      "lead_id": "833414",
+      "phone": "7272190996",
+      "lead_last10": "7272190996",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "5737753417",
+      "lead_id": "543118",
+      "phone": "75737753417",
+      "lead_last10": "5737753417",
+      "state_value": "VA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1921497313",
+      "lead_id": "594763",
+      "phone": "71921497313",
+      "lead_last10": "1921497313",
+      "state_value": "CO",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "9164245586",
+      "lead_id": "671714",
+      "phone": "59164245586",
+      "lead_last10": "9164245586",
+      "state_value": "IL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0332733833",
+      "lead_id": "1149538",
+      "phone": "70332733833",
+      "lead_last10": "0332733833",
+      "state_value": "VA",
+      "market_value": "Veteran",
+      "cn_email": "elijahgreen@aoglobelife.com",
+      "cnresolution_norm": "called"
+    },
+    {
+      "bad_last10": "6733581979",
+      "lead_id": "666569",
+      "phone": "61826733581979",
+      "lead_last10": "6733581979",
+      "state_value": "IL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0785904264",
+      "lead_id": "869350",
+      "phone": "70785904264",
+      "lead_last10": "0785904264",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "7234810149",
+      "lead_id": "844405",
+      "phone": "77234810149",
+      "lead_last10": "7234810149",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "7272190996",
+      "lead_id": "1117953",
+      "phone": "7272190996",
+      "lead_last10": "7272190996",
+      "state_value": "FL",
+      "market_value": "Globe Market",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "7272190996",
+      "lead_id": "411065",
+      "phone": "7272190996",
+      "lead_last10": "7272190996",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "3494503405",
+      "lead_id": "928199",
+      "phone": "73494503405",
+      "lead_last10": "3494503405",
+      "state_value": "MI",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "6161876892",
+      "lead_id": "765130",
+      "phone": "66161876892",
+      "lead_last10": "6161876892",
+      "state_value": "NM",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "6232263663",
+      "lead_id": "818057",
+      "phone": "56232263663",
+      "lead_last10": "6232263663",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "4195442711",
+      "lead_id": "702796",
+      "phone": "64195442711",
+      "lead_last10": "4195442711",
+      "state_value": "IA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "6161876892",
+      "lead_id": "711128",
+      "phone": "66161876892",
+      "lead_last10": "6161876892",
+      "state_value": "NM",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3624945544",
+      "lead_id": "971406",
+      "phone": "63624945544",
+      "lead_last10": "3624945544",
+      "state_value": "MO",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "9943711435",
+      "lead_id": "995174",
+      "phone": "639943711435",
+      "lead_last10": "9943711435",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3987260124",
+      "lead_id": "536556",
+      "phone": "593987260124",
+      "lead_last10": "3987260124",
+      "state_value": "CA",
+      "market_value": "Will Kit",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0334199525",
+      "lead_id": "543780",
+      "phone": "70334199525",
+      "lead_last10": "0334199525",
+      "state_value": "VA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "6505410363",
+      "lead_id": "595345",
+      "phone": "76505410363",
+      "lead_last10": "6505410363",
+      "state_value": "IN",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "9303100456",
+      "lead_id": "648388",
+      "phone": "639303100456",
+      "lead_last10": "9303100456",
+      "state_value": "NY",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "2021946683",
+      "lead_id": "822918",
+      "phone": "72021946683",
+      "lead_last10": "2021946683",
+      "state_value": "CO",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0855572088",
+      "lead_id": "864698",
+      "phone": "70855572088",
+      "lead_last10": "0855572088",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "7272190996",
+      "lead_id": "846140",
+      "phone": "77272190996",
+      "lead_last10": "7272190996",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "9911087087",
+      "lead_id": "981169",
+      "phone": "5709911087087",
+      "lead_last10": "9911087087",
+      "state_value": "PA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3987260124",
+      "lead_id": "680994",
+      "phone": "593987260124",
+      "lead_last10": "3987260124",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "7272190996",
+      "lead_id": "1149174",
+      "phone": "7272190996",
+      "lead_last10": "7272190996",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "7888305323",
+      "lead_id": "915695",
+      "phone": "67888305323",
+      "lead_last10": "7888305323",
+      "state_value": "GA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "booked"
+    },
+    {
+      "bad_last10": "7272190996",
+      "lead_id": "933841",
+      "phone": "7272190996",
+      "lead_last10": "7272190996",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "6814147340",
+      "lead_id": "536614",
+      "phone": "66814147340",
+      "lead_last10": "6814147340",
+      "state_value": "NM",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1446710807",
+      "lead_id": "850008",
+      "phone": "71446710807",
+      "lead_last10": "1446710807",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1322901192",
+      "lead_id": "567788",
+      "phone": "91322901192",
+      "lead_last10": "1322901192",
+      "state_value": "KS",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "6064548968",
+      "lead_id": "1108336",
+      "phone": "86064548968",
+      "lead_last10": "6064548968",
+      "state_value": "CT",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "9808548524",
+      "lead_id": "1233924",
+      "phone": "919808548524",
+      "lead_last10": "9808548524",
+      "state_value": "AR",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "8572219909",
+      "lead_id": "674604",
+      "phone": "78572219909",
+      "lead_last10": "8572219909",
+      "state_value": "KS",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "9142173569",
+      "lead_id": "665756",
+      "phone": "79142173569",
+      "lead_last10": "9142173569",
+      "state_value": "NY",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "8211171570",
+      "lead_id": "613031",
+      "phone": "8618211171570",
+      "lead_last10": "8211171570",
+      "state_value": "GA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "6831723172",
+      "lead_id": "933897",
+      "phone": "84356831723172",
+      "lead_last10": "6831723172",
+      "state_value": "SC",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1243905432",
+      "lead_id": "709243",
+      "phone": "91243905432",
+      "lead_last10": "1243905432",
+      "state_value": "GA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "8552256655",
+      "lead_id": "838503",
+      "phone": "918552256655",
+      "lead_last10": "8552256655",
+      "state_value": "AR",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "4218130120",
+      "lead_id": "824164",
+      "phone": "8584218130120",
+      "lead_last10": "4218130120",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "3105552219",
+      "lead_id": "1205429",
+      "phone": "83105552219",
+      "lead_last10": "3105552219",
+      "state_value": "CA",
+      "market_value": "Globe Market",
+      "cn_email": "michaelhopkins@aoglobelife.com",
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "8509100606",
+      "lead_id": "814076",
+      "phone": "8008509100606",
+      "lead_last10": "8509100606",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "8089876643",
+      "lead_id": "822209",
+      "phone": "88089876643",
+      "lead_last10": "8089876643",
+      "state_value": "HI",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "4844434542",
+      "lead_id": "838390",
+      "phone": "84844434542",
+      "lead_last10": "4844434542",
+      "state_value": "MD",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "2087556123",
+      "lead_id": "840030",
+      "phone": "8702087556123",
+      "lead_last10": "2087556123",
+      "state_value": "MO",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1640844083",
+      "lead_id": "828027",
+      "phone": "91640844083",
+      "lead_last10": "1640844083",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "0323651960",
+      "lead_id": "1009431",
+      "phone": "85980323651960",
+      "lead_last10": "0323651960",
+      "state_value": "KY",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "8528566225",
+      "lead_id": "941872",
+      "phone": "918528566225",
+      "lead_last10": "8528566225",
+      "state_value": "CT",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "8775102685",
+      "lead_id": "999239",
+      "phone": "84738775102685",
+      "lead_last10": "8775102685",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "6785437891",
+      "lead_id": "1212112",
+      "phone": "916785437891",
+      "lead_last10": "6785437891",
+      "state_value": "TN",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "2234341399",
+      "lead_id": "605741",
+      "phone": "82234341399",
+      "lead_last10": "2234341399",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "9808548524",
+      "lead_id": "1176357",
+      "phone": "919808548524",
+      "lead_last10": "9808548524",
+      "state_value": "IL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "not_interested"
+    },
+    {
+      "bad_last10": "1980162828",
+      "lead_id": "1236482",
+      "phone": "931980162828",
+      "lead_last10": "1980162828",
+      "state_value": "TN",
+      "market_value": "Veteran",
+      "cn_email": "marcofernandez@aoglobelife.com",
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0072527118",
+      "lead_id": "926487",
+      "phone": "90072527118",
+      "lead_last10": "0072527118",
+      "state_value": "AK",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1326000820",
+      "lead_id": "730382",
+      "phone": "81326000820",
+      "lead_last10": "1326000820",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0898000500",
+      "lead_id": "936856",
+      "phone": "80898000500",
+      "lead_last10": "0898000500",
+      "state_value": "HI",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0953243999",
+      "lead_id": "933639",
+      "phone": "90953243999",
+      "lead_last10": "0953243999",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "4253508878",
+      "lead_id": "944150",
+      "phone": "844253508878",
+      "lead_last10": "4253508878",
+      "state_value": "WA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "4144225562",
+      "lead_id": "558339",
+      "phone": "94144225562",
+      "lead_last10": "4144225562",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "2833440753",
+      "lead_id": "916474",
+      "phone": "92833440753",
+      "lead_last10": "2833440753",
+      "state_value": "AZ",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "9782737566",
+      "lead_id": "689621",
+      "phone": "79782737566",
+      "lead_last10": "9782737566",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "5155110338",
+      "lead_id": "923627",
+      "phone": "95155110338",
+      "lead_last10": "5155110338",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1479334775",
+      "lead_id": "1000993",
+      "phone": "81479334775",
+      "lead_last10": "1479334775",
+      "state_value": "PA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "0955784811",
+      "lead_id": "989713",
+      "phone": "90955784811",
+      "lead_last10": "0955784811",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "6516758225",
+      "lead_id": "1238450",
+      "phone": "846516758225",
+      "lead_last10": "6516758225",
+      "state_value": "MN",
+      "market_value": "Veteran",
+      "cn_email": "stephenlaframboise@aoglobelife.com",
+      "cnresolution_norm": "called"
+    },
+    {
+      "bad_last10": "5854059911",
+      "lead_id": "592432",
+      "phone": "85854059911",
+      "lead_last10": "5854059911",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "8966886383",
+      "lead_id": "972707",
+      "phone": "918966886383",
+      "lead_last10": "8966886383",
+      "state_value": "AR",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1243905432",
+      "lead_id": "763258",
+      "phone": "91243905432",
+      "lead_last10": "1243905432",
+      "state_value": "GA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1354350151",
+      "lead_id": "593578",
+      "phone": "81354350151",
+      "lead_last10": "1354350151",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "1853218921",
+      "lead_id": "620166",
+      "phone": "81853218921",
+      "lead_last10": "1853218921",
+      "state_value": "CA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "1326000820",
+      "lead_id": "784118",
+      "phone": "81326000820",
+      "lead_last10": "1326000820",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3032399009",
+      "lead_id": "620673",
+      "phone": "9083032399009",
+      "lead_last10": "3032399009",
+      "state_value": "DE",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "3060406621",
+      "lead_id": "619946",
+      "phone": "863060406621",
+      "lead_last10": "3060406621",
+      "state_value": "FL",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "6580349332",
+      "lead_id": "941368",
+      "phone": "966580349332",
+      "lead_last10": "6580349332",
+      "state_value": "MI",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "failed"
+    },
+    {
+      "bad_last10": "8565265709",
+      "lead_id": "844614",
+      "phone": "98565265709",
+      "lead_last10": "8565265709",
+      "state_value": "LA",
+      "market_value": "Veteran",
+      "cn_email": null,
+      "cnresolution_norm": "wrong_number"
+    },
+    {
+      "bad_last10": "6568635987",
+      "lead_id": "625187",
+      "phone": "96568635987",
+      "lead_last10": "6568635987",
+      "state_value": "AK",
+      "market_value": "Veteran",
+      "cn_email": "shawnortiz@aoglobelife.com",
+      "cnresolution_norm": "failed"
+    }
+  ]
+}

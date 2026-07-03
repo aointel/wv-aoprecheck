@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fa;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0 0 10px 0;
+      font-size: 28px;
+      font-weight: 600;
+    }
+    .header p {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 16px;
+    }
+    .content {
+      padding: 30px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .stat-card {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+      text-align: center;
+    }
+    .stat-card.phone {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    .stat-card.zoom {
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
+    .stat-card.agents {
+      background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+    .stat-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      text-transform: uppercase;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+    .stat-card .number {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th {
+      background: #667eea;
+      color: white;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    tr:hover {
+      background-color: #f7fafc;
+    }
+    .total-row {
+      background: #edf2f7;
+      font-weight: 600;
+    }
+    .phone-col {
+      color: #3182ce;
+      font-weight: 600;
+    }
+    .zoom-col {
+      color: #38a169;
+      font-weight: 600;
+    }
+    .total-col {
+      color: #805ad5;
+      font-weight: 600;
+    }
+    .footer {
+      background: #f7fafc;
+      padding: 20px;
+      text-align: center;
+      color: #718096;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>AO Precheck Report</h1>
+      <p>Wednesday, October 29, 2025</p>
+    </div>
+    
+    <div class="content">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Total Sessions</h3>
+          <div class="number">146</div>
+        </div>
+        <div class="stat-card phone">
+          <h3>Completed Phone</h3>
+          <div class="number">99</div>
+        </div>
+        <div class="stat-card zoom">
+          <h3>Completed Zoom</h3>
+          <div class="number">47</div>
+        </div>
+        <div class="stat-card agents">
+          <h3>Unique Agents</h3>
+          <div class="number">45</div>
+        </div>
+      </div>
+      
+      <h2 style="color: #2d3748; margin-bottom: 15px;">Weekly Breakdown (Monday - Sunday)</h2>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Completed Phone</th>
+            <th>Completed Zoom</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td><strong>Monday</strong></td>
+              <td class="phone-col">20</td>
+              <td class="zoom-col">18</td>
+              <td class="total-col">38</td>
+            </tr>
+          
+            <tr>
+              <td><strong>Tuesday</strong></td>
+              <td class="phone-col">30</td>
+              <td class="zoom-col">10</td>
+              <td class="total-col">40</td>
+            </tr>
+          
+            <tr>
+              <td><strong>Wednesday</strong></td>
+              <td class="phone-col">13</td>
+              <td class="zoom-col">5</td>
+              <td class="total-col">18</td>
+            </tr>
+          
+            <tr>
+              <td><strong>Thursday</strong></td>
+              <td class="phone-col">7</td>
+              <td class="zoom-col">5</td>
+              <td class="total-col">12</td>
+            </tr>
+          
+            <tr>
+              <td><strong>Friday</strong></td>
+              <td class="phone-col">8</td>
+              <td class="zoom-col">4</td>
+              <td class="total-col">12</td>
+            </tr>
+          
+            <tr>
+              <td><strong>Saturday</strong></td>
+              <td class="phone-col">10</td>
+              <td class="zoom-col">2</td>
+              <td class="total-col">12</td>
+            </tr>
+          
+            <tr>
+              <td><strong>Sunday</strong></td>
+              <td class="phone-col">11</td>
+              <td class="zoom-col">3</td>
+              <td class="total-col">14</td>
+            </tr>
+          
+          <tr class="total-row">
+            <td><strong>WEEKLY TOTALS</strong></td>
+            <td class="phone-col">99</td>
+            <td class="zoom-col">47</td>
+            <td class="total-col">146</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="footer">
+      <p>This report excludes duplicate clients and demo sessions.</p>
+      <p>Generated automatically by AO Intelligence • 10/29/2025, 9:41:48 AM PST</p>
+    </div>
+  </div>
+</body>
+</html>
+  

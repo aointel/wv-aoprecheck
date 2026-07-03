@@ -1,0 +1,13 @@
+{
+    "timestamp":  "2026-04-13T12:24:18.6894451-07:00",
+    "inputCsv":  "c:\\dev\\AOIrail\\server\\scripts\\output\\masterlead-ingest-groupcode-taalkmarket-2026-04-13T12-21-53.csv",
+    "outputCsv":  "c:\\dev\\AOIrail\\server\\scripts\\output\\full-upload-results-taalkmarket-2026-04-13T12-22-13.csv",
+    "totalRows":  28072,
+    "routedRows":  21094,
+    "skippedRows":  6978,
+    "totalRequests":  191,
+    "successRows":  21094,
+    "errorRows":  0,
+    "pavetRows":  3349,
+    "vn125Rows":  17745
+}

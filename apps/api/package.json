@@ -1,0 +1,9 @@
+{
+  "name": "aoirail-api",
+  "private": true,
+  "description": "API server – auth, profile, billing, shared. Set Railway Root Directory to apps/api.",
+  "scripts": {
+    "build": "cd ../.. && npm ci && npm run build",
+    "start": "cd ../.. && npx cross-env SECTION=api node dist/index.js"
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desktop Detection Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .desktop { background: #d4edda; color: #155724; }
+        .web { background: #f8d7da; color: #721c24; }
+        .detail { font-family: monospace; font-size: 12px; background: #f8f9fa; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>ConnectNow Desktop Detection Test</h1>
+    
+    <div id="status" class="status"></div>
+    
+    <div class="detail">
+        <h3>Detection Details:</h3>
+        <div id="details"></div>
+    </div>
+    
+    <div class="detail">
+        <h3>Expected Behavior:</h3>
+        <div id="behavior"></div>
+    </div>
+
+    <script>
+        function testDesktopDetection() {
+            const userAgent = navigator.userAgent;
+            const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+            const hasDesktopParam = window.location.search.includes('desktop=true');
+            const isAppMode = userAgent.includes('ConnectNow') || 
+                             !!(window).chrome?.app || 
+                             !!(window.navigator).standalone ||
+                             isStandalone;
+            
+            const isChromeApp = !!(window).chrome && 
+                               (!!(window).chrome.app || 
+                                window.location.protocol === 'chrome-extension:' ||
+                                window.outerWidth === window.innerWidth);
+            
+            const isDesktop = hasDesktopParam || isAppMode || isChromeApp;
+            
+            // Update status
+            const statusDiv = document.getElementById('status');
+            if (isDesktop) {
+                statusDiv.className = 'status desktop';
+                statusDiv.innerHTML = '✅ DESKTOP APP DETECTED - Promo will NOT show';
+            } else {
+                statusDiv.className = 'status web';
+                statusDiv.innerHTML = '🌐 WEB BROWSER DETECTED - Promo may show';
+            }
+            
+            // Update details
+            document.getElementById('details').innerHTML = `
+                <strong>User Agent:</strong> ${userAgent}<br>
+                <strong>URL:</strong> ${window.location.href}<br>
+                <strong>Protocol:</strong> ${window.location.protocol}<br>
+                <strong>Desktop Param:</strong> ${hasDesktopParam}<br>
+                <strong>Standalone Mode:</strong> ${isStandalone}<br>
+                <strong>Chrome App:</strong> ${!!(window).chrome?.app}<br>
+                <strong>Navigator Standalone:</strong> ${!!(window.navigator).standalone}<br>
+                <strong>Window Size:</strong> ${window.outerWidth} x ${window.outerHeight}<br>
+                <strong>Inner Size:</strong> ${window.innerWidth} x ${window.innerHeight}<br>
+                <strong>Size Match:</strong> ${window.outerWidth === window.innerWidth}
+            `;
+            
+            // Update behavior
+            document.getElementById('behavior').innerHTML = `
+                <strong>Desktop Detection:</strong> ${isDesktop ? 'YES' : 'NO'}<br>
+                <strong>Promo Will Show:</strong> ${isDesktop ? 'NO' : 'MAYBE (if not dismissed)'}<br>
+                <strong>Local Storage:</strong> ${localStorage.getItem('connectnow-desktop-promo-dismissed') || 'Not Set'}
+            `;
+        }
+        
+        // Run test when page loads
+        testDesktopDetection();
+        
+        // Add test buttons
+        document.body.innerHTML += `
+            <div style="margin: 20px 0;">
+                <button onclick="window.location.href='?desktop=true'">Test with desktop=true</button>
+                <button onclick="window.location.href='?'">Test without desktop param</button>
+                <button onclick="localStorage.removeItem('connectnow-desktop-promo-dismissed'); alert('Cleared dismissal'); testDesktopDetection();">Clear Dismissal</button>
+            </div>
+        `;
+    </script>
+</body>
+</html>

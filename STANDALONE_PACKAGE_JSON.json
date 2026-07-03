@@ -1,0 +1,23 @@
+{
+  "name": "missed-call-billing-standalone",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Standalone missed call billing processor",
+  "scripts": {
+    "process": "tsx missed-call-billing-from-csv.ts",
+    "process:date": "tsx missed-call-billing-from-csv.ts",
+    "start:scheduler": "tsx missed-call-billing-scheduler.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.52.1",
+    "date-fns": "^3.6.0",
+    "node-cron": "^4.2.1",
+    "tsx": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3"
+  }
+}
+
+

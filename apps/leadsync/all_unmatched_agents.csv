@@ -1,0 +1,399 @@
+extension,agentId,dailyReportEnabled,timezone,mobileNumber,onlineStatus,canEdit,departmentId,userid,canEditOnlineStatus,isCurrentUser,zvtRole,countryCode,company,lang,retentionPeriod,departmentName,lastActiveTime,addOn,commServerStatus,emailid,agentNumber,canChangeModerator,zuid,zvtRoleName,name,status,reportTime
+1434,63020000000889577,,PST,,Offline,1,63020000000031035,63020000000893555,1,,2,93,ZohoVoice,en,-1,AOWillKit,1738189549537,{},Completed,staceyspencer@aoglobelife.com,872802830_63020000000889577,,876669370,TECHNICIAN,{187875} - Stacey Spencer: [1:3:4],1,00:00
+374,63020000000528557,,PST,,Offline,1,63020000000013995,63020000000511445,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735801570198,{},Completed,amirabed@aoglobelife.com,872802830_63020000000528557,,874131069,TECHNICIAN,{162269} - Amir Abed: [1],1,00:00
+1491,63020000000965193,,PST,,Available,1,63020000000950383,63020000000957665,1,,2,93,ZohoVoice,en,-1,connectnow,1738184038741,{},Completed,justinhaisha@aoglobelife.com,872802830_63020000000965193,,877460993,TECHNICIAN,{127908} - Justin Haisha: [1},1,00:00
+120,63020000000019133,,GMT,,Offline,1,63020000000003011,63020000000013991,1,,2,93,ZohoVoice,en,-1,aoglobelife,1738721438667,{},Completed,erichjackson@aoglobelife.com,872802830_63020000000019133,,873061204,TECHNICIAN,{122254} - Erich Jackson: [1],1,00:00
+,63020000000893091,,PST,,,,,63020000000893091,,,,93,ZohoVoice,en,-1,,,,,yulissagarza@aoglobelife.com,,,,,Yulissa Garza: [1],0,00:00
+,63020000000893135,,PST,,,,,63020000000893135,,,,93,ZohoVoice,en,-1,,,,,xavierlewis@aoglobelife.com,,,,,Xavier Lewis: [1],0,00:00
+,63020000000901767,,PST,,,,,63020000000901767,,,,93,ZohoVoice,en,-1,,,,,williejoogden@aoglobelife.com,,,,,Willie Jo Ogden: [1],0,00:00
+,63020000001013319,,PST,,,,,63020000001013319,,,,93,ZohoVoice,en,-1,,,,,williambutler@aoglobelife.com,,,,,Will Butler: [1],0,00:00
+,63020000000893085,,PST,,,,,63020000000893085,,,,93,ZohoVoice,en,-1,,,,,virginiawhitney@aoglobelife.com,,,,,Virginia Whitney: [1],0,00:00
+,63020000000893523,,PST,,,,,63020000000893523,,,,93,ZohoVoice,en,-1,,,,,tyiacoleman@aoglobelife.com,,,,,Tyia Coleman: [1],0,00:00
+,63020000000961169,,PST,,,,,63020000000961169,,,,93,ZohoVoice,en,-1,,,,,tristansmith@aoglobelife.com,,,,,Tristan Smith,0,00:00
+,63020000000886973,,PST,,,,,63020000000886973,,,,93,ZohoVoice,en,-1,,,,,tomdawley@aoglobelife.com,,,,,Tom Dawley: [3],0,00:00
+,63020000000893057,,PST,,,,,63020000000893057,,,,93,ZohoVoice,en,-1,,,,,tstauts@aoglobelife.com,,,,,Thomas Stauts: [2],0,00:00
+,63020000001013247,,PST,,,,,63020000001013247,,,,93,ZohoVoice,en,-1,,,,,thomashalloran@aoglobelife.com,,,,,Thomas Halloran: [1],0,00:00
+1331,63020000000835009,,PST,,Offline,1,63020000000031185,63020000000825127,1,,1,93,ZohoVoice,en,-1,ADMIN,1738420858868,{},Completed,sg2851763@gmail.com,872802830_63020000000835009,,875739127,ADMIN,Santosh Ghosh,1,00:00
+1501,63020000000989915,,MST,,Available,1,63020000000003011,63020000000964961,1,,2,93,ZohoVoice,en,-1,aoglobelife,1738866442532,,Completed,ryanupshaw@aoglobelife.com,872802830_63020000000989915,,877659153,TECHNICIAN,Ryan Upshaw: [2],1,00:00
+321,63020000000496825,,PST,,Offline,1,63020000000031185,63020000000511219,1,,1,93,ZohoVoice,en,-1,ADMIN,1738866840446,{},Completed,robertafrazier@aoglobelife.com,872802830_63020000000496825,,874055282,ADMIN,Roberta Frazier,1,00:00
+221,63020000000110439,,PST,,Busy,1,63020000000031035,63020000000109419,1,,1,93,ZohoVoice,en,-1,AOWillKit,1738823024151,{},Completed,richiealtig@altig.com,872802830_63020000000110439,,873107905,ADMIN,Richie Altig,1,00:00
+138,63020000000033329,,PST,,Offline,1,63020000000872221,63020000000032051,1,,2,93,ZohoVoice,en,-1,Lafond,1738787804079,{},Completed,rramirez@ailpdx.com,872802830_63020000000033329,,873124283,TECHNICIAN,Rhonda Ramirez,0,00:00
+1272,63020000000717209,,America/Los_Angeles,,Offline,1,63020000000031035,63020000000667109,1,,2,93,ZohoVoice,en,-1,AOWillKit,1736023174421,,Completed,paigetaylor@aoglobelife.com,872802830_63020000000717209,,874810324,TECHNICIAN,Paige Taylor,0,00:00
+123,63020000000032015,,PST,,Available,1,63020000000031185,63020000000031015,1,,1,93,ZohoVoice,en,-1,ADMIN,1738867662259,{},Completed,nlambert@ailpdx.com,872802830_63020000000032015,,873105794,ADMIN,Naleah Lambert,1,00:00
+1492,63020000000969107,,America/New_York,,Available,1,63020000000013995,63020000000964949,1,,2,93,ZohoVoice,en,-1,AOPAVET,1738226112274,,Completed,murattekbilek@aoglobelife.com,872802830_63020000000969107,,877463840,TECHNICIAN,Murat Tekbilek: [1],1,00:00
+1419,63020000000895349,,PST,,Available,1,63020000000013995,63020000000893049,1,,2,93,ZohoVoice,en,-1,AOPAVET,1738867938762,{},Completed,mirandalee@aoglobelife.com,872802830_63020000000895349,,876634034,TECHNICIAN,Miranda Lee: [1],1,00:00
+,63020000000957669,,PST,,,,,63020000000957669,,,,93,ZohoVoice,en,-1,,,,,tennisonmather@aoglobelife.com,,,,,Tennison Mather,0,00:00
+,63020000000901773,,PST,,,,,63020000000901773,,,,93,ZohoVoice,en,-1,,,,,telinarussell@aoglobelife.com,,,,,Telina Russell: [4],0,00:00
+,63020000001024277,,PST,,,,,63020000001024277,,,,93,ZohoVoice,en,-1,,,,,tamikajohnson@aoglobelife.com,,,,,Tamika Johnson,0,00:00
+,63020000000912971,,PST,,,,,63020000000912971,,,,93,ZohoVoice,en,-1,,,,,wardtaj14@aoglobelife.com,,,,,Taj Ward: [1:3],0,00:00
+,63020000000916285,,PST,,,,,63020000000916285,,,,93,ZohoVoice,en,-1,,,,,tajward@aoglobelife.com,,,,,Taj Ward,0,00:00
+,63020000000838919,,PST,,,,,63020000000838919,,,,93,ZohoVoice,en,-1,,,,,stephenreeves@aoglobelife.com,,,,,Stephen Reeves [1:3],0,00:00
+,63020000000817987,,GMT,,,,,63020000000817987,,,,93,ZohoVoice,en,-1,,,,,stefanjohannsson@aoglobelife.com,,,,,Stefan Johannsson,0,00:00
+,63020000000886947,,PST,,,,,63020000000886947,,,,93,ZohoVoice,en,-1,,,,,solanahubbard@aoglobelife.com,,,,,Solana Hubbard: [1],0,00:00
+,63020000000667113,,America/Los_Angeles,,,,,63020000000667113,,,,93,ZohoVoice,en,-1,,,,,skylardial@aoglobelife.com,,,,,Skylar Dial,0,00:00
+,63020000000886957,,PST,,,,,63020000000886957,,,,93,ZohoVoice,en,-1,,,,,siidegilfrederick@aoglobelife.com,,,,,Siide Gil-Frederick: [1:3:4],0,00:00
+,63020000000547151,,PST,,,,,63020000000547151,,,,93,ZohoVoice,en,-1,,,,,shanehavel@aoglobelife.com,,,,,Shane Havel: Getz,0,00:00
+,63020000000957677,,PST,,,,,63020000000957677,,,,93,ZohoVoice,en,-1,,,,,shahleighaglasper@aoglobelife.com,,,,,Shahleigha Glasper,0,00:00
+,63020000000886951,,PST,,,,,63020000000886951,,,,93,ZohoVoice,en,-1,,,,,sarasinnard@aoglobelife.com,,,,,Sara Sinnard: [1],0,00:00
+,63020000000797159,,PST,,,,,63020000000797159,,,,93,ZohoVoice,en,-1,,,,,saraflanagan@aoglobelife.com,,,,,Sara Flanagan,0,00:00
+,63020000000886937,,PST,,,,,63020000000886937,,,,93,ZohoVoice,en,-1,,,,,ryanaleman@aoglobelife.com,,,,,Ryan Aleman: [2],0,00:00
+,63020000000797219,,PST,,,,,63020000000797219,,,,93,ZohoVoice,en,-1,,,,,russellerhardt@aoglobelife.com,,,,,Russ Erhardt,0,00:00
+,63020000000797253,,PST,,,,,63020000000797253,,,,93,ZohoVoice,en,-1,,,,,rhondaramirez@aoglobelife.com,,,,,Roni Ramirez,0,00:00
+,63020000000893113,,PST,,,,,63020000000893113,,,,93,ZohoVoice,en,-1,,,,,roddelapaz@aoglobelife.com,,,,,Rod Delapaz: [1],0,00:00
+,63020000000810003,,PST,,,,,63020000000810003,,,,93,ZohoVoice,en,-1,,,,,richardlafond@aoglobelife.com,,,,,Richard Lafond,0,00:00
+,63020000001024261,,PST,,,,,63020000001024261,,,,93,ZohoVoice,en,-1,,,,,ricardofranco@aoglobelife.com,,,,,Ricardo Franco: [1],0,00:00
+,63020000000989979,,PST,,,,,63020000000989979,,,,93,ZohoVoice,en,-1,,,,,rhondastanley@aoglobelife.com,,,,,Rhonda Stanley: [2],0,00:00
+,63020000000850881,,PST,,,,,63020000000850881,,,,93,ZohoVoice,en,-1,,,,,rheannekrantz@aoglobelife.com,,,,,Rheanne Krantz: [2:3:4],0,00:00
+,63020000000886065,,PST,,,,,63020000000886065,,,,93,ZohoVoice,en,-1,,,,,rtecson@aoglobelife.com,,,,,Raul Tecson: [1],0,00:00
+,63020000001024267,,PST,,,,,63020000001024267,,,,93,ZohoVoice,en,-1,,,,,rachelsault@aoglobelife.com,,,,,Rachel Sault: [3],0,00:00
+,63020000000893529,,PST,,,,,63020000000893529,,,,93,ZohoVoice,en,-1,,,,,rachaelglamp@aoglobelife.com,,,,,Rachael Glamp: [1],0,00:00
+,63020000000667117,,America/Los_Angeles,,,,,63020000000667117,,,,93,ZohoVoice,en,-1,,,,,quanzhailove@aoglobelife.com,,,,,Quanzhai Love,0,00:00
+,63020000000513729,,America/Los_Angeles,,,,,63020000000513729,,,,93,ZohoVoice,en,-1,,,,,prisillaminor@aoglobelife.com,,,,,Prisilla Minor,0,00:00
+,63020000000893517,,PST,,,,,63020000000893517,,,,93,ZohoVoice,en,-1,,,,,priscillaquezada@aoglobelife.com,,,,,Priscilla Quezada: [1:4],0,00:00
+,63020000000511535,,PST,,,,,63020000000511535,,,,93,ZohoVoice,en,-1,,,,,petemcoura@aoglobelife.com,,,,,Pedro albuquerque: Iftiu,0,00:00
+,63020000000694319,,America/Los_Angeles,,,,,63020000000694319,,,,93,ZohoVoice,en,-1,,,,,nicolospatafora@aoglobelife.com,,,,,Nicolo Spatafora,0,00:00
+,63020000000797221,,PST,,,,,63020000000797221,,,,93,ZohoVoice,en,-1,,,,,nickigriffiths@aoglobelife.com,,,,,Nicki Griffiths,0,00:00
+,63020000000989857,,PST,,,,,63020000000989857,,,,93,ZohoVoice,en,-1,,,,,nick.folz@aoglobelife.com,,,,,Nicholas Folz: [2],0,00:00
+,63020000000989991,,PST,,,,,63020000000989991,,,,93,ZohoVoice,en,-1,,,,,lunachoi@aoglobelife.com,,,,,Nayeon Choi: [2],0,00:00
+,63020000000870729,,PST,,,,,63020000000870729,,,,93,ZohoVoice,en,-1,,,,,natearce@aoglobelife.com,,,,,Nate Arce: [2],0,00:00
+,63020000001029023,,PST,,,,,63020000001029023,,,,93,ZohoVoice,en,-1,,,,,natasaboucher@aoglobelife.com,,,,,Natasa Boucher: [2],0,00:00
+,63020000000886929,,PST,,,,,63020000000886929,,,,93,ZohoVoice,en,-1,,,,,nadinekwarteng@aoglobelife.com,,,,,Nadine Kwarteng: [2:3],0,00:00
+,63020000000109117,,PST,,,,,63020000000109117,,,,93,ZohoVoice,en,-1,,,,,mitchellboehs@aoglobelife.com,,,,,Mitchell Boehs,0,00:00
+,63020000000589541,,America/Los_Angeles,,,,,63020000000589541,,,,93,ZohoVoice,en,-1,,,,,michelestewart@aoglobelife.com,,,,,Michele Stewart,0,00:00
+,63020000000513011,,America/Los_Angeles,,,,,63020000000513011,,,,93,ZohoVoice,en,-1,,,,,michelemathiesen@aoglobelife.com,,,,,Michele Mathiesen,0,00:00
+,63020000000814231,,PST,,,,,63020000000814231,,,,93,ZohoVoice,en,-1,,,,,mjptacekjr@aoglobelife.com,,,,,Michael Ptacek,0,00:00
+,63020000000992168,,PST,,,,,63020000000992168,,,,93,ZohoVoice,en,-1,,,,,michaelpenn@aoglobelife.com,,,,,Michael Penn: [1],0,00:00
+101,63020000000009009,,GMT,,Offline,1,63020000000013995,63020000000009005,1,,2,93,ZohoVoice,en,-1,AOPAVET,1738271405186,{},Completed,mmandella@ailpdx.com,872802830_63020000000009009,,872853856,TECHNICIAN,Michael Mandella,1,00:00
+1505,63020000000991337,,PST,,Offline,1,63020000000003011,63020000000989989,1,,2,93,ZohoVoice,en,-1,aoglobelife,1738704966086,{},Completed,marypropp@aoglobelife.com,872802830_63020000000991337,,877717713,TECHNICIAN,Mary Propp: [2],1,00:00
+6003,63020000001029117,,PST,,Available,1,63020000000003011,63020000001024263,1,,2,93,ZohoVoice,en,-1,aoglobelife,1738867916006,,Completed,krissireece@aoglobelife.com,872802830_63020000001029117,,878174953,TECHNICIAN,Krissi Reece: [2],1,00:00
+1474,63020000000950235,,PST,,Offline,1,63020000000013995,63020000000893003,1,,2,93,ZohoVoice,en,-1,AOPAVET,1738023816753,{},Completed,keashajackson@aoglobelife.com,872802830_63020000000950235,,877236417,TECHNICIAN,Keasha Rivera-Jackson: [1],1,00:00
+1521,63020000001013153,,PST,,Offline,1,63020000000013995,63020000001000329,1,,2,93,ZohoVoice,en,-1,AOPAVET,1738784628660,{},Completed,kasonwilliamson@aoglobelife.com,872802830_63020000001013153,,877987662,TECHNICIAN,Kason Williamson: [1],1,00:00
+1418,63020000000893363,,America/Jamaica,,Offline,1,63020000000013995,63020000000886993,1,,2,93,ZohoVoice,en,-1,AOPAVET,1737489776751,{},Completed,karlyannes@aoglobelife.com,872802830_63020000000893363,,876632515,TECHNICIAN,Karl Yannes: [1:3],1,00:00
+,63020000001000589,,PST,,,,,63020000001000589,,,,93,ZohoVoice,en,-1,,,,,michaelpenn@aolife.com,,,,,Michael Penn,0,00:00
+,63020000000673361,,PST,,,,,63020000000673361,,,,93,ZohoVoice,en,-1,,,,,mikemandella@gmail.comm,,,,,Michael M,0,00:00
+,63020000000511453,,PST,,,,,63020000000511453,,,,93,ZohoVoice,en,-1,,,,,michaelkampfer@aoglobelife.com,,,,,Michael Kampfer,0,00:00
+,63020000000817965,,GMT,,,,,63020000000817965,,,,93,ZohoVoice,en,-1,,,,,michaelharris@aoglobelife.com,,,,,Michael Harris,0,00:00
+,63020000000886979,,PST,,,,,63020000000886979,,,,93,ZohoVoice,en,-1,,,,,michaeljhall@aoglobelife.com,,,,,Michael Hall: [1],0,00:00
+,63020000000893025,,PST,,,,,63020000000893025,,,,93,ZohoVoice,en,-1,,,,,melinda-raelyse@aoglobelife.com,,,,,Melinda-Rae Lyse: [3],0,00:00
+,63020000001000321,,PST,,,,,63020000001000321,,,,93,ZohoVoice,en,-1,,,,,melanieoneal@aoglobelife.com,,,,,Melanie Oneal: [3],0,00:00
+,63020000000989975,,PST,,,,,63020000000989975,,,,93,ZohoVoice,en,-1,,,,,mckennagiunta@aoglobelife.com,,,,,McKenna Giunta: [1],0,00:00
+,63020000000893009,,PST,,,,,63020000000893009,,,,93,ZohoVoice,en,-1,,,,,maxx.herman@aoglobelife.com,,,,,Maxx Herman: [1:3],0,00:00
+,63020000000762017,,America/Los_Angeles,,,,,63020000000762017,,,,93,ZohoVoice,en,-1,,,,,matthewzang@aoglobelife.com,,,,,Matthew Zang,0,00:00
+,63020000000901791,,PST,,,,,63020000000901791,,,,93,ZohoVoice,en,-1,,,,,williamprentiss@aoglobelife.com,,,,,Matthew Prentiss,0,00:00
+,63020000000893045,,PST,,,,,63020000000893045,,,,93,ZohoVoice,en,-1,,,,,deewilkins@aoglobelife.com,,,,,Marlen Dee Wilkins: [1],0,00:00
+,63020000000547145,,PST,,,,,63020000000547145,,,,93,ZohoVoice,en,-1,,,,,michellemlane@aoglobelife.com,,,,,Marie Lane: Getz,0,00:00
+,63020000000511541,,PST,,,,,63020000000511541,,,,93,ZohoVoice,en,-1,,,,,mariaackerfield@aoglobelife.com,,,,,maria ackerfield,0,00:00
+,63020000000989997,,PST,,,,,63020000000989997,,,,93,ZohoVoice,en,-1,,,,,marcabercrombie@aoglobelife.com,,,,,Marc Abercrombie: [1],0,00:00
+,63020000001024275,,PST,,,,,63020000001024275,,,,93,ZohoVoice,en,-1,,,,,mallorysitto@aoglobelife.com,,,,,Mallory Sitto,0,00:00
+,63020000000786105,,PST,,,,,63020000000786105,,,,93,ZohoVoice,en,-1,,,,,maheraltairi@aolgobelife.com,,,,,Maher  Altairi,0,00:00
+,63020000000893051,,PST,,,,,63020000000893051,,,,93,ZohoVoice,en,-1,,,,,magdalenagarneau@aoglobelife.com,,,,,Magdalena Garneau: [3],0,00:00
+,63020000000474115,,PST,,,,,63020000000474115,,,,93,ZohoVoice,en,-1,,,,,madisonsiercke@aoglobelife.com,,,,,Madison Siercke,0,00:00
+,63020000000031667,,America/Los_Angeles,,,,,63020000000031667,,,,93,ZohoVoice,en,-1,,,,,madelynsanders@aoglobelife.com,,,,,Madelyn Sanders,0,00:00
+,63020000000735041,,America/Los_Angeles,,,,,63020000000735041,,,,93,ZohoVoice,en,-1,,,,,macanthonynwokenaka@aoglobelife.com,,,,,MacAnthony Nwokenaka,0,00:00
+,63020000000013101,,GMT,,,,,63020000000013101,,,,93,ZohoVoice,en,-1,,,,,luisrodriguez@aoglobelife.com,,,,,Luis Rodriguez Globe: Michaels,0,00:00
+,63020000000893081,,PST,,,,,63020000000893081,,,,93,ZohoVoice,en,-1,,,,,lorilunsford@aoglobelife.com,,,,,Lori Lunsford: [1:3],0,00:00
+,63020000000893053,,PST,,,,,63020000000893053,,,,93,ZohoVoice,en,-1,,,,,lorihameljohnson@aoglobelife.com,,,,,Lori Hamel Johnson: [3],0,00:00
+,63020000000902105,,PST,,,,,63020000000902105,,,,93,ZohoVoice,en,-1,,,,,baileylisa@aoglobelife.com,,,,,Lisa Bailey: [1:4],0,00:00
+,63020000000893097,,PST,,,,,63020000000893097,,,,93,ZohoVoice,en,-1,,,,,lene.kiser@aoglobelife.com,,,,,Lene Kiser: [1],0,00:00
+,63020000000893125,,PST,,,,,63020000000893125,,,,93,ZohoVoice,en,-1,,,,,lenekiser@aoglobelife.com,,,,,Lene Kiser,0,00:00
+,63020000000797247,,PST,,,,,63020000000797247,,,,93,ZohoVoice,en,-1,,,,,laynestevens@aoglobelife.com,,,,,Layne Stevens,0,00:00
+,63020000000819005,,GMT,,,,,63020000000819005,,,,93,ZohoVoice,en,-1,,,,,lauriewells@aogloblife.com,,,,,Laurie Wells,0,00:00
+,63020000001024265,,PST,,,,,63020000001024265,,,,93,ZohoVoice,en,-1,,,,,landysitto@aoglobelife.com,,,,,Landy Sitto: [1],0,00:00
+,63020000000511537,,PST,,,,,63020000000511537,,,,93,ZohoVoice,en,-1,,,,,anceslaughterbey@aoglobelife.com,,,,,Lance Slaughgterbey,0,00:00
+,63020000001018312,,America/Los_Angeles,,,,,63020000001018312,,,,93,ZohoVoice,en,-1,,,,,kirbyingles@aoglobelife.com,,,,,Kirby Ingles: [1],0,00:00
+,63020000000185033,,PST,,,,,63020000000185033,,,,93,ZohoVoice,en,-1,,,,,kimberlyloving@aoglobelife.com,,,,,kimberly loving: Tomonovich,0,00:00
+,63020000000992166,,PST,,,,,63020000000992166,,,,93,ZohoVoice,en,-1,,,,,keyunwilson@aoglobelife.com,,,,,Keyun Y: [1],0,00:00
+,63020000000886939,,PST,,,,,63020000000886939,,,,93,ZohoVoice,en,-1,,,,,kerriestahl@aoglobelife.com,,,,,Kerrie Stahl,0,00:00
+,63020000001000581,,PST,,,,,63020000001000581,,,,93,ZohoVoice,en,-1,,,,,kentbush@aoglobelife.com,,,,,Kent Bush: [1],0,00:00
+,63020000000886091,,PST,,,,,63020000000886091,,,,93,ZohoVoice,en,-1,,,,,kealohalikaharvey@aoglobelife.com,,,,,Kealohalika Harvey: [1:3],0,00:00
+,63020000001000575,,PST,,,,,63020000001000575,,,,93,ZohoVoice,en,-1,,,,,kathyanneverett@aoglobelife.com,,,,,Kathy Ann Everett: [4],0,00:00
+,63020000000511475,,GMT,,,,,63020000000511475,,,,93,ZohoVoice,en,-1,,,,,kathleenlott@aoglobelife.com,,,,,Kathleen Lott: Iftiu,0,00:00
+,63020000000886085,,PST,,,,,63020000000886085,,,,93,ZohoVoice,en,-1,,,,,julieogburn@aoglobelife.com,,,,,Julie Ogburn: [2],0,00:00
+,63020000000893071,,PST,,,,,63020000000893071,,,,93,ZohoVoice,en,-1,,,,,joshuafranco@aoglobelife.com,,,,,Joshua Franco: [1],0,00:00
+,63020000000902167,,PST,,,,,63020000000902167,,,,93,ZohoVoice,en,-1,,,,,joetomanovich@aoglobelife.com,,,,,Joseph Tomanovich: [1],0,00:00
+,63020000000511527,,PST,,,,,63020000000511527,,,,93,ZohoVoice,en,-1,,,,,josephlance@aoglobelife.com,,,,,Joseph Lance: Iftiu,0,00:00
+,63020000001000579,,PST,,,,,63020000001000579,,,,93,ZohoVoice,en,-1,,,,,josealonsoabrego@aoglobelife.com,,,,,Josealonso Abrego: [1],0,00:00
+1475,63020000000950259,,PST,,Offline,1,63020000000013995,63020000000893005,1,,2,93,ZohoVoice,en,-1,AOPAVET,1738191231234,{},Completed,joannelogan@aoglobelife.com,872802830_63020000000950259,,877237372,TECHNICIAN,Joanne Logan: [1],1,00:00
+282,63020000000229214,,America/Los_Angeles,,Offline,1,63020000000031185,63020000000149251,1,,1,93,ZohoVoice,en,-1,ADMIN,1734114209677,{},Completed,jessicaschmuttermair@aoglobelife.com,872802830_63020000000229214,,873320088,ADMIN,Jessica Schmuttermair,1,00:00
+1500,63020000000987515,,America/Belize,,Offline,1,63020000000013995,63020000000901763,1,,2,93,ZohoVoice,en,-1,AOPAVET,1738787295295,,Completed,jessicaamundsen@aoglobelife.com,872802830_63020000000987515,,877656751,TECHNICIAN,Jessica Amundsen: [1],1,00:00
+306,63020000000468883,,America/Dawson,,Offline,1,63020000000013995,63020000000448943,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736210253525,{},Completed,jfischer@aodushaj.com,872802830_63020000000468883,,873957307,TECHNICIAN,Janelle Fischer: Dushaj,0,00:00
+1398,63020000000882465,,PST,,Offline,1,63020000000031035,63020000000886925,1,,2,93,ZohoVoice,en,-1,AOWillKit,1737753221642,{},Completed,ivoryparker@aoglobelife.com,872802830_63020000000882465,,876576139,TECHNICIAN,Ivory Parker: [3],1,00:00
+1414,63020000000893335,,PST,,Offline,1,63020000000907859,63020000000893023,1,,2,93,ZohoVoice,en,-1,Scordos,1737579219901,{},Completed,gretadeffendall@aoglobelife.com,872802830_63020000000893335,,876628427,TECHNICIAN,Greta Deffendall: [1:3:4],1,00:00
+1506,63020000000982773,,PST,,Offline,1,63020000000950383,63020000000957675,1,,2,93,ZohoVoice,en,-1,connectnow,1738430298548,{},Completed,emmascandole@aoglobelife.com,872802830_63020000000982773,,877723608,TECHNICIAN,Emma Scandole: [1],1,00:00
+1367,63020000000848471,,PST,,Offline,1,63020000000003011,63020000000858501,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736912957548,{},Completed,derek@taalk.ai,872802830_63020000000848471,,876104559,TECHNICIAN,Derek Wang,1,00:00
+1407,63020000000889251,,PST,,Offline,1,63020000000013995,63020000000886087,1,,2,93,ZohoVoice,en,-1,AOPAVET,1737929482303,{},Completed,davidcormany@aoglobelife.com,872802830_63020000000889251,,876585953,TECHNICIAN,David Cormany: [1],1,00:00
+,63020000000817977,,GMT,,,,,63020000000817977,,,,93,ZohoVoice,en,-1,,,,,josesolorzano@aoglobelife.com,,,,,Jose Solorzano,0,00:00
+,63020000000545887,,PST,,,,,63020000000545887,,,,93,ZohoVoice,en,-1,,,,,jorgedelrio@aoglobelife.com,,,,,Jorge Delrio: Getz,0,00:00
+,63020000001000585,,PST,,,,,63020000001000585,,,,93,ZohoVoice,en,-1,,,,,jonesjordan@aoglobelife.com,,,,,Jordan Jones,0,00:00
+,63020000001029021,,PST,,,,,63020000001029021,,,,93,ZohoVoice,en,-1,,,,,jonathanstell@aoglobelife.com,,,,,Jonathan Stell: [1],0,00:00
+,63020000000902129,,PST,,,,,63020000000902129,,,,93,ZohoVoice,en,-1,,,,,johnnyrodriguez@aoglobelife.com,,,,,Johnny Rodriguez: [1],0,00:00
+,63020000000694321,,America/Los_Angeles,,,,,63020000000694321,,,,93,ZohoVoice,en,-1,,,,,johncarlostorrecampo@aoglobelife.com,,,,,John Torrecampo,0,00:00
+,63020000000797083,,PST,,,,,63020000000797083,,,,93,ZohoVoice,en,-1,,,,,johnpham@aoglobelife.com,,,,,John Pham,0,00:00
+,63020000000893489,,PST,,,,,63020000000893489,,,,93,ZohoVoice,en,-1,,,,,jpmccrandall@aoglobelife.com,,,,,John McCrandall: [1:3],0,00:00
+,63020000000902111,,PST,,,,,63020000000902111,,,,93,ZohoVoice,en,-1,,,,,jinchen@aoglobelife.com,,,,,Jin Chen: [1:3],0,00:00
+,63020000000507661,,America/Los_Angeles,,,,,63020000000507661,,,,93,ZohoVoice,en,-1,,,,,jillianhildebrand@aoglobelife.com,,,,,Jillian Hildebrand,0,00:00
+,63020000000902127,,PST,,,,,63020000000902127,,,,93,ZohoVoice,en,-1,,,,,jihadtariq@aoglobelife.com,,,,,Jihad Tariq: [1],0,00:00
+,63020000000538203,,America/Los_Angeles,,,,,63020000000538203,,,,93,ZohoVoice,en,-1,,,,,jessicastacey@aoglobelife.com,,,,,Jessica Stacey,0,00:00
+,63020000000989865,,PST,,,,,63020000000989865,,,,93,ZohoVoice,en,-1,,,,,jessicacarden@aoglobelife.com,,,,,Jessica Carden: [1],0,00:00
+,63020000000507985,,America/Los_Angeles,,,,,63020000000507985,,,,93,ZohoVoice,en,-1,,,,,jeremycoombs@ailglobelife.com,,,,,Jeremy Coombs,0,00:00
+,63020000000886975,,PST,,,,,63020000000886975,,,,93,ZohoVoice,en,-1,,,,,jennifermueller@aoglobelife.com,,,,,Jennifer Mueller: [1:3:4],0,00:00
+,63020000000513681,,America/Los_Angeles,,,,,63020000000513681,,,,93,ZohoVoice,en,-1,,,,,jeffreykline@aoglobelife.com,,,,,Jeffrey Kline,0,00:00
+,63020000001029013,,PST,,,,,63020000001029013,,,,93,ZohoVoice,en,-1,,,,,jumbaliah37@aoglobelife.com,,,,,Jakob Young: [1],0,00:00
+,63020000000961171,,PST,,,,,63020000000961171,,,,93,ZohoVoice,en,-1,,,,,jaidenlancaster@aoglobelife.com,,,,,Jaiden Lancaster,0,00:00
+,63020000000961173,,PST,,,,,63020000000961173,,,,93,ZohoVoice,en,-1,,,,,jacobvaldellon@aoglobelife.com,,,,,Jacob Valdellon,0,00:00
+,63020000000901779,,PST,,,,,63020000000901779,,,,93,ZohoVoice,en,-1,,,,,ivanandradeail@aoglobelife.com,,,,,Ivan Andrade: [1],0,00:00
+,63020000000901789,,PST,,,,,63020000000901789,,,,93,ZohoVoice,en,-1,,,,,irmagallardo@aoglobelife.com,,,,,Irma Gallardo: [2],0,00:00
+,63020000000992156,,PST,,,,,63020000000992156,,,,93,ZohoVoice,en,-1,,,,,imanirosew@aoglobelife.com,,,,,Imani Wilson: [4],0,00:00
+,63020000000817969,,GMT,,,,,63020000000817969,,,,93,ZohoVoice,en,-1,,,,,icisrucker@aoglobelife.com,,,,,Icis Rucker,0,00:00
+,63020000000694315,,America/Los_Angeles,,,,,63020000000694315,,,,93,ZohoVoice,en,-1,,,,,kutkuthussein@aoglobelife.com,,,,,Hussein Kutkut,0,00:00
+,63020000000893131,,PST,,,,,63020000000893131,,,,93,ZohoVoice,en,-1,,,,,haley.potter@aoglobelife.com,,,,,Haley Potter: [1],0,00:00
+,63020000000886945,,PST,,,,,63020000000886945,,,,93,ZohoVoice,en,-1,,,,,haleyjudd@aoglobelife.com,,,,,Haley Judd: [2],0,00:00
+,63020000000886967,,PST,,,,,63020000000886967,,,,93,ZohoVoice,en,-1,,,,,gregorytinnon@aoglobelife.com,,,,,Greg Tinnon: [2:3],0,00:00
+,63020000000667107,,America/Los_Angeles,,,,,63020000000667107,,,,93,ZohoVoice,en,-1,,,,,gageharrington@aoglobelife.com,,,,,Gage Harrington,0,00:00
+,63020000000886067,,PST,,,,,63020000000886067,,,,93,ZohoVoice,en,-1,,,,,gabrielhess@aoglobelife.com,,,,,Gabriel Hess: [3],0,00:00
+,63020000001000339,,PST,,,,,63020000001000339,,,,93,ZohoVoice,en,-1,,,,,broussardbrennan4415@aoglobelife.com,,,,,Francis Broussard,0,00:00
+,63020000000989981,,PST,,,,,63020000000989981,,,,93,ZohoVoice,en,-1,,,,,ftshann@aoglobelife.com,,,,,Francine Shann: [2],0,00:00
+,63020000000511515,,PST,,,,,63020000000511515,,,,93,ZohoVoice,en,-1,,,,,fationvrushi@aoglobelife.com,,,,,Fation Vrushi,0,00:00
+,63020000000886059,,PST,,,,,63020000000886059,,,,93,ZohoVoice,en,-1,,,,,edisongoncalves@aoglobelife.com,,,,,Edison Gomcalves: [3],0,00:00
+,63020000000893129,,PST,,,,,63020000000893129,,,,93,ZohoVoice,en,-1,,,,,dylancrowell@aoglobelife.com,,,,,Dylan Crowell: [1],0,00:00
+,63020000000901799,,PST,,,,,63020000000901799,,,,93,ZohoVoice,en,-1,,,,,dominickcpoule@aoglobelife.com,,,,,Dominick Poule,0,00:00
+,63020000000893133,,PST,,,,,63020000000893133,,,,93,ZohoVoice,en,-1,,,,,diegotoucet@aoglobelife.com,,,,,Diego Toucet: [1],0,00:00
+,63020000000893087,,PST,,,,,63020000000893087,,,,93,ZohoVoice,en,-1,,,,,diana@aoglobelife.com,,,,,Diana Al Ali,0,00:00
+,63020000000694403,,America/Los_Angeles,,,,,63020000000694403,,,,93,ZohoVoice,en,-1,,,,,deshonmartin@aoglobelife.com,,,,,DeShon Martin,0,00:00
+,63020000000893547,,PST,,,,,63020000000893547,,,,93,ZohoVoice,en,-1,,,,,davidlegallee@aoglobelife.com,,,,,David Legallee: [1],0,00:00
+,63020000000850907,,PST,,,,,63020000000850907,,,,93,ZohoVoice,en,-1,,,,,davidfuzaylov@aoglobelife.com,,,,,David Fuzaylov: [1],0,00:00
+,63020000001029019,,PST,,,,,63020000001029019,,,,93,ZohoVoice,en,-1,,,,,darrenkeithley@aoglobelife.com,,,,,Darren Keithley: [1],0,00:00
+1493,63020000000971179,,America/Belize,,Offline,1,63020000000031035,63020000000912957,1,,2,93,ZohoVoice,en,-1,AOWillKit,1738807353303,{},Completed,bryanchimney@aoglobelife.com,872802830_63020000000971179,,877473921,TECHNICIAN,Bryan Chimney: [1:3],1,00:00
+1421,63020000000895367,,PST,,Busy,1,63020000000907859,63020000000893019,1,,2,93,ZohoVoice,en,-1,Scordos,1738853236833,{},Completed,autumnmichael@aoglobelife.com,872802830_63020000000895367,,876636581,TECHNICIAN,Autumn Michael: [1:3],1,00:00
+1452,63020000000909303,,GMT,,Offline,1,63020000000907859,63020000000907873,1,,4,93,ZohoVoice,en,-1,Scordos,1737756105175,{},Completed,amandarickman@aoglobelife.com,872802830_63020000000909303,,876903892,MANAGER,Amanda Rickman: [1:3:4],1,00:00
+1269,63020000000717033,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000667097,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735769469051,,Completed,alysonoliver@aoglobelife.com,872802830_63020000000717033,,874790195,TECHNICIAN,Alyson Oliver,0,00:00
+1404,63020000000891447,,PST,,Offline,1,63020000000013995,63020000000886991,1,,2,93,ZohoVoice,en,-1,AOPAVET,1737427223773,{},Completed,alisonhopkins@aoglobelife.com,872802830_63020000000891447,,876580666,TECHNICIAN,Alison Hopkins: [1],1,00:00
+1449,63020000000907695,,PST,,Offline,1,63020000000013995,63020000000893483,1,,2,93,ZohoVoice,en,-1,AOPAVET,1737859387792,,Completed,alichahine@aoglobelife.com,872802830_63020000000907695,,876866480,TECHNICIAN,Ali Chahine: [1],1,00:00
+1270,63020000000717191,,America/Los_Angeles,,Offline,1,63020000000031035,63020000000667115,1,,2,93,ZohoVoice,en,-1,AOWillKit,1735675103019,,Completed,alexanderball@aoglobelife.com,872802830_63020000000717191,,874809176,TECHNICIAN,Alexander Ball,0,00:00
+1375,63020000000858805,,PST,,Offline,1,63020000000003011,63020000000850895,1,,2,93,ZohoVoice,en,-1,aoglobelife,1737042697241,{},Completed,alexanderzavulun@aoglobelife.com,872802830_63020000000858805,,876216619,TECHNICIAN,Alex Zavulun: [1:3],1,00:00
+1463,63020000000919033,,PST,,Offline,,63020000000031185,63020000000919029,1,,0,93,ZohoVoice,en,1,ADMIN,1738353962729,,Completed,admin@connectnow.one,872802830_63020000000919033,,877023057,SUPERADMIN,admin,1,00:00
+294,63020000000252441,,PST,,Offline,1,63020000000872221,63020000000075249,1,,2,93,ZohoVoice,en,-1,Lafond,1738861517605,{},Completed,mrudy@ailpdx.com,872802830_63020000000252441,,873689350,TECHNICIAN,99787 - Margaret Rudy: La Fond,1,00:00
+140,63020000000029055,,PST,,Offline,1,63020000000013995,63020000000032057,1,,2,93,ZohoVoice,en,-1,AOPAVET,1738014114662,{},Completed,jhernandez@ailpdx.com,872802830_63020000000029055,,873127246,TECHNICIAN,92924 - Judith Hernandez: La Fond,0,00:00
+227,63020000000110599,,America/Los_Angeles,,Offline,1,63020000000031035,63020000000110485,1,,2,93,ZohoVoice,en,-1,AOWillKit,1735608730083,,Completed,samuelbenton@aoglobelife.com,872802830_63020000000110599,,873394179,TECHNICIAN,87025 - Samuel Benton: Mckiernan,0,00:00
+,63020000001018558,,America/Los_Angeles,,,,,63020000001018558,,,,93,ZohoVoice,en,-1,,,,,darellthoms@aoglobelife.com,,,,,Darell Thoms: [1],0,00:00
+,63020000000762019,,America/Los_Angeles,,,,,63020000000762019,,,,93,ZohoVoice,en,-1,,,,,danielli@aoglobelife.com,,,,,Daniel Li,0,00:00
+,63020000000850903,,PST,,,,,63020000000850903,,,,93,ZohoVoice,en,-1,,,,,danielkholdarov@aoglobelife.com,,,,,Daniel Kholdarov: [1],0,00:00
+,63020000000964951,,PST,,,,,63020000000964951,,,,93,ZohoVoice,en,-1,,,,,dashayperry@aoglobelife.com,,,,,Da'Shay Perry: [1],0,00:00
+,63020000000511523,,PST,,,,,63020000000511523,,,,93,ZohoVoice,en,-1,,,,,colebramhall@aoglobelife.com,,,,,Cole Bramhall: Iftiu,0,00:00
+,63020000000886989,,PST,,,,,63020000000886989,,,,93,ZohoVoice,en,-1,,,,,claudiadelgado@aoglobelife.com,,,,,Claudia Diaz Delgado: [4],0,00:00
+,63020000000886963,,PST,,,,,63020000000886963,,,,93,ZohoVoice,en,-1,,,,,christineclark@aoglobelife.com,,,,,Christine Clark: [2],0,00:00
+,63020000001000333,,PST,,,,,63020000001000333,,,,93,ZohoVoice,en,-1,,,,,christianshellum@aoglobelife.com,,,,,Christian Shellum: [1],0,00:00
+,63020000000667111,,America/Los_Angeles,,,,,63020000000667111,,,,93,ZohoVoice,en,-1,,,,,christianmjohnson@aoglobelife.com,,,,,Christian Johnson,0,00:00
+,63020000000511499,,PST,,,,,63020000000511499,,,,93,ZohoVoice,en,-1,,,,,christophervaughn@aoglobelife.com,,,,,Chris Vaughn: Iftiu,0,00:00
+,63020000000893143,,PST,,,,,63020000000893143,,,,93,ZohoVoice,en,-1,,,,,christran@aoglobelife.com,,,,,Chris Tran: [1],0,00:00
+,63020000001018556,,GMT,,,,,63020000001018556,,,,93,ZohoVoice,en,-1,,,,,christopherbrown1@aoglobelife.com,,,,,Chris Brown: [1],0,00:00
+,63020000000886089,,PST,,,,,63020000000886089,,,,93,ZohoVoice,en,-1,,,,,cherylstlouis@aoglobelife.com,,,,,Cheryl Stlouis: [1],0,00:00
+,63020000000893121,,PST,,,,,63020000000893121,,,,93,ZohoVoice,en,-1,,,,,catherinebraund@aoglobelife.com,,,,,Catherine Braund-Pereira: [3],0,00:00
+,63020000000198497,,America/Los_Angeles,,,,,63020000000198497,,,,93,ZohoVoice,en,-1,,,,,byronbanken@aoglobelife.com,,,,,Byron Banken,0,00:00
+,63020000000735045,,America/Los_Angeles,,,,,63020000000735045,,,,93,ZohoVoice,en,-1,,,,,bruceseverson@aoglobelife.com,,,,,Bruce Severson,0,00:00
+,63020000000511461,,PST,,,,,63020000000511461,,,,93,ZohoVoice,en,-1,,,,,brookeedstrom@aoglobelife.com,,,,,Brooke Edstrom: Iftiu,0,00:00
+,63020000000511479,,GMT,,,,,63020000000511479,,,,93,ZohoVoice,en,-1,,,,,brookebeaver@aoglobelife.com,,,,,Brooke Beaver: Iftiu,0,00:00
+,63020000000511561,,PST,,,,,63020000000511561,,,,93,ZohoVoice,en,-1,,,,,britanystreeb@aoglobelife.com,,,,,Britany Streeb,0,00:00
+,63020000000893073,,PST,,,,,63020000000893073,,,,93,ZohoVoice,en,-1,,,,,bkrennerich@aoglobelife.com,,,,,Brianna Krennerich: [1:3],0,00:00
+,63020000000863609,,PST,,,,,63020000000863609,,,,93,ZohoVoice,en,-1,,,,,briangirton@aoglobelife.com,,,,,Brian Girton,0,00:00
+,63020000001029025,,PST,,,,,63020000001029025,,,,93,ZohoVoice,en,-1,,,,,braydensmith@aoglobelife.com,,,,,Brayden Smith: [2],0,00:00
+,63020000001000577,,PST,,,,,63020000001000577,,,,93,ZohoVoice,en,-1,,,,,brandonpleasant@aoglobelife.com,,,,,Brandon Pleasant: [1],0,00:00
+,63020000000886063,,PST,,,,,63020000000886063,,,,93,ZohoVoice,en,-1,,,,,brandenbowman@aoglobelife.com,,,,,Branden Bowman: [1],0,00:00
+,63020000000818725,,America/Los_Angeles,,,,,63020000000818725,,,,93,ZohoVoice,en,-1,,,,,blakebreitzke@aoglobelife.com,,,,,Blake Breitzke,0,00:00
+,63020000000893549,,PST,,,,,63020000000893549,,,,93,ZohoVoice,en,-1,,,,,austingreen@aoglobelife.com,,,,,Austin Green: [1],0,00:00
+,63020000000513721,,America/Los_Angeles,,,,,63020000000513721,,,,93,ZohoVoice,en,-1,,,,,aprilhenry@aoglobelife.com,,,,,April Henry,0,00:00
+,63020000000814235,,PST,,,,,63020000000814235,,,,93,ZohoVoice,en,-1,,,,,anthony.lulgjuraj@aoglobelife.com,,,,,Anthony Lulgjuraj,0,00:00
+,63020000000817983,,GMT,,,,,63020000000817983,,,,93,ZohoVoice,en,-1,,,,,annebass@aoglobelife.com,,,,,Anne Bass,0,00:00
+,63020000000957673,,PST,,,,,63020000000957673,,,,93,ZohoVoice,en,-1,,,,,angelpaucar@aoglobelife.com,,,,,Angel Paucar,0,00:00
+,63020000000989993,,PST,,,,,63020000000989993,,,,93,ZohoVoice,en,-1,,,,,andrewsmith1@aoglobelife.com,,,,,Andrew Smith: [1],0,00:00
+,63020000000901781,,PST,,,,,63020000000901781,,,,93,ZohoVoice,en,-1,,,,,alishahmay.ail@aoglobelife.com,,,,,Alisha May: [2],0,00:00
+,63020000000893055,,PST,,,,,63020000000893055,,,,93,ZohoVoice,en,-1,,,,,alejandralarez@aoglobelife.com,,,,,Alejandra Larez Morales: [3],0,00:00
+,63020000000171523,,America/Los_Angeles,,,,,63020000000171523,,,,93,ZohoVoice,en,-1,,,,,adriennebragas@aoglobelife.com,,,,,Adrienne Bragas,0,00:00
+,63020000000893119,,PST,,,,,63020000000893119,,,,93,ZohoVoice,en,-1,,,,,abigailfarley@aoglobelife.com,,,,,Abigail Farley: [2],0,00:00
+,63020000000013985,,GMT,,,,,63020000000013985,,,,93,ZohoVoice,en,-1,,,,,royalewilson@aoglobelife.com,,,,,99596 - Royale Wilson: Ibeh,0,00:00
+,63020000000833469,,PST,,,,,63020000000833469,,,,93,ZohoVoice,en,-1,,,,,angelaperezgomez@aoglobelife.com,,,,,94667 - Angela Perez-Gomez [5],0,00:00
+,63020000000511175,,PST,,,,,63020000000511175,,,,93,ZohoVoice,en,-1,,,,,chaysonwilliams@aoglobelife.com,,,,,83088 - Chayson Williams: Olin,0,00:00
+224,63020000000047729,,PST,,Offline,1,63020000000031185,63020000000109437,1,,1,93,ZohoVoice,en,-1,ADMIN,1733942746798,,Completed,carlossanchez@aoglobelife.com,872802830_63020000000047729,,873371665,ADMIN,82585 - Carlos Sanchez: Meeks,0,00:00
+181,63020000000065437,,GMT,,Offline,1,63020000000003011,63020000000013127,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736119232171,,Completed,krystalpearlman@aoglobelife.com,872802830_63020000000065437,,873189396,TECHNICIAN,80028 - Krystal Pearlman: Ibeh,0,00:00
+133,63020000000027055,,PST,,On Break,1,63020000000872221,63020000000032037,1,,3,93,ZohoVoice,en,-1,Lafond,1738805274616,{},Completed,rmagpantay@ailpdx.com,872802830_63020000000027055,,873120084,SUPERVISOR,78434 - Rochelle Magpantay: La Fond,1,00:00
+287,63020000000252347,,America/Los_Angeles,,Busy,1,63020000000858105,63020000000240099,1,,2,93,ZohoVoice,en,-1,Warner,1738867418710,{},Completed,staciefreye@aoglobelife.com,872802830_63020000000252347,,873677369,TECHNICIAN,77299 - Stacie Freye: Warner,1,00:00
+170,63020000000028731,,PST,,Offline,1,63020000000872221,63020000000061021,1,,2,93,ZohoVoice,en,-1,Lafond,1738704415444,{},Completed,kgrant@ailpdx.com,872802830_63020000000028731,,873179926,TECHNICIAN,67647 - Kathryn Grant: La Fond,1,00:00
+1486,63020000000965123,,PST,,Offline,1,63020000000031035,63020000000544149,1,,2,93,ZohoVoice,en,-1,AOWillKit,1738691125419,,Completed,alansedaghat@aoglobelife.com,872802830_63020000000965123,,877450323,TECHNICIAN,664 - Amir Sedaghat: Gurjal,1,00:00
+284,63020000000241195,,America/Los_Angeles,,Offline,1,63020000000858105,63020000000240097,1,,2,93,ZohoVoice,en,-1,Warner,1735431948699,{},Completed,isaiahbanks@aoglobelife.com,872802830_63020000000241195,,873614296,TECHNICIAN,58955 - Isaiah Banks: Warner,1,00:00
+190,63020000000079419,,US/Eastern,,Offline,1,63020000000872221,63020000000074507,1,,2,93,ZohoVoice,en,-1,Lafond,1736180077990,{},Completed,mhepner@ailpdx.com,872802830_63020000000079419,,873234189,TECHNICIAN,53992 - Michael Hepner: La Fond,1,00:00
+357,63020000000522479,,PST,,Offline,1,63020000000003011,63020000000511183,1,,2,93,ZohoVoice,en,-1,aoglobelife,1734589537838,{},Completed,peershmelzer@aoglobelife.com,872802830_63020000000522479,,874075267,TECHNICIAN,5194 - Peer Shmelzer: Olin,0,00:00
+149,63020000000029147,,PST,,Available,1,63020000000013995,63020000000032951,1,,2,93,ZohoVoice,en,-1,AOPAVET,1738867625543,{},Completed,dwhite@ailpdx.com,872802830_63020000000029147,,873136620,TECHNICIAN,40639 - Dylan White: La Fond,1,00:00
+142,63020000000033815,,PST,,On Break,1,63020000000872221,63020000000032049,1,,2,93,ZohoVoice,en,-1,Lafond,1737830117208,{},Completed,tmcdermid@ailpdx.com,872802830_63020000000033815,,873128932,TECHNICIAN,38431 - Tabitha Mcdermid: La Fond,1,00:00
+206,63020000000105063,,America/Los_Angeles,,Offline,1,63020000000003011,63020000000102433,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736016504689,,Completed,paoutback@sbcglobal.net,872802830_63020000000105063,,873321422,TECHNICIAN,37231 - Denny Snyder: Neilson,0,00:00
+298,63020000000252911,,PST,,Offline,1,63020000000872221,63020000000292517,1,,2,93,ZohoVoice,en,-1,Lafond,1734148442321,{},Completed,lporto@ailpdx.com,872802830_63020000000252911,,873701419,TECHNICIAN,32358 - Levi Porto: La Fond,1,00:00
+1259,63020000000694265,,PST,,Offline,1,63020000000872221,63020000000076585,1,,2,93,ZohoVoice,en,-1,Lafond,1738721860983,{},Completed,psantamarina@ailpdx.com,872802830_63020000000694265,,874615265,TECHNICIAN,21256 - Patricia Santamarina: La Fond,1,00:00
+303,63020000000376729,,PST,,Offline,1,63020000000013995,63020000000196203,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734564605736,,Completed,madisondarnell@aoglobelife.com,872802830_63020000000376729,,873870094,TECHNICIAN,192113 - Madison Darnell: Tomanovich,0,00:00
+345,63020000000515793,,America/Los_Angeles,,Offline,1,63020000000031035,63020000000513719,1,,2,93,ZohoVoice,en,-1,AOWillKit,1735941757026,{},Completed,jazminafuang@aoglobelife.com,872802830_63020000000515793,,874062698,TECHNICIAN,191782 - Jazmin Afuang: Alwan,0,00:00
+186,63020000000065531,,PST,,Offline,1,63020000000872221,63020000000074503,1,,2,93,ZohoVoice,en,-1,Lafond,1737239798977,{},Completed,kwillbur@ailpdx.com,872802830_63020000000065531,,873196488,TECHNICIAN,191629 - Kevin Willbur: La Fond,1,00:00
+317,63020000000496801,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000507651,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735946825982,{},Completed,janasalyers@aoglobelife.com,872802830_63020000000496801,,874052432,TECHNICIAN,190277 - Jana Salyers: Prieto,0,00:00
+305,63020000000404819,,PST,,Offline,1,63020000000013995,63020000000154981,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734396747688,,Completed,benjaminnolte@aoglobelife.com,872802830_63020000000404819,,873885430,TECHNICIAN,189013 - Benjamin Nolte: Prieto,0,00:00
+236,63020000000150209,,America/Atikokan,,Offline,1,63020000000003011,63020000000149753,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736226891680,{},Completed,luceroangel@aoglobelife.com,872802830_63020000000150209,,873421613,TECHNICIAN,188675 - Angel Lucero: Maska,0,00:00
+276,63020000000193632,,America/New_York,,Offline,1,63020000000013995,63020000000196213,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736198646802,,Completed,madisoncummings@aoglobelife.com,872802830_63020000000193632,,873582153,TECHNICIAN,188564 - Madison Cummings: Dugan,0,00:00
+105,63020000000018291,,GMT,,Offline,1,63020000000003011,63020000000013021,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736192042753,,Completed,ryantierney@aoglobelife.com,872802830_63020000000018291,,873025435,TECHNICIAN,188198 - Ryan Tierney: Michael,0,00:00
+342,63020000000511587,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000513677,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734572610368,{},Completed,yoshioleyba@aoglobelife.com,872802830_63020000000511587,,874062664,TECHNICIAN,188190 - Yoshio Leyba: Severson,0,00:00
+106,63020000000014027,,GMT,,Offline,1,63020000000872123,63020000000013117,1,,2,93,ZohoVoice,en,-1,Chang,1735575581742,{},Completed,trevorfey@aoglobelife.com,872802830_63020000000014027,,873025364,TECHNICIAN,188185 - Trevor Fey: Michael,0,00:00
+377,63020000000517821,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000507397,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736214860934,{},Completed,denzelowusu@aoglobelife.com,872802830_63020000000517821,,874133464,TECHNICIAN,187868 - Denzel Owusu: Tran,0,00:00
+205,63020000000047547,,America/Los_Angeles,,Offline,1,63020000000003011,63020000000102563,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736039867907,,Completed,brandonchen@aoglobelife.com,872802830_63020000000047547,,873320759,TECHNICIAN,187726 - Brandon Chen: Maska,0,00:00
+154,63020000000039909,,PST,,Offline,1,63020000000031035,63020000000032889,1,,2,93,ZohoVoice,en,-1,AOWillKit,1736214845472,{},Completed,fantasiamoore@aoglobelife.com,872802830_63020000000039909,,873137780,TECHNICIAN,187159 - Fantasia Moore: Tran,0,00:00
+382,63020000000538185,,America/Hermosillo,,Offline,1,63020000000013995,63020000000513713,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735948413434,{},Completed,chaysehilman@aoglobelife.com,872802830_63020000000538185,,874134373,TECHNICIAN,185976 - Chayse Hilman: Rust,0,00:00
+258,63020000000185089,,PST,,Offline,1,63020000000013995,63020000000154995,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734037027788,{},Completed,saraijones@aoglobelife.com,872802830_63020000000185089,,873507575,TECHNICIAN,184582 - Sarai Jones: Tran,0,00:00
+1258,63020000000680139,,PST,,Offline,1,63020000000013995,63020000000547165,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735256285973,{},Completed,lashaylathompson@aoglobelife.com,872802830_63020000000680139,,874546941,TECHNICIAN,184454 - LaShayla Thompson,0,00:00
+267,63020000000196259,,PST,,Offline,1,63020000000031035,63020000000032919,1,,2,93,ZohoVoice,en,-1,AOWillKit,1733966188155,{},Completed,madisonbeavin@aoglobelife.com,872802830_63020000000196259,,873519898,TECHNICIAN,184431 - Madison Beavin: McCarty,0,00:00
+231,63020000000129323,,GMT,,Offline,1,63020000000003011,63020000000013979,1,,2,93,ZohoVoice,en,-1,aoglobelife,1734055445903,,Completed,stu.burdette@gmail.com,872802830_63020000000129323,,170825494,TECHNICIAN,184319 - Stu Burdette: Michaels,0,00:00
+,63020000000511179,,PST,,,,,63020000000511179,,,,93,ZohoVoice,en,-1,,,,,williamsrodney@aoglobelife.com,,,,,78814 - Rodney Williams: Ollin,0,00:00
+,63020000000511173,,PST,,,,,63020000000511173,,,,93,ZohoVoice,en,-1,,,,,jonathanojendi@aoglobelife.com,,,,,72047 - Jonathan Ojendi: Olin,0,00:00
+,63020000000013031,,GMT,,,,,63020000000013031,,,,93,ZohoVoice,en,-1,,,,,brennabailey@aoglobelife.com,,,,,59692 - Brenna Bailey: Ibeh,0,00:00
+,63020000000032949,,PST,,,,,63020000000032949,,,,93,ZohoVoice,en,-1,,,,,lindamarquez@aoglobelife.com,,,,,59651 - Linda Marquez: Hermann,0,00:00
+,63020000000511203,,PST,,,,,63020000000511203,,,,93,ZohoVoice,en,-1,,,,,johnlamere@aoglobelife.com,,,,,43974 - John Lamere: Olin,0,00:00
+,63020000000511207,,PST,,,,,63020000000511207,,,,93,ZohoVoice,en,-1,,,,,lorenaherndon@aoglobelife.com,,,,,30504 - Lorena Herndon:  Olin,0,00:00
+,63020000000511201,,PST,,,,,63020000000511201,,,,93,ZohoVoice,en,-1,,,,,constancetuitelelea@aoglobelife.com,,,,,28153 - Constance Tuitelelpaga: Globe,0,00:00
+,63020000000786293,,PST,,,,,63020000000786293,,,,93,ZohoVoice,en,-1,,,,,thomasfulton@aoglobelife.com,,,,,194713 - Thomas Fulton: Maska,0,00:00
+,63020000000013109,,GMT,,,,,63020000000013109,,,,93,ZohoVoice,en,-1,,,,,ailindedios@aoglobelife.com,,,,,190766 - Ailin Dedios: Michaels,0,00:00
+,63020000000841057,,PST,,,,,63020000000841057,,,,93,ZohoVoice,en,-1,,,,,roberttacian@aoglobelife.com,,,,,190669 - Robert Tacian [1],0,00:00
+,63020000000841055,,PST,,,,,63020000000841055,,,,93,ZohoVoice,en,-1,,,,,chandrikavuppalapati@aoglobelife.com,,,,,188408 - Chandrika Vuppalapati [1],0,00:00
+,63020000000154989,,GMT,,,,,63020000000154989,,,,93,ZohoVoice,en,-1,,,,,jacobelharrar@aoglobelife.com,,,,,187178 - Jacob ElHarrar: Tomanovich,0,00:00
+,63020000000154691,,PST,,,,,63020000000154691,,,,93,ZohoVoice,en,-1,,,,,tracemuse@aoglobelife.com,,,,,186946 - Trace Muse: Chang,0,00:00
+,63020000000185031,,GMT,,,,,63020000000185031,,,,93,ZohoVoice,en,-1,,,,,jordanmashal@aoglobelife.com,,,,,186922 - Jordan Marshal: Tomonovich,0,00:00
+,63020000000907371,,America/Los_Angeles,,,,,63020000000907371,,,,93,ZohoVoice,en,-1,,,,,alexisthibodeau.ao@aoglobelife.com,,,,,186871 - Alexis Thibodeau: Taylor,0,00:00
+,63020000000511215,,PST,,,,,63020000000511215,,,,93,ZohoVoice,en,-1,,,,,saraannsinnard@aoglobelife.com,,,,,185432 - Sara Sinnardd: Harjo,0,00:00
+,63020000000841093,,PST,,,,,63020000000841093,,,,93,ZohoVoice,en,-1,,,,,sandynoealfrazier@aoglobelife.com,,,,,184877 - Sandy Frazier [1],0,00:00
+,63020000000833461,,PST,,,,,63020000000833461,,,,93,ZohoVoice,en,-1,,,,,shaylathompson@altig.com,,,,,184454 - LaShayla Thompson [1],0,00:00
+262,63020000000197013,,PST,,Offline,1,63020000000003011,63020000000196215,1,,2,93,ZohoVoice,en,-1,aoglobelife,1735937660460,,Completed,christiancruz@aoglobelife.com,872802830_63020000000197013,,873517672,TECHNICIAN,183841 - Christian Cruz: Maska,0,00:00
+275,63020000000222021,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000171707,1,,2,93,ZohoVoice,en,-1,AOPAVET,0,{},Completed,lucassherrod@aoglobelife.com,872802830_63020000000222021,,873579438,TECHNICIAN,183624 - Bucky Sherrod: Contreras,0,00:00
+366,63020000000529291,,America/New_York,,Offline,1,63020000000013995,63020000000513661,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735064654665,{},Completed,lisaterry@aoglobelife.com,872802830_63020000000529291,,874121633,TECHNICIAN,182396 - Lisa Terry: Getz,0,00:00
+251,63020000000185015,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000171213,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736210987910,,Completed,rebeccacoates@aoglobelife.com,872802830_63020000000185015,,873504233,TECHNICIAN,182143 - Rebecca Coates: Tomanovich,0,00:00
+1254,63020000000629695,,GMT,,Offline,1,63020000000013995,63020000000511161,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734996415747,{},Completed,shafaysutton@aoglobelife.com,872802830_63020000000629695,,874351474,TECHNICIAN,181787 - Shafay Sutton: Gojcaj,0,00:00
+132,63020000000030039,,PST,,Offline,1,63020000000013995,63020000000032047,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736981326059,{},Completed,wblafond@ailpdx.com,872802830_63020000000030039,,873120205,TECHNICIAN,181366 - William La Fond: La Fond,1,00:00
+159,63020000000028495,,America/Los_Angeles,,Offline,1,63020000000003011,63020000000038051,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736211110586,,Completed,zacheryhouck@aoglobelife.com,872802830_63020000000028495,,873139733,TECHNICIAN,181152 - Zachery Houck: Ibeh,0,00:00
+187,63020000000065559,,PST,,Available,1,63020000000872221,63020000000075233,1,,2,93,ZohoVoice,en,-1,Lafond,1738867829100,{},Completed,rspringer@ailpdx.com,872802830_63020000000065559,,873198163,TECHNICIAN,180883 - Russell Springer: La Fond,1,00:00
+336,63020000000511545,,America/Belize,,Offline,1,63020000000013995,63020000000513737,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736196681256,{},Completed,laurenmccully@aoglobelife.com,872802830_63020000000511545,,874061734,TECHNICIAN,180699 - Lauren McCully: Chesney,0,00:00
+222,63020000000047687,,America/New_York,,Offline,1,63020000000003011,63020000000110483,1,,2,93,ZohoVoice,en,-1,aoglobelife,1735944905024,,Completed,andrewstephan@aoglobelife.com,872802830_63020000000047687,,873340705,TECHNICIAN,180654 - Andrew Stephan: Maska,0,00:00
+198,63020000000086811,,PST,,Offline,1,63020000000003011,63020000000032991,1,,2,93,ZohoVoice,en,-1,aoglobelife,1735841554467,,Completed,matthewschnur@aoglobelife.com,872802830_63020000000086811,,873296035,TECHNICIAN,180210 - Matthew Schnur: Maska,0,00:00
+390,63020000000535675,,PST,,Offline,1,63020000000031035,63020000000544145,1,,2,93,ZohoVoice,en,-1,AOWillKit,1734790150188,{},Completed,tsengshenhsu@aoglobelife.com,872802830_63020000000535675,,874139809,TECHNICIAN,180189 - Jerry Hsu: Sedaghat,0,00:00
+220,63020000000109233,,CST6CDT,,Offline,1,63020000000003011,63020000000032989,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736226834586,,Completed,devenbarnes@aoglobelife.com,872802830_63020000000109233,,873330632,TECHNICIAN,180074 - Deven Barnes: Maska,0,00:00
+1285,63020000000770069,,America/Los_Angeles,,Offline,1,63020000000003011,63020000000762013,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736207930741,,Completed,masonkipfmiller@aoglobelife.com,872802830_63020000000770069,,874993681,TECHNICIAN,178765 - Mason Kipfmiller: Maska,0,00:00
+348,63020000000499973,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000511481,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736063380530,{},Completed,jameelamers@aoglobelife.com,872802830_63020000000499973,,874064411,TECHNICIAN,177316 - Jamee Lamers: Stewart,0,00:00
+215,63020000000047585,,PST,,Available,1,63020000000003011,63020000000032983,1,,2,93,ZohoVoice,en,-1,aoglobelife,1738867975078,,Completed,laneackerman@aoglobelife.com,872802830_63020000000047585,,873325454,TECHNICIAN,176849 - Lane Ackerman: Frahm,1,00:00
+1281,63020000000730239,,America/Los_Angeles,,Offline,1,63020000000003011,63020000000735069,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736224659679,{},Completed,ethanlax@aoglobelife.com,872802830_63020000000730239,,874885013,TECHNICIAN,176840 - Ethan Lax: Frahm,0,00:00
+381,63020000000535181,,America/Los_Angeles,,Offline,1,63020000000003011,63020000000507977,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736182104285,{},Completed,dylanjackson@aoglobelife.com,872802830_63020000000535181,,874134527,TECHNICIAN,176818 - Dylan Jackson: Maska,0,00:00
+217,63020000000096383,,PST,,Offline,1,63020000000003011,63020000000032973,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736020454909,,Completed,brendanmarsh@aoglobelife.com,872802830_63020000000096383,,873327567,TECHNICIAN,176785 - Brendan Marsh: Maska,0,00:00
+168,63020000000047271,,America/Los_Angeles,,Offline,1,63020000000003011,63020000000050667,1,,2,93,ZohoVoice,en,-1,aoglobelife,1733864797828,,Completed,tylerotoole@aoglobelife.com,872802830_63020000000047271,,873175714,TECHNICIAN,176783 - Tyler Otoole: Dlabik,0,00:00
+203,63020000000077626,,PST,,Offline,1,63020000000003011,63020000000032971,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736227388404,,Completed,brandongamagami@aoglobelife.com,872802830_63020000000077626,,873316266,TECHNICIAN,176778 - Brandon Gamagami: Dlabik,0,00:00
+375,63020000000539551,,America/Los_Angeles,,Offline,1,63020000000031035,63020000000538115,1,,2,93,ZohoVoice,en,-1,AOWillKit,1738817331364,{},Completed,sawyerdavis@aoglobelife.com,872802830_63020000000539551,,874131075,TECHNICIAN,176766 - Sawyer Davis: Frahm,1,00:00
+1240,63020000000594205,,America/Los_Angeles,,Offline,1,63020000000003011,63020000000589489,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736227402771,{},Completed,matthewconnors@aoglobelife.com,872802830_63020000000594205,,874184746,TECHNICIAN,176724 - Matthew Connors: Maska,0,00:00
+330,63020000000516689,,America/Chicago,,Offline,1,63020000000013995,63020000000513673,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736217633239,{},Completed,tanyacaverl@aoglobelife.com,872802830_63020000000516689,,874060520,TECHNICIAN,176131 - Tanya Caverl: Hermann,0,00:00
+111,63020000000021003,,America/Panama,,Offline,1,63020000000003011,63020000000013001,1,,3,93,ZohoVoice,en,-1,aoglobelife,1736049608949,{},Completed,loganhand@aoglobelife.com,872802830_63020000000021003,,873037528,SUPERVISOR,175738 - Logan Hand: Michael,0,00:00
+323,63020000000514515,,PST,,Offline,1,63020000000013995,63020000000511221,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734630871832,{},Completed,jennifergallego@aoglobelife.com,872802830_63020000000514515,,874055478,TECHNICIAN,174801 - Jennifer Gallego: Tran,0,00:00
+237,63020000000156083,,America/Los_Angeles,,Offline,1,63020000000003011,63020000000149657,1,,2,93,ZohoVoice,en,-1,aoglobelife,1735677457628,,Completed,trevormorganail@yahoo.com,872802830_63020000000156083,,873422219,TECHNICIAN,174785 - Trevor Morgan: Chang,0,00:00
+256,63020000000188037,,PST,,Offline,1,63020000000013995,63020000000185035,1,,2,93,ZohoVoice,en,-1,AOPAVET,1733979862586,,Completed,ericgreen@aoglobelife.com,872802830_63020000000188037,,873506296,TECHNICIAN,174774 - Eric Green: Bragas,0,00:00
+278,63020000000193724,,PST,,Offline,1,63020000000003011,63020000000222583,1,,2,93,ZohoVoice,en,-1,aoglobelife,1734967569204,,Completed,kylewade@aoglobelife.com,872802830_63020000000193724,,873593804,TECHNICIAN,174340 - Kyle Wade: Chang,0,00:00
+144,63020000000039575,,America/Atikokan,,Offline,1,63020000000013995,63020000000032043,1,,2,93,ZohoVoice,en,-1,AOPAVET,1737475838462,{},Completed,jvieras@ailpdx.com,872802830_63020000000039575,,873132083,TECHNICIAN,173975 - Jaclyn Vieras: La Fond,0,00:00
+118,63020000000020059,,GMT,,Offline,1,63020000000003011,63020000000013993,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736210046172,,Completed,marygreger@aoglobelife.com,872802830_63020000000020059,,873054951,TECHNICIAN,173730 - Mary Greger: Ibeh,0,00:00
+135,63020000000030227,,PST,,Offline,1,63020000000013995,63020000000032053,1,,2,93,ZohoVoice,en,-1,AOPAVET,1737069817393,{},Completed,nwithrow@ailpdx.com,872802830_63020000000030227,,873121730,TECHNICIAN,173456 - Nani Withrow: La Fond,0,00:00
+185,63020000000028905,,PST,,Offline,1,63020000000013995,63020000000074501,1,,2,93,ZohoVoice,en,-1,AOPAVET,1737049135171,,Completed,umertke@ailpdx.com,872802830_63020000000028905,,873196952,TECHNICIAN,173293 - Udita Voznyak: La Fond,0,00:00
+352,63020000000499997,,PST,,Offline,1,63020000000013995,63020000000511483,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735848981444,{},Completed,laurenminenok@aoglobelife.com,872802830_63020000000499997,,874066085,TECHNICIAN,172253 - Lauren Minenok: Stewart,0,00:00
+313,63020000000484549,,PST,,Offline,1,63020000000013995,63020000000498355,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736227239820,{},Completed,burrellaaron@aoglobelife.com,872802830_63020000000484549,,874026690,TECHNICIAN,169586 - Aaron Burrell: Gojcaj,0,00:00
+,63020000000032901,,PST,,,,,63020000000032901,,,,93,ZohoVoice,en,-1,,,,,claudiapineda@aoglobelife.com,,,,,182617 - Claudia Pineda: Scordos,0,00:00
+,63020000000833459,,PST,,,,,63020000000833459,,,,93,ZohoVoice,en,-1,,,,,jerryey@aoglobelife.com,,,,,181426 - Jerome Ey [1],0,00:00
+,63020000000032999,,PST,,,,,63020000000032999,,,,93,ZohoVoice,en,-1,,,,,brianhayes@aoglobelife.com,,,,,180528 - Brian Hayes: Maska,0,00:00
+,63020000000032997,,PST,,,,,63020000000032997,,,,93,ZohoVoice,en,-1,,,,,merrittwadeson@aoglobelife.com,,,,,180464 - Merritt Wadeson: Maska,0,00:00
+,63020000000032993,,PST,,,,,63020000000032993,,,,93,ZohoVoice,en,-1,,,,,marcoscastellanos@aoglobelife.com,,,,,180245 - Marcos Castellanos: Maska,0,00:00
+,63020000000544141,,PST,,,,,63020000000544141,,,,93,ZohoVoice,en,-1,,,,,marlenepetrell@aoglobelife.com,,,,,179676 - Marlene Petrell: Sedaghat,0,00:00
+,63020000000032881,,PST,,,,,63020000000032881,,,,93,ZohoVoice,en,-1,,,,,teffoniphillips@aoglobelife.com,,,,,177342 - Teffoni Phillips: Kahwaji,0,00:00
+,63020000000544137,,PST,,,,,63020000000544137,,,,93,ZohoVoice,en,-1,,,,,terrychung@aoglobelife.com,,,,,177300 Terry Chung: Sedaghat,0,00:00
+,63020000000032979,,PST,,,,,63020000000032979,,,,93,ZohoVoice,en,-1,,,,,johnrings@aoglobelife.com,,,,,176822 - John Rings: Maska,0,00:00
+,63020000000032967,,PST,,,,,63020000000032967,,,,93,ZohoVoice,en,-1,,,,,stephanierosales@aoglobelife.com,,,,,176773 - Stephanie Rosales: Frahm,0,00:00
+,63020000000032961,,PST,,,,,63020000000032961,,,,93,ZohoVoice,en,-1,,,,,adrianbukowski@aoglobelife.com,,,,,176725 - Adrian Bukowski: Dlabik,0,00:00
+,63020000000544135,,GMT,,,,,63020000000544135,,,,93,ZohoVoice,en,-1,,,,,garynickleson@aoglobelife.com,,,,,176262 - Gary Nickleson: Sedaghat,0,00:00
+,63020000000833455,,PST,,,,,63020000000833455,,,,93,ZohoVoice,en,-1,,,,,desideriotorrez@aoglobelife.com,,,,,175606 - Desiderio Torrez [1],0,00:00
+,63020000000786309,,PST,,,,,63020000000786309,,,,93,ZohoVoice,en,-1,,,,,paigechabala@aoglobelife.com,,,,,175191 - Paige Chabala: Whitehead,0,00:00
+,63020000000032955,,PST,,,,,63020000000032955,,,,93,ZohoVoice,en,-1,,,,,carlosflores@aoglobelife.com,,,,,17315 - Carlos Flores: Maska,0,00:00
+301,63020000000352135,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000240257,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734372095122,,Completed,micahortega@aoglobelife.com,872802830_63020000000352135,,873859407,TECHNICIAN,168435 - Micah Ortega: Seales,0,00:00
+277,63020000000222561,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000171199,1,,2,93,ZohoVoice,en,-1,AOPAVET,0,{},Completed,rebeccamattaliano@aoglobelife.com,872802830_63020000000222561,,873592494,TECHNICIAN,168318 - Rebecca Mattaliano: Dugan,0,00:00
+1239,63020000000585435,,PST,,Offline,1,63020000000013995,63020000000511519,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734745535478,{},Completed,laurenmelville@aoglobelife.com,872802830_63020000000585435,,874199604,TECHNICIAN,164466 - Lauren Melville: Martinaj,0,00:00
+250,63020000000154999,,PST,,Offline,1,63020000000013995,63020000000154985,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736227066220,,Completed,americagallegossalas@aoglobelife.com,872802830_63020000000154999,,873504215,TECHNICIAN,163886 - America Gallegos: Tran,0,00:00
+350,63020000000513781,,PST,,Offline,1,63020000000013995,63020000000511489,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734574595097,{},Completed,marilynphan@aoglobelife.com,872802830_63020000000513781,,874064551,TECHNICIAN,163750 - Marilyn Phan: Stewart,0,00:00
+162,63020000000030973,,PST,,Offline,1,63020000000003011,63020000000032953,1,,2,93,ZohoVoice,en,-1,aoglobelife,1734171886106,,Completed,ryanlacayo@aoglobelife.com,872802830_63020000000030973,,873140786,TECHNICIAN,163500 - Ryan Lacayo: Maska,0,00:00
+1249,63020000000573677,,PST,,Offline,1,63020000000013995,63020000000511443,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736001090675,{},Completed,omarabed@aoglobelife.com,872802830_63020000000573677,,874247557,TECHNICIAN,162270 - Omar Abed: Musai,0,00:00
+171,63020000000055887,,PST,,Offline,1,63020000000013995,63020000000061529,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736981003753,{},Completed,rrazmpour@ailpdx.com,872802830_63020000000055887,,873181205,TECHNICIAN,161259 - Roshanak Razmpour: La Fond,1,00:00
+184,63020000000068075,,PST,,Offline,1,63020000000872221,63020000000063783,1,,2,93,ZohoVoice,en,-1,Lafond,1737566559087,{},Completed,ddeguelle@ailpdx.com,872802830_63020000000068075,,873194557,TECHNICIAN,160984 - Danae De Guelle: La Fond,1,00:00
+131,63020000000028353,,PST,,Offline,1,63020000000013995,63020000000032041,1,,2,93,ZohoVoice,en,-1,AOPAVET,1737497540157,{},Completed,cerudder@ailpdx.com,872802830_63020000000028353,,873119890,TECHNICIAN,160969 - Christian Rudder: La Fond,0,00:00
+115,63020000000013959,,GMT,,Offline,1,63020000000003011,63020000000013121,1,,2,93,ZohoVoice,en,-1,aoglobelife,1735322652957,,Completed,rebeccab@aoglobelife.com,872802830_63020000000013959,,873040406,TECHNICIAN,160903 - Rebecca Bryson: Ibeh,0,00:00
+257,63020000000185059,,PST,,Offline,1,63020000000013995,63020000000154993,1,,2,93,ZohoVoice,en,-1,AOPAVET,1737478642519,{},Completed,davidwade@aoglobelife.com,872802830_63020000000185059,,873506924,TECHNICIAN,160420 - David Wade: Collins,1,00:00
+117,63020000000014073,,GMT,,Offline,1,63020000000003011,63020000000013125,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736009134652,,Completed,stephaniecahall@aoglobelife.com,872802830_63020000000014073,,873046668,TECHNICIAN,160188 - Stephanie Cahall: Marco,0,00:00
+155,63020000000028473,,PST,,Available,1,63020000000872221,63020000000032059,1,,2,93,ZohoVoice,en,-1,Lafond,1738868004368,{},Completed,rqlafond@ailpdx.com,872802830_63020000000028473,,873138167,TECHNICIAN,159521 - Richard La Fond: La Fond,1,00:00
+164,63020000000045009,,PST,,Offline,1,63020000000872221,63020000000046851,1,,2,93,ZohoVoice,en,-1,Lafond,1736022803273,{},Completed,lguerra@ailpdx.com,872802830_63020000000045009,,873145691,TECHNICIAN,159040 - Lisa Guerra: La Fond,1,00:00
+308,63020000000467621,,PST,,Offline,1,63020000000013995,63020000000471881,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736224857030,,Completed,kcathey@aodushaj.com,872802830_63020000000467621,,873957994,TECHNICIAN,155419 - Kenneth Cathey: Dushaj,0,00:00
+165,63020000000050225,,PST,,Offline,1,63020000000013995,63020000000032069,1,,2,93,ZohoVoice,en,-1,AOPAVET,1737670691078,{},Completed,jmitchell@ailpdx.com,872802830_63020000000050225,,873171558,TECHNICIAN,155190 - Jovan Mitchell: La Fond,0,00:00
+378,63020000000542067,,PST,,Offline,1,63020000000013995,63020000000511529,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734725726500,{},Completed,jessicahaydel@aoglobelife.com,872802830_63020000000542067,,874134145,TECHNICIAN,153404 - Jessica Haydel: Martinaj,0,00:00
+376,63020000000517773,,PST,,Offline,1,63020000000013995,63020000000516665,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735333625988,{},Completed,lanceslaughterbey@aoglobelife.com,872802830_63020000000517773,,874131153,TECHNICIAN,152617 - Lance Slaughterbey: Hanna,0,00:00
+379,63020000000538157,,GMT,,Offline,1,63020000000013995,63020000000541629,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734758398610,{},Completed,bradykuhl@aoglobelife.com,872802830_63020000000538157,,874133969,TECHNICIAN,150564 - Brady Kuhl: Martinaj,0,00:00
+334,63020000000496939,,PST,,Offline,1,63020000000013995,63020000000516507,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736222549777,{},Completed,idalasperez@aoglobelife.com,872802830_63020000000496939,,874061121,TECHNICIAN,148705 - Idalas Perez: Hanna,0,00:00
+134,63020000000028417,,America/New_York,,Offline,1,63020000000013995,63020000000032061,1,,2,93,ZohoVoice,en,-1,AOPAVET,1737142754789,{},Completed,zjones@ailpdx.com,872802830_63020000000028417,,873121706,TECHNICIAN,148199 - Zachary Jones: La Fond,0,00:00
+309,63020000000465645,,MST,,Offline,1,63020000000013995,63020000000471883,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735752155993,,Completed,rblackmore.ail@gmail.com,872802830_63020000000465645,,873962094,TECHNICIAN,146950 - Retta Blackmore: Gojcaj,0,00:00
+1255,63020000000632115,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000589545,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735943652803,{},Completed,anisahmohamed@aoglobelife.com,872802830_63020000000632115,,874355414,TECHNICIAN,146504 - Anisah Mohamed: Musai,0,00:00
+188,63020000000075459,,GMT,,Offline,1,63020000000003011,63020000000013989,1,,2,93,ZohoVoice,en,-1,aoglobelife,1736221255229,,Completed,kylelashaydraper@aoglobelife.com,872802830_63020000000075459,,873198496,TECHNICIAN,146322 - Kylelasha Draper: Ibeh,0,00:00
+1235,63020000000582791,,PST,,Offline,1,63020000000013995,63020000000516503,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734839716374,{},Completed,clararussellmartinez@aoglobelife.com,872802830_63020000000582791,,874195677,TECHNICIAN,146303 - Clara RussellMartinez: Hanna,0,00:00
+364,63020000000532001,,PST,,Offline,1,63020000000013995,63020000000516515,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734738351693,{},Completed,jonathanquintal@aoglobelife.com,872802830_63020000000532001,,874120010,TECHNICIAN,146100 - Jonathan Quintal: Hanna,0,00:00
+160,63020000000041669,,PST,,Offline,1,63020000000872221,63020000000032067,1,,2,93,ZohoVoice,en,-1,Lafond,1738787681849,{},Completed,dmagouirk@ailpdx.com,872802830_63020000000041669,,873140013,TECHNICIAN,146090 - Doris Magouirk: La Fond,0,00:00
+235,63020000000150041,,America/Detroit,,Offline,1,63020000000013995,63020000000149241,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736215772127,{},Completed,odelanoy@aodushaj.com,872802830_63020000000150041,,873413440,TECHNICIAN,145723 - Olivia Delanoy: Dushaj,0,00:00
+1245,63020000000567587,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000589521,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734813903144,{},Completed,soonjenpak@aoglobelife.com,872802830_63020000000567587,,873681533,TECHNICIAN,145342 - SoonJen Pak: Bragas,0,00:00
+383,63020000000528597,,PST,,Offline,1,63020000000013995,63020000000541817,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734751584821,{},Completed,pedroalbuquerque@aoglobelife.com,872802830_63020000000528597,,874135329,TECHNICIAN,145086 - Pedro Albuquerque: Hanna,1,00:00
+367,63020000000532411,,PST,,Offline,1,63020000000013995,63020000000511495,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735951299124,{},Completed,emmanuelgrullon@aoglobelife.com,872802830_63020000000532411,,874121657,TECHNICIAN,144807 - Enmanuel Grullon: Stewart,0,00:00
+1262,63020000000693571,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000694309,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736215789934,{},Completed,ashleyyanez@aoglobelife.com,872802830_63020000000693571,,874622069,TECHNICIAN,144025 - Ashley Yanez: Prieto,0,00:00
+329,63020000000496919,,PST,,Offline,1,63020000000013995,63020000000516505,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734633841446,{},Completed,dedangatewood@aoglobelife.com,872802830_63020000000496919,,874060243,TECHNICIAN,143897 - Dedan Gatewood: Hanna,0,00:00
+1252,63020000000599593,,America/Cancun,,Offline,1,63020000000013995,63020000000589543,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734899216954,{},Completed,bionandebarthelemy@aoglobelife.com,872802830_63020000000599593,,874297131,TECHNICIAN,142536 - Bionande Barthelemy: Iftiu,1,00:00
+407,63020000000585339,,PST,,Offline,1,63020000000013995,63020000000511469,1,,2,93,ZohoVoice,en,-1,AOPAVET,1737759366094,{},Completed,tararussell@aoglobelife.com,872802830_63020000000585339,,874193510,TECHNICIAN,142232 - Tara Russell: Iftiu,1,00:00
+312,63020000000484533,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000279351,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736193795176,{},Completed,hassannasser@aoglobelife.com,872802830_63020000000484533,,874025371,TECHNICIAN,141718 - Hasan Nasser: Aljahmi,0,00:00
+386,63020000000525525,,PST,,Offline,1,63020000000013995,63020000000511531,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734650890424,{},Completed,hennyomarmoscoso@aoglobelife.com,872802830_63020000000525525,,874136741,TECHNICIAN,140244 - Henny Omarmoscoso: Hanna,0,00:00
+259,63020000000186509,,GMT,,Offline,1,63020000000013995,63020000000171343,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734502620365,,Completed,raulfossa@aoglobelife.com,872802830_63020000000186509,,873512921,TECHNICIAN,139657 - Raul Fossa: Bragas,0,00:00
+,63020000000038049,,America/Los_Angeles,,,,,63020000000038049,,,,93,ZohoVoice,en,-1,,,,,mistyhale@aoglobelife.com,,,,,168294 - Misty Hale: Ibeh,0,00:00
+,63020000000786423,,PST,,,,,63020000000786423,,,,93,ZohoVoice,en,-1,,,,,carolyngeorge@aoglobelife.com,,,,,163625 - Carolyn George: Shaw,0,00:00
+,63020000000076583,,PST,,,,,63020000000076583,,,,93,ZohoVoice,en,-1,,,,,vtsinovkin@ailpdx.com,,,,,161290 - Valeriy Tsinovkin: La Fond,0,00:00
+,63020000000013035,,GMT,,,,,63020000000013035,,,,93,ZohoVoice,en,-1,,,,,trinitybuchanansalcedo@aoglobelife.com,,,,,160196 - Trinity Salcedo: Marco,0,00:00
+,63020000000511159,,PST,,,,,63020000000511159,,,,93,ZohoVoice,en,-1,,,,,snoorqaradaghi@aoglobelife.com,,,,,159140 - Snoor Qaradaghi: Gojcaj,0,00:00
+,63020000000850127,,PST,,,,,63020000000850127,,,,93,ZohoVoice,en,-1,,,,,mitchboehs@aoglobelife.com,,,,,154581 - Mitchell Boehs [1],0,00:00
+,63020000000544143,,PST,,,,,63020000000544143,,,,93,ZohoVoice,en,-1,,,,,annatrujillo@aoglobelife.com,,,,,151698 - Anna Trujillo: Sedaghat,0,00:00
+,63020000000516495,,PST,,,,,63020000000516495,,,,93,ZohoVoice,en,-1,,,,,nicholaskeeley@aoglobelife.com,,,,,147025 - Nicholas Keeley: Kahwaji,0,00:00
+,63020000000703616,,PST,,,,,63020000000703616,,,,93,ZohoVoice,en,-1,,,,,melissabeale@aoglobelife.com,,,,,144947 - Melissa Beale: Bane,0,00:00
+,63020000000516489,,PST,,,,,63020000000516489,,,,93,ZohoVoice,en,-1,,,,,jaxonbellar@aoglobelife.com,,,,,139828 - Jaxon Bellar: Kahwaji,0,00:00
+,63020000000154987,,PST,,,,,63020000000154987,,,,93,ZohoVoice,en,-1,,,,,daniadominguez@aoglobelife.com,,,,,139252 - Dania Dominguez: Tomonovich,0,00:00
+355,63020000000515857,,PST,,Offline,1,63020000000013995,63020000000511451,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734645643528,{},Completed,justindunbar@aoglobelife.com,872802830_63020000000515857,,874069108,TECHNICIAN,138782 - Justin Dunbar: Iftiu,1,00:00
+285,63020000000242157,,America/Chicago,,Offline,1,63020000000013995,63020000000241189,1,,2,93,ZohoVoice,en,-1,AOPAVET,1738818003804,,Completed,jenniferschmid@aoglobelife.com,872802830_63020000000242157,,873615109,TECHNICIAN,137871 - Jennifer Schmid: Collins,1,00:00
+293,63020000000270709,,GMT,,Offline,1,63020000000013995,63020000000241211,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734122250200,,Completed,isaacortiz@aoglobelife.com,872802830_63020000000270709,,873685678,TECHNICIAN,137809 - Isaac Ortiz: Bragas,0,00:00
+1236,63020000000567177,,PST,,Offline,1,63020000000013995,63020000000511447,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734763729146,{},Completed,makaylacarpenter@aoglobelife.com,872802830_63020000000567177,,874195972,TECHNICIAN,134570 - Makayla Carpenter: Musai,0,00:00
+100,63020000000003015,,PST,,Offline,1,63020000000003011,63020000000003005,1,1,1,93,ZohoVoice,en,-1,aoglobelife,1738868010441,{},Completed,michaelmandella@aoglobelife.com,872802830_63020000000003015,,867823852,ADMIN,13447 - Michael Mandella: AO,1,00:00
+387,63020000000535641,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000538199,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734696341791,{},Completed,syedsalmanquadri@aoglobelife.com,872802830_63020000000535641,,874138109,TECHNICIAN,131396 - Syed Quadri: Hajro,0,00:00
+163,63020000000042509,,PST,,Offline,1,63020000000872221,63020000000044131,1,,2,93,ZohoVoice,en,-1,Lafond,1738278395082,{},Completed,tdavis@ailpdx.com,872802830_63020000000042509,,873144082,TECHNICIAN,131059 - James Davis: La Fond,1,00:00
+136,63020000000033297,,PST,,On Break,1,63020000000013995,63020000000032039,1,,2,93,ZohoVoice,en,-1,AOPAVET,1738865423473,{},Completed,cfimbres@ailpdx.com,872802830_63020000000033297,,873122359,TECHNICIAN,130661 - Candace Fimbres: La Fond,1,00:00
+167,63020000000055145,,PST,,On Break,1,63020000000872221,63020000000032063,1,,2,93,ZohoVoice,en,-1,Lafond,1738520740530,{},Completed,mvillacorta@ailpdx.com,872802830_63020000000055145,,873172976,TECHNICIAN,130491 - Majella Villacorta: La Fond,1,00:00
+400,63020000000554029,,PST,,Offline,1,63020000000013995,63020000000516485,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736010189678,{},Completed,garrettamora@aoglobelife.com,872802830_63020000000554029,,874145861,TECHNICIAN,130157 - Garrett Amora: Kahwaji,0,00:00
+1284,63020000000734643,,America/Cancun,,Offline,1,63020000000013995,63020000000511147,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736190863537,{},Completed,seragejamil@aoglobelife.com,872802830_63020000000734643,,875023576,TECHNICIAN,130081 - Serage Jamil: Alwatan,0,00:00
+281,63020000000220343,,America/Los_Angeles,,Offline,1,63020000000031185,63020000000149249,1,,1,93,ZohoVoice,en,-1,ADMIN,1734053132308,,Completed,joshhoover@aoglobelife.com,872802830_63020000000220343,,873603527,ADMIN,12610 - Josh Hoover: Frazier,0,00:00
+372,63020000000538085,,PST,,Offline,1,63020000000013995,63020000000511517,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734647804558,{},Completed,donaldcho@aoglobelife.com,872802830_63020000000538085,,874130360,TECHNICIAN,125575 - Donald Cho: Martinaj,0,00:00
+189,63020000000040943,,PST,,Offline,1,63020000000872221,63020000000074505,1,,2,93,ZohoVoice,en,-1,Lafond,1737232081184,{},Completed,vwillbur@ailpdx.com,872802830_63020000000040943,,873198946,TECHNICIAN,124422 - Verna Willbur: La Fond,1,00:00
+191,63020000000073599,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000031263,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736226032918,,Completed,davidfulfer@aoglobelife.com,872802830_63020000000073599,,873234773,TECHNICIAN,124235 - David Fulfer: Gojcaj,0,00:00
+300,63020000000356035,,PST,,Offline,1,63020000000013995,63020000000196231,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734553677123,,Completed,danalbell@aoglobelife.com,872802830_63020000000356035,,873858925,TECHNICIAN,123243 - Dana Bell: Prieto,0,00:00
+397,63020000000548041,,PST,,Offline,1,63020000000013995,63020000000545881,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736210770508,{},Completed,marymalek@aoglobelife.com,872802830_63020000000548041,,874143321,TECHNICIAN,121461 - Mary Malek: Getz,0,00:00
+283,63020000000242141,,PST,,On Break,1,63020000000858105,63020000000241063,1,,2,93,ZohoVoice,en,-1,Warner,1738860482659,{},Completed,rebeccadwight@aoglobelife.com,872802830_63020000000242141,,873614244,TECHNICIAN,120876 - Rebecca Dwight: Warner,1,00:00
+314,63020000000493479,,PST,,Offline,1,63020000000013995,63020000000185029,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736224905251,{},Completed,nicolehinz@aoglobelife.com,872802830_63020000000493479,,874027794,TECHNICIAN,119139 - Nicole Hinz: Lagios,0,00:00
+1256,63020000000669211,,US/Arizona,,Offline,1,63020000000013995,63020000000667095,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735945047112,{},Completed,karlykelly@aoglobelife.com,872802830_63020000000669211,,874473264,TECHNICIAN,117017 - Karly Kelly: Kim,0,00:00
+365,63020000000525299,,PST,,Offline,1,63020000000013995,63020000000511463,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735860862959,{},Completed,nadirgjinatori@aoglobelife.com,872802830_63020000000525299,,874119987,TECHNICIAN,113071 - Nadir Gjinatori: Iftiu,1,00:00
+1243,63020000000590095,,PST,,Offline,1,63020000000013995,63020000000511525,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734750669744,{},Completed,endrishkambi@aoglobelife.com,872802830_63020000000590095,,874206358,TECHNICIAN,110294 - Endri Shkambi: Martinaj,0,00:00
+248,63020000000147775,,PST,,Offline,1,63020000000013995,63020000000154979,1,,2,93,ZohoVoice,en,-1,AOPAVET,1735343636748,,Completed,meghanhendrickson@aoglobelife.com,872802830_63020000000147775,,873503079,TECHNICIAN,107127 - Meghan Hendrickson: Jantzen,0,00:00
+349,63020000000515821,,PST,,Offline,1,63020000000013995,63020000000511497,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734694542066,{},Completed,melissagrieb@aoglobelife.com,872802830_63020000000515821,,874064413,TECHNICIAN,104982 - Melissa Grieb: Stewart,0,00:00
+216,63020000000105357,,PST,,Offline,1,63020000000872221,63020000000032065,1,,2,93,ZohoVoice,en,-1,Lafond,1733872255164,{},Completed,mjohnson@ailpdx.com,872802830_63020000000105357,,873327536,TECHNICIAN,103416 - Michelle Ferris: La Fond,1,00:00
+175,63020000000055957,,America/Los_Angeles,,Offline,1,63020000000013995,63020000000065405,1,,2,93,ZohoVoice,en,-1,AOPAVET,1736196191902,,Completed,mconner@aodushaj.com,872802830_63020000000055957,,873183769,TECHNICIAN,103010 - Michael Conner: Dushaj,0,00:00
+241,63020000000154635,,America/Detroit,,Offline,1,63020000000013995,63020000000154623,1,,2,93,ZohoVoice,en,-1,AOPAVET,1734819361493,,Completed,nikollalulgjuraj@aoglobelife.com,872802830_63020000000154635,,873425718,TECHNICIAN,103000 - Nikolla Lulgjuraj: Dushaj,0,00:00
+,63020000000786125,,PST,,,,,63020000000786125,,,,93,ZohoVoice,en,-1,,,,,jamesdavis@aoglobelife.com,,,,,131059 - James Davis: LaFond,0,00:00
+,63020000000673363,,GMT,,,,,63020000000673363,,,,93,ZohoVoice,en,-1,,,,,mikemandella@gmail.com,,,,,12345 - Michael Mandella: AO,0,00:00
+,63020000000833477,,PST,,,,,63020000000833477,,,,93,ZohoVoice,en,-1,,,,,theresamonaghan@aoglobelife.com,,,,,122887 - Theresa Monaghan [1],0,00:00
+,63020000000786399,,PST,,,,,63020000000786399,,,,93,ZohoVoice,en,-1,,,,,maheraltairi@aoglobelife.com,,,,,121377 - Maher Altairi: Aljahmi,0,00:00
+,63020000000786429,,PST,,,,,63020000000786429,,,,93,ZohoVoice,en,-1,,,,,rramirez@aoglobelife.com,,,,,118421 - Rhonda Ramirez: Alford,0,00:00
+,63020000000516483,,PST,,,,,63020000000516483,,,,93,ZohoVoice,en,-1,,,,,saulcarcamo@aoglobelife.com,,,,,113589 - Saul Carcamo: Kahwaji,0,00:00
+,63020000000498351,,GMT,,,,,63020000000498351,,,,93,ZohoVoice,en,-1,,,,,kylecarpenter@aoglobelife.com,,,,,107784 - Kyle Carpenter: Getz,0,00:00

@@ -1,0 +1,71 @@
+Hotlead Auto-Assignment - How it works (current system)
+=======================================================
+
+Source file(s):
+- server/hotlead-auto-assign.ts
+
+Execution cadence:
+- A scheduler starts auto-assign every 60 seconds (see server/index.ts → startAutoAssignScheduler()).
+
+High-level flow:
+1) Load unassigned hotleads
+   - Query: masterlead
+   - Filters:
+     - is_hot_lead = true
+     - cn_email is null (unassigned)
+   - Ordering:
+     - priority_score desc
+     - created_at desc (newest first)
+
+2) Identify active agents
+   - Query: agent_live_call_status (last 5 minutes, status = 'in_call')
+   - Agents without presence are skipped
+
+3) Load agent permissions (market/state)
+   - For each active agent, fetch customers record:
+     - markets (array) and states (array)
+   - Build a map: agent_email → { markets, states }
+
+4) Compute agent load
+   - For each eligible agent, count current callable leads (countCallableLeads):
+     - masterlead filters:
+       - cn_email = agent
+       - dnc = false
+       - taalk_market not in ('Plus Lead','Plus Leads')
+       - cnresolution is null or in ('pending','called','no_answer_vm','new')
+     - Return count (timezone-safe)
+
+5) Sort agents by fewest callable leads
+   - Agents with lower counts receive leads first (helps balance)
+
+6) Assign each hotlead to the first matching agent
+   - For each unassigned hotlead:
+     - Extract lead taalk_market and state (state or taalk_state)
+     - Find the first agent whose:
+       - markets includes lead.taalk_market (strict match)
+       - states includes the lead state (strict match)
+     - If matched:
+       - Update masterlead:
+         - cn_email = agent_email
+         - cnresolution = 'pending'
+         - updated_at = now()
+       - Track distribution fairness by incrementing the agent’s in-memory lead count
+     - If no agent matches, the lead is skipped for this cycle
+
+7) Capacity protection (50 callable cap)
+   - The system relies on global lead capping elsewhere (lead recycling/trim) to keep agents at ≤50 callable leads.
+   - During this loop, the agent lead counts are used to bias assignment away from overloaded agents.
+
+Notes / Caveats:
+- Plus Leads are excluded from callable math and general buffer logic; hotlead path specifically works on masterlead.is_hot_lead=true inventory.
+- Time-of-day/FTC windows are not enforced here; callability windows are considered inside countCallableLeads and at dial-time.
+- Market/state matches are strict; no “allow all” fallback should be used to prevent cross-market leakage.
+- If customers.markets/states are missing or malformed for an agent, that agent will likely be skipped for assignment.
+
+Where to adjust behavior:
+- Change recency/order: server/hotlead-auto-assign.ts (query ordering)
+- Modify active agent definition: agent_live_call_status time window and status filter
+- Enforce per-agent capacity hard cap: guard before assignment if callableCount >= 50
+- Adjust market/state matching: the permission check inside the assignment loop
+
+

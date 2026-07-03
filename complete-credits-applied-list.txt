@@ -1,0 +1,518 @@
+﻿[dotenv@17.2.3] injecting env (2) from .env -- tip: ≡ƒùé∩╕Å backup and recover secrets: https://dotenvx.com/ops
+≡ƒöì COMPLETE LIST OF EVERY USER WHERE CREDITS_USED WAS APPLIED
+
+≡ƒöì CHECKING IF CREDITS_PURCHASED WAS MODIFIED
+
+≡ƒôè Found 1000 user_credits entries created in last 2 hours
+≡ƒôè Found 39 back-billing transactions
+
+   Processed 200/1000...
+   Processed 400/1000...
+   Processed 600/1000...
+   Processed 800/1000...
+   Processed 1000/1000...
+
+≡ƒôï COMPLETE LIST - EVERY USER WHERE CREDITS_USED WAS APPLIED:
+
+pedrodanielortega@aoglobelife.com (associate_id: 217091):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 748 credits (from 103 historical transactions)
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 336 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 1084 credits
+
+cuttercameau@aoglobelife.com (associate_id: 216218):
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 544 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 544 credits
+
+carlosarmandoalfagofarge@aoglobelife.com (associate_id: 205404):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 76 credits (from 19 historical transactions)
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 448 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 524 credits
+
+tabithamcdermid@aoglobelife.com (associate_id: 38431):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 491 credits (from 232 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 491 credits
+
+bridgetcallahan@aoglobelife.com (associate_id: 205226):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 380 credits (from 91 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 380 credits
+
+davidcarpenter@aoglobelife.com (associate_id: 46179):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 364 credits (from 145 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 364 credits
+
+collindickinson@aoglobelife.com (associate_id: 197816):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 361 credits (from 49 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 361 credits
+
+susanabruzzese@aoglobelife.com (associate_id: 180772):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 344 credits (from 129 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 344 credits
+
+kristinlafond@aoglobelife.com (associate_id: 897797):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 325 credits (from 150 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 325 credits
+
+mariapiqueras@aoglobelife.com (associate_id: 216306):
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 272 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 272 credits
+
+karlamendoza@aoglobelife.com (associate_id: 159180):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 226 credits (from 30 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 226 credits
+
+jesserusso@aoglobelife.com (associate_id: 207058):
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 224 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 224 credits
+
+austinwilbert@aoglobelife.com (associate_id: 215248):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 220 credits (from 52 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 220 credits
+
+julieshannon@aoglobelife.com (associate_id: 188631):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 208 credits (from 60 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 208 credits
+
+daeshawagnergonzalez@aoglobelife.com (associate_id: 216305):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 192 credits (from 25 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 192 credits
+
+arthurscott@aoglobelife.com (associate_id: 209153):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 184 credits (from 101 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 656 ΓÜá∩╕Å  (MODIFIED IN LAST 2 HOURS)
+   TOTAL IMPACT: 184 credits
+
+courtlandcarpenter@aoglobelife.com (associate_id: 188348):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 166 credits (from 99 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 166 credits
+
+matthewrobins@aoglobelife.com (associate_id: 204210):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 165 credits (from 74 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 165 credits
+
+lewisjordan@aoglobelife.com (associate_id: 203894):
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 128 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 128 credits
+
+jaredcircle@aoglobelife.com (associate_id: 131768):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 112 credits (from 27 historical transactions)
+   CURRENT credits_used: 16
+   credits_purchased: 0 
+   TOTAL IMPACT: 112 credits
+
+haleydague@aoglobelife.com (associate_id: 208715):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 104 credits (from 14 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 104 credits
+
+franklinbrock@aoglobelife.com (associate_id: 202183):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 100 credits (from 23 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 100 credits
+
+amandagarcia@aoglobelife.com (associate_id: 218375):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 32 credits (from 4 historical transactions)
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 64 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 96 credits
+
+jacobzetoff@aoglobelife.com (associate_id: 205951):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 96 credits (from 12 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 96 credits
+
+jacobmares@aoglobelife.com (associate_id: 197105):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 32 credits (from 4 historical transactions)
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 64 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 96 credits
+
+shaylawilliamson@aoglobelife.com (associate_id: 140502):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 88 credits (from 69 historical transactions)
+   CURRENT credits_used: 424
+   credits_purchased: 0 
+   TOTAL IMPACT: 88 credits
+
+richardlafond@aoglobelife.com (associate_id: 159521):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 88 credits (from 77 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 88 credits
+
+nicholastrudden@aoglobelife.com (associate_id: 212398):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 85 credits (from 35 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 85 credits
+
+danielhern@aoglobelife.com (associate_id: 217094):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 68 credits (from 9 historical transactions)
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 16 credits (1 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 84 credits
+
+jimmyquifille@aoglobelife.com (associate_id: 59326):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 80 credits (from 16 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 80 credits
+
+alliyahpierre@aoglobelife.com (associate_id: 197816):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 8 credits (from 9 historical transactions)
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 64 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 72 credits
+
+ryancarrion@aoglobelife.com (associate_id: 216580):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 24 credits (from 3 historical transactions)
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 48 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 72 credits
+
+emilyrogers@aoglobelife.com (associate_id: 97995):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 64 credits (from 8 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 64 credits
+
+josephesshaki@aoglobelife.com (associate_id: 224629):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 40 credits (from 7 historical transactions)
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 16 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 56 credits
+
+tracejohnson@aoglobelife.com (associate_id: 52356):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 56 credits (from 7 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 56 credits
+
+jamiecattanach@aoglobelife.com (associate_id: 199601):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 53 credits (from 40 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 53 credits
+
+heidimcmullin@aoglobelife.com (associate_id: 122345):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 44 credits (from 19 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 44 credits
+
+lisablanco@aoglobelife.com (associate_id: 213793):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 40 credits (from 68 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 40 credits
+
+sawyerdavis@aoglobelife.com (associate_id: 176766):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 40 credits (from 5 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 40 credits
+
+ryancummings@aoglobelife.com (associate_id: 110970):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 32 credits (from 17 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 32 credits
+
+mohamedalgohaim@aoglobelife.com (associate_id: 200388):
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 32 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 32 credits
+
+tuckerpaynter@aoglobelife.com (associate_id: 194426):
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 32 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 32 credits
+
+brandonschaeffer@aoglobelife.com (associate_id: 173653):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 30 credits (from 6 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 30 credits
+
+tinadang@aoglobelife.com (associate_id: 211469):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 27 credits (from 29 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 27 credits
+
+talayathomas@aoglobelife.com (associate_id: 214222):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 8 credits (from 1 historical transactions)
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 16 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 24 credits
+
+ajlaramic@aoglobelife.com (associate_id: 158414):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 8 credits (from 1 historical transactions)
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 16 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 24 credits
+
+hemawattiemooloo@aoglobelife.com (associate_id: 187284):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 21 credits (from 8 historical transactions)
+   CURRENT credits_used: 1
+   credits_purchased: 0 
+   TOTAL IMPACT: 21 credits
+
+johnsonchase@aoglobelife.com (associate_id: 186879):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 18 credits (from 8 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 18 credits
+
+thuytnguyen@aoglobelife.com (associate_id: 208945):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 17 credits (from 35 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 17 credits
+
+mariahsenter@aoglobelife.com (associate_id: 218182):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 17 credits (from 4 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 17 credits
+
+tkairamirez@aoglobelife.com (associate_id: 216172):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 16 credits (from 2 historical transactions)
+   CURRENT credits_used: 16
+   credits_purchased: 50 ΓÜá∩╕Å  (MODIFIED IN LAST 2 HOURS)
+   TOTAL IMPACT: 16 credits
+
+aidenbauer@aoglobelife.com (associate_id: 218164):
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 16 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 16 credits
+
+alejandromontano@aoglobelife.com (associate_id: 212804):
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 16 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 16 credits
+
+fayesaad@aoglobelife.com (associate_id: 134400):
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 16 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 16 credits
+
+erichjackson@aoglobelife.com (associate_id: 122254):
+   ΓÜá∩╕Å  BACK-BILLING APPLIED: 16 credits (2 transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 16 credits
+
+cierrafranklin@aoglobelife.com (associate_id: 131240):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 15 credits (from 3 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 15 credits
+
+joycemenghamal@aoglobelife.com (associate_id: 215141):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 12 credits (from 5 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 12 credits
+
+williamtemrowski@aoglobelife.com (associate_id: 198575):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 12 credits (from 11 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 12 credits
+
+taylahhudson@aoglobelife.com (associate_id: 56555):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 10 credits (from 2 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 10 credits
+
+meltonjennifer@aoglobelife.com (associate_id: 213052):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 9 credits (from 4 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 9 credits
+
+allissacollins@aoglobelife.com (associate_id: 132872):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 9 credits (from 7 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 9 credits
+
+braderwin@aoglobelife.com (associate_id: 217597):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 8 credits (from 1 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 8 credits
+
+katherinepetersbell@aoglobelife.com (associate_id: 135049):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 8 credits (from 66 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 8 credits
+
+tionnaburke@aoglobelife.com (associate_id: 197395):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 8 credits (from 5 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 8 credits
+
+dontheacampbell@aoglobelife.com (associate_id: 196754):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 8 credits (from 331 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 8 credits
+
+alejandroborges@aoglobelife.com (associate_id: 223802):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 8 credits (from 1 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 8 credits
+
+alishahardsaw@aoglobelife.com (associate_id: 218815):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 6 credits (from 2 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 6 credits
+
+charleslong@aoglobelife.com (associate_id: 223166):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 5 credits (from 1 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 5 credits
+
+hernanplazola@aoglobelife.com (associate_id: 221714):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 5 credits (from 1 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 5 credits
+
+anitradickey@aoglobelife.com (associate_id: 656565):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 5 credits (from 1 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 5 credits
+
+christianchis@aoglobelife.com (associate_id: 221121):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 4 credits (from 1 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 4 credits
+
+kristadunn@aoglobelife.com (associate_id: 201934):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 3 credits (from 1 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 3 credits
+
+janiceanderson@aoglobelife.com (associate_id: 197329):
+   ΓÜá∩╕Å  TRIGGER CALCULATED: 3 credits (from 1 historical transactions)
+   CURRENT credits_used: 0
+   credits_purchased: 0 
+   TOTAL IMPACT: 3 credits
+
+michaelmaccagnano@aoglobelife.com (associate_id: 192311):
+   CURRENT credits_used: 800
+   credits_purchased: 0 
+   TOTAL IMPACT: 0 credits
+
+lucasromero@aoglobelife.com (associate_id: 187740):
+   CURRENT credits_used: 388
+   credits_purchased: 0 
+   TOTAL IMPACT: 0 credits
+
+stevanzaharias@aoglobelife.com (associate_id: 136623):
+   CURRENT credits_used: 100
+   credits_purchased: 0 
+   TOTAL IMPACT: 0 credits
+
+vanessadonchev@aoglobelife.com (associate_id: 183895):
+   CURRENT credits_used: 90
+   credits_purchased: 0 
+   TOTAL IMPACT: 0 credits
+
+trevorwaka@aoglobelife.com (associate_id: 205295):
+   CURRENT credits_used: 15
+   credits_purchased: 0 
+   TOTAL IMPACT: 0 credits
+
+davidnieves@aoglobelife.com (associate_id: 176377):
+   CURRENT credits_used: 13
+   credits_purchased: 0 
+   TOTAL IMPACT: 0 credits
+
+janellefischer@aoglobelife.com (associate_id: 128366):
+   CURRENT credits_used: 5
+   credits_purchased: 0 
+   TOTAL IMPACT: 0 credits
+
+morgannegervais@aoglobelife.com (associate_id: 182383):
+   CURRENT credits_used: 1
+   credits_purchased: 0 
+   TOTAL IMPACT: 0 credits
+
+christopherrolph@aoglobelife.com (associate_id: 72017):
+   CURRENT credits_used: 1
+   credits_purchased: 0 
+   TOTAL IMPACT: 0 credits
+
+
+≡ƒôè SUMMARY:
+   Total users with credits applied: 82
+   Total trigger-calculated credits: 6036
+   Total back-billing credits: 2384
+   GRAND TOTAL CREDITS APPLIED: 8420
+   Users with credits_purchased modified: 2
+
+ΓÜá∩╕Å  WARNING: credits_purchased WAS MODIFIED for 2 users!

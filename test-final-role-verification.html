@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Final Role Verification Test</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .url-test {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        .url-test.client {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .url-test.agent {
+            border-color: #22c55e;
+            background: #f0fdf4;
+        }
+        .test-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .test-btn.client { background: #3b82f6; }
+        .test-btn.agent { background: #22c55e; }
+        .expected {
+            background: #fef3c7;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Final Video Role Detection Test</h1>
+        <p>Test both agent and client video meeting URLs to verify proper role detection with enhanced visual indicators.</p>
+        
+        <div class="url-test client">
+            <h2>🔵 CLIENT TEST</h2>
+            <p><strong>URL:</strong> <code>/video-meeting?room=test-client-final&role=client&leadName=Test%20Client</code></p>
+            <div class="expected">
+                <strong>Expected Results:</strong>
+                <ul>
+                    <li>Browser tab title: "Client Joining Meeting"</li>
+                    <li>Video shows: <span style="color: #3b82f6;">🔵 CLIENT JOINING MEETING</span></li>
+                    <li>Subtitle: "Connecting to agent..."</li>
+                    <li>Console: "🎭 Role detected: Client (PARTICIPANT)"</li>
+                </ul>
+            </div>
+            <a href="/video-meeting?room=test-client-final&role=client&leadName=Test%20Client" 
+               target="_blank" 
+               class="test-btn client">
+                🔵 OPEN CLIENT MEETING
+            </a>
+        </div>
+        
+        <div class="url-test agent">
+            <h2>🎯 AGENT TEST</h2>
+            <p><strong>URL:</strong> <code>/video-meeting?room=test-agent-final&role=agent&leadName=Test%20Client</code></p>
+            <div class="expected">
+                <strong>Expected Results:</strong>
+                <ul>
+                    <li>Browser tab title: "Agent Meeting Room"</li>
+                    <li>Video shows: <span style="color: #22c55e;">🎯 AGENT MEETING ROOM</span></li>
+                    <li>Subtitle: "Waiting for Test Client to join..."</li>
+                    <li>Console: "🎭 Role detected: Agent (HOST)"</li>
+                </ul>
+            </div>
+            <a href="/video-meeting?room=test-agent-final&role=agent&leadName=Test%20Client" 
+               target="_blank" 
+               class="test-btn agent">
+                🎯 OPEN AGENT MEETING
+            </a>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 15px; background: #f8fafc; border-radius: 6px;">
+            <h3>🔍 Debug Checklist</h3>
+            <ol>
+                <li>Open browser developer console (F12)</li>
+                <li>Click CLIENT test button</li>
+                <li>Check tab title and video message color/text</li>
+                <li>Look for console logs starting with "🎭 Role detected:" and "🔍 ROLE CHECKS:"</li>
+                <li>Repeat for AGENT test button</li>
+            </ol>
+            <p><strong>If client still shows as agent:</strong> The issue is deeper in the component rendering or there's a caching problem.</p>
+        </div>
+    </div>
+</body>
+</html>

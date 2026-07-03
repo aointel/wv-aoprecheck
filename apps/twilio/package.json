@@ -1,0 +1,9 @@
+{
+  "name": "aoirail-twilio",
+  "private": true,
+  "description": "Twilio server – voice, WebRTC, call APIs. Compartmentalized build. Set Railway Root Directory to apps/twilio.",
+  "scripts": {
+    "build": "cd ../.. && npm ci && npm run build:twilio",
+    "start": "cd ../.. && node dist/twilio.js"
+  }
+}

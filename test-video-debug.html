@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Debug Test</title>
+    <script src="https://media.twiliocdn.com/sdk/js/video/releases/2.20.0/twilio-video.min.js"></script>
+</head>
+<body>
+    <h2>Video Connection Debug</h2>
+    
+    <div>
+        <h3>Agent Window</h3>
+        <button onclick="connectAsAgent()">Connect as Agent</button>
+        <div id="agent-local" style="width:200px;height:150px;border:1px solid red;"></div>
+        <div id="agent-remote" style="width:200px;height:150px;border:1px solid blue;"></div>
+    </div>
+    
+    <div>
+        <h3>Client Window</h3>
+        <button onclick="connectAsClient()">Connect as Client</button>
+        <div id="client-local" style="width:200px;height:150px;border:1px solid red;"></div>
+        <div id="client-remote" style="width:200px;height:150px;border:1px solid blue;"></div>
+    </div>
+    
+    <div id="debug"></div>
+
+    <script>
+        let agentRoom = null;
+        let clientRoom = null;
+        
+        function log(message) {
+            console.log(message);
+            document.getElementById('debug').innerHTML += '<br>' + message;
+        }
+
+        async function getToken(identity) {
+            const response = await fetch('/api/video/token', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    identity: identity,
+                    room: 'test-room-debug' 
+                })
+            });
+            const data = await response.json();
+            log(`Token received for ${identity}: ${data.token ? 'YES' : 'NO'}`);
+            return data.token;
+        }
+
+        async function connectAsAgent() {
+            try {
+                log('Agent: Getting token...');
+                const token = await getToken('TestAgent');
+                
+                log('Agent: Connecting to room...');
+                agentRoom = await Twilio.Video.connect(token, {
+                    name: 'test-room-debug',
+                    audio: true,
+                    video: true
+                });
+                
+                log(`Agent: Connected! Room has ${agentRoom.participants.size} other participants`);
+                
+                // Handle local video
+                agentRoom.localParticipant.videoTracks.forEach(publication => {
+                    if (publication.track) {
+                        const video = publication.track.attach();
+                        document.getElementById('agent-local').appendChild(video);
+                    }
+                });
+                
+                // Handle remote participants
+                agentRoom.participants.forEach(addRemoteParticipant);
+                agentRoom.on('participantConnected', addRemoteParticipant);
+                
+                function addRemoteParticipant(participant) {
+                    log(`Agent: Remote participant joined: ${participant.identity}`);
+                    
+                    participant.tracks.forEach(publication => {
+                        if (publication.isSubscribed && publication.track && publication.track.kind === 'video') {
+                            const video = publication.track.attach();
+                            document.getElementById('agent-remote').appendChild(video);
+                            log('Agent: Remote video attached!');
+                        }
+                    });
+                    
+                    participant.on('trackSubscribed', track => {
+                        log(`Agent: Track subscribed: ${track.kind}`);
+                        if (track.kind === 'video') {
+                            const video = track.attach();
+                            document.getElementById('agent-remote').appendChild(video);
+                            log('Agent: Remote video attached via subscription!');
+                        }
+                    });
+                }
+                
+            } catch (error) {
+                log(`Agent error: ${error.message}`);
+            }
+        }
+
+        async function connectAsClient() {
+            try {
+                log('Client: Getting token...');
+                const token = await getToken('TestClient');
+                
+                log('Client: Connecting to room...');
+                clientRoom = await Twilio.Video.connect(token, {
+                    name: 'test-room-debug',
+                    audio: true,
+                    video: true
+                });
+                
+                log(`Client: Connected! Room has ${clientRoom.participants.size} other participants`);
+                
+                // Handle local video
+                clientRoom.localParticipant.videoTracks.forEach(publication => {
+                    if (publication.track) {
+                        const video = publication.track.attach();
+                        document.getElementById('client-local').appendChild(video);
+                    }
+                });
+                
+                // Handle remote participants
+                clientRoom.participants.forEach(addRemoteParticipant);
+                clientRoom.on('participantConnected', addRemoteParticipant);
+                
+                function addRemoteParticipant(participant) {
+                    log(`Client: Remote participant joined: ${participant.identity}`);
+                    
+                    participant.tracks.forEach(publication => {
+                        if (publication.isSubscribed && publication.track && publication.track.kind === 'video') {
+                            const video = publication.track.attach();
+                            document.getElementById('client-remote').appendChild(video);
+                            log('Client: Remote video attached!');
+                        }
+                    });
+                    
+                    participant.on('trackSubscribed', track => {
+                        log(`Client: Track subscribed: ${track.kind}`);
+                        if (track.kind === 'video') {
+                            const video = track.attach();
+                            document.getElementById('client-remote').appendChild(video);
+                            log('Client: Remote video attached via subscription!');
+                        }
+                    });
+                }
+                
+            } catch (error) {
+                log(`Client error: ${error.message}`);
+            }
+        }
+    </script>
+</body>
+</html>

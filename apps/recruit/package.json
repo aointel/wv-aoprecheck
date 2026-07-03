@@ -1,0 +1,9 @@
+{
+  "name": "aoirail-recruit",
+  "private": true,
+  "description": "Recruit server – AO Recruit UI and APIs. Set Railway Root Directory to apps/recruit.",
+  "scripts": {
+    "build": "cd ../.. && npm ci && npm run build",
+    "start": "cd ../.. && npx cross-env SECTION=recruit node dist/index.js"
+  }
+}

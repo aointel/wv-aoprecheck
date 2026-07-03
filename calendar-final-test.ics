@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//AO Intelligence//ConnectNow//EN
+BEGIN:VEVENT
+UID:appointment-final-test@aointelligence.com
+DTSTAMP:20250810T011254Z
+DTSTART:20250812T190000Z
+DTEND:20250812T200000Z
+SUMMARY:Final Calendar Test
+DESCRIPTION:Meeting scheduled through ConnectNow\n\nClient: Calendar User\nPhone: 555-7777
+LOCATION:ConnectNow Virtual Meeting
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Appointment reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR

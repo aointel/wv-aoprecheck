@@ -1,0 +1,49 @@
+{
+  "sessionId": "VER-1753330203517-Kctzrp",
+  "phone": "+15032018470",
+  "clientName": "Michael Mandella",
+  "verificationMethod": "phone",
+  "eventType": "start_verification_call",
+  "timestamp": "2025-01-24T14:35:00Z",
+  
+  "clientInfo": {
+    "firstName": "Michael",
+    "lastName": "Mandella",
+    "spouseName": "test234",
+    "city": "Kirkland",
+    "state": "WA",
+    "premium": "$92",
+    "phone": "+15032018470"
+  },
+  
+  "verificationStatus": {
+    "clientApprovalStatus": "approved",
+    "clientApprovalTime": "2025-07-24T04:13:44.686Z",
+    "screenshotUploaded": true,
+    "smsVerificationSent": false,
+    "overallStatus": "pending"
+  },
+  
+  "clientLocation": {
+    "country": "United States",
+    "region": "Washington",
+    "city": "Kirkland",
+    "coordinates": "47.6768, -122.2059",
+    "timezone": "America/Los_Angeles",
+    "isp": "Comcast Cable",
+    "ipAddress": "127.0.0.1"
+  },
+  
+  "instructions": {
+    "message": "Initiate phone verification call",
+    "speakerPhoneRequired": true,
+    "agentAction": "Agent should enable speaker phone and take screenshot during call",
+    "expectedResponse": "Send verification_complete event when call is finished"
+  },
+  
+  "systemUrls": {
+    "webhookUrl": "https://your-app.replit.app/api/webhook/sms-events",
+    "agentVerificationUrl": "https://your-app.replit.app/agent-verify/VER-1753330203517-Kctzrp",
+    "clientVerificationUrl": "https://your-app.replit.app/client-verify/VER-1753330203517-Kctzrp"
+  }
+}

@@ -1,0 +1,39 @@
+AO Intelligence Software License Agreement
+
+Welcome to AO Intelligence, powered by ConnectNow!
+
+END USER LICENSE AGREEMENT (EULA)
+
+This End User License Agreement ("EULA") is a legal agreement between you and AO Intelligence for the AO Intelligence software application ("Software").
+
+By installing, copying, or otherwise using the Software, you agree to be bound by the terms of this EULA.
+
+GRANT OF LICENSE
+AO Intelligence grants you a non-exclusive, non-transferable license to use the Software on a single computer or workstation.
+
+DESCRIPTION OF SOFTWARE
+AO Intelligence is a professional outbound calling dialer application designed to streamline sales processes and enhance agent productivity through integrated calling and lead management features.
+
+RESTRICTIONS
+You may not:
+- Reverse engineer, decompile, or disassemble the Software
+- Rent, lease, or sublicense the Software to third parties
+- Remove or alter any copyright notices or proprietary markings
+
+TERMINATION
+This license is effective until terminated. It will terminate automatically if you fail to comply with any term of this EULA.
+
+DISCLAIMER OF WARRANTY
+The Software is provided "AS IS" without warranty of any kind. AO Intelligence disclaims all warranties, whether express or implied.
+
+LIMITATION OF LIABILITY
+In no event shall AO Intelligence be liable for any damages arising out of the use or inability to use the Software.
+
+COPYRIGHT
+The Software is protected by copyright laws and international copyright treaties.
+
+ENTIRE AGREEMENT
+This EULA constitutes the complete agreement between you and AO Intelligence regarding the Software.
+
+© 2025 AO Intelligence. All rights reserved.
+Powered by ConnectNow - Professional Sales Communication Platform

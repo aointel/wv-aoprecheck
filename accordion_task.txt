@@ -1,0 +1,114 @@
+﻿Refactor client/src/pages/application/SeniorComboWizard.tsx from a linear step wizard to an accordion/tab layout.
+
+## Core principle
+Agent can jump between any section freely at any time. No gating. Sync button is blocked until minimum required fields are filled. Auto-saves to /api/application/state every 2s (keep existing useEffect).
+
+## Keep ALL existing:
+- All TypeScript interfaces (PersonDoctor, PersonDetails, ReplacementInfo, AppMeta, SeniorComboState, etc.)
+- All defaultXxx() functions
+- BUILD_CHART and getBuildResult()
+- SENIOR_MQ array (14 questions)  
+- EAPP_BIRTHPLACES array
+- DL_STATES array
+- RELATIONSHIPS array
+- NpiResult interface
+- isVAProvider() function
+- DoctorLookupInline component
+- DrLookup component (used in Rx)
+- BeneRow + BeneStep components
+- BankingStep component (routing lookup, double-entry confirm)
+- MQStep component (yes/no per question, who-does-this-apply-to on yes)
+- DeclineBanner component
+- WizardProps interface
+- handleSync() function
+- auto-save useEffect
+- prefillDetails() with inject pre-filling
+- All server call logic
+
+## New layout: Accordion with 6 sections
+
+Each section has a header that expands/collapses. All start EXPANDED. Section headers show completion status (✓ green / ⚠ yellow / required fields missing).
+
+### Section 1: "Who's Applying"
+Content from current SetupStep:
+- Primary name (editable, ALL CAPS)
+- Spouse toggle (on app? Yes/No)
+- If spouse on app: spouse name (editable), life coverage toggle
+
+### Section 2: "Personal Info"  
+Content from current CombinedDetailsStep — both people side by side:
+- Height / Weight / Tobacco (per person columns)
+- Build chart result inline
+- I SAW checkbox per person (agent personally saw insured, defaults true) — label: "Agent saw [NAME] ☐"
+- Place of Birth (searchable from EAPP_BIRTHPLACES)
+- Non-US resident toggle (small, inline with birthplace label)
+- Driver's License # + State
+- SSN + Confirm (double entry, masked)
+- Secondary/Cell phone
+- Best time to call (dropdown: Morning / Afternoon / Evening / Anytime)
+- Occupation + Employer (if retired, auto-fill both with "Retired")
+- Doctor: NPI lookup (compact inline), name, address, phone, date last seen, medical records ID (optional)
+- VA warning if VA doctor detected
+
+### Section 3: "Medical Questions"
+Content from current MQStep component — inline, not modal:
+- 14 questions listed, each with Yes/No buttons
+- On Yes (with spouse): show "Who?" picker inline (Primary / Spouse / Both)
+- Tobacco pre-filled from Section 2
+- Decline banner at bottom if any Yes answers
+
+### Section 4: "Coverage & Replacement"
+- Replacement question per person (Yes/No toggle, default No)
+  - If Yes: amount of insurance, type, company, benefit (4 fields)
+- Primary Beneficiary (BeneRow: name + relationship dropdown) — pre-filled with spouse
+- Contingent Beneficiary (BeneRow: name + relationship dropdown) — required
+- Spouse beneficiary set (same, if spouse has life)
+
+### Section 5: "Prescriptions (Rx)"
+Content from current RxStep:
+- One tab per person (if spouse on app)
+- Each medication: drug name, dosage, reason, duration, doctor (NPI lookup)
+- Add medication button
+
+### Section 6: "Banking & Finalize"  
+Content from current BankingStep (routing lookup, double-entry confirm) plus:
+- Mail to: Agency / Policyholder (toggle, defaults Policyholder) — label "Mail Policy to"
+- Additional Remarks (textarea, maps to Application.Comments FDS)
+- SYNC TO eAPP button — disabled with tooltip listing missing required fields until:
+  * Weight entered for all insureds
+  * Primary beneficiary name + relationship filled
+  * Contingent beneficiary name + relationship filled
+  * Routing + account confirmed (or skipped if no banking)
+  
+## Sync button requirement list (show as bullet list when disabled):
+- "Weight required for [name]"
+- "Primary beneficiary required for [name]'s policy"
+- "Contingent beneficiary required for [name]'s policy"
+- "Routing number confirmation must match"
+- "Account number confirmation must match"
+
+## Styling
+Same dark theme: bg-slate-900 page, bg-slate-800 section cards, cyan-500 accents.
+Section headers: bg-slate-800 border border-slate-700 rounded-xl p-4 cursor-pointer flex items-center justify-between
+Completion badge: green "✓ Complete" or yellow "⚠ [n] fields missing" or red "✗ Required"
+
+## handleSync body (keep exactly):
+Pass primaryDetails and spouseDetails as full objects to server so doctor info flows through.
+Pass appMeta.remarks as remarks field, appMeta.mailTo as mailTo.
+Pass iSaw per person.
+
+## File structure
+Single file, keep all imports at top. The main export default is the accordion component.
+The index.tsx already handles loading savedState, inject, presentationGuid and passes them as props — keep WizardProps interface compatible.
+
+## Additional fields to add to handleSync body:
+- primaryISaw: state.primaryDetails.iSaw
+- spouseISaw: state.spouseDetails.iSaw  
+- primaryCellPhone: state.primaryDetails.cellPhone
+- spouseCellPhone: state.spouseDetails.cellPhone
+- primaryBestTimeToCall: state.primaryDetails.bestTimeToCall
+- spouseBestTimeToCall: state.spouseDetails.bestTimeToCall
+- remarks: state.appMeta.remarks
+- mailTo: state.appMeta.mailTo
+
+When completely finished, run: openclaw system event --text "Done: rebuilt AOI Application as accordion - all sections free-navigate, ISaw, secondary phone, best time, remarks, mailTo, sync validation" --mode now

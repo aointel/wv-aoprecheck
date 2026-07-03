@@ -1,0 +1,599 @@
+================================================================================
+TASKROUTER + WEBRTC INBOUND ROUTES — CODE & CONFIG REFERENCE
+================================================================================
+(Use this to trace why a 609 call might not create a task or get assigned.)
+
+--------------------------------------------------------------------------------
+LIVE CALL DIAGNOSTICS — STOP GUESSING, CHECK THE REAL REQUEST/RESPONSE
+--------------------------------------------------------------------------------
+For a live call you just made to 609:
+
+A. GET THE CALL SID
+   npx tsx server/scripts/list-recent-609-calls.ts
+   Find the call you just made (by time). Note the SID (CA...).
+
+B. TWILIO REQUEST INSPECTOR (authoritative)
+   1. Open: https://console.twilio.com/us1/monitor/logs/calls
+   2. Click the call (or open .../calls?sid=CA_YOUR_CALL_SID).
+   3. In the call detail, find the request to your Voice URL (Request Inspector).
+   CONFIRM:
+   - Request URL = https://aoirail-production-baa2.up.railway.app/incomingcall
+   - Method = POST
+   - Response code = 200
+   - Response body = exact XML containing <Enqueue workflowSid="WW7c3e36b25267cd0489d855dd0b195f3e">...
+   If the response body is NOT Enqueue TwiML (e.g. error HTML, timeout, redirect), the issue is
+   webhook path/response, NOT TaskRouter. Fix that first.
+
+C. OUR SERVER LOGS (what we actually sent)
+   In Railway (or your host) logs, search for: LIVE_CALL_INCOMINGCALL
+   You will see one line per request to /incomingcall with:
+   method=POST url=/incomingcall CallSid=CA... From=+1... To=+1... status=200 body=<full TwiML>
+   If you do NOT see LIVE_CALL_INCOMINGCALL for your call, Twilio did not hit /incomingcall
+   (wrong Voice URL or TwiML App overriding).
+
+D. HIERARCHY (debug in this order)
+   1. Did the real inbound call get Enqueue TwiML from /incomingcall? (Request Inspector + LIVE_CALL_INCOMINGCALL log)
+   2. If yes, did that create a Task? (TaskRouter → Tasks, or script that lists tasks by call_sid)
+   3. Only after that: Worker availability, reservation, assignment callback, contact_uri.
+
+--------------------------------------------------------------------------------
+609 DEDICATED WEBHOOK: /incomingcall (USE THIS)
+--------------------------------------------------------------------------------
+One path, one job: call hits 609 → Twilio POSTs to /incomingcall → we return
+Enqueue TwiML only. No /webhook/webrtc branching, no agent checks, no SECTION
+or other middleware logic — just enqueue to TaskRouter.
+
+1. Set 609 Voice URL to: https://aoirail-production-baa2.up.railway.app/incomingcall
+2. Clear TwiML App on the 609 number so Twilio uses the number's voiceUrl.
+3. Run: npx tsx server/scripts/set-609-voice-incomingcall.ts
+4. Verify: npx tsx server/scripts/check-609-voice-url.ts
+   Should say: "OK: 609 points at baa2 /incomingcall (dedicated TaskRouter webhook)"
+
+609 handler: one path only. GET/POST /incomingcall synchronously returns valid
+<Enqueue workflowSid="..."><Task attributes="..."/></Enqueue> TwiML (or fallback
+Say+Hangup on error). Single try/catch; no Dial, no fallthrough. TaskRouter
+functions (getWorkflowSidForEnqueue, buildEnqueueTwiML, isTaskRouterConfigured)
+are statically imported so no async in the 609 branch.
+
+Example TwiML returned on success (TaskRouter expects <Task> body = JSON, not <Task attributes="..."/>):
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Enqueue workflowSid="WW7c3e36b25267cd0489d855dd0b195f3e" waitUrl="http://twimlets.com/holdmusic?Bucket=com.twilio.music.soft-rock">
+    <Task>{&quot;call_sid&quot;:&quot;CA_TEST_123&quot;,&quot;phone_number&quot;:&quot;+15032018470&quot;,&quot;routing_target&quot;:&quot;inbound609&quot;}</Task>
+  </Enqueue>
+</Response>
+(Paste your actual response to verify it can create a TaskRouter task.)
+
+--------------------------------------------------------------------------------
+HOW THE DATABASE DECIDES WHERE THE CALL GOES (THE TWO CHECKS)
+--------------------------------------------------------------------------------
+Every inbound 609 call is checked against our DB in two places:
+
+1) WHEN THE CALL HITS /incomingcall (server/routes.ts handleIncomingCall)
+   - We take Twilio "From" (caller phone), strip to last 10 digits.
+   - DB: supabaseAdmin.from('masterlead')
+         .select('id, state, taalk_market, first_name, last_name, taalk_lead_id, email, cn_email')
+         .ilike('phone', '%' + callerLast10 + '%')
+         .order('updated_at', { ascending: false })
+         .limit(1)
+         .maybeSingle()
+   - That row gives us: market (taalk_market), state, lead name, lead_id, etc.
+   - We build task attributes with buildTaskAttributesForEnqueue({ market: leadMarket, state: leadState, ... })
+     and return <Enqueue><Task>...</Task></Enqueue>. So "where the call goes" (market/state) is
+     determined by OUR DATABASE (masterlead) from the caller's phone number.
+   - If no row found: we still enqueue with market='Unknown', state='XX'.
+
+2) WHO CAN TAKE IT — WORKER ATTRIBUTES FROM OUR DB (customers)
+   - When an agent goes online: POST /api/agents/voice-online (routes.ts) loads
+     supabaseAdmin.from('customers').select('market, states, associate_id, first_name, last_name')
+     .eq('company_email', email) or .eq('personal_email', email).
+   - That customer row is passed to setWorkerAvailableForVoice(email, customer) →
+     buildWorkerAttributesForVoice() → markets[] and licensed_states[] from customer.
+   - syncWorker() writes those to the Twilio Worker. So "who is eligible" is from OUR
+     DATABASE (customers) — market and states columns.
+   - Bulk sync: sync-taskrouter-workers.ts does the same (reads customers, syncs Workers).
+
+3) MATCHING (assignment callback)
+   - When TaskRouter offers a task to a worker, we get task_attributes (market, state from
+     masterlead) and worker_attributes (markets, licensed_states from customers).
+   - We reject if task market not in worker.markets or task state not in worker.licensed_states.
+   - So: call routing is 100% driven by masterlead (caller → task) and customers (agent →
+     worker). No routing decision happens without our DB.
+
+--------------------------------------------------------------------------------
+LEAD DATA + ROUTING: CROSS-REF INCOMING PHONE WITH MASTERLEAD
+--------------------------------------------------------------------------------
+/incomingcall looks up the caller by From (incoming phone) in masterlead:
+  masterlead ilike phone %last10, order updated_at desc, limit 1.
+Task attributes then include: lead_id, market (taalk_market), state, lead_name,
+first_name, last_name, taalk_lead_id, lead_email, routing_target (inbound609).
+So lead and routing info move with the task to the assignment callback and UI.
+
+--------------------------------------------------------------------------------
+WORKER ATTRIBUTES (STATE & MARKETS) — HOW TASKROUTER KNOWS WHERE CALLS CAN GO
+--------------------------------------------------------------------------------
+TaskRouter routes by matching TASK attributes (market, state from the lead) to WORKER
+attributes (markets, licensed_states from the agent/customer).
+
+Where worker attributes come from:
+- customers table: market (single or array), states (array or string). Synced into
+  TaskRouter when workers are created/updated.
+- sync-taskrouter-workers.ts: reads customers (market, states), builds Worker attrs
+  via buildWorkerAttributesForVoice(email, customer) → markets[], licensed_states[].
+- voice-online (POST /api/agents/voice-online): when an agent goes online we fetch
+  their customer row by company_email/personal_email (market, states, associate_id,
+  first_name, last_name) and pass it to setWorkerAvailableForVoice(email, customer).
+  So the Worker in TaskRouter gets that agent's markets and licensed_states.
+
+TaskRouter service: parseMarketFromCustomer(c) → string[], parseStatesFromCustomer(c)
+→ string[]; buildWorkerAttributesForVoice(agentEmail, customer) sets
+attrs.markets and attrs.licensed_states (or defaults to markets: ['Unknown'] if no
+customer). syncWorker() writes these to the Twilio Worker.
+
+Routing use:
+- Assignment callback (POST /api/twilio/taskrouter/assignment): before returning
+  dequeue, we check task market/state vs worker markets/licensed_states. If the task
+  has a market and the worker's markets list is non-empty and does not include that
+  market, we return instruction "reject" so TaskRouter offers to the next worker.
+  Same for state vs licensed_states. So only workers whose markets include the task's
+  market and whose licensed_states include the task's state get the call (or workers
+  with no markets/states set accept any).
+
+--------------------------------------------------------------------------------
+INBOUND CALL LOOKUP → AGENT DISPLAY (FULL DATA FLOW)
+--------------------------------------------------------------------------------
+1) LOOKUP WHEN CALL COMES IN (server/routes.ts handleIncomingCall)
+   - Twilio POSTs to /incomingcall with From (caller phone).
+   - We take From, strip to last 10 digits: callerLast10.
+   - DB: supabaseAdmin.from('masterlead')
+         .select('id, state, taalk_market, first_name, last_name, taalk_lead_id, email, cn_email')
+         .ilike('phone', '%' + callerLast10 + '%')
+         .order('updated_at', { ascending: false })
+         .limit(1)
+         .maybeSingle()
+   - One row: we set leadMarket (taalk_market), leadState (state), leadName (first_name + last_name),
+     leadId, firstName, lastName, taalkLeadId, leadEmail. If no row: market='Unknown', state='XX'.
+
+2) TASK ATTRIBUTES (same handler)
+   - buildTaskAttributesForEnqueue({ call_sid, lead_id, market: leadMarket, state: leadState,
+     phone_number, lead_name, first_name, last_name, taalk_lead_id, lead_email, routing_target: 'inbound609' }).
+   - That JSON goes into <Enqueue><Task>...</Task></Enqueue> and is the task's attributes in TaskRouter.
+
+3) ASSIGNMENT CALLBACK STORES IT (server/routes.ts POST /api/twilio/taskrouter/assignment)
+   - When we return dequeue, we upsert into Supabase taskrouter_pending:
+     reservation_sid, task_sid, worker_sid, worker_attributes, task_attributes, created_at.
+   - task_attributes is the same JSON (Twilio sends it in the callback body as TaskAttributes).
+   So the lead/caller data from masterlead is now in taskrouter_pending.task_attributes.
+
+4) AGENT UI READS PENDING (client OutboundDialerInterface.tsx)
+   - Every 280ms: GET /api/twilio/taskrouter/pending?agentEmail=<agent>
+   - Backend (routes.ts GET /api/twilio/taskrouter/pending): reads ONLY from Supabase
+     (taskrouter_injected_pending + taskrouter_pending), filters by agent (worker_attributes
+     agent_email or contact_uri match). No in-memory merge — DB is the single source of truth.
+   - Response: { pending: [ { reservationSid, taskSid, workerSid, workerAttributes, taskAttributes, createdAt } ] }.
+
+5) FRONTEND BUILDS "LEAD" FOR THE PANEL (OutboundDialerInterface.tsx)
+   - For the first pending item for this agent we set state: taskRouterPending = { taskSid, reservationSid, taskAttributes }.
+   - inboundPanelLead is derived from taskRouterPending.taskAttributes (parse JSON):
+     phone = attrs.phone_number || attrs.phone
+     state = attrs.state
+     market = attrs.market || 'Inbound'
+     name = attrs.lead_name || [attrs.first_name, attrs.last_name].filter(Boolean).join(' ') || 'Inbound Call'
+     (+ id from lead_id/taskSid, taalk_market from market).
+   - That lead is passed to InboundCallHeaderPanel as prop "lead".
+
+6) AGENT DISPLAY (InboundCallHeaderPanel.tsx)
+   - Shows: clientName = lead.name (from lead_name or first_name + last_name), market badge (lead.market/taalk_market),
+     and the Answer/Reject UI. So the caller name, market, phone, state that came from masterlead
+     are what the agent sees.
+
+End-to-end: masterlead row (by caller phone) → task attributes → taskrouter_pending.task_attributes →
+GET pending → taskAttributes parsed to lead → InboundCallHeaderPanel shows lead name/market.
+
+--------------------------------------------------------------------------------
+WHAT'S HAPPENING WITH THE CALL (EXACT SEQUENCE)
+--------------------------------------------------------------------------------
+1. Caller dials 609
+   → Twilio POSTs to /incomingcall (From = caller phone).
+
+2. /incomingcall (handleIncomingCall)
+   → Looks up masterlead by caller phone (last 10 digits).
+   → Builds task attributes (market, state, lead_name, phone_number, etc.).
+   → Returns <Enqueue workflowSid="..."><Task>attributes JSON</Task></Enqueue>.
+   → Twilio answers the call, puts it in the queue, plays hold music.
+
+3. TaskRouter
+   → Creates a task with those attributes.
+   → Runs workflow, finds eligible workers (market/state from Worker attributes).
+   → Offers reservation to first worker → POST to assignment callback URL.
+
+4. POST /api/twilio/taskrouter/assignment
+   → Parses TaskAttributes (market, state) and WorkerAttributes (markets, licensed_states).
+   → If market/state mismatch: returns { instruction: "reject" }. No DB write. TaskRouter offers to next worker.
+   → If match (or no filter): builds dequeue payload (to = client:<agent_email>).
+   → Puts reservation in in-memory pendingReservations (still used for accept/reject lookup).
+   → Starts upsert to Supabase taskrouter_pending (reservation_sid, task_sid, worker_attributes, task_attributes, created_at) — fire-and-forget, NOT awaited.
+   → Returns 200 + { instruction: "dequeue", from: DEQUEUE_FROM, to } immediately.
+   → Twilio must get this response quickly; awaiting the upsert here caused routing to break.
+
+5. Twilio (on dequeue)
+   → Bridges the queued call to the worker's client (WebRTC). Caller stops hearing hold; agent's phone/client rings.
+
+6. Frontend (OutboundDialerInterface)
+   → Polls GET /api/twilio/taskrouter/pending every 280ms.
+   → Backend reads ONLY from Supabase (taskrouter_pending + taskrouter_injected_pending), filters by agentEmail.
+   → If a row exists for this agent: response has pending[0] with taskAttributes, createdAt.
+   → Frontend sets taskRouterPending → inboundPanelState = 'ringing', builds inboundPanelLead from taskAttributes, shows InboundCallHeaderPanel (card + fuse bar).
+   → Fuse: deadline = createdAt + 4s (matches TaskRouter reservation timeout).
+
+7. Race (why card can lag by one or two polls)
+   → Assignment callback returns dequeue before the Supabase upsert completes.
+   → So for ~50–200ms+ the row may not be in taskrouter_pending yet.
+   → GET /pending only reads Supabase, so the first poll(s) can return empty → no card until the next poll after the row appears.
+   → Tradeoff: fast Twilio response (routing works) vs. possible 280–560ms delay before card/fuse appear. Demo inject writes to taskrouter_injected_pending and is available immediately, so demo feels instant.
+
+8. Agent clicks Answer
+   → incomingConn.accept() (Twilio connection) so the call actually bridges.
+   → POST /api/twilio/taskrouter/accept with taskSid, reservationSid.
+   → Backend accepts reservation (or no-op for demo), deletes from pendingReservations and taskrouter_pending.
+   → Frontend sets dialerState.webRTCConferenceActive = true, inboundCallLead = lead, clears taskRouterPending → inboundPanelState = 'connected', card shows "Connected".
+
+When something's wrong:
+- No Enqueue? Check LIVE_CALL_INCOMINGCALL in logs; 609 Voice URL must point at /incomingcall.
+- Task created but no ring? Check "TaskRouter assignment: reject (market/state mismatch)" — worker not eligible.
+- Ring but no card/fuse? Row not in Supabase yet (race) or GET /pending filter (contact_uri/agent_email) not matching; check taskrouter_pending in Supabase and worker_attributes.
+
+--------------------------------------------------------------------------------
+4s BOUNCE BAR + RESERVATION TIMEOUT
+--------------------------------------------------------------------------------
+- Workflow reservation timeout: 4s (provision-taskrouter.ts RESERVATION_TIMEOUT_SEC=4).
+  If the agent doesn't accept in 4s, TaskRouter offers to the next worker.
+- UI bar that "depletes" (FuseBar in InboundCallHeaderPanel): ANSWER_DEADLINE_SECONDS=4,
+  so the bar drains over 4s then next agent gets the offer (bounce).
+
+--------------------------------------------------------------------------------
+CALL CLEANUP WHEN CALL ENDS
+--------------------------------------------------------------------------------
+When Twilio sends call-status (status=completed, canceled, busy, or failed), we
+delete from taskrouter_pending any row whose task_attributes contain that CallSid.
+So when a call ends, pending reservations for that call are removed and the UI
+doesn't show stale "bouncing" or ringing state.
+
+--------------------------------------------------------------------------------
+TEST ROUTING CONFIG (WHO WOULD GET THE CALL?)
+--------------------------------------------------------------------------------
+Run: npx tsx server/scripts/test-routing-config.ts "Globe Market" CO
+  Uses the same market/state logic as the assignment callback. Prints every worker
+  as ELIGIBLE or REJECT (and why). Also shows how many are AvailableInbound and
+  how many of those are eligible (only they get the offer).
+  Without args: uses the last 609 call's task attributes.
+  So you can see why a call isn't routing: no eligible workers, or none online
+  (AvailableInbound). If cnsysop (or whoever) is not in the list, they're not in
+  TaskRouter — run sync-cnsysop-inbound609 or have them go voice-online.
+
+--------------------------------------------------------------------------------
+LAST INBOUND CALL: WHAT HAPPENED? (DID IT HAND OFF? ROUTING? PANEL? CONNECT?)
+--------------------------------------------------------------------------------
+Run: npx tsx server/scripts/diagnose-last-inbound-609.ts
+  Prints: last call to 609, whether a Task was created (task market/state), whether
+  any taskrouter_pending row exists (panel would have shown), and what to grep in
+  Railway logs.
+
+Flow in short:
+1. Call hits 609 → Twilio POSTs /incomingcall → we return Enqueue (task has market/state from masterlead).
+2. TaskRouter offers to a worker → POST /api/twilio/taskrouter/assignment.
+3. We check: task market vs worker markets, task state vs worker licensed_states.
+   - REJECT (market/state mismatch): we return instruction "reject". We do NOT write to
+     taskrouter_pending. So the panel NEVER shows for that worker; call is offered to next.
+   - DEQUEUE (match or no filter): we write to taskrouter_pending and return dequeue.
+     Panel polls /api/twilio/taskrouter/pending → shows inbound card. Twilio bridges call → 2-way.
+4. So: if the only worker(s) were rejected (e.g. task market=Globe, worker has markets=["Unknown"]),
+   no one sees the panel and the call never connects. Fix: set agent's market/states in customers
+   (and ensure voice-online runs so Worker gets those attributes), or fix masterlead so task
+   market/state match the agent you want.
+
+Railway logs to grep:
+- LIVE_CALL_INCOMINGCALL — /incomingcall was hit; body must contain <Enqueue workflowSid="WW...">.
+- "TaskRouter assignment: reject (market/state mismatch)" — we rejected; worker not eligible.
+- "TaskRouter assignment: dequeue to" — we accepted; panel should show, call should connect.
+
+--------------------------------------------------------------------------------
+INBOUND = ONLY ONE THING: RETURN TASKROUTER ENQUEUE (ANSWER + QUEUE + HOLD MUSIC)
+--------------------------------------------------------------------------------
+Call comes in → we return <Enqueue workflowSid="..." waitUrl="..."><Task .../></Enqueue>.
+Twilio ANSWERS the call, puts it in the queue, plays waitUrl (hold music). Done.
+No Dial, no ring agents, no conference-hold. If the call never reaches our URL,
+Twilio never gets that response → caller hears busy. So 609 MUST point to
+/incomingcall (or historically /webhook/webrtc).
+
+--------------------------------------------------------------------------------
+WHY IS MY NUMBER NOT ROUTING TO TASKROUTER?
+--------------------------------------------------------------------------------
+1. Twilio must POST to this URL when someone calls 609:
+   https://aoirail-production-baa2.up.railway.app/incomingcall  (preferred)
+   or https://aoirail-production-baa2.up.railway.app/webhook/webrtc
+2. If the number has a TwiML App (voiceApplicationSid), Twilio uses the APP's
+   Voice URL, NOT the number's. FIX: clear the TwiML App and set the number's
+   voiceUrl to the URL above.
+3. Run: npx tsx server/scripts/set-609-voice-incomingcall.ts
+   Then: npx tsx server/scripts/check-609-voice-url.ts
+   Check output says "OK: 609 points at baa2 /incomingcall".
+4. The server at baa2 must be running the code that returns Enqueue (deploy
+   the branch that has the Enqueue-only inbound path).
+
+5. PRODUCTION LOGS: NODE_ENV=production suppresses console.log. Inbound path
+   now uses console.error for "INBOUND ROUTING" and "609 → TaskRouter Enqueue"
+   so you see them in Railway logs. If you never see those, the request is not
+   reaching /webhook/webrtc (wrong Voice URL or TwiML App).
+
+6. TEST WITHOUT A CALL: GET https://aoirail-production-baa2.up.railway.app/api/twilio/test-enqueue
+   returns Enqueue TwiML if TaskRouter is configured. If that works but real
+   calls don't route, Twilio is not POSTing to /webhook/webrtc (fix number URL / clear TwiML App).
+
+7. KEEP TESTING THE WEBHOOK (no phone call): Script POSTs like Twilio and checks Enqueue TwiML.
+   For /incomingcall: WEBHOOK_PATH=incomingcall npx tsx server/scripts/test-webhook-creates-task.ts
+   For /webhook/webrtc: npm run test:webhook-taskrouter (or WEBHOOK_PATH=webhook/webrtc)
+   Loop: npx tsx server/scripts/test-webhook-creates-task.ts --loop 60
+   baa2: BASE_URL=https://aoirail-production-baa2.up.railway.app npm run test:webhook-taskrouter
+
+--------------------------------------------------------------------------------
+CALL SHOWS "BUSY" IN TWILIO LOG (BEFORE TASKROUTER)
+--------------------------------------------------------------------------------
+Twilio shows "busy" when it never got a valid answer (200 + TwiML) from the
+Voice URL. Check:
+1. Every request to /webhook/webrtc is logged: "WebRTC POST From=... To=...
+   CallSid=... bodyKeys=... isPstn=... shouldRouteInbound=... calledLast10=..."
+   (Uses console.error so it appears in Railway logs in production.)
+2. If you see NO log line for a call: Twilio is not hitting this URL (wrong
+   Voice URL, or number has a TwiML App overriding it). Fix: set 609 voice
+   URL to baa2 /webhook/webrtc and clear TwiML App (check-609-voice-url.ts).
+3. If you see a log line but bodyKeys is empty and From/To/CallSid are empty:
+   body wasn't parsed (wrong Content-Type or middleware order). Fix: ensure
+   POST has Content-Type application/x-www-form-urlencoded and our server
+   has urlencoded middleware before the handler.
+4. If shouldRouteInbound=false but you expected 609: check calledLast10
+   (must be 6096048379) and isPstn (must be true). If To is missing or wrong,
+   Twilio may be sending a different param (e.g. Called); we read To and Called.
+5. Main app does NOT use routes-twilio (entry-twilio); only routes.ts
+   registers /webhook/webrtc, so no competing reject-handler for inbound.
+6. MIDDLEWARE / SECTION: If process.env.SECTION is set (e.g. shell, api,
+   twilio, connect), only paths in that section's allowlist are allowed;
+   others get 404. /webhook/webrtc is now in shell, api, twilio, and connect
+   so inbound is never blocked by section filtering. If baa2 had SECTION=api
+   or SECTION=shell before this fix, Twilio would have received 404 → busy.
+
+Middleware order (index.ts): CORS → static → express.json/urlencoded →
+session → jwtAuth (does not block; no token = next()) → SECTION filter
+(404 if path not in allowlist) → registerRoutes (POST /webhook/webrtc has
+route-level urlencoded then handleWebRTC). No auth required for /webhook/webrtc.
+
+--------------------------------------------------------------------------------
+CALLER HEARS "YOUR CALL CANNOT BE COMPLETED" / CARRIER MESSAGE
+--------------------------------------------------------------------------------
+If the caller hears a carrier-style message (e.g. "Welcome to [carrier], your
+call cannot be completed"), Twilio did not get a valid 200 + TwiML from our
+Voice URL in time. Twilio typically waits ~15 seconds; then the call fails.
+
+Causes:
+1. COLD START: Server was asleep (e.g. Railway); first request took >15s.
+   Fix: /incomingcall now returns INSTANT redirect (no async), so Twilio gets 200
+   immediately and "answers" the call; then Twilio POSTs to /incomingcall-enqueue
+   for Enqueue. Keep the service warm (cron GET /incomingcall or /health every 5 min)
+   so the first request still reaches the server in time.
+2. Wrong URL / TwiML App: Run check-609-voice-url.ts; 609 must point at
+   .../incomingcall and have no TwiML App.
+3. Server error: Check Railway logs for "📞 /incomingcall hit" and any
+   errors. We always return 200 + TwiML (Enqueue or Say+Hangup) so Twilio
+   should never see a 5xx from this handler.
+
+--------------------------------------------------------------------------------
+"THERE IS NO QUEUE" / CALL SHOWS BUSY OR NO ONE ANSWERS (AFTER ENQUEUE)
+--------------------------------------------------------------------------------
+When we return Enqueue, Twilio creates a task. The workflow sends the task to
+the TaskQueue. The TaskQueue only has workers that match targetWorkers
+(routing_target == "inbound609") AND are in activity AvailableInbound.
+- If ZERO workers exist with routing_target "inbound609", the queue is empty.
+- If workers exist but are all Offline, no one is "in" the queue.
+Result: task is created but never assigned → caller hears hold then timeout →
+  busy / no answer.
+FIX: Create at least one worker and put them in AvailableInbound:
+  npx tsx server/scripts/sync-cnsysop-inbound609.ts
+  Then have that agent open the app and go Online (WebRTC). Now the queue has
+  one worker; TaskRouter will offer the task to them and your assignment
+  callback can dequeue the call to them.
+
+--------------------------------------------------------------------------------
+MINIMAL 609 SINGLE-WORKER CHECKLIST (cnsysop@aoglobelife.com)
+--------------------------------------------------------------------------------
+1. 609 phone number Voice URL points to /webhook/webrtc (POST). No TwiML App.
+2. /webhook/webrtc always returns <Enqueue workflowSid="..."> for 609 (minimal
+   task attrs: call_sid, phone_number, routing_target: "inbound609"). No fallthrough.
+3. Workflow filter: routing_target == "inbound609". TaskQueue targetWorkers:
+   routing_target == "inbound609".
+4. One Worker exists with contact_uri = client:cnsysop@aoglobelife.com and
+   routing_target = "inbound609" in attributes. Run: npx tsx server/scripts/sync-cnsysop-inbound609.ts
+5. That Worker is in AvailableInbound (run sync script, or have cnsysop go Online).
+6. Assignment callback returns {"instruction":"dequeue","from":"+16096048379"}.
+7. WebRTC registered in browser for cnsysop (identity = cnsysop@aoglobelife.com).
+If any one fails, the call will not route.
+
+--------------------------------------------------------------------------------
+1. TWILIO: 609 NUMBER VOICE URL
+--------------------------------------------------------------------------------
+- The 609 number's "A CALL COMES IN" must point to: POST https://<BASE>/webhook/webrtc
+- Configured by:
+  - server/twilio-webhook-setup.ts: DEV_BASE = PROD_BASE = https://aoirail-production-baa2.up.railway.app
+  - Sets voiceUrl = `${DEV_BASE}/webhook/webrtc`, voiceMethod = 'POST'
+  - Or set manually in Twilio Console → Phone Numbers → 609 → Voice → Webhook URL
+- Scripts that reference it: check-609-voice-url.ts, set-inbound-6096048379-to-dev.ts
+
+--------------------------------------------------------------------------------
+2. WEBHOOK REGISTRATION (server/routes.ts)
+--------------------------------------------------------------------------------
+- app.get("/webhook/webrtc", webrtcWebhookHandler);
+- app.post("/webhook/webrtc", webrtcWebhookHandler);
+
+webrtcWebhookHandler (around line 13537):
+  - Logs: CallSid, From, To, Host, req.body
+  - Calls handleWebRTC(req, res)
+
+- Body parsing: Express global middleware in server/index.ts:
+  - app.use(express.urlencoded({ extended: false, limit: '50mb' }));
+  - So Twilio's POST (application/x-www-form-urlencoded) populates req.body with CallSid, From, To, etc.
+
+--------------------------------------------------------------------------------
+3. handleWebRTC — INBOUND FLOW (server/routes.ts, ~12812)
+--------------------------------------------------------------------------------
+Entry:
+  - body = req.body || {}
+  - callerNumber = body.From || body.from || req.query.From || ...
+  - calledNumber = body.To || body.to || body.Called || ...
+  - callSid = body.CallSid || body.call_sid || req.query.CallSid
+  - hasConference = !!(body.conference || body.agentEmail || ...)
+  - isPstnCaller = From looks like a phone number (starts with + or digits), not client:...
+  - calledLast10 = last 10 digits of called number
+  - shouldRouteInbound = isPstnCaller && !hasConference && (calledLast10 === '6096048379' || isInboundNumber)
+
+If !shouldRouteInbound:
+  - Log "Inbound-style request to non-inbound number ... skipping" and fall through (no return).
+
+If shouldRouteInbound (we're treating this as inbound to 609):
+  - Log "INBOUND ROUTING from ... to ..."
+  - callerLast10 = last 10 digits of caller
+  - is609 = (calledLast10 === '6096048379')
+  - isBypassCaller = (callerLast10 === '5032018470')
+
+  609 PATH (is609 = true):
+    - effectiveCallSid = callSid || '609-fallback-' + timestamp
+    - tr.isTaskRouterConfigured()? Build Enqueue (workflowSid, attrs: call_sid, phone_number, routing_target: inbound609), send TwiML, return. Else: error TwiML, return.
+    - No other branch: 609 ONLY returns Enqueue or error TwiML.
+
+  ALL OTHER INBOUND (same flow, more task attrs):
+    - effectiveCallSid = callSid || 'inbound-' + timestamp
+    - If tr.isTaskRouterConfigured(): optional lead lookup, buildTaskAttributesForEnqueue(...), buildEnqueueTwiML(...), res.send(enqueueTwiml), return.
+    - On any error: error TwiML, return.
+  So: every inbound request that reaches this handler either returns Enqueue or error TwiML. Nothing else.
+
+  FALLBACK: USE_INBOUND_QUEUE (if not 'false') and !is609 && !isBypassCaller:
+    - Puts caller in conference hold, returns hold TwiML. (609 does NOT use this because is609 is true.)
+
+  FALLBACK: Default agents / Dial
+    - Look up agent by lead or use INBOUND_DEFAULT_AGENT_EMAILS / diankablash, chrislafond, dylanwhite
+    - Build Dial TwiML to client:email, return that.
+
+CRITICAL FOR TASKROUTER TO RUN:
+  - callSid must be present (from body.CallSid). If Twilio sends CallSid and body is parsed, it's there.
+  - callerLast10.length >= 10 (so From must be at least 10 digits).
+  - isTaskRouterConfigured() must be true: TWILIO_TASKROUTER_WORKSPACE_SID and TWILIO_TASKROUTER_WORKFLOW_INBOUND_SID (and Twilio account credentials) must be set in env or hardcoded-config.
+  - Any throw between buildTaskAttributesForEnqueue and res.send(enqueueTwiml) (e.g. buildEnqueueTwiML, or pushRouteEvent) will skip the return and fall through to default agents or error.
+
+--------------------------------------------------------------------------------
+4. TASKROUTER CONFIG (server/hardcoded-config.ts)
+--------------------------------------------------------------------------------
+  TWILIO_TASKROUTER_WORKSPACE_SID = process.env... || 'WS6a978202496f59f6cd478c1310f5c2eb'
+  TWILIO_TASKROUTER_WORKFLOW_INBOUND_SID = process.env... || 'WW7c3e36b25267cd0489d855dd0b195f3e'
+  PRODUCTION_URL = process.env.APP_URL || ... || 'https://aoirail-production-baa2.up.railway.app'
+
+--------------------------------------------------------------------------------
+5. TASKROUTER PROVISIONING (server/scripts/provision-taskrouter.ts)
+--------------------------------------------------------------------------------
+  BASE_URL = process.env.BASE_URL || PRODUCTION_URL || 'https://aoirail-production-baa2.up.railway.app'
+  assignmentCallbackUrl = `${BASE_URL}/api/twilio/taskrouter/assignment`
+
+  - Workspace: friendlyName 'AOI Inbound Transfers', template NONE, multiTaskEnabled true
+  - Activities: Offline, AvailableInbound, AvailableOutboundOnly, Wrap, BusyOnCall, SoftUnavailable
+  - TaskQueue: 'AOI Inbound Voice', targetWorkers = '1==1' (no filter), maxReservedWorkers = 10
+  - Workflow: 'AOI Inbound Voice', expression '1==1', routes to above queue, 4s timeout per wave, 15 waves
+  - Workflow is updated with assignmentCallbackUrl and taskReservationTimeout
+
+  So Twilio must be able to POST to: https://aoirail-production-baa2.up.railway.app/api/twilio/taskrouter/assignment
+  (Or whatever BASE_URL/PRODUCTION_URL is when you run the script.)
+
+--------------------------------------------------------------------------------
+6. TASKROUTER SERVICE (server/taskrouter-service.ts)
+--------------------------------------------------------------------------------
+  - isTaskRouterConfigured(): true if workspace SID + workflow SID + Twilio credentials exist
+  - getWorkflowSidForEnqueue(): returns TWILIO_TASKROUTER_WORKFLOW_INBOUND_SID
+  - buildTaskAttributesForEnqueue(input): returns JSON string with call_sid, lead_id, source, market, state, phone_number, lead_name, ...
+  - buildEnqueueTwiML(workflowSid, taskAttributesJson, waitUrl): returns <?xml...><Response><Enqueue workflowSid="..." waitUrl="..."><Task attributes="..."/></Enqueue></Response>
+
+  Task attributes include call_sid so we can later find the task by call SID (see check-call-taskrouter.ts).
+
+--------------------------------------------------------------------------------
+7. ASSIGNMENT CALLBACK (server/routes.ts, ~8785)
+--------------------------------------------------------------------------------
+  app.post("/api/twilio/taskrouter/assignment", express.urlencoded({ extended: false }), async (req, res) => {
+    - Body: TaskSid, WorkerSid, ReservationSid, WorkerAttributes, TaskAttributes (from Twilio)
+    - If missing TaskSid/WorkerSid/ReservationSid: return 200 with empty JSON {}
+    - Store in pendingReservations Map and (if supabaseAdmin) taskrouter_pending table
+    - Log: "TaskRouter assignment: task=... worker=... reservation=..."
+    - Append to lastAssignmentLog (last 10), so GET /api/twilio/taskrouter/last-assignments shows them
+    - verifiedFrom = TWILIO_PHONE_NUMBER || process.env... || '+16096048379'
+    - dequeueResponse = { instruction: 'dequeue', from: verifiedFrom, post_work_activity_sid: wrapSid }
+    - return res.status(200).contentType('application/json').json(dequeueResponse);
+  })
+
+  So when Twilio offers a task to a worker, it POSTs here; we must return 200 and JSON with instruction: 'dequeue' and from: 609 so Twilio connects the call to the worker's client:email.
+
+--------------------------------------------------------------------------------
+8. WORKER AVAILABILITY (voice-online)
+--------------------------------------------------------------------------------
+  app.post("/api/agents/voice-online", express.json(), ...) (~9162)
+    - Resolve agent email from session/JWT/cookie/body
+    - setWorkerAvailableForVoice(email, customer) in taskrouter-service
+    - setWorkerAvailableForVoice: getActivitySidByName('AvailableInbound'), buildWorkerAttributesForVoice (contact_uri: client:email), syncWorker (create or update worker with that activity), setWorkerVoiceCapacity(workerSid, 1)
+
+  Workers only get tasks if they are in activity AvailableInbound and have voice channel capacity >= 1.
+
+--------------------------------------------------------------------------------
+9. PRODUCTION LOGGING (server/index.ts)
+--------------------------------------------------------------------------------
+  if (process.env.NODE_ENV === "production") {
+    console.log = () => {};
+    console.debug = () => {};
+    console.info = () => {};
+    console.warn = () => {};
+  }
+  So on baa2 (production), "WEBRTC ENDPOINT HIT", "INBOUND ROUTING", "TaskRouter assignment: ..." do NOT appear in logs. Only console.error (if not overridden) would show. This makes log-based debugging on production impossible unless you re-enable logging or use the last-assignments endpoint.
+
+--------------------------------------------------------------------------------
+10. CHECKING WITHOUT LOGS
+--------------------------------------------------------------------------------
+  - GET https://aoirail-production-baa2.up.railway.app/api/twilio/taskrouter/last-assignments
+    Returns last 10 assignment callback hits (at, taskSid, workerSid, reservationSid, workerEmail, response). If this is empty after a call, Twilio never got to offer the task (no worker or callback not hit).
+
+  - npx tsx server/scripts/check-call-taskrouter.ts <CallSid>
+    Finds TaskRouter task with task.attributes.call_sid === CallSid in last 50 tasks; lists reservations. If no task found, Enqueue was never returned or task creation failed.
+
+  - npx tsx server/scripts/verify-taskrouter-inbound-609.ts
+    Checks isTaskRouterConfigured, assignment callback URL (must be baa2), and count of online workers (AvailableInbound).
+
+--------------------------------------------------------------------------------
+11. POSSIBLE FAILURE POINTS (WHY NO TASK FOR A CALL)
+--------------------------------------------------------------------------------
+  a) REQUEST NEVER HITS THE SERVER — Twilio POSTs to Voice URL but the request never reaches baa2 (no logs, call goes busy/0s). Causes:
+     - 609 number has voiceApplicationSid set: Twilio uses the TwiML App's Voice URL, not the number's. Fix: npx tsx server/scripts/set-609-voice-to-baa2.ts (clears app, sets number voiceUrl to baa2).
+     - Connectivity: Twilio can't reach Railway (DNS, firewall, timeout). Check Twilio Console → Monitor → Logs → select a failed call → Webhooks: see error (e.g. connection refused, timeout, SSL).
+     - Verify: npx tsx server/scripts/check-609-voice-url.ts shows "URL Twilio will POST to" = baa2 and no TwiML App.
+  b) callSid missing in req.body — e.g. Twilio sent GET instead of POST, or body not parsed. Unlikely if Twilio is configured to POST.
+  c) callerLast10.length < 10 — From number too short. Unlikely for normal callers.
+  d) isTaskRouterConfigured() false on the server that received the request (e.g. baa2 missing env TWILIO_TASKROUTER_WORKSPACE_SID or TWILIO_TASKROUTER_WORKFLOW_INBOUND_SID). Then we skip Enqueue and fall through to default agents Dial.
+  e) Exception inside the TaskRouter block (e.g. buildTaskAttributesForEnqueue, buildEnqueueTwiML, or pushRouteEvent). The try/catch around the lead lookup does not wrap the whole block; only the lead lookup is in try/catch. So if tr.buildTaskAttributesForEnqueue(...) or tr.getWorkflowSidForEnqueue() or tr.buildEnqueueTwiML(...) throws, the error propagates and handleWebRTC may send an error or fall through.
+  f) Different server instance: Voice URL hits baa2 but baa2 has different env (e.g. TaskRouter not configured there). Then baa2 would not return Enqueue.
+  g) Task created but with attributes that don't match: e.g. call_sid stored under a different key. check-call-taskrouter.ts looks for task.attributes.call_sid === callSid. If the attribute key were different, we wouldn't find the task.
+
+--------------------------------------------------------------------------------
+12. ROUTES SUMMARY
+--------------------------------------------------------------------------------
+  Inbound call to 609:
+    Twilio → POST https://aoirail-production-baa2.up.railway.app/webhook/webrtc
+    → webrtcWebhookHandler → handleWebRTC
+    → (if callSid && callerLast10.length>=10 && isTaskRouterConfigured()) build Enqueue TwiML, res.type('text/xml').send(enqueueTwiml); return;
+    → else fall through to queue or default Dial.
+
+  TaskRouter offers task to worker:
+    Twilio → POST https://aoirail-production-baa2.up.railway.app/api/twilio/taskrouter/assignment
+    → We store reservation, return { instruction: 'dequeue', from: '+16096048379' }
+    → Twilio connects call to worker at contact_uri (client:email).
+
+================================================================================

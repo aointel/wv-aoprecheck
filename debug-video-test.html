@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video WebSocket Debug Test</title>
+</head>
+<body>
+    <h1>Video WebSocket Debug Test</h1>
+    <div id="log"></div>
+    <button onclick="testAgentConnection()">Test Agent Connection</button>
+    <button onclick="testClientConnection()">Test Client Connection</button>
+    
+    <script>
+        const log = document.getElementById('log');
+        
+        function addLog(message) {
+            log.innerHTML += '<div>' + new Date().toLocaleTimeString() + ': ' + message + '</div>';
+        }
+        
+        function testAgentConnection() {
+            addLog('🎯 Testing Agent WebSocket Connection...');
+            const wsUrl = 'wss://aointelligence.replit.app/ws';
+            const ws = new WebSocket(wsUrl);
+            
+            ws.onopen = () => {
+                addLog('✅ Agent WebSocket connected');
+                ws.send(JSON.stringify({
+                    type: 'join-room',
+                    roomId: 'test-room-debug',
+                    participantName: 'Agent',
+                    participantType: 'agent'
+                }));
+                addLog('📤 Agent sent join-room message');
+            };
+            
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                addLog('📡 Agent received: ' + JSON.stringify(data));
+            };
+            
+            ws.onerror = (error) => {
+                addLog('❌ Agent WebSocket error: ' + error);
+            };
+            
+            ws.onclose = (event) => {
+                addLog('🔌 Agent WebSocket closed: ' + event.code + ' ' + event.reason);
+            };
+            
+            setTimeout(() => ws.close(), 5000);
+        }
+        
+        function testClientConnection() {
+            addLog('👤 Testing Client WebSocket Connection...');
+            const wsUrl = 'wss://aointelligence.replit.app/ws';
+            const ws = new WebSocket(wsUrl);
+            
+            ws.onopen = () => {
+                addLog('✅ Client WebSocket connected');
+                ws.send(JSON.stringify({
+                    type: 'join-room',
+                    roomId: 'test-room-debug',
+                    participantName: 'TestClient',
+                    participantType: 'client'
+                }));
+                addLog('📤 Client sent join-room message');
+            };
+            
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                addLog('📡 Client received: ' + JSON.stringify(data));
+            };
+            
+            ws.onerror = (error) => {
+                addLog('❌ Client WebSocket error: ' + error);
+            };
+            
+            ws.onclose = (event) => {
+                addLog('🔌 Client WebSocket closed: ' + event.code + ' ' + event.reason);
+            };
+            
+            setTimeout(() => ws.close(), 5000);
+        }
+    </script>
+</body>
+</html>

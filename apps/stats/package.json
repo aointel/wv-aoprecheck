@@ -1,0 +1,9 @@
+{
+  "name": "aoirail-stats",
+  "private": true,
+  "description": "Stats server – LCB stats, AOI reports, analytics. Set Railway Root Directory to apps/stats.",
+  "scripts": {
+    "build": "cd ../.. && npm ci && npm run build",
+    "start": "cd ../.. && npx cross-env SECTION=stats node dist/index.js"
+  }
+}

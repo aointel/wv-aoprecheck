@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Direct Client Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .url-box { padding: 15px; background: #f0f0f0; border-radius: 5px; margin: 10px 0; }
+        .test-btn { padding: 12px 20px; margin: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .test-btn.client { background: #dc3545; }
+        .test-btn.agent { background: #28a745; }
+    </style>
+</head>
+<body>
+    <h1>Video Meeting Role Detection Test</h1>
+    
+    <h2>Direct URL Tests</h2>
+    <p>Click links to open video meetings in new tabs. Check browser console for role detection logs.</p>
+    
+    <div class="url-box">
+        <strong>Client URL (should show "Joining Meeting..."):</strong><br>
+        <code>/video-meeting?room=client-test-direct&role=client&leadName=Test%20Client</code><br>
+        <a href="/video-meeting?room=client-test-direct&role=client&leadName=Test%20Client" target="_blank" class="test-btn client">
+            Open CLIENT Meeting (role=client)
+        </a>
+    </div>
+    
+    <div class="url-box">
+        <strong>Agent URL (should show "Agent Meeting Room"):</strong><br>
+        <code>/video-meeting?room=agent-test-direct&role=agent&leadName=Test%20Client</code><br>
+        <a href="/video-meeting?room=agent-test-direct&role=agent&leadName=Test%20Client" target="_blank" class="test-btn agent">
+            Open AGENT Meeting (role=agent)
+        </a>
+    </div>
+    
+    <h3>What to Look For:</h3>
+    <ul>
+        <li><strong>Client Meeting:</strong> Should show "Joining Meeting... - Connecting to agent..."</li>
+        <li><strong>Agent Meeting:</strong> Should show "Agent Meeting Room - Waiting for Test Client to join..."</li>
+        <li><strong>Console Debug:</strong> Look for logs starting with "🎭 Role detected:" and "🔍 ROLE CHECKS:"</li>
+    </ul>
+    
+    <p><em>Open this page, then click the Client URL to test if it's still showing as Agent.</em></p>
+</body>
+</html>

@@ -1,0 +1,82 @@
+Redesign the Call Examination panel in src/components/MyScore.tsx (specifically the ScorecardView component and its sub-components FakeCallPlayer and ConversationTracks). This is for an insurance company doing outbound veteran benefit appointment-setting calls. The call has 3 speakers: AI Agent (Taalk bot), Human Agent (the rep), and Client. The goal is ONLY to get a live transfer or booked appointment — NOT a full enterprise sales cycle.
+
+## Changes to ConversationTracks component:
+Change from 2 lanes (Agent/Client) to 3 lanes:
+- **AI Agent Lane** — color: rgba(99,102,241,0.7) (indigo/purple)
+- **Human Agent Lane** — color: rgba(34,197,94,0.7) (green)  
+- **Client Lane** — color: rgba(251,191,36,0.7) (amber)
+
+Add a small legend below the lanes showing which color = which speaker.
+
+Change the "AI Chapter Tracks" section from 6 enterprise chapters (Intro/Discovery/Objections/Pricing/Next Steps/Close) to 5 appointment-setting chapters:
+- **Hook** (did AI/human state reason for call and grab attention?)
+- **Qualify** (did they confirm veteran status before pitching?)
+- **Bridge** (did they attempt live transfer/presentation first?)
+- **Objection** (did they handle "not government" or other pushback?)
+- **Close** (did they get hard commitment — specific date/time or live now?)
+
+## Changes to ScorecardView component:
+Replace the single monolithic scorecard with TWO separate score sections:
+
+### Section 1: AI Agent Performance
+Title: "AI Agent" with a small purple badge showing the score (0-100)
+Show 3 binary checks:
+- ✓/✗ Qualified veteran status before transfer
+- ✓/✗ Attempted live transfer first  
+- ✓/✗ Handled pre-transfer objections
+Show AI-specific flags if any (small red chips)
+
+### Section 2: Human Agent Performance  
+Title: "Human Agent" with a green badge showing the score (0-100)
+Show these 3 binary checks:
+- ✓/✗ Took over smoothly after transfer
+- ✓/✗ Attempted live presentation (before defaulting to schedule)
+- ✓/✗ Got hard commitment (specific date/time)
+Show Talk% bar for the human's portion only (not the whole call)
+Show human-specific coaching flags
+
+### Coaching Actions section:
+Split into two sub-sections:
+- "AI Issues" (if any) — with purple left border
+- "Human Coaching" (if any) — with green left border
+Each shows the specific flag and a one-line action
+
+### Score data source:
+The scorecard component receives a `scorecard` prop. Extend the scorecard data to support the new structure. If the old scorecard format is passed (with keys like intro/identified_need/etc.), fall back gracefully. 
+
+Add new optional scorecard fields:
+- `ai_score`: number (0-100)
+- `human_score`: number (0-100)  
+- `ai_flags`: string[]
+- `human_flags`: string[]
+- `talk_ratio_ai`: number (0-100)
+- `talk_ratio_human`: number (0-100)
+- `talk_ratio_client`: number (0-100)
+- `chapters`: { hook: boolean, qualify: boolean, bridge: boolean, objection: boolean, close: boolean }
+- `outcome_type`: 'live_transfer' | 'appointment_set' | 'callback_no_date' | 'not_interested'
+
+If these new fields exist, show the new UI. If they don't exist (old format), fall back to the existing UI so nothing breaks.
+
+## Talk ratio section:
+Add a new visual element below the Call Player: a horizontal stacked bar showing the 3-way talk split:
+- Purple segment = AI Agent %
+- Green segment = Human Agent %
+- Amber segment = Client %
+- Labels inside or below each segment
+- Title: "Talk Ratio"
+
+If talk_ratio_ai/human/client are not in scorecard, show the existing 2-way split (agent vs client).
+
+## Outcome badge:
+At the top of ScorecardView, replace the generic "Call Header" with a prominent outcome badge:
+- live_transfer: big green badge "🔥 Live Transfer"
+- appointment_set: blue badge "📅 Appointment Set"  
+- callback_no_date: amber badge "📞 Callback Scheduled"
+- not_interested: red badge "✕ Not Interested"
+
+## Constraints:
+- All changes in src/components/MyScore.tsx ONLY
+- Keep all existing interfaces — only ADD new optional fields to Scorecard interface
+- Fallback gracefully if new fields missing
+- Run npx tsc --noEmit and fix errors
+- Use only existing CSS vars

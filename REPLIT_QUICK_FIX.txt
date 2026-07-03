@@ -1,0 +1,48 @@
+REPLIT DEPLOYMENT HANGING - QUICK FIX CHECKLIST
+
+PROBLEM: Deployment hangs at "provision" stage
+
+ROOT CAUSE: Server takes too long to respond to health checks (heavy initialization blocks startup)
+
+SOLUTION APPLIED:
+✅ 1. Delayed main initialization by 2 seconds (allows health checks to pass)
+✅ 2. Delayed background services by 5 seconds (prevents resource contention)
+✅ 3. Made all non-critical services lazy-loaded with error handling
+✅ 4. Health check endpoints respond immediately (no blocking operations)
+
+FILES CHANGED:
+- server/index.ts (lines 213-228, 370-414)
+
+BUILD COMMAND:
+npm run build
+
+TEST LOCALLY:
+1. taskkill /F /IM node.exe
+2. npm start
+3. curl http://localhost:5000/health (should respond in <1 second)
+
+DEPLOYMENT:
+1. Commit changes
+2. Click "Deploy" in Replit
+3. Should complete in <60 seconds
+
+EXPECTED LOG OUTPUT:
+✅ Server ready for health checks at http://0.0.0.0:5000/health
+⏱️ Starting deferred initialization after health check window...
+✅ Routes registered successfully
+✅ Server initialization complete
+🔥 Starting deferred background services...
+✅ Background services initialization complete
+
+IF STILL FAILS:
+- Check database connection (Supabase credentials)
+- Increase delay to 3 seconds: setTimeout(() => { ... }, 3000);
+- Check deployment logs for specific error
+- Verify PORT=5000 in environment variables
+
+TECHNICAL DETAILS:
+- Health checks must respond within 5-10 seconds for provisioning to succeed
+- Server now responds to health checks in <500ms
+- Full initialization completes after deployment succeeds
+- All background services start asynchronously (non-blocking)
+

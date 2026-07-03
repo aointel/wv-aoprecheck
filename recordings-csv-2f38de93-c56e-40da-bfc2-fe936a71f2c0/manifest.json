@@ -1,0 +1,428 @@
+{
+  "csvPath": "c:\\Users\\mmand\\Downloads\\2f38de93-c56e-40da-bfc2-fe936a71f2c0.csv",
+  "total": 70,
+  "saved": 52,
+  "failed": 18,
+  "results": [
+    {
+      "sessionId": "6959a91e19675643ee1e4cd6",
+      "phone": "+12542208469",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+12542208469_Tracy Mathews\\6959a91e19675643ee1e4cd6.mp3"
+    },
+    {
+      "sessionId": "695a9e8918ef0da2bb3608f4",
+      "phone": "+12177615645",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+12177615645_Steven Robinson\\695a9e8918ef0da2bb3608f4.mp3"
+    },
+    {
+      "sessionId": "695eb766be682f623afe8a83",
+      "phone": "+12533539671",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+12533539671_Daniel Henderson\\695eb766be682f623afe8a83.mp3"
+    },
+    {
+      "sessionId": "695eb98be10af205a2e39968",
+      "phone": "+13526842962",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+13526842962_JOHN NEEDHAM\\695eb98be10af205a2e39968.mp3"
+    },
+    {
+      "sessionId": "69616484f1e1b72ed7c299f4",
+      "phone": "+15417335242",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+15417335242_Doris Kolb\\69616484f1e1b72ed7c299f4.mp3"
+    },
+    {
+      "sessionId": "69616ea1935f542ba7d8977f",
+      "phone": "+18439902526",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "69616eda56538fb9811be3bf",
+      "phone": "+18503619275",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+18503619275_Billy Maddison\\69616eda56538fb9811be3bf.mp3"
+    },
+    {
+      "sessionId": "69616f7e935f542ba7d89a5c",
+      "phone": "+15707527818",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+15707527818_CHARLES Mackes\\69616f7e935f542ba7d89a5c.mp3"
+    },
+    {
+      "sessionId": "69616f93d292763c31dcbe45",
+      "phone": "+15707527818",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+15707527818_CHARLES Mackes\\69616f93d292763c31dcbe45.mp3"
+    },
+    {
+      "sessionId": "69616fa391f5522eb6562ecd",
+      "phone": "+15707527818",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+15707527818_CHARLES Mackes\\69616fa391f5522eb6562ecd.mp3"
+    },
+    {
+      "sessionId": "6962d636c15b2fc6a14e98a1",
+      "phone": "+12094530752",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+12094530752_Clinton Baker\\6962d636c15b2fc6a14e98a1.mp3"
+    },
+    {
+      "sessionId": "6963f4d54a0e9437484e2195",
+      "phone": "+15703949707",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+15703949707_Danny Deromedi-kimmel\\6963f4d54a0e9437484e2195.mp3"
+    },
+    {
+      "sessionId": "6963f5b38e6e0c3ae7c962c7",
+      "phone": "+14233143861",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+14233143861_Terrence Jackson\\6963f5b38e6e0c3ae7c962c7.mp3"
+    },
+    {
+      "sessionId": "696449fb8e6e0c3ae7ca8e46",
+      "phone": "+18173015234",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+18173015234_Ronald Evans\\696449fb8e6e0c3ae7ca8e46.mp3"
+    },
+    {
+      "sessionId": "6966a471b0a62c3a6104cf31",
+      "phone": "+13602441954",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "6966a7cdf2aeff3951875694",
+      "phone": "+17067731125",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "696bb52ecf42911d8afa946d",
+      "phone": "+14149407785",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "696bb59f06433481a1d7a01d",
+      "phone": "+18503814291",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "696bb65b4483e0c03506c832",
+      "phone": "+12817572898",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "696bb6d54483e0c03506ca17",
+      "phone": "+14023501821",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "696bbbfc4483e0c03506d43a",
+      "phone": "+12525083023",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "696bbc7406433481a1d7ad81",
+      "phone": "+17064665551",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "696e5d89050aa2210fb18644",
+      "phone": "+12698769217",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "696e5fe3050aa2210fb18bd8",
+      "phone": "+19714166822",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "696e614a48c5a29de83b0411",
+      "phone": "+17122124966",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "696e75ee94c7b7f7b404494c",
+      "phone": "+15135030849",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "696e768d2444705ce3550da5",
+      "phone": "+15632697306",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "6970fa1d81b0ca242b240e4d",
+      "phone": "+17274359283",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "6970fd492f1d7aea1164d126",
+      "phone": "+12819240185",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "6971001adba49b04d8123481",
+      "phone": "+12625016652",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "6971063587eb4240a2ec1cba",
+      "phone": "+12096177093",
+      "ok": false,
+      "error": "no audio or tiny"
+    },
+    {
+      "sessionId": "6977981735e79052bb5356a9",
+      "phone": "+12816225968",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+12816225968_Wesley Crouch\\6977981735e79052bb5356a9.mp3"
+    },
+    {
+      "sessionId": "69779a779e18cfbb4716c3a2",
+      "phone": "+18162385687",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+18162385687_Billy Smith\\69779a779e18cfbb4716c3a2.mp3"
+    },
+    {
+      "sessionId": "69779aed8b94c27a5207d532",
+      "phone": "+18162385687",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+18162385687_Billy Smith\\69779aed8b94c27a5207d532.mp3"
+    },
+    {
+      "sessionId": "69779dd2a023f28a6b78e1ba",
+      "phone": "+12094459002",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+12094459002_Eleanor Cash\\69779dd2a023f28a6b78e1ba.mp3"
+    },
+    {
+      "sessionId": "6977a0fc17af9ab78e903569",
+      "phone": "+19104946178",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+19104946178_LaShaun Haley\\6977a0fc17af9ab78e903569.mp3"
+    },
+    {
+      "sessionId": "6977a443816162cc94741fd9",
+      "phone": "+15037096597",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+15037096597_Dennis McAllister\\6977a443816162cc94741fd9.mp3"
+    },
+    {
+      "sessionId": "6977a80929c617bfc83fb703",
+      "phone": "+15209049065",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+15209049065_Floyd Pellham\\6977a80929c617bfc83fb703.mp3"
+    },
+    {
+      "sessionId": "6977ab4d560138223d7ff2cb",
+      "phone": "+18132358830",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+18132358830_Gabriel Rodiguez\\6977ab4d560138223d7ff2cb.mp3"
+    },
+    {
+      "sessionId": "6977ab2b29c617bfc83fc57a",
+      "phone": "+12192101717",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+12192101717_harry Goshen\\6977ab2b29c617bfc83fc57a.mp3"
+    },
+    {
+      "sessionId": "6977b9b6b295ad564cdf0c0c",
+      "phone": "+14046040545",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+14046040545_Clyde Baker\\6977b9b6b295ad564cdf0c0c.mp3"
+    },
+    {
+      "sessionId": "6977ba0a560138223d806cc3",
+      "phone": "+17145948540",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+17145948540_Denise Fry\\6977ba0a560138223d806cc3.mp3"
+    },
+    {
+      "sessionId": "6977bc1229c617bfc8400e03",
+      "phone": "+18125560253",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+18125560253_Thelma Coffey\\6977bc1229c617bfc8400e03.mp3"
+    },
+    {
+      "sessionId": "6977bd779e18cfbb47176187",
+      "phone": "+12058712996",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+12058712996_Donnette H Lurie\\6977bd779e18cfbb47176187.mp3"
+    },
+    {
+      "sessionId": "6977bf52b295ad564cdf2f9f",
+      "phone": "+12626911723",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+12626911723_Gary Warrichaiet\\6977bf52b295ad564cdf2f9f.mp3"
+    },
+    {
+      "sessionId": "69793940cc14231248e5f742",
+      "phone": "+19565700967",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+19565700967_Juan Ortega\\69793940cc14231248e5f742.mp3"
+    },
+    {
+      "sessionId": "6979396eb9236d95f56e045e",
+      "phone": "+19312050221",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+19312050221_John Person\\6979396eb9236d95f56e045e.mp3"
+    },
+    {
+      "sessionId": "697a2a9e7ad994e38e93ac78",
+      "phone": "+16128390099",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+16128390099_Elizabeth Petty\\697a2a9e7ad994e38e93ac78.mp3"
+    },
+    {
+      "sessionId": "697a2ab90122ca2dc78c41b4",
+      "phone": "+15045153616",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+15045153616_Esteban Espinola\\697a2ab90122ca2dc78c41b4.mp3"
+    },
+    {
+      "sessionId": "697a30b5607a2779138f0b16",
+      "phone": "+13348909227",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+13348909227_Olin Herndon\\697a30b5607a2779138f0b16.mp3"
+    },
+    {
+      "sessionId": "697a321d750aa5302b625cb3",
+      "phone": "+13346994017",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+13346994017_PERMILLA Carthon\\697a321d750aa5302b625cb3.mp3"
+    },
+    {
+      "sessionId": "697a32850122ca2dc78c5309",
+      "phone": "+12103187085",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+12103187085_Jesus Vidaure Jr\\697a32850122ca2dc78c5309.mp3"
+    },
+    {
+      "sessionId": "697a32967ad994e38e93bea4",
+      "phone": "+19095257827",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+19095257827_reginald jones\\697a32967ad994e38e93bea4.mp3"
+    },
+    {
+      "sessionId": "697a32d9607a2779138f1086",
+      "phone": "+13524463237",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+13524463237_Robert Boring\\697a32d9607a2779138f1086.mp3"
+    },
+    {
+      "sessionId": "697a331009d7c7229bf60d6e",
+      "phone": "+17243233238",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+17243233238_Donald Fairman\\697a331009d7c7229bf60d6e.mp3"
+    },
+    {
+      "sessionId": "697a3526165d560440104fcd",
+      "phone": "+12538838945",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+12538838945_Elsie Langkilde\\697a3526165d560440104fcd.mp3"
+    },
+    {
+      "sessionId": "697a3585165d5604401050f0",
+      "phone": "+18182106921",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+18182106921_Walter James Hockaday\\697a3585165d5604401050f0.mp3"
+    },
+    {
+      "sessionId": "697a3598b0a769564516ef40",
+      "phone": "+19099020068",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+19099020068_Larry Dusatko\\697a3598b0a769564516ef40.mp3"
+    },
+    {
+      "sessionId": "697a8e1b750aa5302b6388ad",
+      "phone": "+18595516484",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+18595516484_Todd Beck\\697a8e1b750aa5302b6388ad.mp3"
+    },
+    {
+      "sessionId": "697a8e7c0122ca2dc78d738a",
+      "phone": "+19415457790",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+19415457790_Harry Goodman\\697a8e7c0122ca2dc78d738a.mp3"
+    },
+    {
+      "sessionId": "697aa5e87ad994e38e955400",
+      "phone": "+18324459442",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+18324459442_Richard Enke\\697aa5e87ad994e38e955400.mp3"
+    },
+    {
+      "sessionId": "697aa66f7ad994e38e9557f5",
+      "phone": "+14423707592",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+14423707592_Ralph Vega\\697aa66f7ad994e38e9557f5.mp3"
+    },
+    {
+      "sessionId": "697aaba48e54e57c6fdf9e12",
+      "phone": "+19012939345",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+19012939345_Lawrence Carter\\697aaba48e54e57c6fdf9e12.mp3"
+    },
+    {
+      "sessionId": "697aadef09194673f5911bff",
+      "phone": "+18018355454",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+18018355454_James R Clark\\697aadef09194673f5911bff.mp3"
+    },
+    {
+      "sessionId": "697aaf9609d7c7229bf7beec",
+      "phone": "+17703135798",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+17703135798_DJ Faulkner\\697aaf9609d7c7229bf7beec.mp3"
+    },
+    {
+      "sessionId": "697aafad0122ca2dc78e2254",
+      "phone": "+16147973395",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+16147973395_Nakita Smoots\\697aafad0122ca2dc78e2254.mp3"
+    },
+    {
+      "sessionId": "697aafc17ad994e38e957c82",
+      "phone": "+19313021444",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+19313021444_Loretta Williams\\697aafc17ad994e38e957c82.mp3"
+    },
+    {
+      "sessionId": "697ab682a25d02c43a98b5b5",
+      "phone": "+15419304540",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+15419304540_Sherilyn Wilcox\\697ab682a25d02c43a98b5b5.mp3"
+    },
+    {
+      "sessionId": "697abb477ad994e38e95a093",
+      "phone": "+15135949963",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+15135949963_Ken Taylor\\697abb477ad994e38e95a093.mp3"
+    },
+    {
+      "sessionId": "697abb64f2709d396b1fd237",
+      "phone": "+13185180987",
+      "ok": true,
+      "path": "C:\\dev\\AOIrail\\recordings-csv-2f38de93-c56e-40da-bfc2-fe936a71f2c0\\+13185180987_Victor Brown\\697abb64f2709d396b1fd237.mp3"
+    }
+  ]
+}

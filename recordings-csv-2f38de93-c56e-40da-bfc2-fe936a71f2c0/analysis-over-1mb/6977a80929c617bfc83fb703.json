@@ -1,0 +1,27 @@
+{
+  "label": "6977a80929c617bfc83fb703",
+  "scriptOutline": [
+    "opening: Hey Floyd, hey this is Alex with AO Globe Life Customer Service. I was calling about the Veteran Will Kit that you just requested. Can you hear me okay?",
+    "agenda/consent: So it looks like you had requested your Will Kit online through Facebook or Google. Does that ring a bell?",
+    "qualification: Have you ever set up something like this before? Or is this your first time getting these kinds of documents in place?",
+    "objection handling: A lot of veterans assume they'll just figure it out later, but the reality is that getting these documents in order now makes things so much easier for your loved ones down the road.",
+    "close: Now, the way we used to take care of this is we'd set up an appointment and I'd be able to come visit you in Tucson, Arizona. But because of COVID, we use Zoom.",
+    "next steps: We're going to do tomorrow at 1 p.m. your time."
+  ],
+  "objections": [
+    {
+      "objection": "I did talk to somebody once, but there was a thousand pieces of paper to sign and I said no because I just want something simple.",
+      "howAgentHandled": "You'd be surprised how many people are in the same boat. A lot of veterans assume they'll just figure it out later, but the reality is that getting these documents in order now makes things so much easier for your loved ones down the road."
+    },
+    {
+      "objection": "Laptops don't like me and smartphones don't either.",
+      "howAgentHandled": "That's all right, but you have one, right? Being able to use Zoom is really helpful in a pinch."
+    }
+  ],
+  "keyPhrases": [
+    "Does that make sense?",
+    "My job isn't to rush you through the process.",
+    "You can tell me to go faster, but we're not gonna rush you."
+  ],
+  "summary": "The call effectively established rapport and addressed the prospect's concerns about complexity and technology. The agent successfully guided the prospect towards scheduling an appointment while ensuring they felt comfortable with the process."
+}

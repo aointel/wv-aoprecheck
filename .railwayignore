@@ -1,0 +1,61 @@
+node_modules
+.git
+.vscode
+.cursor
+.railway-deploy
+*.log
+server.log
+uploads
+recordings
+electron-dist
+.replit
+*.md
+*.txt
+test-*.js
+debug-*.js
+check-*.js
+*.backup
+.env.local
+.DS_Store
+
+# Large local analysis/data artifacts not required for deploy
+server/sql/*.csv
+server/sql/*.xlsx
+server/scripts/output/**
+scripts/output/**
+attached_assets/**
+tmp_syncpresentation_payload.json
+
+# Non-runtime source artifacts
+server/sql/**
+scripts/**
+docs/**
+*.csv
+*.xlsx
+dist/**
+release/**
+build/**
+data/**
+logs/**
+attached_assets_backup/**
+*.mp4
+*.webm
+
+# Keep build-time server script imports required by server/index.ts
+!server/scripts/render-activity-card.ts
+!server/scripts/calculate-dial-reach-booked-realtime.ts
+
+# Exclude large local artifacts that bloat CLI uploads
+node.pkg
+csv-exports/**
+temp/**
+recordings-csv-*/**
+live-shell-snapshot-*/**
+
+# Local transient debug artifacts
+tmp-playwright-trace/**
+tmp-*/**
+tmp_*/**
+pw-*.mjs
+apps/leadsync/*.cjs
+

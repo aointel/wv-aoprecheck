@@ -1,0 +1,429 @@
+================================================================================
+TASKROUTER ROUTING + 609 WEBHOOK — FULL CODE REFERENCE
+================================================================================
+SINGLE FLOW FOR 609: PSTN → /incomingcall → Enqueue TwiML → TaskRouter task → TaskQueue/Workflow
+expressions match workers → assignment callback returns dequeue → Twilio bridges to worker contact_uri.
+609 must point to https://aoirail-production-baa2.up.railway.app/incomingcall (run set-609-voice-incomingcall.ts).
+(Where routing is handled and where 609 points; all in one place.)
+
+--------------------------------------------------------------------------------
+1) WHERE 609 POINTS (TWILIO VOICE URL)
+--------------------------------------------------------------------------------
+The 609 number's Voice URL is set in Twilio — NOT in code. Code only changes it
+when you run the script.
+
+SET (point 609 at /incomingcall) — full script: server/scripts/set-609-voice-incomingcall.ts
+--------------------------------------------------------------------------------
+/**
+ * Tie 609 number to the dedicated /incomingcall webhook.
+ * Sets number Voice URL to https://<baa2>/incomingcall and CLEARS TwiML App.
+ * Run: npx tsx server/scripts/set-609-voice-incomingcall.ts
+ */
+import twilio from 'twilio';
+import { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN } from '../hardcoded-config';
+
+const INBOUND_LAST10 = '6096048379';
+const BAA2_BASE = 'https://aoirail-production-baa2.up.railway.app';
+const VOICE_URL = `${BAA2_BASE}/incomingcall`;
+const STATUS_CALLBACK = `${BAA2_BASE}/api/twilio/call-status`;
+
+async function main() {
+  if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN) { console.error('Missing Twilio credentials'); process.exit(1); }
+  const client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+  const list = await client.incomingPhoneNumbers.list();
+  const target = list.find((n) => String(n.phoneNumber || '').replace(/\D/g, '').slice(-10) === INBOUND_LAST10);
+  if (!target) { console.error('No number ending in', INBOUND_LAST10); process.exit(1); }
+  await client.incomingPhoneNumbers(target.sid).update({
+    voiceUrl: VOICE_URL,
+    statusCallback: STATUS_CALLBACK,
+    voiceApplicationSid: '',
+  });
+  console.log('OK:', target.phoneNumber, '-> voiceUrl:', VOICE_URL);
+}
+main().catch((e) => { console.error(e?.message ?? e); process.exit(1); });
+
+CHECK (what Twilio actually uses) — full script: server/scripts/check-609-voice-url.ts
+--------------------------------------------------------------------------------
+Uses BAA2_INCOMINGCALL vs BAA2_WEBRTC; if TwiML App is set, fetches app and shows app Voice URL.
+Run: npx tsx server/scripts/check-609-voice-url.ts
+
+--------------------------------------------------------------------------------
+2) ROUTE REGISTRATION (server/routes.ts)
+--------------------------------------------------------------------------------
+  app.get("/incomingcall", handleIncomingCall);
+  app.post("/incomingcall", express.urlencoded({ extended: false }), handleIncomingCall);
+
+  app.post("/api/twilio/taskrouter/assignment", express.urlencoded({ extended: false }), (req, res) => { ... });
+
+  // Other voice endpoints (609 should NOT use these):
+  app.get("/webhook/webrtc", webrtcWebhookHandler);
+  app.post("/webhook/webrtc", express.urlencoded({ extended: false }), webrtcWebhookHandler);
+
+So: 609 must have voiceUrl = .../incomingcall so Twilio POSTs to handleIncomingCall.
+    TaskRouter workflow must have assignmentCallbackUrl = .../api/twilio/taskrouter/assignment.
+
+--------------------------------------------------------------------------------
+3) /incomingcall HANDLER — full code (server/routes.ts lines 13186–13263)
+--------------------------------------------------------------------------------
+  const FALLBACK_TWIML = '<?xml version="1.0" encoding="UTF-8"?><Response><Say voice="alice">We are temporarily unable to route your call. Please try again later.</Say><Hangup/></Response>';
+  const handleIncomingCall = async (req: any, res: any) => {
+    const body = req.body || {};
+    const q = req.query || {};
+    const callSid = body.CallSid || body.call_sid || q.CallSid;
+    const from = body.From || body.from || q.From || q.from;
+    const to = body.To || body.to || body.Called || q.To || q.Called;
+    const effectiveCallSid = callSid || 'inbound-' + Date.now();
+    const responseCode = 200;
+    let responseBody: string;
+    try {
+      if (!isTaskRouterConfigured()) {
+        console.error('📞 609 /incomingcall → TaskRouter not configured');
+        responseBody = FALLBACK_TWIML;
+        res.status(responseCode).type('text/xml').send(responseBody);
+        console.error(`LIVE_CALL_INCOMINGCALL method=${req.method} url=${req.originalUrl || req.url} CallSid=${effectiveCallSid} From=${from} To=${to} status=${responseCode} body=${responseBody.slice(0, 400)}${responseBody.length > 400 ? '...' : ''}`);
+        return;
+      }
+      const phoneNumber = String(from || '').trim();
+      const callerLast10 = phoneNumber.replace(/\D/g, '').slice(-10);
+      let leadMarket = 'Unknown';
+      let leadState = 'XX';
+      let leadName = 'Unknown';
+      let leadId: string | undefined;
+      let firstName: string | undefined;
+      let lastName: string | undefined;
+      let taalkLeadId: string | undefined;
+      let leadEmail: string | undefined;
+      if (supabaseAdmin && callerLast10.length >= 10) {
+        try {
+          const { data: leadRow } = await supabaseAdmin
+            .from('masterlead')
+            .select('id, state, taalk_market, first_name, last_name, taalk_lead_id, email, cn_email')
+            .ilike('phone', `%${callerLast10}%`)
+            .order('updated_at', { ascending: false })
+            .limit(1)
+            .maybeSingle();
+          if (leadRow?.state) leadState = String(leadRow.state).trim().length === 2 ? String(leadRow.state).trim().toUpperCase() : String(leadRow.state).trim();
+          if (leadRow?.taalk_market) leadMarket = String(leadRow.taalk_market).trim();
+          if (leadRow?.first_name || leadRow?.last_name) {
+            firstName = leadRow?.first_name ? String(leadRow.first_name).trim() : undefined;
+            lastName = leadRow?.last_name ? String(leadRow.last_name).trim() : undefined;
+            leadName = [firstName, lastName].filter(Boolean).join(' ').trim() || 'Unknown';
+          }
+          if (leadRow?.id) leadId = String(leadRow.id);
+          if (leadRow?.taalk_lead_id) taalkLeadId = String(leadRow.taalk_lead_id).trim();
+          const em = leadRow?.email || leadRow?.cn_email;
+          if (em) leadEmail = String(em).trim();
+        } catch (_) {}
+      }
+      const taskAttributesJson = buildTaskAttributesForEnqueue({
+        call_sid: effectiveCallSid,
+        lead_id: leadId,
+        source: 'direct_inbound',
+        market: leadMarket,
+        state: leadState,
+        phone_number: phoneNumber,
+        lead_name: leadName,
+        first_name: firstName,
+        last_name: lastName,
+        taalk_lead_id: taalkLeadId,
+        lead_email: leadEmail,
+        routing_target: 'inbound609',
+      });
+      const workflowSid = getWorkflowSidForEnqueue();
+      const waitUrl = 'http://twimlets.com/holdmusic?Bucket=com.twilio.music.soft-rock';
+      responseBody = buildEnqueueTwiML(workflowSid, taskAttributesJson, waitUrl);
+      res.status(responseCode).type('text/xml').send(responseBody);
+      console.error(`LIVE_CALL_INCOMINGCALL method=${req.method} url=${req.originalUrl || req.url} CallSid=${effectiveCallSid} From=${from} To=${to} status=${responseCode} body=${responseBody}`);
+      return;
+    } catch (e) {
+      console.error('📞 609 /incomingcall exception:', e);
+      responseBody = FALLBACK_TWIML;
+      res.status(responseCode).type('text/xml').send(responseBody);
+      console.error(`LIVE_CALL_INCOMINGCALL ... status=${responseCode} body=${responseBody.slice(0, 200)}...`);
+      return;
+    }
+  };
+  app.get("/incomingcall", handleIncomingCall);
+  app.post("/incomingcall", express.urlencoded({ extended: false }), handleIncomingCall);
+
+--------------------------------------------------------------------------------
+4) TASKROUTER ENQUEUE (server/taskrouter-service.ts)
+--------------------------------------------------------------------------------
+  export function getWorkflowSidForEnqueue(): string {
+    const sid = TWILIO_TASKROUTER_WORKFLOW_INBOUND_SID || process.env.TWILIO_TASKROUTER_WORKFLOW_INBOUND_SID;
+    if (!sid) throw new Error('TWILIO_TASKROUTER_WORKFLOW_INBOUND_SID not set. Run provisioning script first.');
+    return sid;
+  }
+
+  export function buildTaskAttributesForEnqueue(input: EnqueueTaskAttributesInput): string {
+    const created_at = input.created_at ?? new Date().toISOString();
+    const attrs = {
+      call_sid: input.call_sid,
+      lead_id: input.lead_id ?? '',
+      source: input.source,
+      market: input.market,
+      state: input.state,
+      phone_number: input.phone_number,
+      lead_name: input.lead_name ?? ([input.first_name, input.last_name].filter(Boolean).join(' ').trim() || 'Unknown'),
+      first_name: input.first_name,
+      last_name: input.last_name,
+      taalk_lead_id: input.taalk_lead_id,
+      lead_email: input.lead_email,
+      priority_class: input.priority_class ?? 'core',
+      transfer_confidence: input.transfer_confidence,
+      estimated_value_band: input.estimated_value_band,
+      prior_agent_id: input.prior_agent_id,
+      workflow_variant: input.workflow_variant,
+      fallback_stage: input.fallback_stage ?? 0,
+      created_at,
+      ...(input.routing_target != null && { routing_target: input.routing_target }),
+    };
+    return JSON.stringify(attrs);
+  }
+
+  export function buildEnqueueTwiML(workflowSid: string, taskAttributesJson: string, waitUrl?: string): string {
+    const wait = waitUrl ? ` waitUrl="${escapeXml(waitUrl)}"` : '';
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Enqueue workflowSid="${escapeXml(workflowSid)}"${wait}>
+    <Task>${escapeXml(taskAttributesJson)}</Task>
+  </Enqueue>
+</Response>`;
+  }
+  function escapeXml(s: string): string {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+  }
+
+--------------------------------------------------------------------------------
+5) ASSIGNMENT CALLBACK — full routing code (server/routes.ts lines 8784–8869)
+--------------------------------------------------------------------------------
+  const pendingReservations = new Map<string, { taskSid: string; workerSid: string; workerAttributes: string; taskAttributes: string; createdAt: number }>();
+  const DEQUEUE_FROM = TWILIO_PHONE_NUMBER || process.env.TWILIO_PHONE_NUMBER || '+16096048379';
+  app.post("/api/twilio/taskrouter/assignment", express.urlencoded({ extended: false }), (req, res) => {
+    const body = req.body || {};
+    const workerAttributesRaw = body.WorkerAttributes || body.worker_attributes || '{}';
+    const taskAttributesRaw = body.TaskAttributes || body.task_attributes || '{}';
+    let workerAttrs: Record<string, unknown> = {};
+    try {
+      workerAttrs = typeof workerAttributesRaw === 'string' ? JSON.parse(workerAttributesRaw) : workerAttributesRaw;
+    } catch (_) {}
+    // Normalize keys (Twilio may send Markets/licensed_states etc.)
+    const wMarkets = workerAttrs.markets ?? (workerAttrs as any).Markets ?? workerAttrs.market;
+    const wStates = workerAttrs.licensed_states ?? (workerAttrs as any).Licensed_states ?? (workerAttrs as any).licensed_states;
+    if (wMarkets !== undefined) workerAttrs.markets = Array.isArray(wMarkets) ? wMarkets : [wMarkets];
+    if (wStates !== undefined) workerAttrs.licensed_states = Array.isArray(wStates) ? wStates : [wStates];
+    let taskAttrs: Record<string, unknown> = {};
+    try {
+      taskAttrs = typeof taskAttributesRaw === 'string' ? JSON.parse(taskAttributesRaw) : taskAttributesRaw;
+    } catch (_) {}
+    // Read from both keys so masterlead data (market/state) is never dropped
+    const taskMarketRaw = (typeof taskAttrs.market === 'string' ? taskAttrs.market : typeof (taskAttrs as any).taalk_market === 'string' ? (taskAttrs as any).taalk_market : '') as string;
+    const taskMarket = taskMarketRaw.trim();
+    const taskStateRaw = (typeof taskAttrs.state === 'string' ? taskAttrs.state : '') as string;
+    const taskState = taskStateRaw.trim().length === 2 ? taskStateRaw.trim().toUpperCase() : taskStateRaw.trim();
+    const workerMarkets: string[] = Array.isArray(workerAttrs.markets)
+      ? workerAttrs.markets.filter((m): m is string => typeof m === 'string').map((m) => String(m).trim())
+      : [];
+    const workerStates: string[] = Array.isArray(workerAttrs.licensed_states)
+      ? workerAttrs.licensed_states.filter((s): s is string => typeof s === 'string').map((s) => String(s).trim())
+      : [];
+    // Unknown/XX = no lead match; treat as wildcard so call moves to an agent instead of rejecting everyone
+    const taskMarketEffective = taskMarket && taskMarket !== 'Unknown' ? taskMarket : '';
+    const taskStateEffective = taskState && taskState !== 'XX' && taskState.length === 2 ? taskState : '';
+    const workerStatesUpper = workerStates.map((s) => (s.length === 2 ? s.toUpperCase() : s));
+    const taskStateEffectiveUpper = taskStateEffective.length === 2 ? taskStateEffective.toUpperCase() : taskStateEffective;
+    const marketMatches = (wm: string, task: string) =>
+      wm === task || wm.includes(task) || task.includes(wm) || wm.toLowerCase() === task.toLowerCase();
+    const marketMismatch =
+      taskMarketEffective &&
+      workerMarkets.length > 0 &&
+      !workerMarkets.some((wm) => marketMatches(wm.trim(), taskMarketEffective));
+    const stateMismatch = taskStateEffective && workerStates.length > 0 && !workerStatesUpper.includes(taskStateEffectiveUpper);
+    const workerEmail = (workerAttrs.agent_email ?? workerAttrs.email ?? '').toString().trim();
+    console.error('TaskRouter assignment: worker=', workerEmail, 'task market=', taskMarket, 'state=', taskState, 'effective=', taskMarketEffective || '(any)', taskStateEffective || '(any)', 'workerMarkets=', workerMarkets, 'workerStates=', workerStates);
+    if (marketMismatch || stateMismatch) {
+      const reservationSid = body.ReservationSid || body.reservation_sid;
+      const taskSid = body.TaskSid || body.task_sid;
+      console.error('TaskRouter assignment: reject (market/state mismatch) task=', taskSid, 'reservation=', reservationSid);
+      return res.status(200).contentType('application/json').json({ instruction: 'reject' });
+    }
+    let to: string | null = null;
+    try {
+      const attrs = workerAttrs as Record<string, unknown>;
+      to = (attrs.contact_uri as string) || (attrs.agent_email ? 'client:' + String(attrs.agent_email).trim() : null) || null;
+      if (to && !to.startsWith('client:') && attrs.agent_email) to = 'client:' + String(attrs.agent_email).trim();
+    } catch (_) {}
+    const reservationSid = body.ReservationSid || body.reservation_sid;
+    const taskSid = body.TaskSid || body.task_sid;
+    const workerSid = body.WorkerSid || body.worker_sid;
+    if (reservationSid && taskSid && workerSid) {
+      const createdAt = Date.now();
+      pendingReservations.set(reservationSid, {
+        taskSid,
+        workerSid,
+        workerAttributes: typeof workerAttributesRaw === 'string' ? workerAttributesRaw : JSON.stringify(workerAttributesRaw),
+        taskAttributes: typeof taskAttributesRaw === 'string' ? taskAttributesRaw : JSON.stringify(taskAttributesRaw),
+        createdAt,
+      });
+      if (supabaseAdmin) {
+        const payloadForDb = {
+          reservation_sid: reservationSid,
+          task_sid: taskSid,
+          worker_sid: workerSid,
+          worker_attributes: typeof workerAttributesRaw === 'string' ? workerAttributesRaw : JSON.stringify(workerAttributesRaw),
+          task_attributes: typeof taskAttributesRaw === 'string' ? taskAttributesRaw : JSON.stringify(taskAttributesRaw),
+          created_at: new Date(createdAt).toISOString(),
+        };
+        supabaseAdmin.from('taskrouter_pending').upsert(payloadForDb, { onConflict: 'reservation_sid' }).then(() => {}).catch((dbErr) => console.warn('TaskRouter assignment: taskrouter_pending upsert failed', dbErr));
+      }
+    }
+    const payload: { instruction: string; from: string; to?: string } = { instruction: 'dequeue', from: DEQUEUE_FROM };
+    if (to) payload.to = to;
+    console.error('TaskRouter assignment: dequeue to', to || '(worker contact_uri)', 'task=', taskSid, 'reservation=', reservationSid);
+    return res.status(200).contentType('application/json').json(payload);
+  });
+
+--------------------------------------------------------------------------------
+6) WHERE ASSIGNMENT CALLBACK URL IS SET (TWILIO WORKFLOW)
+--------------------------------------------------------------------------------
+Not in app code — set when you provision TaskRouter:
+
+  server/scripts/provision-taskrouter.ts
+
+  const BASE_URL = process.env.BASE_URL || PRODUCTION_URL || 'https://aoirail-production-baa2.up.railway.app';
+  const assignmentCallbackUrl = `${BASE_URL}/api/twilio/taskrouter/assignment`;
+
+  await workspace.workflows(workflowSid).update({
+    configuration: JSON.stringify(workflowConfig),
+    assignmentCallbackUrl,
+    ...
+  });
+
+  Run: BASE_URL=https://aoirail-production-baa2.up.railway.app npx tsx server/scripts/provision-taskrouter.ts
+
+So:
+- 609 Voice URL → set by set-609-voice-incomingcall.ts → must be .../incomingcall
+- Workflow assignment callback URL → set by provision-taskrouter.ts → must be .../api/twilio/taskrouter/assignment
+
+--------------------------------------------------------------------------------
+7) FILTERING IN TASKROUTER — ATTRIBUTES MUST MATCH WHAT THE ROUTE EXPECTS
+--------------------------------------------------------------------------------
+The workflow target expression looks for task.market, task.state, worker.markets, worker.licensed_states.
+Whatever we send as task attributes and whatever we put in worker attributes must use these exact keys
+and the same value format, or the route won't match.
+
+Task attributes (what we send in Enqueue; route checks task.market, task.state only):
+  market: string   — "Unknown" if no lead; otherwise e.g. "Globe Market" (must match worker.markets values)
+  state: string    — "XX" if no lead; otherwise 2-letter uppercase e.g. "CO", "TX"
+
+Worker attributes (what we sync; route checks worker.markets, worker.licensed_states):
+  markets: string[]             — same canonical strings as task.market (e.g. ["Globe Market"])
+  licensed_states: string[]     — 2-letter uppercase (e.g. ["CO", "TX"]) to match task.state
+  contact_uri: string
+
+TaskQueue targetWorkers: 1==1. Workflow filter: 1==1. Workflow target expression: 1==1.
+No market/state requirement in TaskRouter — any online worker in the queue gets offered the task.
+(Task and worker still have market/state for our assignment callback / UI / analytics if we want.)
+
+--------------------------------------------------------------------------------
+8) WHO GETS 609 OFFERS
+--------------------------------------------------------------------------------
+  provision-taskrouter.ts: TaskQueue targetWorkers = routing_target == "inbound609". Workflow target = (task.market == "Unknown" OR task.market IN worker.markets) AND (task.state == "XX" OR task.state IN worker.licensed_states). Reservation timeout 4s.
+
+--------------------------------------------------------------------------------
+9) FLOW SUMMARY
+--------------------------------------------------------------------------------
+1. Call to 609 → Twilio POSTs to voiceUrl .../incomingcall.
+2. handleIncomingCall → masterlead lookup → task attrs market, state (Unknown/XX if unknown), routing_target inbound609 → Enqueue.
+3. Workflow sends task to queue. Only workers with routing_target=="inbound609" and matching market/state get reservations.
+4. TaskRouter offers reservation to each matching worker → POST to assignmentCallbackUrl.
+5. Assignment callback: always return dequeue (to: worker contact_uri), upsert taskrouter_pending, log one line.
+6. Twilio bridges call. UI polls pending from Supabase.
+
+After changing filtering: re-run provision-taskrouter.ts. If it's not ringing: use section 11 "Calls still not routing?" checklist.
+
+--------------------------------------------------------------------------------
+10) HOW TO KNOW IT WILL WORK
+--------------------------------------------------------------------------------
+Before a real call:
+  • npx tsx server/scripts/verify-taskrouter-inbound-609.ts
+    → TaskRouter configured, assignment callback URL, at least one worker online.
+  • npx tsx server/scripts/show-task-attrs-for-caller.ts +15032018470
+    → Shows masterlead lookup and full task JSON we send in Enqueue (market, state, etc.).
+  • npx tsx server/scripts/readiness-609-for-caller.ts +15032018470
+    → "Will a 609 call from this number ring anyone?" Uses same lookup + same market/state
+      matching as the workflow. If it prints "Ready: ... would be offered to: [workers]",
+      a real call should ring those workers. If "Not ready", fix masterlead or worker
+      market/states (customers table + sync).
+  • Optional (against deployed app): BASE_URL=https://... npx tsx server/scripts/prove-609-goes-to-taskrouter.ts
+    → Confirms 609 path returns <Enqueue workflowSid="WW..."> (not Dial/Conference).
+
+After a test call:
+  • npx tsx server/scripts/diagnose-last-inbound-609.ts
+    → Last call to 609: call SID, task SID, task market/state, pending rows. If task has
+      no market/state, deploy latest code (handleWebRTC 609 block does masterlead lookup).
+  • npx tsx server/scripts/task-reservations.ts [TaskSid]
+    → Who was offered the task, reservation status. If 0 reservations, task likely had
+      no market/state or no worker matched.
+
+Railway logs to grep:
+  LIVE_CALL_INCOMINGCALL — /incomingcall hit, response should be Enqueue TwiML.
+  "609 → TaskRouter Enqueue" — /webhook/webrtc 609 path returned Enqueue (if 609 points there).
+  "TaskRouter assignment: dequeue to" — we accepted; panel should show, call bridges.
+
+--------------------------------------------------------------------------------
+11) CALLS STILL NOT ROUTING? — WHAT'S GOING WRONG?
+--------------------------------------------------------------------------------
+609 single flow: 609 must point to /incomingcall only (not /webhook/webrtc).
+
+Step 1 — Where does 609 point?
+  npx tsx server/scripts/check-609-voice-url.ts
+  Must show: https://aoirail-production-baa2.up.railway.app/incomingcall
+  If not: run npx tsx server/scripts/set-609-voice-incomingcall.ts
+
+Step 2 — Did our server get the call?
+  Railway logs: grep "609 /incomingcall" or "LIVE_CALL_INCOMINGCALL"
+  If you see it: we returned TwiML (Enqueue or fallback). If you DON'T: Twilio is not hitting our server (wrong 609 URL or env).
+
+Step 3 — Did we return Enqueue?
+  Log line shows twiml=... — must contain <Enqueue workflowSid="WW..."> and <Task> with market, state, routing_target.
+  Or run: BASE_URL=https://aoirail-production-baa2.up.railway.app npx tsx server/scripts/prove-609-goes-to-taskrouter.ts
+
+Step 4 — Did TaskRouter call our assignment callback?
+  Railway logs: grep "TaskRouter assignment"
+  Or hit: GET https://aoirail-production-baa2.up.railway.app/api/twilio/taskrouter/assignment-debug
+  If 0 assignment log lines and 0 events in assignment-debug after a test call → TaskRouter created 0 reservations. So either:
+  - No worker is AvailableInbound with routing_target=="inbound609", or
+  - Workflow expression didn't match (task market/state vs worker markets/licensed_states).
+
+Step 5 — Why 0 reservations?
+  npx tsx server/scripts/diagnose-taskrouter-why-no-reservations.ts
+  → Need at least one worker: available=true, activity=AvailableInbound, voice channel capacity > 0.
+  npx tsx server/scripts/check-worker-raw-twilio.ts
+  → Worker attributes must include routing_target "inbound609", markets array, licensed_states array.
+  Workers get these when: WebRTC device.registered → POST /api/agents/voice-online → setWorkerAvailableForVoice (customers table market/states). Or run sync-taskrouter-workers.ts.
+
+Step 6 — Would this caller match any worker?
+  npx tsx server/scripts/readiness-609-for-caller.ts +1XXXXXXXXXX
+  If "Not ready" or "would be offered to: []" → task market/state (from masterlead) don't match any worker's markets/licensed_states. Fix customers table or masterlead data.
+
+Step 7 — After a test call: task and pending
+  npx tsx server/scripts/diagnose-last-inbound-609.ts
+  → Task has market/state? If task has them but 0 pending rows and no "TaskRouter assignment" log → 0 reservations (Step 5/6). Assignment callback never rejects; it always returns dequeue. If we get a reservation we log and return dequeue.
+
+Summary: No log "609 /incomingcall" → fix 609 URL. No "TaskRouter assignment" → 0 reservations (workers or filter). Check assignment-debug and diagnose scripts above.
+
+--------------------------------------------------------------------------------
+12) DEBUG: FORCED ROUTE TO CNSYSOP (temporary)
+--------------------------------------------------------------------------------
+When DEBUG_609_FORCE_CNSYSOP is true (in routes.ts near TaskRouter assignment):
+  • Every 609 task is sent with market="Globe Market", state="WA" (no lead lookup).
+  • Assignment callback always returns: { "instruction": "dequeue", "from": "+16096048379", "to": "client:cnsysop@aoglobelife.com" }.
+  • This removes filtering and contact_uri as variables; if it still doesn't ring, the issue is dequeue/browser identity.
+
+Checkpoints:
+  • No "TaskRouter assignment: RESERVATION RECEIVED" after a call → TaskRouter never reserved cnsysop (filter still doesn't match).
+  • "RESERVATION RECEIVED" but no ring → callback URL OK; problem is dequeue target or browser identity. Browser must be registered with identity exactly cnsysop@aoglobelife.com (see log "Voice token identity for 609 dequeue match" when cnsysop gets a token).
+  • If it rings with forced Globe Market + WA → platform works; turn off DEBUG_609_FORCE_CNSYSOP and fix task attribute normalization from masterlead (market/state strings must match worker markets/licensed_states exactly).
+
+To disable: set DEBUG_609_FORCE_CNSYSOP = false in routes.ts (next to DEQUEUE_FROM / DEBUG_609_HARDCODE_DEQUEUE_TO).

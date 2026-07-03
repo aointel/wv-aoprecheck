@@ -1,0 +1,343 @@
+﻿≡ƒôè Processing VDP CSV Stats...
+
+≡ƒôä File: 3c9942a5-e49a-4f21-ba6f-0ad56db95487.csv
+
+≡ƒôä Total rows: 23574
+
+Γ£à Parsed 23339 events
+
+≡ƒô₧ Connects: 1455
+Γ¥î Missed Calls: 1718
+
+================================================================================
+≡ƒôè VDP STATS BY MARKET
+================================================================================
+
+≡ƒÅó Market: Veteran
+   ≡ƒô₧ Total Calls (NEW): 1341
+   ≡ƒöö BLASTER Events: 1746
+   Γ£à Connects: 613
+   Γ¥î Missed Calls: 578
+   ≡ƒôè Total Activity: 1191
+   ≡ƒôê Connect Rate (of total): 51.5%
+   ≡ƒôê Connect Rate (of NEW calls): 45.7%
+   ΓÅ▒∩╕Å  Avg Ring Duration: 12s (0m 12s)
+   ΓÅ▒∩╕Å  Total Ring Duration: 118m
+
+≡ƒÅó Market: aorecruit
+   ≡ƒô₧ Total Calls (NEW): 1041
+   ≡ƒöö BLASTER Events: 1535
+   Γ£à Connects: 616
+   Γ¥î Missed Calls: 446
+   ≡ƒôè Total Activity: 1062
+   ≡ƒôê Connect Rate (of total): 58.0%
+   ≡ƒôê Connect Rate (of NEW calls): 59.2%
+   ΓÅ▒∩╕Å  Avg Ring Duration: 13s (0m 13s)
+   ΓÅ▒∩╕Å  Total Ring Duration: 133m
+
+≡ƒÅó Market: Globe Market
+   ≡ƒô₧ Total Calls (NEW): 654
+   ≡ƒöö BLASTER Events: 986
+   Γ£à Connects: 224
+   Γ¥î Missed Calls: 221
+   ≡ƒôè Total Activity: 445
+   ≡ƒôê Connect Rate (of total): 50.3%
+   ≡ƒôê Connect Rate (of NEW calls): 34.3%
+   ΓÅ▒∩╕Å  Avg Ring Duration: 8s (0m 8s)
+   ΓÅ▒∩╕Å  Total Ring Duration: 29m
+
+≡ƒÅó Market: Unknown
+   ≡ƒô₧ Total Calls (NEW): 572
+   ≡ƒöö BLASTER Events: 1
+   Γ£à Connects: 0
+   Γ¥î Missed Calls: 407
+   ≡ƒôè Total Activity: 407
+   ≡ƒôê Connect Rate (of total): 0.0%
+   ≡ƒôê Connect Rate (of NEW calls): 0.0%
+
+≡ƒÅó Market: Will Kit
+   ≡ƒô₧ Total Calls (NEW): 87
+   ≡ƒöö BLASTER Events: 30
+   Γ£à Connects: 2
+   Γ¥î Missed Calls: 64
+   ≡ƒôè Total Activity: 66
+   ≡ƒôê Connect Rate (of total): 3.0%
+   ≡ƒôê Connect Rate (of NEW calls): 2.3%
+   ΓÅ▒∩╕Å  Avg Ring Duration: 18s (0m 18s)
+   ΓÅ▒∩╕Å  Total Ring Duration: 1m
+
+≡ƒÅó Market: aorecruit_1
+   ≡ƒô₧ Total Calls (NEW): 1
+   ≡ƒöö BLASTER Events: 0
+   Γ£à Connects: 0
+   Γ¥î Missed Calls: 1
+   ≡ƒôè Total Activity: 1
+   ≡ƒôê Connect Rate (of total): 0.0%
+   ≡ƒôê Connect Rate (of NEW calls): 0.0%
+
+≡ƒÅó Market: Plus Lead
+   ≡ƒô₧ Total Calls (NEW): 1
+   ≡ƒöö BLASTER Events: 0
+   Γ£à Connects: 0
+   Γ¥î Missed Calls: 1
+   ≡ƒôè Total Activity: 1
+   ≡ƒôê Connect Rate (of total): 0.0%
+   ≡ƒôê Connect Rate (of NEW calls): 0.0%
+
+================================================================================
+≡ƒôè OVERALL TOTALS
+================================================================================
+≡ƒô₧ Total Calls (NEW): 3697
+≡ƒöö Total BLASTER Events: 4298
+Γ£à Total Connects: 1455
+Γ¥î Total Missed Calls: 1718
+≡ƒôè Total Activity: 3173
+≡ƒôê Overall Connect Rate (of total): 45.9%
+≡ƒôê Overall Connect Rate (of NEW calls): 39.4%
+ΓÅ▒∩╕Å  Average Ring Duration: 12s (0m 12s)
+ΓÅ▒∩╕Å  Total Ring Duration: 281m
+
+================================================================================
+≡ƒÅå TOP 10 LONGEST RING DURATIONS
+================================================================================
+ 1. Agent 148199 ΓåÆ Ravi Rajagopal | Ring: 2m 11s | Call: 5m 41s | aorecruit | +17169942898
+ 2. Agent 21256 ΓåÆ JASON SCHMIDLING | Ring: 2m 11s | Call: 15m 14s | aorecruit | +17025424960
+ 3. Agent 223802 ΓåÆ Paul Stacey | Ring: 2m 8s | Call: 63m 36s | Veteran | +14198041595
+ 4. Agent 200304 ΓåÆ Christine Keliikuli | Ring: 2m 7s | Call: 7m 32s | Veteran | +15058188863
+ 5. Agent 555555 ΓåÆ Robert Andrad | Ring: 2m 7s | Call: 0m 41s | aorecruit | +17276037658
+ 6. Agent 212398 ΓåÆ Donna Hayes | Ring: 2m 5s | Call: 4m 36s | aorecruit | +17819105726
+ 7. Agent 34332222 ΓåÆ Jeorge Sales | Ring: 1m 57s | Call: 5m 11s | aorecruit | +12183431111
+ 8. Agent 134400 ΓåÆ Charley Rowse | Ring: 1m 54s | Call: 0m 13s | Veteran | +13073400718
+ 9. Agent 225049 ΓåÆ Milton Blandburg | Ring: 1m 54s | Call: 0m 28s | Veteran | +19568982308
+10. Agent 191236 ΓåÆ Wilson Crawley Jr | Ring: 1m 47s | Call: 3m 40s | Veteran | +12677678577
+
+================================================================================
+≡ƒæÑ AGENTS BY MARKET
+================================================================================
+
+Veteran: 82 unique agent(s)
+   1. Agent 102596: 0 connects, 7 missed
+   2. Agent 110970: 1 connects, 0 missed
+   3. Agent 114639: 24 connects, 0 missed
+   4. Agent 115312: 1 connects, 0 missed
+   5. Agent 117239: 5 connects, 0 missed
+   6. Agent 126619: 6 connects, 0 missed
+   7. Agent 126829: 1 connects, 1 missed
+   8. Agent 131250: 4 connects, 0 missed
+   9. Agent 131252: 4 connects, 0 missed
+   10. Agent 131768: 6 connects, 0 missed
+   11. Agent 134400: 56 connects, 8 missed
+   12. Agent 134915: 1 connects, 0 missed
+   13. Agent 140502: 6 connects, 1 missed
+   14. Agent 141031: 9 connects, 1 missed
+   15. Agent 145691: 17 connects, 0 missed
+   16. Agent 148287: 3 connects, 0 missed
+   17. Agent 155337: 1 connects, 11 missed
+   18. Agent 155419: 14 connects, 0 missed
+   19. Agent 156134: 0 connects, 1 missed
+   20. Agent 159180: 10 connects, 1 missed
+   21. Agent 160490: 12 connects, 2 missed
+   22. Agent 160655: 4 connects, 5 missed
+   23. Agent 174388: 1 connects, 0 missed
+   24. Agent 179019: 9 connects, 0 missed
+   25. Agent 180772: 6 connects, 0 missed
+   26. Agent 181494: 4 connects, 0 missed
+   27. Agent 181791: 9 connects, 0 missed
+   28. Agent 182497: 4 connects, 0 missed
+   29. Agent 183858: 7 connects, 0 missed
+   30. Agent 185556: 4 connects, 0 missed
+   31. Agent 187008: 2 connects, 0 missed
+   32. Agent 188348: 1 connects, 0 missed
+   33. Agent 188631: 13 connects, 1 missed
+   34. Agent 191236: 19 connects, 2 missed
+   35. Agent 191432: 2 connects, 0 missed
+   36. Agent 191451: 1 connects, 0 missed
+   37. Agent 194835: 10 connects, 0 missed
+   38. Agent 194978: 18 connects, 1 missed
+   39. Agent 196350: 2 connects, 0 missed
+   40. Agent 197159: 1 connects, 0 missed
+   41. Agent 198033: 10 connects, 0 missed
+   42. Agent 198889: 8 connects, 0 missed
+   43. Agent 200206: 1 connects, 0 missed
+   44. Agent 200304: 9 connects, 1 missed
+   45. Agent 200562: 6 connects, 50 missed
+   46. Agent 200869: 6 connects, 0 missed
+   47. Agent 203923: 1 connects, 0 missed
+   48. Agent 204016: 4 connects, 0 missed
+   49. Agent 205409: 5 connects, 0 missed
+   50. Agent 205951: 5 connects, 0 missed
+   51. Agent 208099: 8 connects, 0 missed
+   52. Agent 208197: 26 connects, 3 missed
+   53. Agent 208945: 1 connects, 1 missed
+   54. Agent 210494: 1 connects, 0 missed
+   55. Agent 211397: 27 connects, 1 missed
+   56. Agent 214690: 1 connects, 0 missed
+   57. Agent 215729: 3 connects, 0 missed
+   58. Agent 216643: 5 connects, 3 missed
+   59. Agent 217165: 9 connects, 1 missed
+   60. Agent 217189: 0 connects, 1 missed
+   61. Agent 218165: 16 connects, 2 missed
+   62. Agent 218182: 1 connects, 0 missed
+   63. Agent 221220: 1 connects, 0 missed
+   64. Agent 222248: 4 connects, 0 missed
+   65. Agent 223802: 1 connects, 0 missed
+   66. Agent 224629: 2 connects, 0 missed
+   67. Agent 224839: 8 connects, 0 missed
+   68. Agent 225049: 6 connects, 0 missed
+   69. Agent 38431: 21 connects, 0 missed
+   70. Agent 40639: 28 connects, 0 missed
+   71. Agent 409: 18 connects, 0 missed
+   72. Agent 45391: 5 connects, 0 missed
+   73. Agent 46179: 16 connects, 0 missed
+   74. Agent 52356: 0 connects, 31 missed
+   75. Agent 59290: 14 connects, 1 missed
+   76. Agent 61113: 11 connects, 0 missed
+   77. Agent 63603: 13 connects, 0 missed
+   78. Agent 65269: 5 connects, 0 missed
+   79. Agent 79454: 4 connects, 1 missed
+   80. Agent 90029: 1 connects, 21 missed
+   81. Agent 97995: 4 connects, 0 missed
+   82. Agent UNASSIGNED: 0 connects, 419 missed
+
+aorecruit: 45 unique agent(s)
+   1. Agent 107086: 30 connects, 2 missed
+   2. Agent 118421: 8 connects, 0 missed
+   3. Agent 125888: 19 connects, 1 missed
+   4. Agent 126845: 3 connects, 0 missed
+   5. Agent 131115: 10 connects, 0 missed
+   6. Agent 131240: 3 connects, 0 missed
+   7. Agent 148199: 3 connects, 0 missed
+   8. Agent 155111: 12 connects, 0 missed
+   9. Agent 159180: 1 connects, 0 missed
+   10. Agent 170670: 10 connects, 0 missed
+   11. Agent 180838: 2 connects, 0 missed
+   12. Agent 186730: 17 connects, 0 missed
+   13. Agent 188348: 23 connects, 2 missed
+   14. Agent 193199: 3 connects, 1 missed
+   15. Agent 193930: 4 connects, 0 missed
+   16. Agent 196350: 11 connects, 0 missed
+   17. Agent 199002: 1 connects, 0 missed
+   18. Agent 199601: 7 connects, 0 missed
+   19. Agent 204210: 22 connects, 3 missed
+   20. Agent 211258: 17 connects, 1 missed
+   21. Agent 212398: 25 connects, 2 missed
+   22. Agent 21256: 20 connects, 0 missed
+   23. Agent 215248: 24 connects, 4 missed
+   24. Agent 217679: 1 connects, 0 missed
+   25. Agent 221714: 9 connects, 5 missed
+   26. Agent 23232: 19 connects, 0 missed
+   27. Agent 234234: 33 connects, 2 missed
+   28. Agent 34332222: 26 connects, 4 missed
+   29. Agent 34533: 8 connects, 0 missed
+   30. Agent 38431: 18 connects, 0 missed
+   31. Agent 46179: 1 connects, 0 missed
+   32. Agent 5456644: 4 connects, 1 missed
+   33. Agent 555555: 47 connects, 4 missed
+   34. Agent 55665: 42 connects, 1 missed
+   35. Agent 56555: 5 connects, 1 missed
+   36. Agent 56665: 15 connects, 1 missed
+   37. Agent 63603: 3 connects, 0 missed
+   38. Agent 6544666: 26 connects, 1 missed
+   39. Agent 69555: 5 connects, 0 missed
+   40. Agent 77273: 20 connects, 1 missed
+   41. Agent 78434: 3 connects, 0 missed
+   42. Agent 83550: 19 connects, 0 missed
+   43. Agent 897797: 32 connects, 2 missed
+   44. Agent 9874561: 5 connects, 0 missed
+   45. Agent UNASSIGNED: 0 connects, 407 missed
+
+Globe Market: 49 unique agent(s)
+   1. Agent 103021: 0 connects, 5 missed
+   2. Agent 108762: 9 connects, 0 missed
+   3. Agent 124740: 1 connects, 1 missed
+   4. Agent 126619: 5 connects, 2 missed
+   5. Agent 152828: 4 connects, 0 missed
+   6. Agent 153790: 5 connects, 31 missed
+   7. Agent 158942: 1 connects, 1 missed
+   8. Agent 161968: 1 connects, 0 missed
+   9. Agent 169438: 1 connects, 0 missed
+   10. Agent 177316: 5 connects, 0 missed
+   11. Agent 186624: 3 connects, 0 missed
+   12. Agent 188459: 1 connects, 0 missed
+   13. Agent 188523: 1 connects, 0 missed
+   14. Agent 200304: 3 connects, 0 missed
+   15. Agent 200388: 8 connects, 0 missed
+   16. Agent 200416: 2 connects, 0 missed
+   17. Agent 201512: 7 connects, 0 missed
+   18. Agent 203499: 2 connects, 0 missed
+   19. Agent 203894: 2 connects, 0 missed
+   20. Agent 205289: 1 connects, 0 missed
+   21. Agent 205300: 1 connects, 5 missed
+   22. Agent 205310: 9 connects, 0 missed
+   23. Agent 205313: 3 connects, 1 missed
+   24. Agent 205404: 48 connects, 2 missed
+   25. Agent 205407: 3 connects, 0 missed
+   26. Agent 205932: 2 connects, 0 missed
+   27. Agent 207058: 7 connects, 3 missed
+   28. Agent 208715: 2 connects, 0 missed
+   29. Agent 209153: 1 connects, 0 missed
+   30. Agent 209945: 2 connects, 0 missed
+   31. Agent 210840: 4 connects, 0 missed
+   32. Agent 211470: 5 connects, 0 missed
+   33. Agent 211971: 6 connects, 0 missed
+   34. Agent 212804: 1 connects, 0 missed
+   35. Agent 212826: 6 connects, 0 missed
+   36. Agent 215423: 2 connects, 0 missed
+   37. Agent 216218: 1 connects, 0 missed
+   38. Agent 216992: 4 connects, 0 missed
+   39. Agent 217091: 15 connects, 1 missed
+   40. Agent 217679: 4 connects, 1 missed
+   41. Agent 218151: 6 connects, 0 missed
+   42. Agent 218163: 15 connects, 2 missed
+   43. Agent 218164: 1 connects, 0 missed
+   44. Agent 218165: 1 connects, 0 missed
+   45. Agent 219298: 3 connects, 0 missed
+   46. Agent 220963: 3 connects, 8 missed
+   47. Agent 67222: 2 connects, 1 missed
+   48. Agent 95059: 5 connects, 0 missed
+   49. Agent UNASSIGNED: 0 connects, 157 missed
+
+Unknown: 32 unique agent(s)
+   1. Agent 117239: 0 connects, 1 missed
+   2. Agent 145691: 0 connects, 3 missed
+   3. Agent 179019: 0 connects, 1 missed
+   4. Agent 203923: 0 connects, 2 missed
+   5. Agent 205286: 0 connects, 1 missed
+   6. Agent 205289: 0 connects, 1 missed
+   7. Agent 205310: 0 connects, 4 missed
+   8. Agent 205313: 0 connects, 20 missed
+   9. Agent 205409: 0 connects, 1 missed
+   10. Agent 207058: 0 connects, 3 missed
+   11. Agent 210494: 0 connects, 1 missed
+   12. Agent 210840: 0 connects, 6 missed
+   13. Agent 211258: 0 connects, 1 missed
+   14. Agent 211397: 0 connects, 3 missed
+   15. Agent 212826: 0 connects, 3 missed
+   16. Agent 212888: 0 connects, 36 missed
+   17. Agent 212894: 0 connects, 1 missed
+   18. Agent 215341: 0 connects, 1 missed
+   19. Agent 216020: 0 connects, 6 missed
+   20. Agent 216172: 0 connects, 1 missed
+   21. Agent 217189: 0 connects, 2 missed
+   22. Agent 217679: 0 connects, 2 missed
+   23. Agent 218164: 0 connects, 3 missed
+   24. Agent 218182: 0 connects, 5 missed
+   25. Agent 219298: 0 connects, 3 missed
+   26. Agent 220963: 0 connects, 10 missed
+   27. Agent 221273: 0 connects, 14 missed
+   28. Agent 222229: 0 connects, 1 missed
+   29. Agent 223802: 0 connects, 1 missed
+   30. Agent 225049: 0 connects, 1 missed
+   31. Agent 95059: 0 connects, 2 missed
+   32. Agent UNASSIGNED: 0 connects, 267 missed
+
+Will Kit: 2 unique agent(s)
+   1. Agent 157337: 2 connects, 1 missed
+   2. Agent UNASSIGNED: 0 connects, 63 missed
+
+aorecruit_1: 1 unique agent(s)
+   1. Agent UNASSIGNED: 0 connects, 1 missed
+
+Plus Lead: 1 unique agent(s)
+   1. Agent UNASSIGNED: 0 connects, 1 missed
+

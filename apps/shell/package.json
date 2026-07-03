@@ -1,0 +1,9 @@
+{
+  "name": "aoirail-shell",
+  "private": true,
+  "description": "Shell app deploy – SPA entry, dashboard shell. Set Railway Root Directory to apps/shell.",
+  "scripts": {
+    "build": "cd ../.. && npm ci && npm run build:shell",
+    "start": "cd ../.. && node dist/shell.js"
+  }
+}

@@ -1,0 +1,9 @@
+node_modules
+node_modules_backup
+.local
+dist
+dist-server
+.env
+.DS_Store
+*.tar.gz
+reports/

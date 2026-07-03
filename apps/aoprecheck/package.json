@@ -1,0 +1,9 @@
+{
+  "name": "aoprecheck",
+  "private": true,
+  "description": "AO Precheck — policy verification (agent + client). Set Railway Root Directory to apps/aoprecheck. Runs monolith with SECTION=precheck.",
+  "scripts": {
+    "build": "cd ../.. && npm ci && npm run build",
+    "start": "cd ../.. && npx cross-env SECTION=precheck node dist/index.js"
+  }
+}

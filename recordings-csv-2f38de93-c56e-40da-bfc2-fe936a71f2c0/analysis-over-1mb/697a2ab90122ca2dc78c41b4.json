@@ -1,0 +1,28 @@
+{
+  "label": "697a2ab90122ca2dc78c41b4",
+  "scriptOutline": [
+    "opening: Hey Esteban. Hey, this is Alex with AOGlobe Life Customer Service. I was calling about the Veteran Will Kit that you just requested. Can you hear me okay?",
+    "agenda/consent: The reason why I'm calling is that your kit has been processed and your local representative is standing by.",
+    "qualification: Are you married, widowed, single, or divorced? What's your spouse's name? How old are you, sir?",
+    "objection handling: We don't have computers. - Well, you have smartphones, right? That works just fine.",
+    "close: So, do you still want it in the afternoon, or would the morning or early afternoon be better? Saturday at 6 p.m. sounds good.",
+    "next steps: I will send you the form to request your DD-214 and ensure you know how to pre-register for your VA burial benefits."
+  ],
+  "objections": [
+    {
+      "objection": "We don't have computers.",
+      "howAgentHandled": "Well, you have smartphones, right? That works just fine."
+    },
+    {
+      "objection": "Natalie's not here right now.",
+      "howAgentHandled": "We definitely would want you both there, because when something happens to you, she needs to know what to do, right?"
+    }
+  ],
+  "keyPhrases": [
+    "Can you hear me okay?",
+    "Does that ring a bell?",
+    "Are you familiar with Zoom?",
+    "It would be really nice if you knew something was coming up, if you could let me know at my cell phone number."
+  ],
+  "summary": "The call effectively established rapport and clarified the purpose of the call early on. The agent skillfully handled objections by offering alternatives and emphasizing the importance of the spouse's involvement, leading to a successful appointment scheduling."
+}

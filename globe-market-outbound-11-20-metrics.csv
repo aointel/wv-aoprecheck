@@ -1,0 +1,17 @@
+Metric,Value
+Connected,21
+Transferred,0
+% Transferred,0.00%
+Agent Answered,21
+% Answered,95.45%
+Ring Duration (avg),8.36s
+Billed,21
+% Billed,95.45%
+Missed w/ Agent,0
+% Missed Agent,0.00%
+Missed NO AGENT,1
+% Missed NO AGENT,4.55%
+Total Missed,1
+% Total Missed,4.55%
+Received,22
+Total Charged,$168.00

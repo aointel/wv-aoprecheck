@@ -1,0 +1,2 @@
+email,agent_name,agent_associate_id,mga_name,rga_name,under_leader_as,supabase_auth_user_id,auth_created_at,email_confirmed_at,last_sign_in_at,login_source
+joshuakuhns@aoglobelife.com,"JOSHUA KUHNS",207345,"TYRUS WHITEHEAD","DAVID CARPENTER",RGA,0a668eb5-a018-4800-9ada-1ff50baf58a4,2026-03-20T18:52:47.042147Z,2026-03-20T18:53:14.566566Z,2026-03-20T18:55:24.86378Z,"supabase_auth"
