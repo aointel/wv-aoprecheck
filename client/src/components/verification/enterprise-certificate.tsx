@@ -147,7 +147,7 @@ export function EnterpriseCertificate({ session, onStartNew, onBack, onComplete 
             </h1>
             <p className="text-xl text-gray-700">
               {isPending 
-                ? 'You must Transmit the session to complete the verification process. The policy verification has been submitted and is pending review. The verification call must be completed before the verification is marked as complete.'
+                ? 'The policy verification has been submitted and is pending review.'
                 : 'The policy verification has been successfully completed and submitted.'}
             </p>
           </div>
