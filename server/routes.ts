@@ -6175,6 +6175,25 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
       if (updates.rgaTeam !== undefined) updateData.rgaTeam = updates.rgaTeam;
       if (updates.profilePicture !== undefined) updateData.profilePicture = updates.profilePicture;
 
+      // Require first/last when they are part of this save (Getting Started / full profile save).
+      const savingBothNames =
+        updates.firstName !== undefined && updates.lastName !== undefined;
+      if (savingBothNames) {
+        const first = String(updates.firstName || "").trim();
+        const last = String(updates.lastName || "").trim();
+        if (!first || !last) {
+          return res.status(400).json({
+            message: "First name and last name are required",
+          });
+        }
+        updateData.firstName = first;
+        updateData.lastName = last;
+      } else if (updates.firstName !== undefined && !String(updates.firstName || "").trim()) {
+        return res.status(400).json({ message: "First name is required" });
+      } else if (updates.lastName !== undefined && !String(updates.lastName || "").trim()) {
+        return res.status(400).json({ message: "Last name is required" });
+      }
+
       // Try to update existing profile first
       let profile = await storage.getAgentProfileByEmail(userEmail);
       
@@ -9265,21 +9284,20 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
 
       // CRITICAL: Show transmitted sessions + sessions without transmit created PRIOR to 2/9/2026
       // Transmitted: always show. Pre-2/9: include pending_transmit/null (legacy sessions before transmit workflow)
+      // Same filter as working aoirail-precheck — NEVER skip for team-manager / Precheck Manager scope.
       const PRE_TRANSMIT_CUTOFF = '2026-02-09T00:00:00.000Z';
       const transmitFilter = `transmit_status.eq.transmitted,and(created_at.lt.${PRE_TRANSMIT_CUTOFF},or(transmit_status.is.null,transmit_status.eq.pending_transmit))`;
-      let query = supabaseAdmin.from('verification_sessions').select('*');
-      let countQuery = supabaseAdmin.from('verification_sessions').select('*', { count: 'exact', head: true });
+      let query = supabaseAdmin.from('verification_sessions').select('*').or(transmitFilter);
+      let countQuery = supabaseAdmin.from('verification_sessions').select('*', { count: 'exact', head: true }).or(transmitFilter);
 
       if (isTeamManagerScope) {
         const { resolveManagerTeamEmails, teamEmailOrFilter } = await import('./aoprecheck-team-shared');
         const teamEmails = await resolveManagerTeamEmails(teamManagerEmail);
         const emailFilter = teamEmailOrFilter(teamEmails);
+        // AND with transmitFilter above — team email scope must not bypass transmitted-only rule
         query = query.or(emailFilter);
         countQuery = countQuery.or(emailFilter);
-        console.log(`👥 Team manager scope: ${teamManagerEmail} → ${teamEmails.length} agent emails (all transmit statuses)`);
-      } else {
-        query = query.or(transmitFilter);
-        countQuery = countQuery.or(transmitFilter);
+        console.log(`👥 Team manager scope: ${teamManagerEmail} → ${teamEmails.length} agent emails (transmitted + legacy pre-${PRE_TRANSMIT_CUTOFF.slice(0, 10)} only)`);
       }
 
       // Apply case-insensitive search filter
@@ -9428,7 +9446,7 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
       // CRITICAL SAFETY: Re-sort results by created_at DESC to ensure newest first
       // This is a fallback in case Supabase ordering fails
       // Handle both string and Date objects for created_at
-      const sortedResults = (result || []).sort((a: any, b: any) => {
+      let sortedResults = (result || []).sort((a: any, b: any) => {
         const dateA = a.created_at ? (typeof a.created_at === 'string' ? new Date(a.created_at) : a.created_at).getTime() : 0;
         const dateB = b.created_at ? (typeof b.created_at === 'string' ? new Date(b.created_at) : b.created_at).getTime() : 0;
         // Ensure newest (larger timestamp) comes first
@@ -9436,6 +9454,19 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
         if (dateB < dateA) return -1;
         return 0;
       });
+
+      // Belt-and-suspenders: never return untransmitted (esp. Precheck Manager / teamManager scope)
+      const cutoffMs = new Date(PRE_TRANSMIT_CUTOFF).getTime();
+      const beforeTransmitFilter = sortedResults.length;
+      sortedResults = sortedResults.filter((s: any) => {
+        const ts = s.transmit_status == null ? null : String(s.transmit_status);
+        if (ts === 'transmitted') return true;
+        const createdMs = s.created_at ? new Date(s.created_at).getTime() : 0;
+        return createdMs < cutoffMs && (ts == null || ts === 'pending_transmit');
+      });
+      if (sortedResults.length !== beforeTransmitFilter) {
+        console.warn(`🚫 Dropped ${beforeTransmitFilter - sortedResults.length} non-transmitted session(s) post-query (teamManager=${isTeamManagerScope})`);
+      }
       
       // VERIFY sorting is correct - log if not
       if (sortedResults.length > 1) {
@@ -9799,11 +9830,16 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
       const today = new Date();
       const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
+      // Same transmit filter as /sessions and working aoirail-precheck (do not show untransmitted)
+      const PRE_TRANSMIT_CUTOFF = '2026-02-09T00:00:00.000Z';
+      const transmitFilter = `transmit_status.eq.transmitted,and(created_at.lt.${PRE_TRANSMIT_CUTOFF},or(transmit_status.is.null,transmit_status.eq.pending_transmit))`;
+
       // Use Supabase with same RBAC filtering as sessions endpoint
       let query = supabaseAdmin
         .from('verification_sessions')
         .select('status, created_at, agent_mga_team, agent_rga_team, company_email')
-        .neq('session_type', 'demo'); // Filter out demo sessions
+        .neq('session_type', 'demo') // Filter out demo sessions
+        .or(transmitFilter);
 
       if (isTeamManagerScope) {
         const { resolveManagerTeamEmails, teamEmailOrFilter } = await import('./aoprecheck-team-shared');

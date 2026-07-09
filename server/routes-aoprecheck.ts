@@ -669,10 +669,8 @@ export function registerAoPrecheckRoutes(app: Express): void {
 
   /**
    * Team manager precheck list — sessions for manager + invited team members.
-   * Tab buckets (client-side):
-   *   Pending    — transmit_status not transmitted and not scheduled_delete
-   *   Transmitted — transmitted but status not yet completed/verification_completed
-   *   Verified   — transmitted AND status in (completed, verification_completed)
+   * ONLY transmitted (+ legacy pre-2/9 pending) — same rule as /api/aoi-precheck/sessions
+   * and working aoirail-precheck. Untransmitted drafts must never appear in Precheck Manager.
    */
   app.get("/api/aoi-precheck/team/manager-sessions", async (req: Request, res: Response) => {
     try {
@@ -688,11 +686,16 @@ export function registerAoPrecheckRoutes(app: Express): void {
       const teamEmailSet = new Set(teamEmails.map((e) => normEmail(e)));
       if (!supabaseAdmin) return res.status(500).json({ success: false, error: "Service unavailable" });
 
+      // Same transmit filter as working aoirail-precheck /admin sessions list
+      const PRE_TRANSMIT_CUTOFF = "2026-02-09T00:00:00.000Z";
+      const transmitFilter = `transmit_status.eq.transmitted,and(created_at.lt.${PRE_TRANSMIT_CUTOFF},or(transmit_status.is.null,transmit_status.eq.pending_transmit))`;
+
       // select("*") — verification_sessions has first_name/last_name, not client_name
       const orClause = teamEmails.map((e) => `company_email.ilike.${normEmail(e)}`).join(",");
       const { data, error } = await supabaseAdmin
         .from("verification_sessions")
         .select("*")
+        .or(transmitFilter)
         .or(orClause)
         .order("created_at", { ascending: false })
         .limit(500);
@@ -703,10 +706,18 @@ export function registerAoPrecheckRoutes(app: Express): void {
       }
 
       const now = new Date();
+      const cutoffMs = new Date(PRE_TRANSMIT_CUTOFF).getTime();
       const sessions = (data || [])
         .filter((session: Record<string, unknown>) => {
           const em = normEmail(String(session.company_email || ""));
           if (!teamEmailSet.has(em)) return false;
+          // Belt-and-suspenders: never surface untransmitted (match working precheck)
+          const ts = session.transmit_status == null ? null : String(session.transmit_status);
+          const createdMs = session.created_at ? new Date(String(session.created_at)).getTime() : 0;
+          const isTransmitted = ts === "transmitted";
+          const isLegacyPending =
+            createdMs < cutoffMs && (ts == null || ts === "pending_transmit");
+          if (!isTransmitted && !isLegacyPending) return false;
           const scheduledDelete = session.scheduled_delete_at
             ? new Date(String(session.scheduled_delete_at))
             : null;
