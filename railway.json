@@ -4,6 +4,7 @@
   "deploy": {
     "startCommand": "npx cross-env SECTION=precheck node dist/index.js",
     "restartPolicyType": "ON_FAILURE",
-    "restartPolicyMaxRetries": 10
+    "restartPolicyMaxRetries": 10,
+    "healthcheckPath": "/health"
   }
 }
