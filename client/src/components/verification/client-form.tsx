@@ -448,16 +448,11 @@ export function ClientForm({ onSubmit, hideZoomSelection = false, selectedTrack 
       // DO NOT collect geolocation here - it should ONLY be collected when agent/client opens SMS link
       // Geolocation is collected in agent-verification.tsx and client-verification.tsx when they open the text link
       
-      // Include language, producer information, and session type in the form data.
-      // Server session create expects agentPhone / agentFirstName / agentLastName
-      // (clientInfoSchema + routes.ts) — producer* alone is ignored and leaves Taalk with empty agent phone.
+      // Include language, producer information, and session type in the form data
       const sessionData = { 
         ...formData, 
         language: selectedLanguage,
         sessionType: sessionType, // "demo" or "live"
-        agentPhone: currentproducerPhone,
-        agentFirstName: currentproducerFirstName,
-        agentLastName: currentproducerLastName,
         producerPhone: currentproducerPhone,
         producerFirstName: currentproducerFirstName,
         producerLastName: currentproducerLastName,

@@ -3748,8 +3748,7 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
   // Initiate conference call for verification workflow using Taalk API
   app.post("/api/verification/initiate-conference-call", async (req, res) => {
     try {
-      const { sessionId, clientInfo, agentPhone: bodyAgentPhone, producerPhone } = req.body;
-      const agentPhone = bodyAgentPhone || producerPhone;
+      const { sessionId, clientInfo, agentPhone } = req.body;
 
       console.log('🔥 CONFERENCE CALL: Initiating Taalk call for session:', sessionId);
 
@@ -3773,10 +3772,10 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
       
       // Try getting from headers (same as session creation)
       const authHeader = req.headers.authorization;
-      if (authHeader && authHeader.startsWith('Bearer ')) {
+      const token = extractBearerToken(authHeader);
+      if (token && supabaseAdmin) {
         try {
-          const token = authHeader.substring(7);
-          const { data: userResponse, error: authError } = await supabaseAdmin!.auth.getUser(token);
+          const { data: userResponse, error: authError } = await supabaseAdmin.auth.getUser(token);
           if (!authError && userResponse?.user?.email) {
             agentEmail = userResponse.user.email;
           }
@@ -3823,20 +3822,15 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
       const agentLastName = isValidAgentLastName ? session.agentLastName : realAgentLastName;
       const finalAgentPhone = agentPhone || session?.agentPhone || agentProfile?.phone || '';
 
-      if (!finalAgentPhone || String(finalAgentPhone).replace(/\D/g, '').length < 10) {
-        console.error('❌ CONFERENCE CALL: Missing/invalid agent phone — Taalk cannot dial');
-        return res.status(400).json({
-          success: false,
-          error: 'Agent phone is required. Save your phone in Producer Profile, then retry.',
-        });
-      }
-
       // EXACT COPY of Zoom Taalk call structure - ONLY change phone number
-      // Prefer VERIFICATION_BASE_URL so Taalk completion callbacks hit new aoprecheck.
+      // Get current replit domain for webhook
+      const replitDomain = process.env.REPLIT_DEV_DOMAIN;
       const host = req.get('host');
-      const baseUrl =
-        process.env.VERIFICATION_BASE_URL ||
-        (host ? `https://${host}` : 'https://aoprecheck-production.up.railway.app');
+      const baseUrl = replitDomain 
+        ? `https://${replitDomain}` 
+        : host && host.includes('replit.dev') 
+          ? `https://${host}` 
+          : `https://${host}`;
       
       const taalkApiKey = process.env.TAALK_API_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ0YWFsay4zN2RhMGU2NS1kMGVjLTQxYWYtOGQzYi03MWRjNTJiNGNiMmYiLCJuYW1lIjoidGFhbGsiLCJleHAiOjIwNTUwMzU2OTJ9.Ywh89Z0PvELHylJReZo8KPOiL7xX21BoBYe16OZfJw4";
       
@@ -3886,7 +3880,7 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
         agent: taalkAgentId,
         retryMethod: 0,
         force: true,
-        webhookUrl: `${baseUrl}/api/taalk/webhook`,
+        webhookUrl: "https://policy-verify-mmandella.replit.app/api/taalk/webhook",
         params: {
           // Agent Information
           Taalk_AgentFirstName: agentFirstName,
@@ -4001,187 +3995,6 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
         success: false,
         error: error.message || "Failed to initiate conference call"
       });
-    }
-  });
-
-  // Taalk webhook for AI verification call completion notifications.
-  // Contract reused from the working handler (routes.ts.backup): Taalk POSTs here when a
-  // verification call ends. SECTION=precheck already allowlists /api/taalk/webhook.
-  app.post('/api/taalk/webhook', async (req, res) => {
-    try {
-      console.log('🔔 Taalk webhook received:', req.body);
-
-      const { type, call_id, status, duration, result, recording_url } = req.body || {};
-      // Session id is sent as session_id and/or params.Taalk_SessionId when the call was started.
-      const session_id =
-        req.body?.session_id ||
-        req.body?.params?.Taalk_SessionId ||
-        req.body?.Taalk_SessionId ||
-        null;
-
-      // Handle call completion events
-      if (type === 'call.completed' || type === 'call.finished' || status === 'completed') {
-        console.log(`📞 Taalk call completed - ID: ${call_id}, Status: ${status}, Duration: ${duration}s, session: ${session_id}`);
-
-        if (session_id) {
-          let storedRecordingUrl: string | null = null;
-
-          const taalkCallId = call_id || session_id;
-          const taalkDb = process.env.TAALK_DB || 'michaelmandella';
-          const taalkRecordingUrl =
-            recording_url ||
-            `https://api.taalk.ai/api/calls/${taalkCallId}/recording?db=${taalkDb}`;
-          const taalkApiKey =
-            process.env.TAALK_API_KEY ||
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ0YWFsay4zN2RhMGU2NS1kMGVjLTQxYWYtOGQzYi03MWRjNTJiNGNiMmYiLCJuYW1lIjoidGFhbGsiLCJleHAiOjIwNTUwMzU2OTJ9.Ywh89Z0PvELHylJReZo8KPOiL7xX21BoBYe16OZfJw4';
-
-          try {
-            console.log(`🎵 IMMEDIATELY downloading recording: ${taalkRecordingUrl}`);
-
-            let response = await fetch(taalkRecordingUrl, {
-              headers: {
-                Authorization: `Bearer ${taalkApiKey}`,
-                Accept: 'audio/mpeg, audio/mp3, audio/*, */*',
-              },
-            });
-
-            if (!response.ok) {
-              console.log(`⚠️ Bearer auth failed (${response.status}), trying basic auth...`);
-              const basicUser = process.env.TAALK_BASIC_USER || 'michaelmandella@aoglobelife.com';
-              const basicPass = process.env.TAALK_BASIC_PASS || '';
-              if (basicPass) {
-                const basicAuth = Buffer.from(`${basicUser}:${basicPass}`).toString('base64');
-                response = await fetch(taalkRecordingUrl, {
-                  headers: {
-                    Authorization: `Basic ${basicAuth}`,
-                    Accept: 'audio/mpeg',
-                  },
-                });
-              }
-            }
-
-            if (response.ok) {
-              const arrayBuffer = await response.arrayBuffer();
-              const buffer = Buffer.from(arrayBuffer);
-              const fileName = `recordings/${taalkCallId}.mp3`;
-
-              const { data: uploadData, error: uploadError } = await supabaseAdmin.storage
-                .from('verify_agent_screenshot')
-                .upload(fileName, buffer, {
-                  contentType: 'audio/mpeg',
-                  upsert: true,
-                });
-
-              if (uploadError) {
-                console.error(`❌ Supabase Storage upload failed:`, uploadError);
-              } else {
-                const { data: urlData } = await supabaseAdmin.storage
-                  .from('verify_agent_screenshot')
-                  .createSignedUrl(fileName, 3600);
-                storedRecordingUrl = urlData?.signedUrl || null;
-                console.log(
-                  `✅ RECORDING SAVED TO SUPABASE STORAGE: ${fileName} (${buffer.length} bytes)`,
-                  uploadData ? '' : ''
-                );
-                console.log(`🔗 Public URL: ${storedRecordingUrl}`);
-              }
-            } else {
-              console.error(
-                `❌ Recording download failed: ${response.status} ${response.statusText}`
-              );
-              console.error(`💀 Recording may already be deleted from Taalk (happens after 48hrs)`);
-            }
-          } catch (downloadError) {
-            console.error(`❌ Error downloading/storing recording:`, downloadError);
-          }
-
-          const { error: updateError } = await supabaseAdmin
-            .from('verification_sessions')
-            .update({
-              taalk_call_status: 'completed',
-              taalk_call_completed_at: new Date().toISOString(),
-              taalk_call_duration: duration || 0,
-              taalk_call_data: JSON.stringify(req.body),
-              taalk_call_url: storedRecordingUrl || null,
-              status: 'completed',
-              completed_at: new Date().toISOString(),
-            })
-            .eq('session_id', session_id);
-
-          if (updateError) {
-            console.error(`❌ Failed to update session ${session_id}:`, updateError);
-          } else {
-            console.log(
-              `✅ Updated session ${session_id} in Supabase - ${storedRecordingUrl ? 'RECORDING STORED' : 'NO RECORDING'}`
-            );
-
-            if (storedRecordingUrl) {
-              console.log(`🤖 Triggering automatic audio analysis for session ${session_id}...`);
-              (async () => {
-                try {
-                  const { verificationAudioAnalyzer } = await import('./verification-audio-analyzer');
-                  const audioAnalysis = await verificationAudioAnalyzer.analyzeAudioFromUrl(
-                    storedRecordingUrl,
-                    (type as any) || 'phone'
-                  );
-
-                  await supabaseAdmin
-                    .from('verification_sessions')
-                    .update({ audio_analysis: audioAnalysis })
-                    .eq('session_id', session_id);
-
-                  console.log(
-                    `✅ Audio analysis completed for session ${session_id}: ${audioAnalysis.validation.isValid ? 'VALID' : 'FLAGGED'} (${(audioAnalysis.validation.confidence * 100).toFixed(0)}%)`
-                  );
-                } catch (analysisError) {
-                  console.error(`❌ Audio analysis failed for session ${session_id}:`, analysisError);
-                }
-              })();
-            }
-          }
-        }
-
-        console.log(`🎉 Call ${call_id} completed successfully after ${duration || 0} seconds`, result ? `(result=${result})` : '');
-      }
-
-      if (type === 'call.started' || status === 'ringing') {
-        console.log(`📱 Taalk call started/ringing - ID: ${call_id}`);
-        if (session_id) {
-          await supabaseAdmin
-            .from('verification_sessions')
-            .update({ taalk_call_status: 'ringing', status: 'in_progress' })
-            .eq('session_id', session_id);
-        }
-      }
-
-      if (type === 'call.answered' || status === 'answered') {
-        console.log(`✅ Taalk call answered - ID: ${call_id}`);
-        if (session_id) {
-          await supabaseAdmin
-            .from('verification_sessions')
-            .update({ taalk_call_status: 'answered', status: 'in_progress' })
-            .eq('session_id', session_id);
-        }
-      }
-
-      if (type === 'call.failed' || status === 'failed') {
-        console.log(`❌ Taalk call failed - ID: ${call_id}`);
-        if (session_id) {
-          await supabaseAdmin
-            .from('verification_sessions')
-            .update({
-              taalk_call_status: 'failed',
-              taalk_call_completed_at: new Date().toISOString(),
-              status: 'failed',
-            })
-            .eq('session_id', session_id);
-        }
-      }
-
-      res.json({ success: true, message: 'Webhook processed successfully' });
-    } catch (error) {
-      console.error('❌ Error processing Taalk webhook:', error);
-      res.status(500).json({ error: 'Webhook processing failed' });
     }
   });
 
@@ -4414,8 +4227,7 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
   // Initiate ZOOM verification call using Taalk API with Zoom bridge dialing
   app.post("/api/verification/initiate-zoom-call", async (req, res) => {
     try {
-      const { sessionId, clientInfo, agentPhone: bodyAgentPhone, producerPhone } = req.body;
-      const agentPhone = bodyAgentPhone || producerPhone;
+      const { sessionId, clientInfo, agentPhone } = req.body;
 
       console.log('🎥 ZOOM CALL: Initiating Taalk call via Zoom bridge for session:', sessionId);
 
@@ -4440,12 +4252,12 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
       
       // Method 1: Check Authorization header for Supabase JWT token
       const authHeader = req.headers.authorization;
-      if (authHeader && authHeader.startsWith('Bearer ')) {
+      const token = extractBearerToken(authHeader);
+      if (token && supabaseAdmin) {
         try {
-          const token = authHeader.substring(7);
           console.log('🔑 ZOOM: Verifying Supabase JWT token...');
           
-          const { data: userResponse, error: authError } = await supabaseAdmin!.auth.getUser(token);
+          const { data: userResponse, error: authError } = await supabaseAdmin.auth.getUser(token);
           if (!authError && userResponse?.user?.email) {
             agentEmail = userResponse.user.email;
             sessionUser = { id: userResponse.user.id, email: userResponse.user.email };
@@ -4513,11 +4325,14 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
       const agentLastName = isValidAgentLastName ? session.agentLastName : realAgentLastName;
       const finalAgentPhone = agentPhone || session?.agentPhone || agentProfile?.phone || '';
 
-      // Prefer VERIFICATION_BASE_URL so Taalk completion callbacks hit new aoprecheck.
+      // Get current replit domain for webhook
+      const replitDomain = process.env.REPLIT_DEV_DOMAIN;
       const host = req.get('host');
-      const baseUrl =
-        process.env.VERIFICATION_BASE_URL ||
-        (host ? `https://${host}` : 'https://aoprecheck-production.up.railway.app');
+      const baseUrl = replitDomain 
+        ? `https://${replitDomain}` 
+        : host && host.includes('replit.dev') 
+          ? `https://${host}` 
+          : `https://${host}`;
       
       const taalkApiKey = process.env.TAALK_API_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ0YWFsay4zN2RhMGU2NS1kMGVjLTQxYWYtOGQzYi03MWRjNTJiNGNiMmYiLCJuYW1lIjoidGFhbGsiLCJleHAiOjIwNTUwMzU2OTJ9.Ywh89Z0PvELHylJReZo8KPOiL7xX21BoBYe16OZfJw4";
       
@@ -4526,35 +4341,15 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
       const TAALK_AGENT_ID_ENGLISH = '68a5ff0fc8f1520e59acf3e6';
       const taalkAgentId = session?.language === 'es' ? TAALK_AGENT_ID_SPANISH : TAALK_AGENT_ID_ENGLISH;
       
-      // Get zoom credentials: session first, then agent_profiles (camelCase from storage.getAgentProfileByEmail).
-      // Also accept body zoom fields from the working startVerificationCall / unified payload.
-      const zoomRoomId =
-        session?.zoomRoomId ||
-        req.body?.zoomRoomId ||
-        clientInfo?.zoomRoomId ||
-        agentProfile?.zoomId ||
-        (agentProfile as any)?.zoom_id ||
-        '';
-      const zoomPassword =
-        session?.zoomPassword ||
-        req.body?.zoomPassword ||
-        clientInfo?.zoomPassword ||
-        agentProfile?.zoomPassword ||
-        (agentProfile as any)?.zoom_password ||
-        '1';
+      // Get zoom credentials from agent profile
+      const zoomRoomId = session?.zoomRoomId || agentProfile?.zoom_id || '';
+      const zoomPassword = session?.zoomPassword || agentProfile?.zoom_password || '1';
       
       // ZOOM BRIDGE PHONE FORMAT: calls Zoom bridge and auto-enters room credentials 
       const zoomBridgePhone = `6692192599,,${zoomRoomId}#,,#,,${zoomPassword}#`;
       
       console.log('🎥 ZOOM CALL: Using Zoom bridge phone:', zoomBridgePhone);
       console.log('🎥 ZOOM CALL: Zoom room ID:', zoomRoomId, 'Password:', zoomPassword);
-      if (!zoomRoomId) {
-        console.error('❌ ZOOM CALL: Missing zoomRoomId — Taalk bridge dial will fail');
-        return res.status(400).json({
-          success: false,
-          error: 'Zoom Room ID is required. Save your Zoom Room ID in Producer Profile, then retry.',
-        });
-      }
 
       // Format agent phone for E.164 (for parameters)
       let formattedAgentPhone = finalAgentPhone;
@@ -4692,6 +4487,188 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
         success: false,
         error: error.message || "Failed to initiate Zoom call"
       });
+    }
+  });
+
+
+  // Taalk webhook for AI verification call completion notifications.
+  // Contract reused from the working handler (routes.ts.backup): Taalk POSTs here when a
+  // verification call ends. SECTION=precheck already allowlists /api/taalk/webhook.
+  app.post('/api/taalk/webhook', async (req, res) => {
+    try {
+      console.log('🔔 Taalk webhook received:', req.body);
+
+      const { type, call_id, status, duration, result, recording_url } = req.body || {};
+      // Session id is sent as session_id and/or params.Taalk_SessionId when the call was started.
+      const session_id =
+        req.body?.session_id ||
+        req.body?.params?.Taalk_SessionId ||
+        req.body?.Taalk_SessionId ||
+        null;
+
+      // Handle call completion events
+      if (type === 'call.completed' || type === 'call.finished' || status === 'completed') {
+        console.log(`📞 Taalk call completed - ID: ${call_id}, Status: ${status}, Duration: ${duration}s, session: ${session_id}`);
+
+        if (session_id) {
+          let storedRecordingUrl: string | null = null;
+
+          const taalkCallId = call_id || session_id;
+          const taalkDb = process.env.TAALK_DB || 'michaelmandella';
+          const taalkRecordingUrl =
+            recording_url ||
+            `https://api.taalk.ai/api/calls/${taalkCallId}/recording?db=${taalkDb}`;
+          const taalkApiKey =
+            process.env.TAALK_API_KEY ||
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ0YWFsay4zN2RhMGU2NS1kMGVjLTQxYWYtOGQzYi03MWRjNTJiNGNiMmYiLCJuYW1lIjoidGFhbGsiLCJleHAiOjIwNTUwMzU2OTJ9.Ywh89Z0PvELHylJReZo8KPOiL7xX21BoBYe16OZfJw4';
+
+          try {
+            console.log(`🎵 IMMEDIATELY downloading recording: ${taalkRecordingUrl}`);
+
+            let response = await fetch(taalkRecordingUrl, {
+              headers: {
+                Authorization: `Bearer ${taalkApiKey}`,
+                Accept: 'audio/mpeg, audio/mp3, audio/*, */*',
+              },
+            });
+
+            if (!response.ok) {
+              console.log(`⚠️ Bearer auth failed (${response.status}), trying basic auth...`);
+              const basicUser = process.env.TAALK_BASIC_USER || 'michaelmandella@aoglobelife.com';
+              const basicPass = process.env.TAALK_BASIC_PASS || '';
+              if (basicPass) {
+                const basicAuth = Buffer.from(`${basicUser}:${basicPass}`).toString('base64');
+                response = await fetch(taalkRecordingUrl, {
+                  headers: {
+                    Authorization: `Basic ${basicAuth}`,
+                    Accept: 'audio/mpeg',
+                  },
+                });
+              }
+            }
+
+            if (response.ok) {
+              const arrayBuffer = await response.arrayBuffer();
+              const buffer = Buffer.from(arrayBuffer);
+              const fileName = `recordings/${taalkCallId}.mp3`;
+
+              const { data: uploadData, error: uploadError } = await supabaseAdmin.storage
+                .from('verify_agent_screenshot')
+                .upload(fileName, buffer, {
+                  contentType: 'audio/mpeg',
+                  upsert: true,
+                });
+
+              if (uploadError) {
+                console.error(`❌ Supabase Storage upload failed:`, uploadError);
+              } else {
+                const { data: urlData } = await supabaseAdmin.storage
+                  .from('verify_agent_screenshot')
+                  .createSignedUrl(fileName, 3600);
+                storedRecordingUrl = urlData?.signedUrl || null;
+                console.log(
+                  `✅ RECORDING SAVED TO SUPABASE STORAGE: ${fileName} (${buffer.length} bytes)`,
+                  uploadData ? '' : ''
+                );
+                console.log(`🔗 Public URL: ${storedRecordingUrl}`);
+              }
+            } else {
+              console.error(
+                `❌ Recording download failed: ${response.status} ${response.statusText}`
+              );
+              console.error(`💀 Recording may already be deleted from Taalk (happens after 48hrs)`);
+            }
+          } catch (downloadError) {
+            console.error(`❌ Error downloading/storing recording:`, downloadError);
+          }
+
+          const { error: updateError } = await supabaseAdmin
+            .from('verification_sessions')
+            .update({
+              taalk_call_status: 'completed',
+              taalk_call_completed_at: new Date().toISOString(),
+              taalk_call_duration: duration || 0,
+              taalk_call_data: JSON.stringify(req.body),
+              taalk_call_url: storedRecordingUrl || null,
+              status: 'completed',
+              completed_at: new Date().toISOString(),
+            })
+            .eq('session_id', session_id);
+
+          if (updateError) {
+            console.error(`❌ Failed to update session ${session_id}:`, updateError);
+          } else {
+            console.log(
+              `✅ Updated session ${session_id} in Supabase - ${storedRecordingUrl ? 'RECORDING STORED' : 'NO RECORDING'}`
+            );
+
+            if (storedRecordingUrl) {
+              console.log(`🤖 Triggering automatic audio analysis for session ${session_id}...`);
+              (async () => {
+                try {
+                  const { verificationAudioAnalyzer } = await import('./verification-audio-analyzer');
+                  const audioAnalysis = await verificationAudioAnalyzer.analyzeAudioFromUrl(
+                    storedRecordingUrl,
+                    (type as any) || 'phone'
+                  );
+
+                  await supabaseAdmin
+                    .from('verification_sessions')
+                    .update({ audio_analysis: audioAnalysis })
+                    .eq('session_id', session_id);
+
+                  console.log(
+                    `✅ Audio analysis completed for session ${session_id}: ${audioAnalysis.validation.isValid ? 'VALID' : 'FLAGGED'} (${(audioAnalysis.validation.confidence * 100).toFixed(0)}%)`
+                  );
+                } catch (analysisError) {
+                  console.error(`❌ Audio analysis failed for session ${session_id}:`, analysisError);
+                }
+              })();
+            }
+          }
+        }
+
+        console.log(`🎉 Call ${call_id} completed successfully after ${duration || 0} seconds`, result ? `(result=${result})` : '');
+      }
+
+      if (type === 'call.started' || status === 'ringing') {
+        console.log(`📱 Taalk call started/ringing - ID: ${call_id}`);
+        if (session_id) {
+          await supabaseAdmin
+            .from('verification_sessions')
+            .update({ taalk_call_status: 'ringing', status: 'in_progress' })
+            .eq('session_id', session_id);
+        }
+      }
+
+      if (type === 'call.answered' || status === 'answered') {
+        console.log(`✅ Taalk call answered - ID: ${call_id}`);
+        if (session_id) {
+          await supabaseAdmin
+            .from('verification_sessions')
+            .update({ taalk_call_status: 'answered', status: 'in_progress' })
+            .eq('session_id', session_id);
+        }
+      }
+
+      if (type === 'call.failed' || status === 'failed') {
+        console.log(`❌ Taalk call failed - ID: ${call_id}`);
+        if (session_id) {
+          await supabaseAdmin
+            .from('verification_sessions')
+            .update({
+              taalk_call_status: 'failed',
+              taalk_call_completed_at: new Date().toISOString(),
+              status: 'failed',
+            })
+            .eq('session_id', session_id);
+        }
+      }
+
+      res.json({ success: true, message: 'Webhook processed successfully' });
+    } catch (error) {
+      console.error('❌ Error processing Taalk webhook:', error);
+      res.status(500).json({ error: 'Webhook processing failed' });
     }
   });
 
