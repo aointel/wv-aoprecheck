@@ -2,7 +2,7 @@ FROM node:18-alpine
 WORKDIR /app
 RUN apk add --no-cache dumb-init
 COPY package.json package-lock.json ./
-RUN npm ci --omit=dev --no-audit --no-fund || npm install --omit=dev --no-audit --no-fund
+RUN npm ci --no-audit --no-fund || npm install --no-audit --no-fund
 COPY dist ./dist
 COPY shared ./shared
 ENV NODE_ENV=production
