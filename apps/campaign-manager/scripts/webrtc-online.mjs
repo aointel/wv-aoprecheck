@@ -9,7 +9,7 @@ import 'dotenv/config';
 import twilio from 'twilio';
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID || 'AC25d37aa41aed0df4fddd81ecf7abf00d';
-const authToken = process.env.TWILIO_AUTH_TOKEN || '974557c999ed53ada16c4a784af2a7d3';
+const authToken = process.env.TWILIO_AUTH_TOKEN || 'b275d646252457344ff62528e3538ea9';
 const mapName = process.env.TWILIO_SYNC_MAP_NAME || 'agent_presence';
 
 async function getSyncServiceSid(client) {

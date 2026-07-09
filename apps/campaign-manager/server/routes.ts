@@ -11,7 +11,7 @@ const hpproPresentationEvents: any[] = [];
 const AOIRAIL_DATA_URL = 'https://aoirail-data-production.up.railway.app';
 const AOIRAIL_CONNECT_URL = 'https://aoirail-connect-production.up.railway.app';
 const TWILIO_ACCOUNT_SID = 'AC25d37aa41aed0df4fddd81ecf7abf00d';
-const TWILIO_AUTH_TOKEN = '974557c999ed53ada16c4a784af2a7d3';
+const TWILIO_AUTH_TOKEN = 'b275d646252457344ff62528e3538ea9';
 
 type ViewerContext = {
   email: string | null;
@@ -1028,7 +1028,7 @@ router.post('/support/create', async (req, res) => {
 router.get('/support/media/:messageSid', async (req, res) => {
   try {
     const { messageSid } = req.params;
-    const auth = 'Basic ' + Buffer.from('AC25d37aa41aed0df4fddd81ecf7abf00d:974557c999ed53ada16c4a784af2a7d3').toString('base64');
+    const auth = 'Basic ' + Buffer.from('AC25d37aa41aed0df4fddd81ecf7abf00d:b275d646252457344ff62528e3538ea9').toString('base64');
     // Get media list
     const listRes = await fetch(`https://api.twilio.com/2010-04-01/Accounts/AC25d37aa41aed0df4fddd81ecf7abf00d/Messages/${messageSid}/Media.json`, { headers: { Authorization: auth } });
     if (!listRes.ok) return res.status(404).send('No media');
@@ -1394,7 +1394,7 @@ router.get('/transfers/incoming', (_req, res) => {
 //   ${BLAST_CAMPAIGN_URL}/api/fallback-blast/lead-call
 
 const BLAST_ACCOUNT_SID  = 'AC25d37aa41aed0df4fddd81ecf7abf00d';
-const BLAST_AUTH_TOKEN   = '974557c999ed53ada16c4a784af2a7d3';
+const BLAST_AUTH_TOKEN   = 'b275d646252457344ff62528e3538ea9';
 const BLAST_FROM_NUMBER  = '+19142289324';
 const BLAST_CAMPAIGN_URL = String(process.env.BLAST_CAMPAIGN_URL || '').trim();
 const BLAST_SUPABASE_URL = 'https://ycztjetxwpfgtrzeyytt.supabase.co';

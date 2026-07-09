@@ -1,7 +1,7 @@
 import twilio from 'twilio';
 import { createClient } from '@supabase/supabase-js';
 
-const client = twilio('AC25d37aa41aed0df4fddd81ecf7abf00d', '974557c999ed53ada16c4a784af2a7d3');
+const client = twilio('AC25d37aa41aed0df4fddd81ecf7abf00d', 'b275d646252457344ff62528e3538ea9');
 const FROM = '+19142289324';
 
 const SUPA_URL = 'https://ycztjetxwpfgtrzeyytt.supabase.co';

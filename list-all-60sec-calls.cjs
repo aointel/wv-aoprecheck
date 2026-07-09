@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const { createClient } = require('@supabase/supabase-js');
 
 const TWILIO_ACCOUNT_SID = 'AC25d37aa41aed0df4fddd81ecf7abf00d';
-const TWILIO_AUTH_TOKEN = '974557c999ed53ada16c4a784af2a7d3';
+const TWILIO_AUTH_TOKEN = 'b275d646252457344ff62528e3538ea9';
 
 const supabaseUrl = 'https://ycztjetxwpfgtrzeyytt.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InljenRqZXR4d3BmZ3RyemV5eXR0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczNzE3NDAzNywiZXhwIjoyMDUyNzUwMDM3fQ.hMzptgc6G5kaWSzDcBn6gOuc4FolW6x5IALWuUk16i0';

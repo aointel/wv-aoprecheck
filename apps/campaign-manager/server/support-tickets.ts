@@ -6,7 +6,7 @@
  */
 
 const TWILIO_SID = 'AC25d37aa41aed0df4fddd81ecf7abf00d';
-const TWILIO_TOKEN = '974557c999ed53ada16c4a784af2a7d3';
+const TWILIO_TOKEN = 'b275d646252457344ff62528e3538ea9';
 const SUPPORT_NUMBER = '+19142289324';
 const TWILIO_AUTH = 'Basic ' + Buffer.from(`${TWILIO_SID}:${TWILIO_TOKEN}`).toString('base64');
 const SUPABASE_URL = 'https://ycztjetxwpfgtrzeyytt.supabase.co';

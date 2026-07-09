@@ -15,7 +15,7 @@ const SUPA_KEY = 'sb_secret_ZWfZCxFwF_SteBQsC8mqZA_wadaDLRd';
 
 // Twilio creds — reuse same account as AOIrail
 const TWILIO_SID   = 'AC25d37aa41aed0df4fddd81ecf7abf00d';
-const TWILIO_TOKEN = '974557c999ed53ada16c4a784af2a7d3';
+const TWILIO_TOKEN = 'b275d646252457344ff62528e3538ea9';
 const TWILIO_FROM  = '+16123459649'; // ConnectNow SMS number
 
 // In-memory set of emails that have already received their ghost SMS this session.

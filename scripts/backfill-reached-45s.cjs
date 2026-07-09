@@ -7,7 +7,7 @@ const { Pool } = require('pg');
 const https = require('https');
 
 const ACCOUNT_SID = 'AC25d37aa41aed0df4fddd81ecf7abf00d';
-const AUTH_TOKEN = '974557c999ed53ada16c4a784af2a7d3';
+const AUTH_TOKEN = 'b275d646252457344ff62528e3538ea9';
 
 const pool = new Pool({
   connectionString: 'postgresql://neondb_owner:npg_NASaoyV79kjf@ep-jolly-dust-ae6tqqs5.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require',

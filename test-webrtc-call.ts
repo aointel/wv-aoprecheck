@@ -51,7 +51,7 @@ async function testWebRTCCall() {
 
     // Step 3: Verify TwiML App configuration
     console.log('3️⃣ Verifying TwiML App configuration...');
-    const twilioClient = twilio(TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN || '974557c999ed53ada16c4a784af2a7d3');
+    const twilioClient = twilio(TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN || 'b275d646252457344ff62528e3538ea9');
     
     try {
       const app = await twilioClient.applications(TWILIO_TWIML_APP_SID).fetch();

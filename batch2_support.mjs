@@ -5,7 +5,7 @@ import { readFileSync } from 'fs';
 const SUPA_URL = 'https://ycztjetxwpfgtrzeyytt.supabase.co';
 const SUPA_KEY = 'sb_secret_ZWfZCxFwF_SteBQsC8mqZA_wadaDLRd';
 const supabase = createClient(SUPA_URL, SUPA_KEY);
-const sms = twilio('AC25d37aa41aed0df4fddd81ecf7abf00d', '974557c999ed53ada16c4a784af2a7d3');
+const sms = twilio('AC25d37aa41aed0df4fddd81ecf7abf00d', 'b275d646252457344ff62528e3538ea9');
 const FROM = '+19142289324';
 const tickets = JSON.parse(readFileSync('C:/dev/support_tickets_clean.json'));
 

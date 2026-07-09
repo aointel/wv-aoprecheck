@@ -2,7 +2,7 @@ require('dotenv').config();
 const fetch = require('node-fetch');
 
 const TWILIO_ACCOUNT_SID = 'AC25d37aa41aed0df4fddd81ecf7abf00d';
-const TWILIO_AUTH_TOKEN = '974557c999ed53ada16c4a784af2a7d3';
+const TWILIO_AUTH_TOKEN = 'b275d646252457344ff62528e3538ea9';
 
 async function getTwilioCalls() {
   try {

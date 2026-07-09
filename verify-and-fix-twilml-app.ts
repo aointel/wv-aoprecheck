@@ -5,7 +5,7 @@ import twilio from 'twilio';
  */
 
 const TWILIO_ACCOUNT_SID = 'AC25d37aa41aed0df4fddd81ecf7abf00d';
-const TWILIO_AUTH_TOKEN = '974557c999ed53ada16c4a784af2a7d3';
+const TWILIO_AUTH_TOKEN = 'b275d646252457344ff62528e3538ea9';
 const TWILIO_TWIML_APP_SID = 'AP958ebb1810e2315e9ff008cc06e91c1d';
 const EXPECTED_WEBHOOK_URL = 'https://aoirail-production-baa2.up.railway.app/webhook/webrtc';
 const EXPECTED_STATUS_CALLBACK = 'https://aoirail-production-baa2.up.railway.app/api/twilio/call-status';

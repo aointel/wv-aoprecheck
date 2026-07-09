@@ -6,7 +6,7 @@
  */
 
 const ACCOUNT_SID = 'AC25d37aa41aed0df4fddd81ecf7abf00d';
-const AUTH_TOKEN = '974557c999ed53ada16c4a784af2a7d3';
+const AUTH_TOKEN = 'b275d646252457344ff62528e3538ea9';
 const WORKSPACE_SID = 'WS6a978202496f59f6cd478c1310f5c2eb';
 
 const BASE_URL = `https://taskrouter.twilio.com/v1/Workspaces/${WORKSPACE_SID}`;

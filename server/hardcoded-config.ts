@@ -7,7 +7,7 @@ export const HARDCODED_CONFIG = {
 
   // Twilio Account Keys - Updated with your new working account
   TWILIO_ACCOUNT_SID: 'AC25d37aa41aed0df4fddd81ecf7abf00d',
-  TWILIO_AUTH_TOKEN: '974557c999ed53ada16c4a784af2a7d3',
+  TWILIO_AUTH_TOKEN: 'b275d646252457344ff62528e3538ea9',
   
   // Twilio API Keys for WebRTC tokens - Your new API key
   TWILIO_API_KEY: 'SKda62cc0dd6b62fa233efbfbb67c5aaf5',
