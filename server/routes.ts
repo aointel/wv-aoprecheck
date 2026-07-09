@@ -2,6 +2,7 @@ import type { Express } from "express";
 import express from "express";
 import type { Server } from "http";
 import { registerAoPrecheckRoutes } from "./routes-aoprecheck";
+import { getGettingStartedStatus, markGettingStartedComplete, getManagerGettingStartedStatus, markManagerGettingStartedComplete } from "./getting-started-store";
 
 // --- Batch buffer: coalesces leasedialer_client_status upserts every 5s ---
 const pendingClientStatusUpserts = new Map<string, { count: number; leadId: string | null }>();
@@ -3179,6 +3180,7 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
       }
 
       // SEND SMS TO CLIENT AND AGENT
+      const smsResults: Array<{ type: string; sid: string; to: string }> = [];
       if (!session.phone) {
         console.warn('⚠️ No phone number found for SMS');
       } else {
@@ -3203,8 +3205,6 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
           if (phone.startsWith('+')) return phone;
           return `+1${digits}`;
         };
-
-        let smsResults = [];
 
         // 1. SMS to CLIENT for verification
         try {
@@ -3238,13 +3238,21 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
           }
         }
 
-        // Update session to mark SMS as sent
-        await storage.updateVerificationSession(sessionId, {
-          smsVerificationSent: true,
-        });
+        // Only mark sent when at least one Twilio message succeeded
+        if (smsResults.length > 0) {
+          await storage.updateVerificationSession(sessionId, {
+            smsVerificationSent: true,
+          });
+        } else {
+          console.error('❌ Step2: no SMS succeeded for session', sessionId);
+          return res.status(500).json({
+            success: false,
+            message: "Failed to send SMS — Twilio rejected all messages. Check server logs.",
+          });
+        }
       }
 
-      res.json({ success: true, message: "Step 2 webhook sent and SMS sent" });
+      res.json({ success: true, message: "Step 2 webhook sent and SMS sent", smsResults });
     } catch (error: any) {
       console.error('Step 2 webhook error:', error);
       res.status(500).json({ message: "Failed to send Step 2 webhook" });
@@ -6035,6 +6043,68 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
     } catch (error) {
       console.error('Direct patch agent profile error:', error);
       res.status(500).json({ message: "Failed to update agent profile" });
+    }
+  });
+
+  // ── Getting Started completion (server-authoritative, per agent account) ──
+  // GET status for the logged-in agent. Completion is per email + version, so
+  // bumping the client GETTING_STARTED_VERSION forces everyone through again.
+  app.get("/api/getting-started/status", async (req, res) => {
+    try {
+      const email = ((req.query.email as string) || (req.query.userEmail as string) || "").trim();
+      const version = ((req.query.version as string) || "").trim();
+      if (!email) return res.status(400).json({ completed: false, message: "email required" });
+      const status = await getGettingStartedStatus(email);
+      const completed = status.completed && (!version || status.version === version);
+      res.json({ completed, version: status.version, completedAt: status.completedAt });
+    } catch (error) {
+      console.error("getting-started status error:", error);
+      // Fail-safe: report not completed so the flow is enforced.
+      res.json({ completed: false, version: null, completedAt: null });
+    }
+  });
+
+  // POST to mark complete — called ONLY after video + acknowledgment + profile approve.
+  app.post("/api/getting-started/complete", express.json(), async (req, res) => {
+    try {
+      const body = req.body || {};
+      const email = String(body.email || body.userEmail || "").trim();
+      const version = String(body.version || "v1").trim();
+      if (!email) return res.status(400).json({ ok: false, message: "email required" });
+      const ok = await markGettingStartedComplete(email, version);
+      res.json({ ok });
+    } catch (error) {
+      console.error("getting-started complete error:", error);
+      res.status(500).json({ ok: false });
+    }
+  });
+
+  // ── Precheck MANAGER Getting Started (separate onboarding flag) ──
+  app.get("/api/precheck-manager/getting-started/status", async (req, res) => {
+    try {
+      const email = ((req.query.email as string) || (req.query.userEmail as string) || "").trim();
+      const version = ((req.query.version as string) || "").trim();
+      if (!email) return res.status(400).json({ completed: false, message: "email required" });
+      const status = await getManagerGettingStartedStatus(email);
+      const completed = status.completed && (!version || status.version === version);
+      res.json({ completed, version: status.version, completedAt: status.completedAt });
+    } catch (error) {
+      console.error("manager getting-started status error:", error);
+      res.json({ completed: false, version: null, completedAt: null });
+    }
+  });
+
+  app.post("/api/precheck-manager/getting-started/complete", express.json(), async (req, res) => {
+    try {
+      const body = req.body || {};
+      const email = String(body.email || body.userEmail || "").trim();
+      const version = String(body.version || "mgr-v1").trim();
+      if (!email) return res.status(400).json({ ok: false, message: "email required" });
+      const ok = await markManagerGettingStartedComplete(email, version);
+      res.json({ ok });
+    } catch (error) {
+      console.error("manager getting-started complete error:", error);
+      res.status(500).json({ ok: false });
     }
   });
 
@@ -8830,7 +8900,10 @@ export async function registerRoutes(app: Express, httpServer: Server): Promise<
     }
   });
 
-  // Teams management routes
+  // LEGACY generic `/api/teams` drizzle CRUD — NOT the unified team builder.
+  // The cross-app team builder uses the singular `/api/team*` routes backed by
+  // the central store (see routes-aoprecheck.ts + central-portal.ts). Kept only
+  // for any legacy admin surface; safe to remove once that is confirmed dead.
   const { registerTeamsRoutes } = await import("./teams-routes");
   registerTeamsRoutes(app);
   registerAgentPrecheckAgentRoutes(app);

@@ -45,14 +45,20 @@ export function UnifiedVerification({ sessionId, method, clientName, onBack, onC
   // Use language prop or session data, default to English
   const currentLanguage = language || (sessionData as any)?.language || 'en';
 
+  // Use aoprecheck host for QR/links (SMS body uses VERIFICATION_BASE_URL server-side).
+  const verificationHost =
+    (typeof window !== 'undefined' && window.location.hostname.includes('aoprecheck'))
+      ? window.location.origin
+      : 'https://aoprecheck-production.up.railway.app';
+
   // Generate producer verification URL for QR code (for producer mobile access)
   const producerVerificationUrl = sessionId 
-    ? `https://aoirail-production.up.railway.app/agent-verify${currentLanguage === 'es' ? '-es' : ''}/${sessionId}`
+    ? `${verificationHost}/agent-verify${currentLanguage === 'es' ? '-es' : ''}/${sessionId}`
     : '';
   
   // Generate CLIENT verification URL for QR code (for client mobile access)  
   const clientVerificationUrl = sessionId
-    ? `https://aoirail-production.up.railway.app/client-verify${currentLanguage === 'es' ? '-es' : ''}/${sessionId}`
+    ? `${verificationHost}/client-verify${currentLanguage === 'es' ? '-es' : ''}/${sessionId}`
     : '';
 
   useEffect(() => {
@@ -67,12 +73,17 @@ export function UnifiedVerification({ sessionId, method, clientName, onBack, onC
         }
 
         // CRITICAL: ALWAYS send SMS to both client and producer for ALL verification methods (Zoom, phone, whatsapp, facetime)
-        // This ensures SMS is sent regardless of verification method
+        // Prefer /api/verification/.../send-sms — it is allowlisted under SECTION=precheck.
+        // /api/step2-webhook was missing from the precheck allowlist and 404'd in production.
         console.log(`📱 Sending SMS to both client and producer for session ${sessionId} (method: ${method})...`);
-        
-        // Send SMS via step2-webhook endpoint which handles ALL methods
-        await apiRequest('POST', `/api/step2-webhook/${sessionId}`);
-        console.log('✅ SMS sent to both client and producer successfully via step2-webhook');
+        try {
+          await apiRequest('POST', `/api/verification/session/${sessionId}/send-sms`);
+          console.log('✅ SMS sent via /api/verification/session/.../send-sms');
+        } catch (sendSmsErr) {
+          console.warn('send-sms failed, falling back to step2-webhook', sendSmsErr);
+          await apiRequest('POST', `/api/step2-webhook/${sessionId}`);
+          console.log('✅ SMS sent via step2-webhook fallback');
+        }
 
       } catch (error) {
         console.error('❌ Error initializing Step 2 and sending SMS:', error);

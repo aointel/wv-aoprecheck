@@ -155,6 +155,7 @@ const SECTION_PATH_PREFIXES: Record<SectionName, readonly string[]> = {
   ],
   precheck: [
     '/health',
+    '/api/getting-started',
     '/api/aoprecheck',
     '/',
     '/live',
@@ -167,6 +168,7 @@ const SECTION_PATH_PREFIXES: Record<SectionName, readonly string[]> = {
     '/api/auth',
     '/api/users',
     '/api/team',
+    '/api/precheck-manager',
     '/api/agent',
     '/api/verification',
     '/api/taalk/webhook',
@@ -177,7 +179,11 @@ const SECTION_PATH_PREFIXES: Record<SectionName, readonly string[]> = {
     '/api/taalk/transfer-start',
     '/api/taalk/transfer-start-last',
     '/api/aoi-precheck',
+    // Client posts here to send verification SMS (must match route in routes.ts).
+    // Without this, SECTION=precheck returns 404 and texts never send.
+    '/api/step2-webhook',
     '/step2-webhook',
+    '/api/sms',
     '/agent-verify',
     '/client-verify',
     '/verification',
