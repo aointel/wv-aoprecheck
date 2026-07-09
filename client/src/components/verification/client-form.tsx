@@ -141,11 +141,19 @@ export function ClientForm({ onSubmit, hideZoomSelection = false, selectedTrack 
   useEffect(() => {
     if (authState.profile) {
       console.log('🔄 Updating local state from auth profile:', authState.profile);
-      setproducerPhone(authState.profile.phone || "");
-      setproducerFirstName(authState.profile.firstName || "");
-      setproducerLastName(authState.profile.lastName || "");
-      setproducerZoomRoomId(authState.profile.zoomId || "");
-      setproducerZoomPassword(authState.profile.zoomPassword || "");
+      // Only apply non-empty values so an incomplete auth profile cannot wipe
+      // names already loaded from profile-direct / localStorage.
+      if (authState.profile.phone) setproducerPhone(authState.profile.phone);
+      if (authState.profile.firstName) {
+        setproducerFirstName(authState.profile.firstName);
+        localStorage.setItem('agent_first_name', authState.profile.firstName);
+      }
+      if (authState.profile.lastName) {
+        setproducerLastName(authState.profile.lastName);
+        localStorage.setItem('agent_last_name', authState.profile.lastName);
+      }
+      if (authState.profile.zoomId) setproducerZoomRoomId(authState.profile.zoomId);
+      if (authState.profile.zoomPassword) setproducerZoomPassword(authState.profile.zoomPassword);
       setIsLoadingProfile(false);
     }
   }, [authState.profile]);
@@ -158,6 +166,8 @@ export function ClientForm({ onSubmit, hideZoomSelection = false, selectedTrack 
       // Only load from API if auth state has the required profile data
       if (authState.profile?.phone && authState.profile?.firstName && authState.profile?.lastName) {
         console.log('✅ Using auth state profile, skipping API call');
+        localStorage.setItem('agent_first_name', authState.profile.firstName);
+        localStorage.setItem('agent_last_name', authState.profile.lastName);
         setIsLoadingProfile(false);
         return;
       }
@@ -177,9 +187,15 @@ export function ClientForm({ onSubmit, hideZoomSelection = false, selectedTrack 
           if (profile) {
             console.log('✅ Producer Profile loaded:', profile);
             // Update state with loaded profile data
-            setproducerPhone(profile.phone || "");
-            setproducerFirstName(profile.firstName || "");
-            setproducerLastName(profile.lastName || "");
+            if (profile.phone) setproducerPhone(profile.phone);
+            if (profile.firstName) {
+              setproducerFirstName(profile.firstName);
+              localStorage.setItem('agent_first_name', profile.firstName);
+            }
+            if (profile.lastName) {
+              setproducerLastName(profile.lastName);
+              localStorage.setItem('agent_last_name', profile.lastName);
+            }
             setproducerZoomRoomId(profile.zoomId || profile.zoomMeetingId || "");
             setproducerZoomPassword(profile.zoomPassword || "");
           }
@@ -435,6 +451,16 @@ export function ClientForm({ onSubmit, hideZoomSelection = false, selectedTrack 
       });
       return;
     }
+
+    // Producer first/last come from profile (Getting Started / Producer Setup) — required, same as Connect.
+    if (!currentproducerFirstName?.trim() || !currentproducerLastName?.trim()) {
+      toast({
+        title: "Producer Name Required",
+        description: "Add your first and last name in Producer Setup (or Getting Started profile), then try Next again.",
+        variant: "destructive"
+      });
+      return;
+    }
     
     // Auto-default Zoom Room ID if missing
     let finalZoomRoomId = currentZoomRoomId;
@@ -472,6 +498,16 @@ export function ClientForm({ onSubmit, hideZoomSelection = false, selectedTrack 
         language: selectedLanguage 
       });
       createSessionMutation.mutate(sessionData);
+    } else {
+      const missingProducerName =
+        !currentproducerFirstName?.trim() || !currentproducerLastName?.trim();
+      toast({
+        title: missingProducerName ? "Producer Name Required" : "Missing Required Fields",
+        description: missingProducerName
+          ? "Add your first and last name in Producer Setup (or Getting Started profile), then try Next again."
+          : "Please fill in all required client fields before continuing.",
+        variant: "destructive",
+      });
     }
   };
 

@@ -97,6 +97,14 @@ export function ProducerSetupModal({ isOpen, onClose }: producerSetupModalProps)
 
   // Save functions - now save to database AND localStorage for backward compatibility
   const saveField = async (field: string, value: string, displayName: string) => {
+    if ((field === 'firstName' || field === 'lastName') && !value.trim()) {
+      toast({
+        title: "Required",
+        description: `${displayName} is required`,
+        variant: "destructive",
+      });
+      return;
+    }
     setLoading(true);
     try {
       const response = await fetch('/api/agent/profile-direct', {
@@ -133,24 +141,32 @@ export function ProducerSetupModal({ isOpen, onClose }: producerSetupModalProps)
   const saveproducerLastName = () => saveField('lastName', producerLastName, 'producer last name');
   const saveproducerPhone = () => saveField('phone', producerPhone, 'producer phone number');
   const saveproducerZoomRoomId = () => saveField('zoomId', producerZoomRoomId, 'Zoom room ID');
-  const saveproducerZoomPassword = () => saveField('zoomPassword', producerZoomPassword || '1', 'Zoom password');
+  // Zoom passcode is numeric-only and never empty — default to "1".
+  const sanitizedZoomPassword = () => (producerZoomPassword || '').replace(/\D/g, '').trim() || '1';
+  const saveproducerZoomPassword = () => saveField('zoomPassword', sanitizedZoomPassword(), 'Zoom password');
   const saveMgaTeam = () => saveField('mgaTeam', mgaTeam, 'MGA Team');
   const saveRgaTeam = () => saveField('rgaTeam', rgaTeam, 'RGA Team');
 
   const saveAllproducerInfo = async () => {
+    if (!producerFirstName.trim() || !producerLastName.trim()) {
+      toast({
+        title: "Required",
+        description: "First name and last name are required",
+        variant: "destructive",
+      });
+      return;
+    }
     setLoading(true);
     try {
       const response = await fetch('/api/agent/profile-direct', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          firstName: producerFirstName,
-          lastName: producerLastName,
+          firstName: producerFirstName.trim(),
+          lastName: producerLastName.trim(),
           phone: producerPhone,
           zoomId: producerZoomRoomId,
-          zoomPassword: producerZoomPassword || '1',
-          mgaTeam: mgaTeam,
-          rgaTeam: rgaTeam,
+          zoomPassword: sanitizedZoomPassword(),
           profilePicture: profilePicture,
           userEmail: authState.user?.email || 'cnsysop@aoglobelife.com'
         }),
@@ -158,11 +174,11 @@ export function ProducerSetupModal({ isOpen, onClose }: producerSetupModalProps)
       
       if (response.ok) {
         // Also save to localStorage for backward compatibility
-        localStorage.setItem('agent_first_name', producerFirstName);
-        localStorage.setItem('agent_last_name', producerLastName);
+        localStorage.setItem('agent_first_name', producerFirstName.trim());
+        localStorage.setItem('agent_last_name', producerLastName.trim());
         localStorage.setItem('agent_phone', producerPhone);
         localStorage.setItem('agent_zoom_room_id', producerZoomRoomId);
-        localStorage.setItem('agent_zoom_password', producerZoomPassword || '1');
+        localStorage.setItem('agent_zoom_password', sanitizedZoomPassword());
         
         toast({ title: "All Saved", description: "All producer information saved successfully!" });
       } else {
@@ -372,75 +388,9 @@ export function ProducerSetupModal({ isOpen, onClose }: producerSetupModalProps)
             </div>
           </div>
 
-          {/* Team Assignment Section */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-slate-700 flex items-center gap-2">
-              <Building className="h-5 w-5" />
-              Team Assignment
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="mgaTeam" className="text-base font-semibold text-slate-700 mb-2 block">
-                  MGA Team *
-                </Label>
-                <div className="flex gap-2">
-                  <Select value={mgaTeam} onValueChange={setMgaTeam}>
-                    <SelectTrigger className="flex-1">
-                      <SelectValue placeholder={loadingTeams ? "Loading..." : "Select your MGA"} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {mgaOptions.map((mga) => (
-                        <SelectItem key={mga} value={mga}>
-                          {mga}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <Button
-                    type="button"
-                    onClick={saveMgaTeam}
-                    size="sm"
-                    variant="outline"
-                    className="px-3"
-                    disabled={loading}
-                  >
-                    {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Save'}
-                  </Button>
-                </div>
-              </div>
-
-              <div>
-                <Label htmlFor="rgaTeam" className="text-base font-semibold text-slate-700 mb-2 block">
-                  RGA Team *
-                </Label>
-                <div className="flex gap-2">
-                  <Select value={rgaTeam} onValueChange={setRgaTeam}>
-                    <SelectTrigger className="flex-1">
-                      <SelectValue placeholder={loadingTeams ? "Loading..." : "Select your RGA"} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {rgaOptions.map((rga) => (
-                        <SelectItem key={rga} value={rga}>
-                          {rga}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <Button
-                    type="button"
-                    onClick={saveRgaTeam}
-                    size="sm"
-                    variant="outline"
-                    className="px-3"
-                    disabled={loading}
-                  >
-                    {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Save'}
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Team Assignment (MGA/RGA manager data) removed — no longer required
+              for the precheck verification profile. Zoom + phone are what
+              verification consumes. */}
 
           {/* Zoom Meeting Information Section */}
           <div className="space-y-4">
@@ -484,8 +434,10 @@ export function ProducerSetupModal({ isOpen, onClose }: producerSetupModalProps)
                   <Input
                     id="producerZoomPassword"
                     value={producerZoomPassword}
-                    onChange={(e) => setproducerZoomPassword(e.target.value)}
+                    onChange={(e) => setproducerZoomPassword(e.target.value.replace(/\D/g, ''))}
                     placeholder="1 (default)"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
                     className="flex-1"
                   />
                   <Button
@@ -499,7 +451,9 @@ export function ProducerSetupModal({ isOpen, onClose }: producerSetupModalProps)
                     {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Save'}
                   </Button>
                 </div>
-                <p className="text-xs text-slate-500 mt-1">Leave blank to default to "1"</p>
+                <p className="text-xs text-slate-500 mt-1">
+                  Passcode must be numbers only (letters aren't supported for phone/dial-in join). Leave blank to default to "1".
+                </p>
               </div>
             </div>
           </div>
