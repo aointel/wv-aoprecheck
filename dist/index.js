@@ -39329,6 +39329,10 @@ Your task is to determine if this screenshot is VALID or INVALID based on these 
 });
 
 // server/verification-audio-analyzer.ts
+var verification_audio_analyzer_exports = {};
+__export(verification_audio_analyzer_exports, {
+  verificationAudioAnalyzer: () => verificationAudioAnalyzer
+});
 import { File as File2 } from "node:buffer";
 import OpenAI3 from "openai";
 import fs4 from "fs";
@@ -49526,9 +49530,9 @@ async function registerRoutes(app2, httpServer) {
         ...clientInfo,
         sessionType: req.body.sessionType || "live",
         // "demo" or "live" - default to live
-        agentFirstName: req.body.agentFirstName || agentProfileData?.first_name || "",
-        agentLastName: req.body.agentLastName || agentProfileData?.last_name || "",
-        agentPhone: req.body.agentPhone || agentProfileData?.phone || "",
+        agentFirstName: req.body.agentFirstName || req.body.producerFirstName || agentProfileData?.first_name || "",
+        agentLastName: req.body.agentLastName || req.body.producerLastName || agentProfileData?.last_name || "",
+        agentPhone: req.body.agentPhone || req.body.producerPhone || agentProfileData?.phone || "",
         agentMgaTeam: producerData?.mga || agentProfileData?.mga_team || "",
         // Use MGA from producerlist
         agentRgaTeam: agentProfileData?.rga_team || "",
@@ -50078,7 +50082,8 @@ async function registerRoutes(app2, httpServer) {
   });
   app2.post("/api/verification/initiate-conference-call", async (req, res) => {
     try {
-      const { sessionId, clientInfo, agentPhone } = req.body;
+      const { sessionId, clientInfo, agentPhone: bodyAgentPhone, producerPhone } = req.body;
+      const agentPhone = bodyAgentPhone || producerPhone;
       console.log("\u{1F525} CONFERENCE CALL: Initiating Taalk call for session:", sessionId);
       if (!sessionId) {
         return res.status(400).json({
@@ -50123,9 +50128,15 @@ async function registerRoutes(app2, httpServer) {
       const agentFirstName = isValidAgentFirstName ? session2.agentFirstName : realAgentFirstName;
       const agentLastName = isValidAgentLastName ? session2.agentLastName : realAgentLastName;
       const finalAgentPhone = agentPhone || session2?.agentPhone || agentProfile?.phone || "";
-      const replitDomain = process.env.REPLIT_DEV_DOMAIN;
+      if (!finalAgentPhone || String(finalAgentPhone).replace(/\D/g, "").length < 10) {
+        console.error("\u274C CONFERENCE CALL: Missing/invalid agent phone \u2014 Taalk cannot dial");
+        return res.status(400).json({
+          success: false,
+          error: "Agent phone is required. Save your phone in Producer Profile, then retry."
+        });
+      }
       const host = req.get("host");
-      const baseUrl = replitDomain ? `https://${replitDomain}` : host && host.includes("replit.dev") ? `https://${host}` : `https://${host}`;
+      const baseUrl = process.env.VERIFICATION_BASE_URL || (host ? `https://${host}` : "https://aoprecheck-production.up.railway.app");
       const taalkApiKey3 = process.env.TAALK_API_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ0YWFsay4zN2RhMGU2NS1kMGVjLTQxYWYtOGQzYi03MWRjNTJiNGNiMmYiLCJuYW1lIjoidGFhbGsiLCJleHAiOjIwNTUwMzU2OTJ9.Ywh89Z0PvELHylJReZo8KPOiL7xX21BoBYe16OZfJw4";
       const TAALK_AGENT_ID_SPANISH = "66461a241e0b08270180af7a";
       const TAALK_AGENT_ID_ENGLISH = "68a5ff0fc8f1520e59acf3e6";
@@ -50163,7 +50174,7 @@ async function registerRoutes(app2, httpServer) {
         agent: taalkAgentId,
         retryMethod: 0,
         force: true,
-        webhookUrl: "https://policy-verify-mmandella.replit.app/api/taalk/webhook",
+        webhookUrl: `${baseUrl}/api/taalk/webhook`,
         params: {
           // Agent Information
           Taalk_AgentFirstName: agentFirstName,
@@ -50263,6 +50274,134 @@ async function registerRoutes(app2, httpServer) {
         success: false,
         error: error.message || "Failed to initiate conference call"
       });
+    }
+  });
+  app2.post("/api/taalk/webhook", async (req, res) => {
+    try {
+      console.log("\u{1F514} Taalk webhook received:", req.body);
+      const { type, call_id, status, duration, result, recording_url } = req.body || {};
+      const session_id = req.body?.session_id || req.body?.params?.Taalk_SessionId || req.body?.Taalk_SessionId || null;
+      if (type === "call.completed" || type === "call.finished" || status === "completed") {
+        console.log(`\u{1F4DE} Taalk call completed - ID: ${call_id}, Status: ${status}, Duration: ${duration}s, session: ${session_id}`);
+        if (session_id) {
+          let storedRecordingUrl = null;
+          const taalkCallId = call_id || session_id;
+          const taalkDb = process.env.TAALK_DB || "michaelmandella";
+          const taalkRecordingUrl = recording_url || `https://api.taalk.ai/api/calls/${taalkCallId}/recording?db=${taalkDb}`;
+          const taalkApiKey3 = process.env.TAALK_API_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ0YWFsay4zN2RhMGU2NS1kMGVjLTQxYWYtOGQzYi03MWRjNTJiNGNiMmYiLCJuYW1lIjoidGFhbGsiLCJleHAiOjIwNTUwMzU2OTJ9.Ywh89Z0PvELHylJReZo8KPOiL7xX21BoBYe16OZfJw4";
+          try {
+            console.log(`\u{1F3B5} IMMEDIATELY downloading recording: ${taalkRecordingUrl}`);
+            let response = await fetch3(taalkRecordingUrl, {
+              headers: {
+                Authorization: `Bearer ${taalkApiKey3}`,
+                Accept: "audio/mpeg, audio/mp3, audio/*, */*"
+              }
+            });
+            if (!response.ok) {
+              console.log(`\u26A0\uFE0F Bearer auth failed (${response.status}), trying basic auth...`);
+              const basicUser = process.env.TAALK_BASIC_USER || "michaelmandella@aoglobelife.com";
+              const basicPass = process.env.TAALK_BASIC_PASS || "";
+              if (basicPass) {
+                const basicAuth = Buffer.from(`${basicUser}:${basicPass}`).toString("base64");
+                response = await fetch3(taalkRecordingUrl, {
+                  headers: {
+                    Authorization: `Basic ${basicAuth}`,
+                    Accept: "audio/mpeg"
+                  }
+                });
+              }
+            }
+            if (response.ok) {
+              const arrayBuffer = await response.arrayBuffer();
+              const buffer = Buffer.from(arrayBuffer);
+              const fileName = `recordings/${taalkCallId}.mp3`;
+              const { data: uploadData, error: uploadError } = await supabaseAdmin.storage.from("verify_agent_screenshot").upload(fileName, buffer, {
+                contentType: "audio/mpeg",
+                upsert: true
+              });
+              if (uploadError) {
+                console.error(`\u274C Supabase Storage upload failed:`, uploadError);
+              } else {
+                const { data: urlData } = await supabaseAdmin.storage.from("verify_agent_screenshot").createSignedUrl(fileName, 3600);
+                storedRecordingUrl = urlData?.signedUrl || null;
+                console.log(
+                  `\u2705 RECORDING SAVED TO SUPABASE STORAGE: ${fileName} (${buffer.length} bytes)`,
+                  uploadData ? "" : ""
+                );
+                console.log(`\u{1F517} Public URL: ${storedRecordingUrl}`);
+              }
+            } else {
+              console.error(
+                `\u274C Recording download failed: ${response.status} ${response.statusText}`
+              );
+              console.error(`\u{1F480} Recording may already be deleted from Taalk (happens after 48hrs)`);
+            }
+          } catch (downloadError) {
+            console.error(`\u274C Error downloading/storing recording:`, downloadError);
+          }
+          const { error: updateError } = await supabaseAdmin.from("verification_sessions").update({
+            taalk_call_status: "completed",
+            taalk_call_completed_at: (/* @__PURE__ */ new Date()).toISOString(),
+            taalk_call_duration: duration || 0,
+            taalk_call_data: JSON.stringify(req.body),
+            taalk_call_url: storedRecordingUrl || null,
+            status: "completed",
+            completed_at: (/* @__PURE__ */ new Date()).toISOString()
+          }).eq("session_id", session_id);
+          if (updateError) {
+            console.error(`\u274C Failed to update session ${session_id}:`, updateError);
+          } else {
+            console.log(
+              `\u2705 Updated session ${session_id} in Supabase - ${storedRecordingUrl ? "RECORDING STORED" : "NO RECORDING"}`
+            );
+            if (storedRecordingUrl) {
+              console.log(`\u{1F916} Triggering automatic audio analysis for session ${session_id}...`);
+              (async () => {
+                try {
+                  const { verificationAudioAnalyzer: verificationAudioAnalyzer2 } = await Promise.resolve().then(() => (init_verification_audio_analyzer(), verification_audio_analyzer_exports));
+                  const audioAnalysis = await verificationAudioAnalyzer2.analyzeAudioFromUrl(
+                    storedRecordingUrl,
+                    type || "phone"
+                  );
+                  await supabaseAdmin.from("verification_sessions").update({ audio_analysis: audioAnalysis }).eq("session_id", session_id);
+                  console.log(
+                    `\u2705 Audio analysis completed for session ${session_id}: ${audioAnalysis.validation.isValid ? "VALID" : "FLAGGED"} (${(audioAnalysis.validation.confidence * 100).toFixed(0)}%)`
+                  );
+                } catch (analysisError) {
+                  console.error(`\u274C Audio analysis failed for session ${session_id}:`, analysisError);
+                }
+              })();
+            }
+          }
+        }
+        console.log(`\u{1F389} Call ${call_id} completed successfully after ${duration || 0} seconds`, result ? `(result=${result})` : "");
+      }
+      if (type === "call.started" || status === "ringing") {
+        console.log(`\u{1F4F1} Taalk call started/ringing - ID: ${call_id}`);
+        if (session_id) {
+          await supabaseAdmin.from("verification_sessions").update({ taalk_call_status: "ringing", status: "in_progress" }).eq("session_id", session_id);
+        }
+      }
+      if (type === "call.answered" || status === "answered") {
+        console.log(`\u2705 Taalk call answered - ID: ${call_id}`);
+        if (session_id) {
+          await supabaseAdmin.from("verification_sessions").update({ taalk_call_status: "answered", status: "in_progress" }).eq("session_id", session_id);
+        }
+      }
+      if (type === "call.failed" || status === "failed") {
+        console.log(`\u274C Taalk call failed - ID: ${call_id}`);
+        if (session_id) {
+          await supabaseAdmin.from("verification_sessions").update({
+            taalk_call_status: "failed",
+            taalk_call_completed_at: (/* @__PURE__ */ new Date()).toISOString(),
+            status: "failed"
+          }).eq("session_id", session_id);
+        }
+      }
+      res.json({ success: true, message: "Webhook processed successfully" });
+    } catch (error) {
+      console.error("\u274C Error processing Taalk webhook:", error);
+      res.status(500).json({ error: "Webhook processing failed" });
     }
   });
   app2.post("/api/verification/session/:sessionId/reset-call", async (req, res) => {
@@ -50453,7 +50592,8 @@ async function registerRoutes(app2, httpServer) {
   });
   app2.post("/api/verification/initiate-zoom-call", async (req, res) => {
     try {
-      const { sessionId, clientInfo, agentPhone } = req.body;
+      const { sessionId, clientInfo, agentPhone: bodyAgentPhone, producerPhone } = req.body;
+      const agentPhone = bodyAgentPhone || producerPhone;
       console.log("\u{1F3A5} ZOOM CALL: Initiating Taalk call via Zoom bridge for session:", sessionId);
       if (!sessionId) {
         return res.status(400).json({
@@ -50517,18 +50657,24 @@ async function registerRoutes(app2, httpServer) {
       const agentFirstName = isValidAgentFirstName ? session2.agentFirstName : realAgentFirstName;
       const agentLastName = isValidAgentLastName ? session2.agentLastName : realAgentLastName;
       const finalAgentPhone = agentPhone || session2?.agentPhone || agentProfile?.phone || "";
-      const replitDomain = process.env.REPLIT_DEV_DOMAIN;
       const host = req.get("host");
-      const baseUrl = replitDomain ? `https://${replitDomain}` : host && host.includes("replit.dev") ? `https://${host}` : `https://${host}`;
+      const baseUrl = process.env.VERIFICATION_BASE_URL || (host ? `https://${host}` : "https://aoprecheck-production.up.railway.app");
       const taalkApiKey3 = process.env.TAALK_API_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ0YWFsay4zN2RhMGU2NS1kMGVjLTQxYWYtOGQzYi03MWRjNTJiNGNiMmYiLCJuYW1lIjoidGFhbGsiLCJleHAiOjIwNTUwMzU2OTJ9.Ywh89Z0PvELHylJReZo8KPOiL7xX21BoBYe16OZfJw4";
       const TAALK_AGENT_ID_SPANISH = "66461a241e0b08270180af7a";
       const TAALK_AGENT_ID_ENGLISH = "68a5ff0fc8f1520e59acf3e6";
       const taalkAgentId = session2?.language === "es" ? TAALK_AGENT_ID_SPANISH : TAALK_AGENT_ID_ENGLISH;
-      const zoomRoomId = session2?.zoomRoomId || agentProfile?.zoom_id || "";
-      const zoomPassword = session2?.zoomPassword || agentProfile?.zoom_password || "1";
+      const zoomRoomId = session2?.zoomRoomId || req.body?.zoomRoomId || clientInfo?.zoomRoomId || agentProfile?.zoomId || agentProfile?.zoom_id || "";
+      const zoomPassword = session2?.zoomPassword || req.body?.zoomPassword || clientInfo?.zoomPassword || agentProfile?.zoomPassword || agentProfile?.zoom_password || "1";
       const zoomBridgePhone = `6692192599,,${zoomRoomId}#,,#,,${zoomPassword}#`;
       console.log("\u{1F3A5} ZOOM CALL: Using Zoom bridge phone:", zoomBridgePhone);
       console.log("\u{1F3A5} ZOOM CALL: Zoom room ID:", zoomRoomId, "Password:", zoomPassword);
+      if (!zoomRoomId) {
+        console.error("\u274C ZOOM CALL: Missing zoomRoomId \u2014 Taalk bridge dial will fail");
+        return res.status(400).json({
+          success: false,
+          error: "Zoom Room ID is required. Save your Zoom Room ID in Producer Profile, then retry."
+        });
+      }
       let formattedAgentPhone = finalAgentPhone;
       if (formattedAgentPhone && !formattedAgentPhone.startsWith("+")) {
         const digits = formattedAgentPhone.replace(/\D/g, "");
