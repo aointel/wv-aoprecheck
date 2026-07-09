@@ -187,25 +187,31 @@ export function UnifiedVerification({ sessionId, method, clientName, onBack, onC
       }
       
       console.log(`🎯 Routing ${verificationMethod} verification to: ${endpoint}`);
-      
+
+      // EXACT same contract as verification-workflow startVerificationCall (working path).
+      // apiRequest already JSON.stringifies — do NOT wrap in { body: JSON.stringify(...) }.
       return await apiRequest('POST', endpoint, {
-        body: JSON.stringify({
-          sessionId: sessionId,
-          clientName: `${session?.firstName} ${session?.lastName}`,
-          clientPhone: session?.phone,
+        sessionId: sessionId,
+        clientInfo: {
+          firstName: session?.firstName,
+          lastName: session?.lastName,
+          phone: session?.phone,
           spouseName: session?.spouseName,
           city: session?.city,
           state: session?.state,
           premium: session?.premium,
-          verificationMethod: verificationMethod,
-          producerFirstName: session?.producerFirstName || 'Michael',
-          producerLastName: session?.producerLastName || 'Mandella',
-          producerPhone: session?.producerPhone || '15032018470',
+          achDrawDate: session?.achDrawDate,
+          achDrawDateShort: session?.achDrawDateShort,
           zoomRoomId: session?.zoomRoomId,
           zoomPassword: session?.zoomPassword || '1',
-          achDrawDate: session?.achDrawDate,
-          achDrawDateShort: session?.achDrawDateShort
-        })
+        },
+        agentPhone:
+          session?.agentPhone ||
+          session?.producerPhone ||
+          undefined,
+        zoomRoomId: session?.zoomRoomId,
+        zoomPassword: session?.zoomPassword || '1',
+        verificationMethod: verificationMethod,
       });
     },
     onSuccess: (data) => {

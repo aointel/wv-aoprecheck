@@ -329,7 +329,7 @@ export default function VerificationWorkflow({ onComplete, standalone: standalon
       
       console.log(`🎯 Routing ${selectedTrack} track verification to: ${endpoint}`);
       
-      // Payload structure for both zoom and conference calls
+      // Payload structure for both zoom and conference calls (same contract as working Connect path)
       const callPayload = {
         sessionId: verificationSession.sessionId,
         clientInfo: {
@@ -341,14 +341,28 @@ export default function VerificationWorkflow({ onComplete, standalone: standalon
           state: verificationSession.state,
           premium: verificationSession.premium,
           achDrawDate: verificationSession.achDrawDate,
-          achDrawDateShort: verificationSession.achDrawDateShort
+          achDrawDateShort: verificationSession.achDrawDateShort,
+          zoomRoomId: verificationSession.zoomRoomId,
+          zoomPassword: verificationSession.zoomPassword || '1',
         },
-        agentPhone: verificationSession.producerPhone || verificationSession.agentPhone
+        agentPhone: verificationSession.agentPhone || verificationSession.producerPhone,
+        zoomRoomId: verificationSession.zoomRoomId,
+        zoomPassword: verificationSession.zoomPassword || '1',
       };
+
+      const authHeaders: Record<string, string> = { 'Content-Type': 'application/json' };
+      try {
+        const storedUser = localStorage.getItem('current_producer');
+        if (storedUser) {
+          const userData = JSON.parse(storedUser);
+          if (userData.email) authHeaders['x-user-email'] = userData.email;
+        }
+      } catch { /* optional */ }
 
       const callResponse = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: authHeaders,
+        credentials: 'include',
         body: JSON.stringify(callPayload)
       });
 
