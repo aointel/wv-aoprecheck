@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Controls</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #4338ca 100%);
+            color: white;
+            padding: 24px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        
+        .close-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 24px;
+        }
+        
+        .card h2 {
+            margin: 0 0 16px 0;
+            font-size: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+        }
+        
+        .btn {
+            width: 100%;
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .btn-primary {
+            background: #2563eb;
+        }
+        
+        .btn-success {
+            background: #16a34a;
+        }
+        
+        .btn-warning {
+            background: #ea580c;
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .status {
+            margin-top: 16px;
+            padding: 12px;
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 6px;
+        }
+        
+        .badge {
+            background: #2563eb;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .lead-info p {
+            margin: 0 0 4px 0;
+        }
+        
+        .lead-info .name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .lead-info .contact {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Meeting Controls</h1>
+            <button class="close-btn" onclick="window.close()">✕ Close</button>
+        </div>
+
+        <div class="grid">
+            <!-- Lead Info -->
+            <div class="card">
+                <h2>Current Lead</h2>
+                <div class="lead-info" id="leadInfo">
+                    <p class="name" id="leadName">Loading...</p>
+                    <p class="contact" id="leadPhone">-</p>
+                    <p class="contact" id="leadEmail">-</p>
+                    <span class="badge" id="leadMarket">Lead</span>
+                </div>
+            </div>
+
+            <!-- Meeting Room -->
+            <div class="card">
+                <h2>Meeting Room</h2>
+                <div class="form-group">
+                    <label>Room ID</label>
+                    <input type="text" id="roomName" value="cnsysop">
+                </div>
+                
+                <button class="btn btn-success" onclick="startMeeting()">🎥 Start Meeting</button>
+                <button class="btn btn-secondary" onclick="copyClientLink()">📋 Copy Client Link</button>
+                
+                <div class="status" id="meetingStatus" style="display: none;">
+                    <p style="margin: 0 0 4px 0; font-size: 14px; color: #86efac;">Room Active</p>
+                    <p style="margin: 0; font-size: 12px; color: #bbf7d0;">Clients will join waiting room and await admission</p>
+                </div>
+            </div>
+
+            <!-- SMS Invitation -->
+            <div class="card">
+                <h2>SMS Invitation</h2>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" id="smsPhone" placeholder="+1234567890">
+                    <small style="font-size: 12px; opacity: 0.6;">Default: <span id="defaultPhone">No phone</span></small>
+                </div>
+                
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea id="smsMessage" rows="4">Hi! Please join our video meeting: https://aoi.whereby.com/cnsysop</textarea>
+                </div>
+                
+                <button class="btn btn-primary" onclick="sendSMS()">📱 Send SMS Invite</button>
+            </div>
+
+            <!-- HP Pro -->
+            <div class="card">
+                <h2>HP Pro</h2>
+                <p style="margin: 0 0 16px 0; font-size: 14px; opacity: 0.8;">
+                    Open HP Pro to access lead management and quoting tools.
+                </p>
+                
+                <button class="btn btn-warning" onclick="openHPPro()">🔗 Open HP Pro</button>
+                
+                <div id="hpProInfo" style="margin-top: 16px; font-size: 12px; opacity: 0.6;">
+                    <p style="margin: 0 0 2px 0;">Lead: <span id="hpLeadName">-</span></p>
+                    <p style="margin: 0 0 2px 0;">Phone: <span id="hpLeadPhone">-</span></p>
+                    <p style="margin: 0;">Market: <span id="hpLeadMarket">-</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLead = null;
+        let userEmail = 'cnsysop@aoglobelife.com';
+        let wherebyMeeting = null;
+
+        // Parse URL parameters
+        function parseURLParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const leadData = urlParams.get('leadData');
+            userEmail = urlParams.get('userEmail') || 'cnsysop@aoglobelife.com';
+            
+            if (leadData) {
+                try {
+                    currentLead = JSON.parse(decodeURIComponent(leadData));
+                    console.log('🎥 Popup: Lead data parsed:', currentLead);
+                } catch (error) {
+                    console.error('Failed to parse lead data:', error);
+                }
+            }
+            
+            updateUI();
+        }
+
+        // Update UI with lead data
+        function updateUI() {
+            const agentRoomName = userEmail.split('@')[0];
+            document.getElementById('roomName').value = agentRoomName;
+            
+            if (currentLead) {
+                document.getElementById('leadName').textContent = currentLead.name;
+                document.getElementById('leadPhone').textContent = currentLead.phone || '-';
+                document.getElementById('leadEmail').textContent = currentLead.email || '-';
+                document.getElementById('leadMarket').textContent = currentLead.market || 'Lead';
+                document.getElementById('smsPhone').value = currentLead.phone || '+1234567890';
+                document.getElementById('defaultPhone').textContent = currentLead.phone || 'No phone';
+                document.getElementById('smsMessage').value = `Hi ${currentLead.name}, please join our secure video meeting: https://aoi.whereby.com/${agentRoomName}`;
+                
+                // HP Pro info
+                document.getElementById('hpLeadName').textContent = currentLead.name;
+                document.getElementById('hpLeadPhone').textContent = currentLead.phone || '-';
+                document.getElementById('hpLeadMarket').textContent = currentLead.market || '-';
+            } else {
+                document.getElementById('leadName').textContent = 'No lead selected';
+                document.getElementById('smsMessage').value = `Hi! Please join our video meeting: https://aoi.whereby.com/${agentRoomName}`;
+            }
+        }
+
+        // Create meeting
+        async function createMeeting() {
+            const roomName = document.getElementById('roomName').value;
+            
+            try {
+                const response = await fetch('/api/whereby/rooms/create', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ roomName })
+                });
+                
+                if (!response.ok) throw new Error('Failed to create meeting');
+                
+                const meeting = await response.json();
+                wherebyMeeting = meeting;
+
+                // Update SMS with actual meeting URL
+                const updatedSmsMessage = currentLead 
+                    ? `Hi ${currentLead.name}, please join our video meeting: ${meeting.roomUrl} - I'll admit you from the waiting room.`
+                    : `Hi! Please join our video meeting: ${meeting.roomUrl} - Please wait to be admitted.`;
+                
+                document.getElementById('smsMessage').value = updatedSmsMessage;
+                document.getElementById('meetingStatus').style.display = 'block';
+                
+                alert("Meeting Room Created - Locked room created, clients will join waiting room");
+                return meeting;
+            } catch (error) {
+                console.error('Failed to create meeting:', error);
+                alert("Meeting Failed - Could not create meeting room. Please try again.");
+                return null;
+            }
+        }
+
+        // Start meeting
+        async function startMeeting() {
+            let meeting = wherebyMeeting;
+            if (!meeting) {
+                meeting = await createMeeting();
+                if (!meeting) return;
+            }
+            window.location.href = meeting.hostRoomUrl;
+        }
+
+        // Copy client link
+        function copyClientLink() {
+            if (wherebyMeeting?.roomUrl) {
+                navigator.clipboard.writeText(wherebyMeeting.roomUrl);
+                alert("Client Link Copied - Meeting link copied to clipboard");
+            } else {
+                alert("No Meeting Active - Create a meeting first");
+            }
+        }
+
+        // Send SMS
+        async function sendSMS() {
+            const phone = document.getElementById('smsPhone').value;
+            const message = document.getElementById('smsMessage').value;
+            
+            try {
+                const response = await fetch('/api/sms/send', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        to: phone,
+                        message: message
+                    })
+                });
+
+                if (response.ok) {
+                    alert(`SMS Sent Successfully - Message sent to ${phone}`);
+                } else {
+                    throw new Error('Failed to send SMS');
+                }
+            } catch (error) {
+                alert("SMS Failed - Could not send SMS. Please try again.");
+            }
+        }
+
+        // Open HP Pro
+        function openHPPro() {
+            window.open('https://hp.aoglobelife.com/', '_blank');
+        }
+
+        // Initialize on page load
+        window.onload = parseURLParams;
+    </script>
+</body>
+</html>

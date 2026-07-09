@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebRTC Comprehensive Diagnostic Test</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #0d1117;
+      color: #c9d1d9;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #58a6ff;
+      border-bottom: 2px solid #30363d;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+    h2 {
+      color: #58a6ff;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+    .container {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .test-section {
+      margin: 20px 0;
+      padding: 15px;
+      background: #0d1117;
+      border: 1px solid #21262d;
+      border-radius: 6px;
+    }
+    .test-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin: 5px 0;
+      background: #161b22;
+      border-radius: 4px;
+      border-left: 4px solid #30363d;
+    }
+    .test-item.pass { border-left-color: #3fb950; }
+    .test-item.fail { border-left-color: #f85149; }
+    .test-item.warning { border-left-color: #d29922; }
+    .test-item.info { border-left-color: #58a6ff; }
+    .test-item.running { border-left-color: #f0883e; }
+    .test-label {
+      flex: 1;
+      font-weight: 500;
+    }
+    .test-status {
+      margin-left: 15px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    .status-pass { background: #1a472a; color: #3fb950; }
+    .status-fail { background: #3d2115; color: #f85149; }
+    .status-warning { background: #3d2e1a; color: #d29922; }
+    .status-info { background: #1c2128; color: #58a6ff; }
+    .status-running { background: #3d2e1a; color: #f0883e; }
+    .test-details {
+      margin-top: 10px;
+      padding: 10px;
+      background: #0d1117;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: #8b949e;
+      white-space: pre-wrap;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .summary-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 15px;
+      text-align: center;
+    }
+    .summary-value {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .summary-value.pass { color: #3fb950; }
+    .summary-value.fail { color: #f85149; }
+    .summary-value.warning { color: #d29922; }
+    .summary-label {
+      color: #8b949e;
+      font-size: 14px;
+    }
+    button {
+      background: #238636;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover { background: #2ea043; }
+    button:disabled {
+      background: #21262d;
+      color: #8b949e;
+      cursor: not-allowed;
+    }
+    button.danger {
+      background: #da3633;
+    }
+    button.danger:hover {
+      background: #f85149;
+    }
+    .config-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .config-item {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      color: #8b949e;
+      font-size: 12px;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    input, select {
+      padding: 8px 12px;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      color: #c9d1d9;
+      font-size: 14px;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: #58a6ff;
+    }
+    .recommendations {
+      background: #1c2128;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    .recommendation {
+      padding: 10px;
+      margin: 5px 0;
+      border-left: 3px solid #58a6ff;
+      background: #0d1117;
+    }
+    .recommendation.critical {
+      border-left-color: #f85149;
+    }
+    .recommendation.warning {
+      border-left-color: #d29922;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #21262d;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .progress-fill {
+      height: 100%;
+      background: #238636;
+      transition: width 0.3s ease;
+    }
+    .log-container {
+      max-height: 400px;
+      overflow-y: auto;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 15px;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+    }
+    .log-entry {
+      margin: 3px 0;
+      padding: 3px 0;
+    }
+    .log-entry.pass { color: #3fb950; }
+    .log-entry.fail { color: #f85149; }
+    .log-entry.warning { color: #d29922; }
+    .log-entry.info { color: #58a6ff; }
+    .log-entry.debug { color: #8b949e; }
+  </style>
+</head>
+<body>
+  <h1>🔬 WebRTC Comprehensive Diagnostic Test</h1>
+  
+  <div class="container">
+    <h2>Configuration</h2>
+    <div class="config-grid">
+      <div class="config-item">
+        <label>Identity (Email):</label>
+        <input type="text" id="identity" value="test@example.com" placeholder="test@example.com">
+      </div>
+      <div class="config-item">
+        <label>Token Source:</label>
+        <select id="tokenSource">
+          <option value="endpoint">From Endpoint (/api/twilio/token)</option>
+        </select>
+      </div>
+      <div class="config-item">
+        <label>Max Registration Retries:</label>
+        <input type="number" id="maxRetries" value="3" min="1" max="10">
+      </div>
+      <div class="config-item">
+        <label>Registration Timeout (ms):</label>
+        <input type="number" id="timeout" value="8000" min="1000" max="30000">
+      </div>
+    </div>
+    <div>
+      <button id="runAllTests">Run All Diagnostics</button>
+      <button id="runQuickTest">Quick Test (No Registration)</button>
+      <button id="stopTests" class="danger" disabled>Stop Tests</button>
+      <button onclick="clearResults()">Clear Results</button>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Test Summary</h2>
+    <div class="summary" id="summary">
+      <div class="summary-card">
+        <div class="summary-label">Total Tests</div>
+        <div class="summary-value" id="totalTests">-</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">Passed</div>
+        <div class="summary-value pass" id="passedTests">-</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">Failed</div>
+        <div class="summary-value fail" id="failedTests">-</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">Warnings</div>
+        <div class="summary-value warning" id="warningTests">-</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Diagnostic Results</h2>
+    <div id="testResults"></div>
+  </div>
+
+  <div class="container">
+    <h2>Recommendations</h2>
+    <div class="recommendations" id="recommendations">
+      <p style="color: #8b949e;">Run diagnostics to see recommendations...</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Detailed Log</h2>
+    <div class="log-container" id="logContainer"></div>
+    <button onclick="document.getElementById('logContainer').innerHTML = ''">Clear Log</button>
+  </div>
+
+  <!-- Twilio SDK -->
+  <script src="https://sdk.twilio.com/js/client/releases/2.0.0/twilio.min.js"></script>
+
+  <script>
+    let testsRunning = false;
+    let testResults = {};
+    let recommendations = [];
+    let totalTests = 0;
+    let passedTests = 0;
+    let failedTests = 0;
+    let warningTests = 0;
+
+    function log(message, type = 'info') {
+      const logContainer = document.getElementById('logContainer');
+      const entry = document.createElement('div');
+      entry.className = `log-entry ${type}`;
+      entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+      logContainer.appendChild(entry);
+      logContainer.scrollTop = logContainer.scrollHeight;
+      console.log(`[${type.toUpperCase()}] ${message}`);
+    }
+
+    function addTestResult(testId, label, status, details = '') {
+      testResults[testId] = { label, status, details };
+      updateSummary();
+      renderTestResults();
+    }
+
+    function updateSummary() {
+      totalTests = Object.keys(testResults).length;
+      passedTests = Object.values(testResults).filter(r => r.status === 'pass').length;
+      failedTests = Object.values(testResults).filter(r => r.status === 'fail').length;
+      warningTests = Object.values(testResults).filter(r => r.status === 'warning').length;
+
+      document.getElementById('totalTests').textContent = totalTests;
+      document.getElementById('passedTests').textContent = passedTests;
+      document.getElementById('failedTests').textContent = failedTests;
+      document.getElementById('warningTests').textContent = warningTests;
+
+      const progress = totalTests > 0 ? (passedTests / totalTests) * 100 : 0;
+      document.getElementById('progressBar').style.width = `${progress}%`;
+    }
+
+    function renderTestResults() {
+      const container = document.getElementById('testResults');
+      container.innerHTML = '';
+
+      const sections = {
+        'Prerequisites': ['browser-support', 'twilio-sdk', 'network-online', 'websocket-support'],
+        'Network Connectivity': ['dns-resolution', 'websocket-connectivity', 'stun-test', 'turn-test'],
+        'Token Validation': ['token-fetch', 'token-format', 'token-expiry', 'token-grants', 'token-identity'],
+        'Device Setup': ['device-creation', 'device-options', 'audio-context', 'microphone-permission'],
+        'Registration': ['registration-attempt', 'websocket-state', 'registration-timeout', 'retry-logic'],
+      };
+
+      for (const [sectionName, testIds] of Object.entries(sections)) {
+        const section = document.createElement('div');
+        section.className = 'test-section';
+        section.innerHTML = `<h3 style="color: #58a6ff; margin-bottom: 10px;">${sectionName}</h3>`;
+
+        testIds.forEach(testId => {
+          const result = testResults[testId];
+          if (!result) return;
+
+          const item = document.createElement('div');
+          item.className = `test-item ${result.status}`;
+          item.innerHTML = `
+            <div class="test-label">${result.label}</div>
+            <div class="test-status status-${result.status}">${result.status.toUpperCase()}</div>
+          `;
+
+          if (result.details) {
+            const details = document.createElement('div');
+            details.className = 'test-details';
+            details.textContent = result.details;
+            item.appendChild(details);
+          }
+
+          section.appendChild(item);
+        });
+
+        container.appendChild(section);
+      }
+    }
+
+    function addRecommendation(message, severity = 'info') {
+      recommendations.push({ message, severity });
+      renderRecommendations();
+    }
+
+    function renderRecommendations() {
+      const container = document.getElementById('recommendations');
+      container.innerHTML = '';
+
+      if (recommendations.length === 0) {
+        container.innerHTML = '<p style="color: #8b949e;">No recommendations yet. Run diagnostics first.</p>';
+        return;
+      }
+
+      recommendations.forEach(rec => {
+        const div = document.createElement('div');
+        div.className = `recommendation ${rec.severity}`;
+        div.textContent = rec.message;
+        container.appendChild(div);
+      });
+    }
+
+    function clearResults() {
+      testResults = {};
+      recommendations = [];
+      updateSummary();
+      renderTestResults();
+      renderRecommendations();
+      log('Results cleared', 'info');
+    }
+
+    // ========== DIAGNOSTIC TESTS ==========
+
+    async function testBrowserSupport() {
+      log('Testing browser WebRTC support...', 'info');
+      const support = {
+        getUserMedia: !!(navigator.mediaDevices?.getUserMedia),
+        RTCPeerConnection: typeof RTCPeerConnection !== 'undefined',
+        WebSocket: typeof WebSocket !== 'undefined',
+        AudioContext: typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined',
+        MediaStream: typeof MediaStream !== 'undefined',
+        MediaStreamTrack: typeof MediaStreamTrack !== 'undefined',
+      };
+
+      const allSupported = Object.values(support).every(v => v);
+      const details = Object.entries(support).map(([key, val]) => `${key}: ${val ? '✅' : '❌'}`).join('\n');
+
+      addTestResult('browser-support', 'Browser WebRTC Support', 
+        allSupported ? 'pass' : 'fail', details);
+
+      if (!allSupported) {
+        addRecommendation('Browser does not support all required WebRTC APIs. Consider using a modern browser (Chrome, Firefox, Edge).', 'critical');
+      }
+
+      return allSupported;
+    }
+
+    async function testTwilioSDK() {
+      log('Testing Twilio SDK availability...', 'info');
+      const sdkLoaded = typeof Twilio !== 'undefined';
+      const deviceAvailable = !!(Twilio?.Device);
+      const jwtAvailable = !!(Twilio?.jwt);
+
+      const allAvailable = sdkLoaded && deviceAvailable && jwtAvailable;
+      const details = `SDK Loaded: ${sdkLoaded ? '✅' : '❌'}\nDevice Class: ${deviceAvailable ? '✅' : '❌'}\nJWT Class: ${jwtAvailable ? '✅' : '❌'}`;
+
+      addTestResult('twilio-sdk', 'Twilio SDK Loaded', 
+        allAvailable ? 'pass' : 'fail', details);
+
+      if (!allAvailable) {
+        addRecommendation('Twilio SDK not fully loaded. Check script tag: <script src="https://sdk.twilio.com/js/client/releases/2.0.0/twilio.min.js"></script>', 'critical');
+      }
+
+      return allAvailable;
+    }
+
+    async function testNetworkOnline() {
+      log('Testing network connectivity...', 'info');
+      const online = navigator.onLine;
+      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+
+      let details = `Online: ${online ? '✅' : '❌'}`;
+      if (connection) {
+        details += `\nConnection Type: ${connection.effectiveType || 'unknown'}`;
+        details += `\nDownlink: ${connection.downlink || 'unknown'} Mbps`;
+        details += `\nRTT: ${connection.rtt || 'unknown'} ms`;
+        details += `\nSave Data: ${connection.saveData ? 'enabled' : 'disabled'}`;
+      }
+
+      addTestResult('network-online', 'Network Connectivity', 
+        online ? 'pass' : 'warning', details);
+
+      if (!online) {
+        addRecommendation('Browser reports offline. Check internet connection.', 'critical');
+      }
+
+      return online;
+    }
+
+    async function testWebSocketSupport() {
+      log('Testing WebSocket API support...', 'info');
+      const supported = typeof WebSocket !== 'undefined';
+      const details = `WebSocket API: ${supported ? '✅ Available' : '❌ Not Available'}`;
+
+      addTestResult('websocket-support', 'WebSocket API Support', 
+        supported ? 'pass' : 'fail', details);
+
+      if (!supported) {
+        addRecommendation('WebSocket API not available. This is required for Twilio Voice SDK.', 'critical');
+      }
+
+      return supported;
+    }
+
+    async function testDNSResolution() {
+      log('Testing DNS resolution for Twilio domains...', 'info');
+      const domains = [
+        'chunderw-gll.twilio.com',
+        'chunderw.twilio.com',
+        'wss-us1.twilio.com',
+      ];
+
+      const results = [];
+      for (const domain of domains) {
+        try {
+          // Try to resolve via fetch (will fail but tells us if DNS works)
+          const controller = new AbortController();
+          const timeout = setTimeout(() => controller.abort(), 2000);
+          await fetch(`https://${domain}`, { 
+            method: 'HEAD', 
+            mode: 'no-cors',
+            signal: controller.signal 
+          });
+          clearTimeout(timeout);
+          results.push(`${domain}: ✅`);
+        } catch (e) {
+          // Even if fetch fails, DNS might work - WebSocket test will confirm
+          results.push(`${domain}: ⚠️ (DNS may work, WebSocket test will confirm)`);
+        }
+      }
+
+      addTestResult('dns-resolution', 'DNS Resolution', 'info', results.join('\n'));
+      return true;
+    }
+
+    async function testWebSocketConnectivity() {
+      log('Testing WebSocket connectivity to Twilio signaling servers...', 'info');
+      const endpoints = [
+        'wss://chunderw-gll.twilio.com',
+        'wss://chunderw.twilio.com',
+      ];
+
+      const results = [];
+      let anyConnected = false;
+
+      for (const endpoint of endpoints) {
+        try {
+          const connected = await new Promise((resolve) => {
+            const ws = new WebSocket(endpoint);
+            const timeout = setTimeout(() => {
+              ws.close();
+              resolve(false);
+            }, 5000);
+
+            ws.onopen = () => {
+              clearTimeout(timeout);
+              ws.close();
+              resolve(true);
+            };
+
+            ws.onerror = () => {
+              clearTimeout(timeout);
+              resolve(false);
+            };
+          });
+
+          if (connected) {
+            results.push(`${endpoint}: ✅ CONNECTED`);
+            anyConnected = true;
+          } else {
+            results.push(`${endpoint}: ❌ FAILED (timeout or error)`);
+          }
+        } catch (e) {
+          results.push(`${endpoint}: ❌ ERROR - ${e.message}`);
+        }
+      }
+
+      addTestResult('websocket-connectivity', 'WebSocket Connectivity', 
+        anyConnected ? 'pass' : 'fail', results.join('\n'));
+
+      if (!anyConnected) {
+        addRecommendation('Cannot connect to Twilio WebSocket servers. Check firewall/VPN settings. Ensure ports 443 (WSS) are open.', 'critical');
+        addRecommendation('If behind corporate firewall, contact IT to whitelist *.twilio.com domains.', 'warning');
+      }
+
+      return anyConnected;
+    }
+
+    async function testSTUN() {
+      log('Testing STUN server connectivity...', 'info');
+      try {
+        const pc = new RTCPeerConnection({
+          iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
+        });
+
+        const connected = await new Promise((resolve) => {
+          const timeout = setTimeout(() => {
+            pc.close();
+            resolve(false);
+          }, 5000);
+
+          pc.onicecandidate = (event) => {
+            if (event.candidate) {
+              clearTimeout(timeout);
+              pc.close();
+              resolve(true);
+            }
+          };
+
+          // Create a dummy data channel to trigger ICE
+          pc.createDataChannel('test');
+          pc.createOffer().then(offer => pc.setLocalDescription(offer));
+        });
+
+        addTestResult('stun-test', 'STUN Server Connectivity', 
+          connected ? 'pass' : 'warning', 
+          connected ? '✅ STUN server reachable' : '⚠️ STUN server not reachable (may still work with TURN)');
+
+        if (!connected) {
+          addRecommendation('STUN server not reachable. This may cause connection issues. Check firewall for UDP port 3478.', 'warning');
+        }
+
+        return connected;
+      } catch (e) {
+        addTestResult('stun-test', 'STUN Server Connectivity', 'fail', `Error: ${e.message}`);
+        return false;
+      }
+    }
+
+    async function testTURN() {
+      log('Testing TURN server (requires Twilio credentials)...', 'info');
+      addTestResult('turn-test', 'TURN Server Connectivity', 'info', 
+        'TURN testing requires Twilio credentials and is tested during actual registration');
+      return true;
+    }
+
+    async function testTokenFetch(identity) {
+      log(`Fetching token for identity: ${identity}...`, 'info');
+      try {
+        // Detect Electron and use correct endpoint
+        const isElectron = navigator.userAgent.includes('AOI-Desktop') || navigator.userAgent.includes('Electron') || !!(window.electronAPI);
+        const tokenEndpoint = isElectron ? '/api/electron/twilio/token' : '/api/twilio/token';
+        console.log(`Using ${isElectron ? 'Electron' : 'Browser'} endpoint: ${tokenEndpoint}`);
+
+        const response = await fetch(tokenEndpoint, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-user-email': identity,
+            ...(isElectron ? { 'x-desktop-app': 'true' } : {}),
+          },
+          credentials: 'include',
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          addTestResult('token-fetch', 'Token Fetch', 'fail', 
+            `HTTP ${response.status}: ${errorText}`);
+          addRecommendation(`Token endpoint returned error: ${response.status}. Check authentication and server configuration.`, 'critical');
+          return null;
+        }
+
+        const data = await response.json();
+        if (!data.token) {
+          addTestResult('token-fetch', 'Token Fetch', 'fail', 'No token in response');
+          return null;
+        }
+
+        addTestResult('token-fetch', 'Token Fetch', 'pass', 
+          `Token received: ${data.token.length} characters\nIdentity: ${data.identity || 'N/A'}`);
+        return data.token;
+      } catch (e) {
+        addTestResult('token-fetch', 'Token Fetch', 'fail', `Error: ${e.message}`);
+        addRecommendation(`Token fetch failed: ${e.message}. Check server is running and endpoint is accessible.`, 'critical');
+        return null;
+      }
+    }
+
+    function validateToken(token) {
+      log('Validating token structure and content...', 'info');
+      const results = {
+        format: false,
+        expiry: false,
+        grants: false,
+        identity: false,
+      };
+
+      let details = '';
+
+      // Test format
+      try {
+        const parts = token.split('.');
+        if (parts.length === 3) {
+          results.format = true;
+          details += 'Format: ✅ Valid JWT (3 parts)\n';
+        } else {
+          details += `Format: ❌ Invalid JWT (${parts.length} parts, expected 3)\n`;
+        }
+      } catch (e) {
+        details += `Format: ❌ Error parsing token - ${e.message}\n`;
+      }
+
+      // Decode payload
+      try {
+        const parts = token.split('.');
+        const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
+        
+        // Test expiry
+        if (payload.exp) {
+          const expDate = new Date(payload.exp * 1000);
+          const now = new Date();
+          const expiresIn = Math.floor((expDate - now) / 1000);
+          
+          if (expiresIn > 0) {
+            results.expiry = true;
+            details += `Expiry: ✅ Valid (expires in ${expiresIn}s, at ${expDate.toISOString()})\n`;
+          } else {
+            details += `Expiry: ❌ EXPIRED (expired ${Math.abs(expiresIn)}s ago)\n`;
+          }
+        } else {
+          details += 'Expiry: ⚠️ No expiry claim\n';
+        }
+
+        // Test grants
+        if (payload.grants?.voice) {
+          results.grants = true;
+          details += 'Voice Grant: ✅ Present\n';
+          if (payload.grants.voice.outgoing?.application_sid) {
+            details += `  Outgoing App SID: ${payload.grants.voice.outgoing.application_sid}\n`;
+          } else {
+            details += '  Outgoing App SID: ❌ MISSING\n';
+            results.grants = false;
+          }
+          if (payload.grants.voice.incoming?.allow) {
+            details += '  Incoming: ✅ Allowed\n';
+          }
+        } else {
+          details += 'Voice Grant: ❌ MISSING\n';
+        }
+
+        // Test identity
+        const identity = payload.grants?.identity || payload.sub || payload.jti;
+        if (identity) {
+          results.identity = true;
+          details += `Identity: ✅ ${identity}\n`;
+        } else {
+          details += 'Identity: ❌ MISSING\n';
+        }
+
+      } catch (e) {
+        details += `Decode Error: ${e.message}\n`;
+      }
+
+      const allPass = Object.values(results).every(v => v);
+      
+      addTestResult('token-format', 'Token Format', results.format ? 'pass' : 'fail', details);
+      addTestResult('token-expiry', 'Token Expiry', results.expiry ? 'pass' : 'fail', details);
+      addTestResult('token-grants', 'Token Grants', results.grants ? 'pass' : 'fail', details);
+      addTestResult('token-identity', 'Token Identity', results.identity ? 'pass' : 'fail', details);
+
+      if (!results.grants) {
+        addRecommendation('Token missing VoiceGrant or outgoing application SID. Check token generation code.', 'critical');
+      }
+      if (!results.expiry) {
+        addRecommendation('Token expired. Request a new token.', 'critical');
+      }
+
+      return allPass;
+    }
+
+    async function testAudioContext() {
+      log('Testing AudioContext...', 'info');
+      try {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) {
+          addTestResult('audio-context', 'AudioContext Support', 'fail', 'AudioContext not available');
+          return false;
+        }
+
+        const ctx = new AudioContextClass();
+        const state = ctx.state;
+        let details = `State: ${state}\n`;
+
+        if (state === 'suspended') {
+          try {
+            await ctx.resume();
+            details += 'Resumed: ✅ Successfully resumed\n';
+          } catch (e) {
+            details += `Resume: ❌ Failed - ${e.message}\n`;
+            addTestResult('audio-context', 'AudioContext Support', 'warning', details);
+            return false;
+          }
+        }
+
+        addTestResult('audio-context', 'AudioContext Support', 'pass', details);
+        ctx.close();
+        return true;
+      } catch (e) {
+        addTestResult('audio-context', 'AudioContext Support', 'fail', `Error: ${e.message}`);
+        return false;
+      }
+    }
+
+    async function testMicrophonePermission() {
+      log('Testing microphone permission...', 'info');
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const tracks = stream.getAudioTracks();
+        const details = `Permission: ✅ Granted\nTracks: ${tracks.length}\nTrack States: ${tracks.map(t => t.readyState).join(', ')}`;
+        
+        // Stop tracks immediately
+        tracks.forEach(track => track.stop());
+        
+        addTestResult('microphone-permission', 'Microphone Permission', 'pass', details);
+        return true;
+      } catch (e) {
+        const details = `Permission: ❌ ${e.name} - ${e.message}`;
+        addTestResult('microphone-permission', 'Microphone Permission', 'fail', details);
+        addRecommendation('Microphone permission denied or not available. This will prevent making calls.', 'critical');
+        return false;
+      }
+    }
+
+    async function testDeviceCreation(token) {
+      log('Testing Twilio Device creation...', 'info');
+      try {
+        const deviceOptions = {
+          debug: true,
+          codecPreferences: ['opus', 'pcmu'],
+          edge: 'roaming',
+          enableRingingState: true,
+        };
+
+        const device = new Twilio.Device(token, deviceOptions);
+        const details = `Device Created: ✅\nState: ${device.state}\nIdentity: ${device.identity}\nHas register(): ${typeof device.register === 'function'}`;
+
+        addTestResult('device-creation', 'Device Creation', 'pass', details);
+        addTestResult('device-options', 'Device Options', 'pass', JSON.stringify(deviceOptions, null, 2));
+        
+        return device;
+      } catch (e) {
+        addTestResult('device-creation', 'Device Creation', 'fail', `Error: ${e.message}`);
+        addRecommendation(`Device creation failed: ${e.message}. Check token validity.`, 'critical');
+        return null;
+      }
+    }
+
+    async function testRegistration(device, maxRetries, timeout) {
+      log('Testing device registration...', 'info');
+      let registered = false;
+      let attempt = 0;
+
+      const tryRegister = (attemptNum) => {
+        return new Promise((resolve) => {
+          attempt = attemptNum;
+          registered = false;
+
+          device.off();
+          
+          device.on('registering', () => {
+            log(`   Attempt #${attemptNum}: Registering...`, 'info');
+          });
+
+          device.on('registered', () => {
+            registered = true;
+            log(`   Attempt #${attemptNum}: ✅ Registered!`, 'pass');
+            resolve(true);
+          });
+
+          device.on('ready', () => {
+            registered = true;
+            log(`   Attempt #${attemptNum}: ✅ Ready!`, 'pass');
+            resolve(true);
+          });
+
+          device.on('error', (err) => {
+            log(`   Attempt #${attemptNum}: ❌ Error - ${err.code || 'unknown'}: ${err.message || 'Unknown'}`, 'fail');
+          });
+
+          device.on('offline', (err) => {
+            log(`   Attempt #${attemptNum}: ❌ Offline - ${err?.message || 'Unknown'}`, 'fail');
+          });
+
+          // Monitor WebSocket
+          let wsState = 'unknown';
+          const monitorInterval = setInterval(() => {
+            try {
+              const signaling = device._signaling;
+              const ws = signaling?._ws || signaling?.ws;
+              if (ws) {
+                const states = ['CONNECTING', 'OPEN', 'CLOSING', 'CLOSED'];
+                wsState = states[ws.readyState] || 'UNKNOWN';
+              }
+            } catch (e) {
+              // Ignore
+            }
+          }, 500);
+
+          try {
+            device.register();
+            log(`   Attempt #${attemptNum}: register() called`, 'info');
+          } catch (error) {
+            clearInterval(monitorInterval);
+            resolve(false);
+            return;
+          }
+
+          const registerTimeout = setTimeout(() => {
+            clearInterval(monitorInterval);
+            if (!registered) {
+              log(`   Attempt #${attemptNum}: ⏱️ Timeout after ${timeout}ms`, 'warning');
+              log(`   Final state: ${device.state}, WebSocket: ${wsState}`, 'info');
+              resolve(false);
+            }
+          }, timeout);
+
+          const checkRegistered = () => {
+            if (registered || device.state === 'registered' || device.state === 'ready') {
+              clearTimeout(registerTimeout);
+              clearInterval(monitorInterval);
+              registered = true;
+              resolve(true);
+            }
+          };
+
+          device.once('registered', checkRegistered);
+          device.once('ready', checkRegistered);
+        });
+      };
+
+      // Run attempts
+      for (let i = 1; i <= maxRetries; i++) {
+        const success = await tryRegister(i);
+        
+        if (success) {
+          addTestResult('registration-attempt', 'Registration', 'pass', 
+            `✅ Registered on attempt #${i}\nFinal state: ${device.state}`);
+          addTestResult('websocket-state', 'WebSocket State', 'pass', 
+            'WebSocket connection established during registration');
+          return true;
+        }
+
+        if (i < maxRetries) {
+          const backoff = Math.min(1000 * Math.pow(2, i - 1), 5000);
+          log(`   Waiting ${backoff}ms before retry...`, 'info');
+          await new Promise(r => setTimeout(r, backoff));
+        }
+      }
+
+      addTestResult('registration-attempt', 'Registration', 'fail', 
+        `❌ Failed after ${maxRetries} attempts\nFinal state: ${device.state}`);
+      addRecommendation('Registration failed after all retries. Check WebSocket connectivity, token validity, and network settings.', 'critical');
+      return false;
+    }
+
+    // ========== MAIN TEST RUNNER ==========
+
+    async function runAllTests() {
+      if (testsRunning) return;
+      testsRunning = true;
+      clearResults();
+
+      document.getElementById('runAllTests').disabled = true;
+      document.getElementById('runQuickTest').disabled = true;
+      document.getElementById('stopTests').disabled = false;
+
+      log('='.repeat(70), 'info');
+      log('Starting Comprehensive WebRTC Diagnostics', 'info');
+      log('='.repeat(70), 'info');
+
+      try {
+        const identity = document.getElementById('identity').value;
+        const maxRetries = parseInt(document.getElementById('maxRetries').value) || 3;
+        const timeout = parseInt(document.getElementById('timeout').value) || 8000;
+
+        // Phase 1: Prerequisites
+        log('\n📋 Phase 1: Testing Prerequisites...', 'info');
+        await testBrowserSupport();
+        await testTwilioSDK();
+        await testNetworkOnline();
+        await testWebSocketSupport();
+
+        // Phase 2: Network
+        log('\n🌐 Phase 2: Testing Network Connectivity...', 'info');
+        await testDNSResolution();
+        const wsConnected = await testWebSocketConnectivity();
+        await testSTUN();
+        await testTURN();
+
+        // Phase 3: Token
+        log('\n🔑 Phase 3: Testing Token...', 'info');
+        const token = await testTokenFetch(identity);
+        if (token) {
+          validateToken(token);
+        } else {
+          log('Skipping registration tests - no valid token', 'warning');
+          testsRunning = false;
+          document.getElementById('runAllTests').disabled = false;
+          document.getElementById('runQuickTest').disabled = false;
+          document.getElementById('stopTests').disabled = true;
+          return;
+        }
+
+        // Phase 4: Device Setup
+        log('\n📱 Phase 4: Testing Device Setup...', 'info');
+        await testAudioContext();
+        await testMicrophonePermission();
+        const device = await testDeviceCreation(token);
+
+        // Phase 5: Registration
+        if (device && wsConnected) {
+          log('\n📡 Phase 5: Testing Registration...', 'info');
+          await testRegistration(device, maxRetries, timeout);
+          
+          // Cleanup
+          try {
+            device.off();
+            device.destroy();
+          } catch (e) {
+            // Ignore
+          }
+        } else {
+          log('Skipping registration - device creation or WebSocket connectivity failed', 'warning');
+        }
+
+        log('\n' + '='.repeat(70), 'info');
+        log('Diagnostics Complete', 'info');
+        log(`Results: ${passedTests} passed, ${failedTests} failed, ${warningTests} warnings`, 'info');
+        log('='.repeat(70), 'info');
+
+      } catch (e) {
+        log(`Fatal error: ${e.message}`, 'fail');
+        log(e.stack, 'fail');
+      } finally {
+        testsRunning = false;
+        document.getElementById('runAllTests').disabled = false;
+        document.getElementById('runQuickTest').disabled = false;
+        document.getElementById('stopTests').disabled = true;
+      }
+    }
+
+    async function runQuickTest() {
+      if (testsRunning) return;
+      testsRunning = true;
+      clearResults();
+
+      document.getElementById('runAllTests').disabled = true;
+      document.getElementById('runQuickTest').disabled = true;
+      document.getElementById('stopTests').disabled = false;
+
+      log('Running quick diagnostic (no registration)...', 'info');
+
+      try {
+        await testBrowserSupport();
+        await testTwilioSDK();
+        await testNetworkOnline();
+        await testWebSocketSupport();
+        await testWebSocketConnectivity();
+        
+        const identity = document.getElementById('identity').value;
+        const token = await testTokenFetch(identity);
+        if (token) {
+          validateToken(token);
+        }
+      } catch (e) {
+        log(`Error: ${e.message}`, 'fail');
+      } finally {
+        testsRunning = false;
+        document.getElementById('runAllTests').disabled = false;
+        document.getElementById('runQuickTest').disabled = false;
+        document.getElementById('stopTests').disabled = true;
+      }
+    }
+
+    function stopTests() {
+      testsRunning = false;
+      log('Tests stopped by user', 'warning');
+      document.getElementById('runAllTests').disabled = false;
+      document.getElementById('runQuickTest').disabled = false;
+      document.getElementById('stopTests').disabled = true;
+    }
+
+    // Event listeners
+    document.getElementById('runAllTests').addEventListener('click', runAllTests);
+    document.getElementById('runQuickTest').addEventListener('click', runQuickTest);
+    document.getElementById('stopTests').addEventListener('click', stopTests);
+
+    // Initialize
+    log('WebRTC Comprehensive Diagnostic Test ready', 'info');
+    log('Click "Run All Diagnostics" to start full test suite', 'info');
+  </script>
+</body>
+</html>

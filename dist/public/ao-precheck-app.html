@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AO Precheck — Verification</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f6f7f9;--card:#fff;--card2:#fbfcfd;--line:#e7eaf0;--line2:#eef1f5;
+    --ink:#0f1729;--ink2:#56607a;--ink3:#8b94a7;--ink4:#aeb6c6;
+    --purple:#9333ea;--grad:linear-gradient(135deg,#7c3aed,#6366f1);
+    --ps:#f4eafe;--pi:#7c2fce;--green:#16a34a;--green2:#15803d;--gs:#e7f6ec;
+    --amber:#d97706;--as:#fbf0dd;--red:#dc2626;--rs:#fbe9e9;--sl:#64748b;--sls:#eef1f5;
+    --sh:0 1px 2px rgba(15,23,41,.05),0 2px 8px rgba(15,23,41,.05);
+    --shl:0 16px 50px rgba(15,23,41,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:14.5px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  .appbar{background:var(--card);border-bottom:1px solid var(--line);padding:13px 24px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:30;height:62px}
+  .ham{width:40px;height:40px;border-radius:11px;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;font-size:18px;color:var(--ink2)}
+  .ham:hover{background:var(--card2);border-color:var(--ink4);color:var(--ink)}
+  .wm{font-size:22px;font-weight:800;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .sp{flex:1}
+  .tag{font-size:12px;font-weight:600;color:var(--pi);background:var(--ps);padding:4px 10px;border-radius:999px}
+  .me{width:36px;height:36px;border-radius:50%;background:var(--grad);display:grid;place-items:center;color:#fff;font-weight:600;font-size:13px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:11px;font-weight:600;font-size:14px;padding:11px 20px;transition:.14s;white-space:nowrap}
+  .btn.g{background:var(--grad);color:#fff}.btn.g:hover{filter:brightness(1.06)}
+  .btn.o{background:#fff;border:1px solid var(--line);color:var(--ink)}.btn.o:hover{border-color:var(--purple);color:var(--pi)}
+  .btn.green{background:var(--green);color:#fff}.btn.green:hover{background:var(--green2)}
+  .btn.redo{background:#fff;border:1px solid #f0c0c0;color:var(--red)}.btn.redo:hover{background:var(--rs)}
+  .btn.sm{padding:9px 14px;font-size:13px}.btn.xs{padding:6px 10px;font-size:12px;border-radius:8px}
+  .btn.micro{padding:3px 6px;font-size:10px;border-radius:6px;gap:3px;line-height:1.2}
+  .btn.icononly{width:26px;height:26px;padding:0;justify-content:center;border-radius:7px}
+  .teambtn{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink2);font-weight:600;font-size:13px}
+  .teambtn:hover{border-color:var(--purple);color:var(--pi)}
+  .av{border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:600;background:var(--grad);flex:none}
+  .av.s{width:36px;height:36px;font-size:13px}
+  .ic{display:inline-block;vertical-align:middle;flex:none}
+  #mainFrame{border:none;width:100%;height:calc(100vh - 62px);display:block;background:var(--bg)}
+  .dbg{position:fixed;inset:0;background:rgba(15,23,41,.32);opacity:0;pointer-events:none;transition:.25s;z-index:60}
+  .dbg.show{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;left:0;height:100%;width:340px;background:var(--card);border-right:1px solid var(--line);box-shadow:var(--shl);transform:translateX(-100%);transition:.28s cubic-bezier(.4,0,.2,1);z-index:61;display:flex;flex-direction:column}
+  .drawer.show{transform:none}
+  .dh2{padding:20px 20px 12px}.dh2 .t{font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px}
+  .dh2 .t .ct{margin-left:auto;font-size:12px;font-weight:700;color:var(--ink3);background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+  .dsrch{display:flex;align-items:center;gap:8px;background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:10px 13px;margin:0 20px 12px}
+  .dsrch input{border:none;background:none;font-family:inherit;font-size:13.5px;width:100%;outline:none;color:var(--ink)}
+  .dlist{flex:1;overflow-y:auto;padding:10px 10px 0}
+  .dsec{padding:8px 14px 6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink3)}
+  .drow{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;cursor:pointer;flex:1;min-width:0}.drow:hover{background:var(--card2)}
+  .drow .nm{font-weight:600;font-size:14px}.drow .mt{font-size:12px;color:var(--ink3)}
+  .drow-wrap{margin:0 4px 4px;border:1px solid transparent;border-radius:12px}.drow-wrap:hover{border-color:var(--line2);background:var(--card2)}
+  .drow-actions{display:flex;gap:6px;padding:0 10px 8px}
+  .dact{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:6px 8px;border-radius:9px;font-size:11px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink2)}
+  .dact:hover{border-color:var(--purple);color:var(--pi)}
+  .dact.tx{color:var(--pi);border-color:#dcc9f5;background:var(--ps)}
+  .dact.ar{color:var(--ink3)}
+  .cfbg{position:fixed;inset:0;background:rgba(15,23,41,.45);opacity:0;pointer-events:none;transition:.2s;z-index:75;display:grid;place-items:center;padding:20px}
+  .cfbg.show{opacity:1;pointer-events:auto}
+  .cfcard{width:100%;max-width:400px;background:var(--card);border-radius:16px;box-shadow:var(--shl);padding:22px}
+  .cfcard h3{font-size:17px;font-weight:800;margin-bottom:8px}
+  .cfcard p{font-size:13.5px;color:var(--ink2);line-height:1.5;margin-bottom:18px}
+  .cfbtns{display:flex;gap:10px;justify-content:flex-end}
+  .dmanage{border-top:1px solid var(--line2);padding:12px}
+  .dmi{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:11px;color:var(--ink2);font-weight:500;font-size:14px;width:100%;text-align:left}
+  .dmi:hover{background:var(--card2);color:var(--ink)}.dmi .ic{width:20px;text-align:center}
+  .dsrch .ic,.dmi .ic{color:var(--ink3)}
+  .rbg{position:fixed;inset:0;background:rgba(15,23,41,.32);opacity:0;pointer-events:none;transition:.25s;z-index:62}
+  .rbg.show{opacity:1;pointer-events:auto}
+  .rdrawer{position:fixed;top:0;right:0;height:100%;width:min(440px,94vw);max-width:440px;background:var(--card);border-left:1px solid var(--line);box-shadow:var(--shl);transform:translateX(100%);transition:.28s cubic-bezier(.4,0,.2,1);z-index:63;display:flex;flex-direction:column;overflow:hidden;box-sizing:border-box}
+  .rdrawer.show{transform:none}
+  .rdrawer-scroll{flex:1;min-width:0;min-height:0;overflow-x:hidden;overflow-y:auto;padding:0 16px 16px;-webkit-overflow-scrolling:touch}
+  .rdrawer-scroll>*{max-width:100%;box-sizing:border-box}
+  .dh2{padding:18px 16px 8px;flex-shrink:0}
+  .dh2 .t{font-size:17px;font-weight:800;display:flex;align-items:center;gap:8px;line-height:1.25}
+  .dh2-sub{font-size:11.5px;font-weight:600;color:var(--ink3);padding:0 16px 10px;border-bottom:1px solid var(--line2);line-height:1.45;word-break:break-word}
+  .dh2 .t .ct{display:none}
+  .tstat{display:flex;flex-wrap:wrap;gap:6px;padding:0 0 12px;margin-bottom:12px;border-bottom:1px solid var(--line2);flex-shrink:0}
+  .tsi{flex:1 1 calc(33% - 6px);min-width:0;display:flex;align-items:center;justify-content:center;gap:4px;font-size:10px;font-weight:600;color:var(--ink2);background:var(--card2);border:1px solid var(--line2);border-radius:10px;padding:7px 4px;text-align:center;line-height:1.2}
+  .trow{display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid var(--line2);min-width:0}
+  .trow .nm,.tpending .nm,.rres .nm{font-weight:600;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+  .trow-sub{font-size:11px;color:var(--ink3);margin-top:3px;line-height:1.35;word-break:break-word;overflow-wrap:anywhere}
+  .trow-body,.tpending-body,.rres .rtxt{flex:1;min-width:0;overflow:hidden}
+  .sd-online{background:var(--green)}.sd-call{background:var(--purple)}.sd-off{background:var(--ink4)}
+  .sdot{width:9px;height:9px;border-radius:50%;flex:none}
+  .raddwrap{border-top:1px solid var(--line2);padding:14px 0;margin-bottom:12px;background:transparent}
+  .raddhd{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink3);margin-bottom:10px}
+  .raddinp{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 12px;color:var(--ink3);min-width:0}
+  .raddinp input{border:none;background:none;font-family:inherit;font-size:13px;width:100%;min-width:0;outline:none;color:var(--ink)}
+  .rres{margin-top:10px;border:1px solid var(--line);border-radius:11px;padding:10px 12px;display:flex;align-items:flex-start;gap:10px;background:#fff;min-width:0;flex-wrap:wrap}
+  .rres.found{border-color:#bfe6cf;background:var(--gs)}.rres.invite{border-color:#f0dcae;background:var(--as)}
+  .rres .rtxt{flex:1;min-width:0;overflow:hidden}.rres .nm{font-weight:700;font-size:13px}.rres .em{font-size:11px;color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .rres .ra{flex-shrink:0;margin-left:auto}
+  .tmbg{position:fixed;inset:0;background:rgba(15,23,41,.5);opacity:0;pointer-events:none;transition:.2s;z-index:100;padding:0}
+  .tmbg.show{opacity:1;pointer-events:auto}
+  .tmbg.mgrmodal{display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));box-sizing:border-box}
+  .tmbg.show .mgrcard{pointer-events:auto}
+  .tmcard{width:100%;max-width:720px;max-height:85vh;background:var(--card);border-radius:18px;box-shadow:var(--shl);display:flex;flex-direction:column;overflow:hidden}
+  .mgrcard{width:100%;max-width:min(1200px,96vw);height:min(90vh,920px);max-height:calc(100vh - 32px);background:var(--card);border-radius:18px;box-shadow:var(--shl);display:flex;flex-direction:column;overflow:hidden;flex-shrink:1}
+  .mgrcard-body{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;background:#fff}
+  .mgriframe{width:100%;height:100%;border:none;flex:1;min-height:0;display:block;background:#fff}
+  .tmhd{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line2)}
+  .tmbody{padding:18px 20px;overflow-y:auto}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--ink);color:#fff;font-size:14px;font-weight:500;padding:12px 20px;border-radius:12px;box-shadow:var(--shl);opacity:0;transition:.3s;z-index:80;pointer-events:none}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  #profileMenu{display:none;position:fixed;top:58px;right:14px;z-index:90;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shl);min-width:220px;padding:8px}
+  .pmitem{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:13.5px;font-weight:500;color:var(--ink2);width:100%;text-align:left}
+  .pmitem:hover{background:var(--card2);color:var(--ink)}
+  .mtabs{display:flex;gap:8px;padding:0 20px 14px;border-bottom:1px solid var(--line2)}
+  .mtab{flex:1;padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card2);font-size:12.5px;font-weight:700;color:var(--ink2);text-align:center}
+  .mtab.on{background:var(--ps);border-color:#dcc9f5;color:var(--pi)}
+  .mrow{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line2);flex-wrap:wrap}
+  .mrow .nm{font-weight:600;font-size:14px}
+  .mrow-sub{font-size:11.5px;color:var(--ink3);margin-top:2px}
+  .mbadge{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:999px;border:1px solid var(--line)}
+  .mbadge.pending{background:var(--as);color:var(--amber);border-color:#f0dcae}
+  .mbadge.tx{background:var(--ps);color:var(--pi);border-color:#dcc9f5}
+  .mbadge.ok{background:var(--gs);color:var(--green);border-color:#bfe6cf}
+  .mbadge.confirmed{background:var(--gs);color:var(--green);border-color:#bfe6cf}
+  .tpending{margin:8px 0;padding:10px 12px;background:var(--as);border:1px solid #f0dcae;border-radius:12px;min-width:0;overflow:hidden}
+  .tpending-main{display:flex;align-items:flex-start;gap:8px;min-width:0}
+  .tpending-sub{font-size:11px;color:var(--ink3);margin-top:2px;line-height:1.35;word-break:break-word;overflow-wrap:anywhere}
+  .tpending-actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:8px;padding-left:44px}
+  .tsect{font-size:11px;font-weight:700;color:var(--ink3);letter-spacing:.04em;text-transform:uppercase;padding:10px 0 4px}
+  .mgrlink{display:flex;align-items:center;gap:8px;width:100%;padding:11px 12px;border-radius:11px;color:var(--ink2);font-weight:600;font-size:13px;text-align:left;border:1px solid var(--line);background:#fff;margin:0 0 12px;box-sizing:border-box;min-width:0}
+  .mgrlink span:last-child{margin-left:auto;font-size:10.5px;color:var(--ink3);white-space:nowrap;flex-shrink:0}
+  .mgrlink:hover{border-color:var(--purple);color:var(--pi);background:var(--ps)}
+  .team-actions-row{display:flex;gap:8px;margin-bottom:12px;width:100%}
+  .team-actions-row .btn{flex:1;min-width:0}
+  #reqNotif{position:fixed;right:18px;bottom:18px;z-index:95;display:flex;flex-direction:column;gap:10px;max-width:min(360px,92vw)}
+  .reqcard{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shl);padding:14px 16px;animation:reqin .25s ease}
+  @keyframes reqin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .reqcard .rqhd{display:flex;align-items:center;gap:9px;margin-bottom:6px}
+  .reqcard .rqic{width:32px;height:32px;border-radius:9px;background:var(--ps);color:var(--pi);display:grid;place-items:center;flex:none}
+  .reqcard .rqt{font-size:13px;font-weight:800;color:var(--ink)}
+  .reqcard .rqmsg{font-size:12.5px;color:var(--ink2);line-height:1.45;margin-bottom:12px}
+  .reqcard .rqmsg b{color:var(--ink)}
+  .reqcard .rqbtns{display:flex;gap:8px}
+  .reqcard .rqbtns .btn{flex:1;padding:8px 10px;font-size:12.5px}
+</style>
+</head>
+<body>
+
+<div class="appbar">
+  <button class="ham" type="button" onclick="toggleDrawer()" aria-label="Open sessions menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <h1 class="wm">AO Precheck</h1>
+  <span class="tag">Verification</span>
+  <div class="sp"></div>
+  <button class="teambtn" type="button" onclick="toggleTeam()"><svg class="ic" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Team</button>
+  <button class="teambtn" type="button" id="profileBtn" onclick="toggleProfile()"><div class="me" id="meAv" style="width:24px;height:24px;font-size:11px">—</div>Profile</button>
+</div>
+<div id="profileMenu"></div>
+
+<iframe id="mainFrame" src="/dashboard/verification-start?standalone=1" title="AO Precheck verification"></iframe>
+
+<div class="dbg" id="dbg" onclick="toggleDrawer()"></div>
+<div class="drawer" id="drawer"></div>
+
+<div class="rbg" id="rbg" onclick="toggleTeam()"></div>
+<div class="rdrawer" id="rdrawer"></div>
+<div id="teammgrbg" class="tmbg mgrmodal" onclick="closeTeamManager()"></div>
+<div id="precheckmgrbg" class="tmbg mgrmodal" onclick="closePrecheckManager()"></div>
+<div id="mgrgatebg" class="tmbg mgrmodal"></div>
+<div id="profeditbg" class="tmbg mgrmodal" onclick="closeProfileEditor()"></div>
+<div class="cfbg" id="cfbg" onclick="closeConfirm()"><div class="cfcard" id="cfcard" onclick="event.stopPropagation()"></div></div>
+<div class="toast" id="toast"></div>
+<div id="reqNotif"></div>
+
+<script>
+const ICONS={
+  users:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  plus:'<line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>',
+  search:'<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+  x:'<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>',
+  mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/>',
+  send:'<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>',
+  shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  logout:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>',
+  external:'<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>',
+  archive:'<polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/>',
+  check:'<polyline points="20 6 9 17 4 12"/>'
+};
+function icon(n,sz){sz=sz||17;return '<svg class="ic" viewBox="0 0 24 24" width="'+sz+'" height="'+sz+'" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'+(ICONS[n]||'')+'</svg>';}
+function toast(m){var el=document.getElementById('toast');el.textContent=m;el.classList.add('show');clearTimeout(window._toastT);window._toastT=setTimeout(function(){el.classList.remove('show');},2600);}
+function titleCase(s){s=String(s||'');if(!s)return s;if(/[A-Z]/.test(s)&&/[a-z]/.test(s))return s;return s.toLowerCase().replace(/[^\s\-']+/g,function(w){return w.charAt(0).toUpperCase()+w.slice(1);});}
+function teamIni(n){var p=String(n||'').split(' ');return (p[0][0]||'')+(p[1]?p[1][0]:'');}
+
+let EMAIL='', USER={init:''}, TEAM=[], TEAM_PENDING=[], TEAM_ID=null, IS_MANAGER=false;
+let TEAM_PENDING_COUNT=0, TEAM_CONFIRMED_COUNT=0, TEAM_NAME='';
+let team=false, teamMgrOpen=false, teamLook='', teamSearchRes=[];
+let drawer=false, dsearch='', SESSIONS=[], confirmState=null, actionBusy=false;
+let mgrModalOpen=false;
+let INCOMING=[], reqBusy={};
+let ACCESS_STATUS=null, ACCESS_APPROVER='cnsysop@aoglobelife.com', accessBusy=false;
+let IS_APPROVER=false, ACCESS_REQUESTS=[], accessReqBusy={};
+
+/* ── Precheck MANAGER Getting Started (onboarding video) ──
+   Real manager onboarding video (baked in; override with window.PRECHECK_MANAGER_GS_URL).
+   A real URL uses the <video> element gated on its actual `ended` event; an empty
+   string would fall back to a timed placeholder that still enforces watch-to-completion. */
+const PRECHECK_MANAGER_GETTING_STARTED_VIDEO_URL = 'https://ycztjetxwpfgtrzeyytt.supabase.co/storage/v1/object/public/Video/aopreheckmgr.mp4';
+const MGR_GS_VERSION = 'mgr-v1';
+const MGR_GS_PLACEHOLDER_SECONDS = 15;
+let MGR_GS_DONE=false, mgrGateStep=null, mgrGsStarted=false, mgrGsFinished=false, mgrGsPct=0, mgrGsTimer=null;
+/* Per-member verification pipeline counts: { emailLower: {pending, transmitted} } */
+let VERIF_COUNTS={};
+/* Which add-member surface is being typed in, so async lookup re-renders the right one. */
+let LOOKUP_SURFACE='drawer';
+/* Editable profile (same /api/agent/profile-direct record verification uses). */
+let PROF={firstName:'',lastName:'',phone:'',zoomId:'',zoomPassword:'1',profilePicture:''}, profLoaded=false, profSaving=false, profMsg='';
+/* Bulk CSV invite (manager) state. */
+let BULK_TEXT='', BULK_BUSY=false, BULK_RESULT=null;
+
+/* Entry point for the "Precheck Manager" button — everyone goes through the
+   mandatory Getting Started video first, then either Request Access (no access)
+   or the manager area (has access). */
+function openPrecheckManager(){
+  if(!EMAIL)return;
+  if(team){team=false;document.getElementById('rbg').classList.remove('show');document.getElementById('rdrawer').classList.remove('show');}
+  // LOCKED until access is granted: users WITHOUT manager access never see the
+  // modal or the Getting Started video — only a Request Access prompt.
+  if(!IS_MANAGER){ openMgrGate('access'); return; }
+  // Granted managers: mandatory Getting Started video (once), then the area.
+  if(MGR_GS_DONE){ _openPrecheckManagerArea(); return; }
+  api('/api/precheck-manager/getting-started/status?email='+encodeURIComponent(EMAIL)+'&version='+encodeURIComponent(MGR_GS_VERSION)).then(async function(r){
+    var d=r.ok?await r.json().catch(function(){return {};}):{};
+    if(d&&d.completed){MGR_GS_DONE=true;_openPrecheckManagerArea();return;}
+    openMgrGate('video');
+  }).catch(function(){openMgrGate('video');});
+}
+/* After the Getting Started video (only granted managers reach here). */
+function proceedPrecheckManager(){
+  if(IS_MANAGER){ _openPrecheckManagerArea(); }
+  else { openMgrGate('access'); }
+}
+function openMyTeam(){ closePrecheckManager(); openTeamManager(); }
+
+/* ── Manager gate overlay (video + request-access steps) ── */
+function openMgrGate(step){
+  mgrGateStep=step;
+  if(step==='video'){mgrGsStarted=false;mgrGsFinished=false;mgrGsPct=0;}
+  renderMgrGate();
+  document.getElementById('mgrgatebg').classList.add('show');
+}
+function closeMgrGate(){
+  if(mgrGsTimer){clearInterval(mgrGsTimer);mgrGsTimer=null;}
+  mgrGateStep=null;
+  var bg=document.getElementById('mgrgatebg');bg.classList.remove('show');bg.innerHTML='';
+}
+function renderMgrGate(){
+  var bg=document.getElementById('mgrgatebg');
+  if(mgrGateStep==='video'){bg.innerHTML=mgrGsVideoHtml();return;}
+  if(mgrGateStep==='access'){bg.innerHTML=mgrRequestAccessHtml();return;}
+  bg.innerHTML='';
+}
+function mgrGsUrl(){ return (window.PRECHECK_MANAGER_GS_URL||PRECHECK_MANAGER_GETTING_STARTED_VIDEO_URL||'').trim(); }
+function mgrGsVideoHtml(){
+  var url=mgrGsUrl(), hasVid=url.length>0;
+  var player = hasVid
+    ? '<video id="mgrGsVid" playsinline preload="auto" src="'+url.replace(/"/g,'&quot;')+'" style="width:100%;height:100%;object-fit:contain;background:#000"></video>'
+    : '<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:22px;color:#c7cede;background:radial-gradient(circle at 50% 40%,#1e2740,#0f1729)"><div style="font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;opacity:.75">Placeholder intro</div><div style="font-size:19px;font-weight:800;color:#fff;margin-top:6px">Precheck Manager — Getting Started</div><div style="font-size:12px;opacity:.7;margin-top:6px;max-width:420px">Demo video placeholder. This still enforces watch-to-completion.</div></div>';
+  // Play button overlay (autoplay is blocked; a user click starts playback).
+  var play = '<button type="button" id="mgrGsPlayBtn" onclick="mgrGsPlay()" title="Play" style="position:absolute;inset:0;margin:auto;width:70px;height:70px;border-radius:50%;border:none;background:rgba(124,58,237,.92);color:#fff;font-size:28px;cursor:pointer;box-shadow:0 10px 30px rgba(124,58,237,.5)">&#9654;</button>';
+  var btnEnabled=mgrGsFinished;
+  return '<div class="tmcard" onclick="event.stopPropagation()" style="max-width:min(1400px,94vw);width:100%">'
+    +'<div class="tmhd"><div style="font-size:17px;font-weight:800;display:flex;align-items:center;gap:8px">'+icon('shield',20)+' Precheck Manager — Getting Started</div></div>'
+    +'<div class="tmbody" style="padding:0">'
+    +'<div style="position:relative;width:100%;background:#0f1729;aspect-ratio:16/9;min-height:260px;max-height:74vh">'+player+play+'</div>'
+    +'<div id="mgrGsErr" style="display:none;padding:8px 18px 0;color:#c0392b;font-size:12.5px;font-weight:600"></div>'
+    +'<div style="padding:14px 18px 18px"><div style="height:8px;border-radius:999px;background:#eef1f5;overflow:hidden"><div id="mgrGsBar" style="height:100%;width:'+mgrGsPct+'%;background:linear-gradient(90deg,#7c3aed,#6366f1);transition:width .2s linear"></div></div>'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;gap:12px"><div id="mgrGsStatus" style="font-size:12.5px;font-weight:600;color:#8b94a7">Press play to begin. You can\'t skip ahead.</div>'
+    +'<button type="button" id="mgrGsBtn" onclick="mgrGsContinue()" '+(btnEnabled?'':'disabled')+' style="padding:10px 20px;border-radius:11px;border:none;font-size:13.5px;font-weight:800;cursor:'+(btnEnabled?'pointer':'not-allowed')+';color:#fff;background:'+(btnEnabled?'linear-gradient(135deg,#7c3aed,#6366f1)':'#c7cede')+'">'+(btnEnabled?'Continue':'Watch to continue')+'</button></div></div>'
+    +'</div></div>';
+}
+function mgrGsSetStatus(txt,good){var s=document.getElementById('mgrGsStatus');if(s){s.textContent=txt;s.style.color=good?'#059669':'#8b94a7';}}
+function mgrGsSetBar(pct,done){var b=document.getElementById('mgrGsBar');if(b){b.style.width=pct+'%';b.style.background=done?'linear-gradient(90deg,#059669,#22c55e)':'linear-gradient(90deg,#7c3aed,#6366f1)';}}
+function mgrGsShowErr(msg){var e=document.getElementById('mgrGsErr');if(e){e.textContent=msg;e.style.display='block';}var pb=document.getElementById('mgrGsPlayBtn');if(pb)pb.style.display='';mgrGsStarted=false;}
+/* Start playback WITHOUT re-rendering the modal — re-rendering would recreate the
+   <video> element on every timeupdate and reset it (the "just sits there" bug).
+   We update the progress bar + status via direct DOM writes instead. */
+function mgrGsPlay(){
+  if(mgrGsStarted)return;mgrGsStarted=true;
+  var pb=document.getElementById('mgrGsPlayBtn');if(pb)pb.style.display='none';
+  var url=mgrGsUrl();
+  if(url){
+    var v=document.getElementById('mgrGsVid');
+    if(!v){mgrGsShowErr('Video failed to load. Tap play to retry.');return;}
+    v.ontimeupdate=function(){ if(v.duration>0){ mgrGsPct=Math.min(100,(v.currentTime/v.duration)*100); mgrGsSetBar(mgrGsPct,false); mgrGsSetStatus('Watching… '+Math.floor(mgrGsPct)+'%',false); } };
+    v.onended=function(){ mgrGsFinish(); };
+    v.onerror=function(){ mgrGsShowErr('Could not load the video. Check your connection and tap play to retry.'); };
+    var p=v.play();
+    if(p&&p.catch){ p.catch(function(){ mgrGsShowErr('Tap the play button to start the video.'); }); }
+  } else {
+    var start=Date.now();
+    mgrGsTimer=setInterval(function(){
+      var el=(Date.now()-start)/1000;mgrGsPct=Math.min(100,(el/MGR_GS_PLACEHOLDER_SECONDS)*100);
+      mgrGsSetBar(mgrGsPct,false);mgrGsSetStatus('Watching… '+Math.floor(mgrGsPct)+'%',false);
+      if(mgrGsPct>=100){clearInterval(mgrGsTimer);mgrGsTimer=null;mgrGsFinish();}
+    },200);
+  }
+}
+function mgrGsUpdateBar(){ mgrGsSetBar(mgrGsPct,mgrGsFinished); }
+function mgrGsFinish(){
+  mgrGsFinished=true;mgrGsPct=100;
+  mgrGsSetBar(100,true);mgrGsSetStatus('Complete — you\'re all set!',true);
+  var b=document.getElementById('mgrGsBtn');
+  if(b){b.disabled=false;b.textContent='Continue';b.style.cursor='pointer';b.style.background='linear-gradient(135deg,#7c3aed,#6366f1)';}
+}
+function mgrGsContinue(){
+  if(!mgrGsFinished)return;
+  api('/api/precheck-manager/getting-started/complete',{method:'POST',json:{email:EMAIL,version:MGR_GS_VERSION}}).then(function(){}).catch(function(){});
+  MGR_GS_DONE=true;
+  closeMgrGate();
+  proceedPrecheckManager();
+}
+function mgrRequestAccessHtml(){
+  // Reuse the same apply-flow states the drawer uses.
+  var st=ACCESS_STATUS, inner;
+  if(st==='pending'){
+    inner='<div class="tpending" style="margin:0"><div class="tpending-main"><div class="av s" style="background:var(--as);color:var(--amber);-webkit-text-fill-color:var(--amber);flex-shrink:0">'+icon('shield',16)+'</div><div class="tpending-body"><div class="nm">Application pending</div><div class="tpending-sub">Pending admin review. You\'ll unlock Precheck Manager once approved.</div></div></div></div>';
+  } else if(st==='approved'){
+    inner='<div class="tpending" style="background:var(--gs);border-color:#bfe6cf;margin:0"><div class="tpending-main"><div class="av s" style="background:var(--gs);color:var(--green);-webkit-text-fill-color:var(--green);flex-shrink:0">'+icon('check',16)+'</div><div class="tpending-body"><div class="nm">Access granted</div><div class="tpending-sub">You now have Precheck Manager access. <a href="#" onclick="location.reload();return false;">Reload</a> to open it.</div></div></div></div>';
+  } else {
+    var denied=(st==='denied');
+    inner='<div class="tpending-sub" style="margin:0 0 12px">'+(denied?'Your previous request was declined. ':'')+'Request access to build and manage your own Precheck team. An admin will review and approve.</div>'
+      +'<button class="btn g sm" style="width:100%" '+(accessBusy?'disabled':'')+' onclick="applyForAccessGate()">'+icon('shield',16)+' '+(accessBusy?'Sending…':(denied?'Apply again':'Apply for Precheck Manager access'))+'</button>';
+  }
+  return '<div class="tmcard" onclick="event.stopPropagation()" style="max-width:520px">'
+    +'<div class="tmhd"><div style="font-size:17px;font-weight:800;display:flex;align-items:center;gap:8px">'+icon('shield',20)+' Precheck Manager access</div><button class="teambtn" onclick="closeMgrGate()">'+icon('x',18)+'</button></div>'
+    +'<div class="tmbody">'+inner+'</div></div>';
+}
+function applyForAccessGate(){
+  if(accessBusy)return;accessBusy=true;renderMgrGate();
+  api('/api/precheck-manager/apply',{method:'POST',json:{}}).then(async function(r){
+    var d=await r.json().catch(function(){return {};});
+    accessBusy=false;
+    if(!r.ok){toast(d.error||'Could not submit application');renderMgrGate();return;}
+    if(d.alreadyGranted){ACCESS_STATUS='approved';IS_MANAGER=true;toast('You already have manager access');loadTeam();}
+    else{ACCESS_STATUS='pending';toast('Request submitted for admin approval');}
+    renderMgrGate();
+  }).catch(function(){accessBusy=false;toast('Could not submit application');renderMgrGate();});
+}
+
+/* Lean management modal — Getting Started/admin only. "My Team" (roster + invite
+   + bulk) lives in its OWN separate panel opened from the My Team button. */
+function _openPrecheckManagerArea(){
+  mgrModalOpen=true;
+  var bg=document.getElementById('precheckmgrbg');
+  var url='/dashboard/aoi-precheck-admin?embedded=1&teamManager='+encodeURIComponent(EMAIL);
+  bg.innerHTML='<div class="mgrcard" onclick="event.stopPropagation()"><div class="mgrcard-body" style="display:flex;flex-direction:column;overflow:hidden">'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line,#e7eaf0)"><div style="font-size:16px;font-weight:800;display:flex;align-items:center;gap:8px">'+icon('shield',18)+' Precheck Manager</div><div style="display:flex;gap:8px"><button class="btn g sm" onclick="openMyTeam()">'+icon('users',15)+' My Team</button><button class="teambtn" onclick="closePrecheckManager()">'+icon('x',18)+'</button></div></div>'
+    +'<div style="flex:1;min-height:420px;position:relative"><iframe class="mgriframe" id="precheckMgrFrame" title="Precheck Manager" allow="autoplay; fullscreen" src="'+url+'" style="width:100%;height:100%;min-height:420px;border:0"></iframe></div>'
+    +'</div></div>';
+  bg.classList.add('show');
+}
+function bulkResultsHtml(){
+  if(!BULK_RESULT)return '';
+  var r=BULK_RESULT.results||{};
+  var chip=function(label,arr,color){arr=arr||[];return '<div style="margin-top:6px"><span style="font-size:11px;font-weight:800;color:'+color+'">'+label+' · '+arr.length+'</span>'+(arr.length?'<div style="font-size:11px;color:var(--ink3,#8b94a7);word-break:break-all">'+arr.map(function(x){return String(x).replace(/</g,'&lt;');}).join(', ')+'</div>':'')+'</div>';};
+  return '<div style="margin-top:10px;padding:10px 12px;border:1px solid var(--line,#e7eaf0);border-radius:10px;background:var(--card2,#fbfcfd)">'
+    +'<div style="font-size:12px;font-weight:800;color:var(--ink,#0f1729)">Results</div>'
+    +chip('Team requests sent (existing users → approval)',r.teamRequest,'#7c2fce')
+    +chip('Join invites sent (new users → auto-join on signup)',r.joinInvite,'#2563eb')
+    +chip('Already on team',r.alreadyMember,'#15803d')
+    +chip('Rejected (not @aoglobelife.com)',r.rejected,'#c0392b')
+    +((r.errors&&r.errors.length)?'<div style="margin-top:6px;font-size:11px;color:#c0392b">Errors: '+r.errors.length+'</div>':'')
+    +'</div>';
+}
+function bulkInviteHtml(){
+  return '<div style="margin-top:14px;border-top:1px solid var(--line2,#eef1f5);padding-top:12px">'
+    +'<div style="font-size:13px;font-weight:800;color:var(--ink,#0f1729);margin-bottom:6px">Bulk invite (CSV / list of emails)</div>'
+    +'<textarea id="bulkEmails" placeholder="Paste emails (comma, space, or new line separated). Only @aoglobelife.com are accepted." oninput="BULK_TEXT=this.value" style="width:100%;min-height:72px;padding:9px 11px;border-radius:10px;border:1px solid var(--line,#e7eaf0);font-size:12.5px;box-sizing:border-box;resize:vertical">'+String(BULK_TEXT).replace(/</g,'&lt;')+'</textarea>'
+    +'<div style="display:flex;gap:10px;margin-top:8px;align-items:center;flex-wrap:wrap"><button class="btn g sm" '+(BULK_BUSY?'disabled':'')+' onclick="bulkInvite()">'+(BULK_BUSY?'Sending…':'Send invites')+'</button><input type="file" accept=".csv,text/csv,text/plain" onchange="bulkFile(this)" style="font-size:12px"></div>'
+    +bulkResultsHtml()
+    +'</div>';
+}
+function bulkFile(inp){var f=inp.files&&inp.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(e){BULK_TEXT=String(e.target.result||'');if(teamMgrOpen)renderTeamManager();};rd.readAsText(f);}
+function bulkInvite(){
+  if(BULK_BUSY)return;var text=(BULK_TEXT||'').trim();if(!text){toast('Paste some emails first');return;}
+  BULK_BUSY=true;if(teamMgrOpen)renderTeamManager();
+  api('/api/team/bulk-invite',{method:'POST',json:{text:text}}).then(async function(r){
+    BULK_BUSY=false;var d=await r.json().catch(function(){return {};});
+    if(!r.ok){toast(d.error||'Bulk invite failed');if(teamMgrOpen)renderTeamManager();return;}
+    BULK_RESULT=d;BULK_TEXT='';
+    var s=d.summary||{};toast('Invites: '+(s.teamRequest||0)+' request · '+(s.joinInvite||0)+' join · '+(s.rejected||0)+' rejected');
+    loadTeam();loadTeamVerifications();if(teamMgrOpen)renderTeamManager();
+  }).catch(function(){BULK_BUSY=false;toast('Bulk invite failed');if(teamMgrOpen)renderTeamManager();});
+}
+/* Re-render the "My Team" panel (renderTeamManager) after add/bulk actions. */
+function reMgrArea(){ if(teamMgrOpen)renderTeamManager(); var i=document.getElementById('maddinp'); if(i){i.focus();try{var p=(teamLook||'').length;i.setSelectionRange(p,p);}catch(e){}} }
+function closePrecheckManager(){
+  mgrModalOpen=false;
+  var bg=document.getElementById('precheckmgrbg');
+  bg.classList.remove('show');
+  var f=document.getElementById('precheckMgrFrame');
+  if(f)f.src='about:blank';
+  bg.innerHTML='';
+}
+window.addEventListener('message',function(ev){
+  if(ev.data&&ev.data.type==='aoprecheck-close-manager')closePrecheckManager();
+  if(ev.data&&ev.data.type==='aoprecheck-refresh-drawer')loadSessions();
+});
+
+function api(url,opts){
+  opts=opts||{};var headers=Object.assign({'Content-Type':'application/json'},opts.headers||{});
+  if(EMAIL)headers['x-user-email']=EMAIL;
+  return fetch(url,{method:opts.method||'GET',headers:headers,credentials:'include',body:opts.json?JSON.stringify(opts.json):opts.body});
+}
+
+function signOut(){api('/api/auth/logout',{method:'POST'}).catch(function(){});setTimeout(function(){location.href='/login';},150);}
+
+/* Unified "AO Apps" switcher — SAME entries/order/labels/links as the shared
+   AoAppsSwitcher used by the other apps; AO Precheck marked Active. */
+function aoAppsSwitcherHtml(){
+  var apps=[
+    {n:'AO Connect',s:'Outbound dialer',u:'https://aoconnect-production.up.railway.app',g:'linear-gradient(135deg,#7c3aed,#6366f1)',i:'C'},
+    {n:'AO Recruit',s:'Recruiting',u:'https://aorecruit-production.up.railway.app',g:'linear-gradient(135deg,#2563eb,#06b6d4)',i:'R'},
+    {n:'AO Precheck',s:'Verification',u:'https://aoprecheck-production.up.railway.app',g:'linear-gradient(135deg,#059669,#22c55e)',i:'P',active:true},
+    {n:'AO Analytics',s:'Reporting',u:'https://analytics-production-c1ed.up.railway.app',g:'linear-gradient(135deg,#d97706,#f59e0b)',i:'A'}
+  ];
+  var rows=apps.map(function(a){
+    var tile='<span style="width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:#fff;font-size:13px;font-weight:800;flex-shrink:0;background:'+a.g+'">'+a.i+'</span>';
+    var txt='<span style="flex:1;min-width:0"><span style="display:block;font-size:13.5px;font-weight:700;color:var(--ink,#0f1729)">'+a.n+'</span><span style="display:block;font-size:11px;color:var(--ink3,#8b94a7)">'+a.s+'</span></span>';
+    if(a.active){
+      return '<div style="display:flex;align-items:center;gap:11px;padding:8px;border-radius:12px;border:1px solid var(--line,#e7eaf0);background:var(--card2,#fbfcfd)">'+tile+txt+'<span style="font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#7c2fce;background:#f4eafe;border-radius:999px;padding:2px 8px">Active</span></div>';
+    }
+    return '<a href="'+a.u+'" title="Open '+a.n+'" style="display:flex;align-items:center;gap:11px;padding:8px;border-radius:12px;text-decoration:none;color:inherit">'+tile+txt+'</a>';
+  }).join('');
+  return '<div style="padding:6px 6px 12px;border-bottom:1px solid var(--line2,#eef1f5);margin-bottom:8px"><div style="font-size:10.5px;font-weight:800;color:var(--ink3,#8b94a7);text-transform:uppercase;letter-spacing:.08em;padding:6px 8px">AO Apps</div>'+rows+'</div>';
+}
+
+function toggleProfile(){
+  var m=document.getElementById('profileMenu');if(!m)return;
+  if(m.style.display==='none'||!m.style.display){
+    m.innerHTML='<div style="padding:6px 12px;font-weight:700">'+USER.init+'</div>'
+      +'<div style="padding:0 12px 8px;font-size:12px;color:var(--ink3)">'+(EMAIL||'')+'</div>'
+      +'<button class="dmi" style="width:100%;text-align:left" onclick="document.getElementById(\'profileMenu\').style.display=\'none\';openProfileEditor()">'+icon('users',16)+' Edit Profile</button>'
+      +'<button class="dmi" style="width:100%;text-align:left" onclick="signOut()">'+icon('logout',16)+' Sign out</button>';
+    m.style.display='block';
+  } else { m.style.display='none'; }
+}
+
+/* ── Editable profile form (name / phone / Zoom ID / Zoom passcode / photo) ──
+   Reads & writes the SAME /api/agent/profile-direct record verification uses. */
+function openProfileEditor(){
+  if(!EMAIL)return;
+  profSaving=false;profMsg='';
+  document.getElementById('profeditbg').classList.add('show');
+  renderProfileEditor();
+  if(!profLoaded){
+    api('/api/agent/profile-direct?userEmail='+encodeURIComponent(EMAIL)).then(async function(r){
+      if(r.ok){var d=await r.json().catch(function(){return {};});PROF={firstName:d.firstName||'',lastName:d.lastName||'',phone:d.phone||'',zoomId:d.zoomId||'',zoomPassword:d.zoomPassword||'1',profilePicture:d.profilePicture||''};}
+      profLoaded=true;renderProfileEditor();
+    }).catch(function(){profLoaded=true;renderProfileEditor();});
+  }
+}
+function closeProfileEditor(){document.getElementById('profeditbg').classList.remove('show');}
+function profSet(field,val){PROF[field]=(field==='zoomPassword')?String(val).replace(/\D/g,''):val;}
+function profPhoto(inp){var f=inp.files&&inp.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(e){PROF.profilePicture=e.target.result;renderProfileEditor();};rd.readAsDataURL(f);}
+function renderProfileEditor(){
+  var bg=document.getElementById('profeditbg');
+  var lbl='display:block;font-size:12px;font-weight:700;color:var(--ink,#0f1729);margin-bottom:5px';
+  var inp='width:100%;padding:9px 11px;border-radius:10px;border:1px solid var(--line,#e7eaf0);font-size:13.5px;color:var(--ink,#0f1729);outline:none;box-sizing:border-box';
+  var av=PROF.profilePicture?('<img src="'+PROF.profilePicture+'" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--line,#e7eaf0)">'):('<div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#9333ea,#7c3aed);color:#fff;display:grid;place-items:center;font-weight:800;font-size:18px">'+(USER.init||'U')+'</div>');
+  var body = !profLoaded
+    ? '<div style="padding:34px;text-align:center;color:var(--ink3,#8b94a7)">Loading your profile…</div>'
+    : '<div style="display:flex;flex-direction:column;gap:12px">'
+        +'<div style="display:flex;align-items:center;gap:14px">'+av+'<div><label style="'+lbl+'">Profile photo</label><input type="file" accept="image/*" onchange="profPhoto(this)" style="font-size:12px"></div></div>'
+        +'<div style="display:flex;gap:12px"><div style="flex:1"><label style="'+lbl+'">First name</label><input style="'+inp+'" value="'+String(PROF.firstName).replace(/"/g,'&quot;')+'" oninput="profSet(\'firstName\',this.value)"></div>'
+        +'<div style="flex:1"><label style="'+lbl+'">Last name</label><input style="'+inp+'" value="'+String(PROF.lastName).replace(/"/g,'&quot;')+'" oninput="profSet(\'lastName\',this.value)"></div></div>'
+        +'<div><label style="'+lbl+'">Phone number</label><input style="'+inp+'" inputmode="tel" value="'+String(PROF.phone).replace(/"/g,'&quot;')+'" oninput="profSet(\'phone\',this.value)"></div>'
+        +'<div style="display:flex;gap:12px"><div style="flex:2"><label style="'+lbl+'">Zoom Room ID</label><input style="'+inp+'" inputmode="numeric" value="'+String(PROF.zoomId).replace(/"/g,'&quot;')+'" oninput="profSet(\'zoomId\',this.value)"></div>'
+        +'<div style="flex:1"><label style="'+lbl+'">Zoom passcode</label><input id="profZoomPw" style="'+inp+'" inputmode="numeric" pattern="[0-9]*" value="'+String(PROF.zoomPassword).replace(/"/g,'&quot;')+'" oninput="this.value=this.value.replace(/\\D/g,\'\');profSet(\'zoomPassword\',this.value)"></div></div>'
+        +'<div style="font-size:11px;color:var(--ink3,#8b94a7);margin-top:-4px">Passcode must be numbers only (letters aren\'t supported for phone/dial-in join). Leave blank to default to 1.</div>'
+        +(profMsg?'<div style="font-size:12.5px;font-weight:600;color:'+(profMsg.indexOf('aved')>-1?'#059669':'#c0392b')+'">'+profMsg+'</div>':'')
+      +'</div>';
+  bg.innerHTML='<div class="tmcard" onclick="event.stopPropagation()" style="max-width:560px">'
+    +'<div class="tmhd"><div style="font-size:17px;font-weight:800;display:flex;align-items:center;gap:8px">'+icon('users',20)+' Edit Profile</div><button class="teambtn" onclick="closeProfileEditor()">'+icon('x',18)+'</button></div>'
+    +'<div class="tmbody">'+body+'</div>'
+    +'<div style="display:flex;justify-content:flex-end;gap:10px;padding:14px 20px;border-top:1px solid var(--line2,#eef1f5)">'
+    +'<button class="btn o sm" onclick="closeProfileEditor()">Close</button>'
+    +'<button class="btn g sm" '+(profSaving||!profLoaded?'disabled':'')+' onclick="profSave()">'+(profSaving?'Saving…':'Save profile')+'</button></div>'
+    +'</div>';
+}
+function profSave(){
+  if(profSaving)return;profSaving=true;profMsg='';renderProfileEditor();
+  var body={firstName:PROF.firstName,lastName:PROF.lastName,phone:PROF.phone,zoomId:PROF.zoomId,zoomPassword:(String(PROF.zoomPassword||'').replace(/\D/g,'')||'1'),profilePicture:PROF.profilePicture,userEmail:EMAIL};
+  api('/api/agent/profile-direct',{method:'PATCH',json:body}).then(async function(r){
+    profSaving=false;
+    if(!r.ok){profMsg='Could not save — please try again.';renderProfileEditor();return;}
+    var d=await r.json().catch(function(){return {};});
+    PROF.zoomPassword=body.zoomPassword;
+    if(d&&typeof d.firstName!=='undefined'){PROF.firstName=d.firstName||PROF.firstName;PROF.lastName=d.lastName||PROF.lastName;PROF.phone=d.phone||PROF.phone;PROF.zoomId=d.zoomId||PROF.zoomId;PROF.zoomPassword=d.zoomPassword||PROF.zoomPassword;}
+    applyUser(PROF.firstName,PROF.lastName);
+    profMsg='Saved!';toast('Profile saved');renderProfileEditor();
+  }).catch(function(){profSaving=false;profMsg='Could not save — please try again.';renderProfileEditor();});
+}
+document.addEventListener('click',function(e){
+  var m=document.getElementById('profileMenu'), b=document.getElementById('profileBtn');
+  if(m&&m.style.display==='block'&&b&&!b.contains(e.target)&&!m.contains(e.target))m.style.display='none';
+});
+
+function isTransmitted(s){return s&&s.transmitStatus==='transmitted';}
+function isPendingActive(s){return s&&s.transmitStatus!=='transmitted'&&s.transmitStatus!=='scheduled_delete';}
+function loadSessions(){
+  if(!EMAIL)return;
+  api('/api/aoi-precheck/agent/recent?limit=50').then(async function(r){
+    if(!r.ok)return;
+    var d=await r.json().catch(function(){return {};});
+    SESSIONS=(d&&Array.isArray(d.sessions)?d.sessions:[]);
+    renderDrawer();
+  }).catch(function(){});
+}
+function toggleDrawer(){drawer=!drawer;renderDrawer();}
+function openSession(sessionId){
+  drawer=false;renderDrawer();
+  var frame=document.getElementById('mainFrame');
+  if(frame&&frame.contentWindow)frame.contentWindow.postMessage({type:'aoprecheck-open-session',sessionId:sessionId},'*');
+}
+function renderDrawer(){
+  document.getElementById('dbg').classList.toggle('show',drawer);
+  var el=document.getElementById('drawer');el.classList.toggle('show',drawer);
+  var pending=SESSIONS.filter(isPendingActive);
+  var completed=SESSIONS.filter(isTransmitted);
+  var q=dsearch.trim().toLowerCase();
+  function filt(list){
+    if(!q)return list;
+    return list.filter(function(s){
+      return (s.clientName||'').toLowerCase().includes(q)
+        || String(s.sessionId||s.id).toLowerCase().includes(q)
+        || (s.clientPhone||'').toLowerCase().includes(q);
+    });
+  }
+  var fp=filt(pending), fc=filt(completed);
+  function pendingRow(s){
+    var sid=String(s.sessionId||s.id).replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    var ini=(s.clientName||'?').charAt(0).toUpperCase();
+    var name=titleCase(s.clientName||'Unknown').replace(/</g,'&lt;');
+    var sub=(s.clientPhone||s.method||'—').replace(/</g,'&lt;');
+    return '<div class="drow-wrap">'
+      +'<div class="drow" onclick="openSession(\''+sid+'\')"><div class="av s" style="background:linear-gradient(135deg,#9333ea,#7c3aed)">'+ini+'</div>'
+      +'<div style="flex:1;min-width:0"><div class="nm">'+name+'</div><div class="mt">'+sub+'</div></div>'
+      +'<span class="sdot" style="background:#d97706"></span></div>'
+      +'<div class="drow-actions">'
+      +'<button type="button" class="dact tx" onclick="event.stopPropagation();showConfirm(\'transmit\',\''+sid+'\')">'+icon('send',13)+' Transmit</button>'
+      +'<button type="button" class="dact ar" onclick="event.stopPropagation();showConfirm(\'archive\',\''+sid+'\')">'+icon('archive',13)+' Archive</button>'
+      +'</div></div>';
+  }
+  function doneRow(s){
+    var sid=String(s.sessionId||s.id).replace(/'/g,"\\'");
+    var ini=(s.clientName||'?').charAt(0).toUpperCase();
+    return '<div class="drow" onclick="openSession(\''+sid+'\')"><div class="av s" style="background:linear-gradient(135deg,#16a34a,#15803d)">'+ini+'</div><div style="flex:1;min-width:0"><div class="nm">'+titleCase(s.clientName||'Unknown')+'</div><div class="mt">'+(s.clientPhone||s.method||'—')+'</div></div><span class="sdot" style="background:#16a34a"></span></div>';
+  }
+  el.innerHTML=aoAppsSwitcherHtml()+'<div class="dh2"><div class="t">'+icon('shield',18)+' My prechecks<span class="ct">'+SESSIONS.length+'</span></div></div>'
+    +'<div class="dsrch">'+icon('search',16)+'<input placeholder="Search…" oninput="dsearch=this.value;renderDrawer();refocusDrawer()" value="'+dsearch.replace(/"/g,'&quot;')+'"/></div>'
+    +'<div class="dlist">'
+    +'<div class="dsec">Pending · '+fp.length+'</div>'
+    +(fp.length?fp.map(pendingRow).join(''):'<div style="padding:8px 14px 12px;color:var(--ink4);font-size:13px">No pending prechecks</div>')
+    +'<div class="dsec" style="margin-top:8px;border-top:1px solid var(--line2);padding-top:12px">Completed · '+fc.length+'</div>'
+    +(fc.length?fc.map(doneRow).join(''):'<div style="padding:8px 14px 12px;color:var(--ink4);font-size:13px">No completed prechecks</div>')
+    +'</div>'
+    +'<div class="dmanage"><button type="button" class="dmi" style="width:100%" onclick="openPrecheckManager()">'+icon('shield',17)+' Precheck Manager</button></div>';
+}
+function refocusDrawer(){var i=document.querySelector('.dsrch input');if(i){i.focus();i.setSelectionRange(dsearch.length,dsearch.length);}}
+
+function showConfirm(action,sessionId){
+  var s=SESSIONS.find(function(x){return String(x.sessionId||x.id)===String(sessionId);});
+  if(!s)return;
+  confirmState={action:action,session:s};
+  renderConfirm();
+  document.getElementById('cfbg').classList.add('show');
+}
+function closeConfirm(){confirmState=null;document.getElementById('cfbg').classList.remove('show');}
+function renderConfirm(){
+  if(!confirmState)return;
+  var s=confirmState.session, name=titleCase(s.clientName||'Unknown');
+  var isTx=confirmState.action==='transmit';
+  var title=isTx?'Transmit to Management?':'Archive precheck?';
+  var msg=isTx
+    ? 'Send <strong>'+name+'</strong> to AO Precheck Management? This will move the session to Completed.'
+    : 'Archive <strong>'+name+'</strong> as training? It will be removed from your pending list and scheduled for deletion in 24 hours.';
+  document.getElementById('cfcard').innerHTML='<h3>'+title+'</h3><p>'+msg+'</p>'
+    +'<div class="cfbtns"><button type="button" class="btn o sm" onclick="closeConfirm()">Cancel</button>'
+    +'<button type="button" class="btn sm '+(isTx?'g':'redo')+'" onclick="runConfirm()" '+(actionBusy?'disabled':'')+'>'+(actionBusy?'Working…':(isTx?'Transmit':'Archive'))+'</button></div>';
+}
+function runConfirm(){
+  if(!confirmState||actionBusy)return;
+  var sid=String(confirmState.session.sessionId||confirmState.session.id);
+  var isTx=confirmState.action==='transmit';
+  actionBusy=true;renderConfirm();
+  api('/api/aoi-precheck/agent/transmit',{method:'POST',json:{sessionId:sid,precheckType:isTx?'live':'training'}}).then(async function(r){
+    var d=await r.json().catch(function(){return {};});
+    actionBusy=false;closeConfirm();
+    if(!r.ok){toast(d.error||'Action failed');return;}
+    toast(isTx?'Transmitted to Management':'Archived');
+    loadSessions();
+    var frame=document.getElementById('mainFrame');
+    if(frame&&frame.contentWindow)frame.contentWindow.postMessage({type:'aoprecheck-refresh-drawer'},'*');
+  }).catch(function(){actionBusy=false;closeConfirm();toast('Action failed');});
+}
+
+function toggleTeam(){team=!team;renderTeam();if(team){loadTeam();loadTeamVerifications();startTeamPoll();}else if(!teamMgrOpen)stopTeamPoll();}
+function startTeamPoll(){if(window._teamPoll)return;window._teamPoll=setInterval(function(){if(team||teamMgrOpen||mgrModalOpen){loadTeam();loadTeamVerifications();}},30000);}
+function stopTeamPoll(){if(window._teamPoll){clearInterval(window._teamPoll);window._teamPoll=null;}}
+
+function loadTeam(){
+  if(!EMAIL)return;
+  api('/api/team?managerEmail='+encodeURIComponent(EMAIL)).then(async function(r){
+    if(!r.ok)return;var d=await r.json().catch(function(){return {};});
+    if(d&&d.teamId)TEAM_ID=d.teamId;
+    if(d&&typeof d.teamName!=='undefined'&&d.teamName!==null)TEAM_NAME=d.teamName;
+    IS_MANAGER=(d&&typeof d.canManage!=='undefined')?!!d.canManage:true;
+    TEAM=(d&&Array.isArray(d.members)?d.members:[]).map(function(m){
+      return {nm:titleCase(m.name||m.email),st:(m.status==='on_call'?'call':(m.status||'offline')),em:m.email,credits:(typeof m.credits!=='undefined'?m.credits:0),ms:m.membershipStatus||'pending',rs:m.requestStatus||(m.membershipStatus==='confirmed'?'accepted':'pending'),reqId:m.requestId||'',inviteOnly:!!m.inviteOnly};
+    });
+    TEAM_PENDING=TEAM.filter(function(t){return t.ms!=='confirmed';});
+    TEAM_PENDING_COUNT=(d&&typeof d.pendingCount==='number')?d.pendingCount:TEAM_PENDING.length;
+    TEAM_CONFIRMED_COUNT=(d&&typeof d.confirmedCount==='number')?d.confirmedCount:TEAM.filter(function(t){return t.ms==='confirmed';}).length;
+    renderTeam();
+    if(teamMgrOpen)renderTeamManager();
+  }).catch(function(){});
+}
+
+/* Per-member verification pipeline counts (Pending / Transmitted) — sourced from
+   the team's verification_sessions via /api/aoi-precheck/team/manager-sessions.
+   Replaces the old online/offline presence in the roster. */
+function loadTeamVerifications(){
+  if(!EMAIL)return;
+  api('/api/aoi-precheck/team/manager-sessions?managerEmail='+encodeURIComponent(EMAIL)).then(async function(r){
+    if(!r.ok)return;var d=await r.json().catch(function(){return {};});
+    var map={};
+    (d&&d.sessions||[]).forEach(function(s){
+      var em=String(s.agentEmail||'').toLowerCase();if(!em)return;
+      if(!map[em])map[em]={pending:0,transmitted:0};
+      if(s.transmitStatus==='transmitted')map[em].transmitted++;else map[em].pending++;
+    });
+    VERIF_COUNTS=map;
+    renderTeam();
+    if(teamMgrOpen)renderTeamManager();
+  }).catch(function(){});
+}
+
+function statusTileBg(st){return st==='online'?'linear-gradient(135deg,#16a34a,#15803d)':(st==='call'?'linear-gradient(135deg,#9333ea,#7c3aed)':'linear-gradient(135deg,#94a3b8,#64748b)');}
+function pendingMemberRow(t){
+  var em=t.em||'', denied=(t.rs==='denied');
+  var sub=denied?'Declined the request'
+    :(t.inviteOnly?'Invited — awaiting signup & approval':'Awaiting agent approval');
+  var badge=denied?'<span class="mbadge" style="background:var(--rs);color:var(--red);border-color:#f0c0c0">Denied</span>':'<span class="mbadge pending">Pending</span>';
+  return '<div class="tpending"'+(denied?' style="background:var(--rs);border-color:#f0c0c0"':'')+'><div class="tpending-main"><div class="av s" style="background:var(--as);color:var(--amber);-webkit-text-fill-color:var(--amber);flex-shrink:0">'+icon('mail',16)+'</div>'
+    +'<div class="tpending-body"><div class="nm" title="'+String(t.nm).replace(/"/g,'&quot;')+'">'+t.nm+'</div><div class="tpending-sub">'+sub+'</div></div></div>'
+    +'<div class="tpending-actions">'+badge
+    +(IS_MANAGER&&em?'<button class="btn o micro" onclick="resendConfirmation(\''+em+'\')">'+icon('send',11)+' '+(denied?'Ask again':'Resend')+'</button>'
+      +'<button class="btn redo icononly" title="Remove" onclick="removeRequest(\''+em+'\')">'+icon('x',12)+'</button>':'')
+    +'</div></div>';
+}
+/* Verification pipeline badges (replaces online/offline presence). */
+function verifBadges(em){
+  var c=VERIF_COUNTS[String(em||'').toLowerCase()]||{pending:0,transmitted:0};
+  return '<span style="display:inline-block;font-size:10.5px;font-weight:800;color:#b45309;background:#fef3c7;border:1px solid #fde68a;border-radius:999px;padding:1px 7px;margin-right:5px">'+c.pending+' Pending</span>'
+    +'<span style="display:inline-block;font-size:10.5px;font-weight:800;color:#15803d;background:#dcfce7;border:1px solid #bbf7d0;border-radius:999px;padding:1px 7px">'+c.transmitted+' Transmitted</span>';
+}
+function memberRow(t){
+  if(t.ms!=='confirmed')return pendingMemberRow(t);
+  var em=t.em||'';
+  return '<div class="trow"><div class="av s" style="background:linear-gradient(135deg,#9333ea,#7c3aed);flex-shrink:0">'+teamIni(t.nm)+'</div>'
+    +'<div class="trow-body"><div class="nm" title="'+String(t.nm).replace(/"/g,'&quot;')+'">'+t.nm+'</div><div class="trow-sub" style="margin-top:3px">'+verifBadges(em)+'</div></div>'
+    +(IS_MANAGER&&em?'<button class="btn redo icononly" title="Remove" onclick="removeMember(\''+em+'\')">'+icon('x',12)+'</button>':'')
+    +'</div>';
+}
+/* Collapse duplicate roster entries so each person appears once. Dedup key:
+   normalized email (primary), else normalized name (case/space-insensitive) —
+   catches variants like "Julia LeRoy"/"Julia Leroy" and "Mia Swenson"/"Miaswenson".
+   Display-level only: underlying central rows are untouched. Prefers confirmed. */
+function memberDedupeKey(t){
+  var em=String(t.em||'').toLowerCase().trim();
+  if(em)return 'e:'+em;
+  var nm=String(t.nm||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  return nm?('n:'+nm):('x:'+Math.random());
+}
+function dedupeMembers(list){
+  // Two-pass: first by email (exact), then collapse remaining by normalized name.
+  var byEmail={}, firstPass=[];
+  list.slice().sort(function(a,b){return (a.ms==='confirmed'?0:1)-(b.ms==='confirmed'?0:1);}).forEach(function(t){
+    var k=memberDedupeKey(t); if(byEmail[k])return; byEmail[k]=1; firstPass.push(t);
+  });
+  var byName={}, out=[];
+  firstPass.forEach(function(t){
+    var nm=String(t.nm||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+    if(nm){ if(byName[nm])return; byName[nm]=1; }
+    out.push(t);
+  });
+  return out;
+}
+function teamMemberListHtml(){
+  var all=dedupeMembers(TEAM);
+  var confirmed=all.filter(function(t){return t.ms==='confirmed';});
+  var pending=all.filter(function(t){return t.ms!=='confirmed';});
+  var html='';
+  if(pending.length){
+    html+='<div class="tsect">Pending approval · '+pending.length+'</div>'+pending.map(pendingMemberRow).join('');
+  }
+  if(confirmed.length){
+    html+='<div class="tsect">Confirmed · '+confirmed.length+'</div>'+confirmed.map(memberRow).join('');
+  }
+  if(!html)html='<div style="padding:22px;color:var(--ink3);text-align:center">No team members yet.</div>';
+  return html;
+}
+
+function renderTeam(){
+  document.getElementById('rbg').classList.toggle('show',team);
+  document.getElementById('rdrawer').classList.toggle('show',team);
+  var confirmedTeam=dedupeMembers(TEAM).filter(function(t){return t.ms==='confirmed';});
+  var totP=0,totT=0;
+  confirmedTeam.forEach(function(t){var c=VERIF_COUNTS[String(t.em||'').toLowerCase()]||{pending:0,transmitted:0};totP+=c.pending;totT+=c.transmitted;});
+  document.getElementById('rdrawer').innerHTML='<div class="dh2"><div class="t">'+icon('users',18)+' Team status</div></div>'
+    +'<div class="dh2-sub">'+TEAM_PENDING_COUNT+' pending · '+TEAM_CONFIRMED_COUNT+' confirmed</div>'
+    +'<div class="rdrawer-scroll">'
+    +(IS_MANAGER?'<div class="team-actions-row"><button class="btn g sm" onclick="openTeamManager()">'+icon('users',16)+' My Team</button></div>':'')
+    +accessApplyHtml()
+    +addMemberHtml()
+    +(IS_MANAGER?'<button type="button" class="mgrlink" onclick="openPrecheckManager()">'+icon('shield',16)+' Precheck Manager<span>Full admin</span></button>':'')
+    +'<div class="tstat"><div class="tsi"><span class="sdot" style="background:#d97706"></span>'+totP+' pending</div><div class="tsi"><span class="sdot" style="background:#16a34a"></span>'+totT+' transmitted</div></div>'
+    +teamMemberListHtml()
+    +'</div>';
+  if(teamMgrOpen)renderTeamManager();
+  if(mgrModalOpen){document.getElementById('precheckmgrbg').classList.add('show');}
+}
+
+function openTeamManager(){teamMgrOpen=true;loadTeam();loadTeamVerifications();startTeamPoll();renderTeamManager();document.getElementById('teammgrbg').classList.add('show');}
+function closeTeamManager(){teamMgrOpen=false;document.getElementById('teammgrbg').classList.remove('show');if(!team)stopTeamPoll();}
+function renderTeamManager(){
+  var bg=document.getElementById('teammgrbg');
+  var teamNm=String(TEAM_NAME||'My Team').replace(/"/g,'&quot;');
+  bg.innerHTML='<div class="tmcard" onclick="event.stopPropagation()"><div class="tmhd"><div style="font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px">'+icon('users',20)+' My Team</div><button class="teambtn" onclick="closeTeamManager()">'+icon('x',18)+'</button></div><div class="tmbody">'
+    +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px"><input id="teamNameInp" value="'+teamNm+'" placeholder="Team name" style="flex:1;padding:9px 12px;border:1px solid var(--line);border-radius:10px;font-size:15px;font-weight:700"><button class="btn o sm" onclick="renameTeam()">'+icon('check',14)+' Save name</button></div>'
+    +addMemberHtml('mgr')
+    +bulkInviteHtml()
+    +'<div style="margin-top:14px">'+teamMemberListHtml()+'</div></div></div>';
+  var i=document.getElementById('maddinp');if(i&&document.activeElement===i){try{var p=(teamLook||'').length;i.setSelectionRange(p,p);}catch(e){}}
+}
+
+function addMemberHtml(mode){
+  if(!IS_MANAGER)return '';
+  var q=teamLook.trim(), res='';
+  if(q.length>=2){
+    if(teamSearchRes.length){
+      res=teamSearchRes.map(function(u){
+        var onTeam=TEAM.some(function(t){return String(t.em).toLowerCase()===String(u.email).toLowerCase();});
+        return '<div class="rres found"><div class="av s" style="flex-shrink:0">'+teamIni(titleCase(u.name||u.email))+'</div><div class="rtxt"><div class="nm">'+titleCase(u.name||u.email)+'</div><div class="em" title="'+String(u.email).replace(/"/g,'&quot;')+'">'+u.email+'</div></div>'
+          +'<div class="ra">'+(onTeam?'<span class="em">On team</span>':'<button class="btn green xs" onclick="addMember(\''+u.email+'\')">'+icon('plus',13)+' Add</button>')+'</div></div>';
+      }).join('');
+    } else if(q.toLowerCase().endsWith('@aoglobelife.com')){
+      res='<div class="rres invite"><div class="av s" style="background:var(--as);color:var(--amber);flex-shrink:0">'+icon('mail',16)+'</div><div class="rtxt"><div class="nm">Not in directory</div><div class="em" title="'+q.replace(/"/g,'&quot;')+'">'+q+'</div></div><div class="ra"><button class="btn o xs" onclick="inviteMember(\''+q.toLowerCase()+'\')">'+icon('send',13)+' Invite</button></div></div>';
+    }
+  }
+  var isMgr=(mode==='mgr');
+  var inputId=isMgr?'maddinp':'taddinp';
+  var oninput=isMgr
+    ? "teamLook=this.value;LOOKUP_SURFACE='mgrarea';teamLookup();reMgrArea()"
+    : "teamLook=this.value;LOOKUP_SURFACE='drawer';teamLookup();reTeam2()";
+  return '<div class="raddwrap"><div class="raddhd">'+icon('plus',14)+' Add member</div><div class="raddinp">'+icon('search',15)+'<input id="'+inputId+'" placeholder="Search name or email…" value="'+q.replace(/"/g,'&quot;')+'" oninput="'+oninput+'"></div>'+res+'</div>';
+}
+function reTeam2(){renderTeam();var i=document.getElementById('taddinp');if(i){i.focus();try{var p=(teamLook||'').length;i.setSelectionRange(p,p);}catch(e){}}}
+function teamLookup(){
+  var q=teamLook.trim();clearTimeout(window._tlk);
+  if(q.length<2){teamSearchRes=[];return;}
+  window._tlk=setTimeout(function(){
+    var reRender=function(){ if(LOOKUP_SURFACE==='mgrarea')reMgrArea(); else reTeam2(); };
+    api('/api/team/search?q='+encodeURIComponent(q)).then(async function(r){var d=await r.json().catch(function(){return {};});teamSearchRes=(d&&d.results)||[];reRender();}).catch(function(){teamSearchRes=[];reRender();});
+  },300);
+}
+function addMember(em){
+  api('/api/team/add',{method:'POST',json:{teamId:TEAM_ID,email:em}}).then(async function(r){
+    var d=await r.json().catch(function(){return {};});
+    if(!r.ok){toast(d.error||(d.forbidden?'Not authorized to build a team':'Could not add member'));return;}
+    teamLook='';teamSearchRes=[];
+    if(d.invited){toast('Request sent to '+em+' — they\'ll approve after signing up');}
+    else{toast('Request sent to '+em+' — awaiting their approval');}
+    loadTeam();
+  }).catch(function(){toast('Could not add member');});
+}
+function inviteMember(em){
+  api('/api/team/invite',{method:'POST',json:{email:em,teamId:TEAM_ID}}).then(async function(r){
+    var d=await r.json().catch(function(){return {};});
+    if(!r.ok){toast(d.error||(d.forbidden?'Not authorized to build a team':'Could not send invite'));return;}
+    teamLook='';teamSearchRes=[];
+    if(d.invited){toast('Request sent to '+em+' — they\'ll approve after signing up');}
+    else{toast('Request sent to '+em+' — awaiting their approval');}
+    loadTeam();
+  }).catch(function(){toast('Could not send invite');});
+}
+function renameTeam(){
+  var inp=document.getElementById('teamNameInp');var nm=inp?String(inp.value||'').trim():'';
+  if(!nm){toast('Enter a team name');return;}
+  api('/api/team/rename',{method:'PUT',json:{teamName:nm}}).then(async function(r){
+    var d=await r.json().catch(function(){return {};});
+    if(!r.ok){toast(d.error||'Could not rename');return;}
+    TEAM_NAME=nm;toast('Team renamed');loadTeam();
+  }).catch(function(){toast('Could not rename');});
+}
+function resendConfirmation(em){
+  api('/api/team/resend-confirmation',{method:'POST',json:{teamId:TEAM_ID,email:em}}).then(async function(r){
+    var d=await r.json().catch(function(){return {};});
+    if(!r.ok){toast(d.error||'Could not resend request');return;}
+    toast('Request re-sent to '+em);loadTeam();
+  }).catch(function(){toast('Could not resend request');});
+}
+function removeRequest(em){
+  api('/api/team/requests/cancel',{method:'POST',json:{email:em}}).then(async function(r){
+    var d=await r.json().catch(function(){return {};});
+    if(!r.ok){toast(d.error||'Could not remove request');return;}
+    toast('Request withdrawn');loadTeam();
+  }).catch(function(){toast('Could not remove request');});
+}
+function removeMember(em){
+  if(!TEAM_ID){toast('No team yet');return;}
+  api('/api/team/member',{method:'DELETE',json:{teamId:TEAM_ID,email:em}}).then(async function(r){
+    var d=await r.json().catch(function(){return {};});
+    if(!r.ok){toast(d.error||'Could not remove');return;}
+    toast('Removed '+em);loadTeam();
+  }).catch(function(){toast('Could not remove');});
+}
+
+/* ── Precheck Manager access: apply / pending / granted ── */
+function loadAccessStatus(){
+  if(!EMAIL)return;
+  api('/api/precheck-manager/access/status').then(async function(r){
+    if(!r.ok)return;var d=await r.json().catch(function(){return {};});
+    ACCESS_STATUS=(d&&d.application&&d.application.status)?d.application.status:(d&&d.isManager?'approved':null);
+    if(d&&d.approver)ACCESS_APPROVER=d.approver;
+    IS_APPROVER=!!(d&&d.isApprover);
+    renderTeam();
+    if(IS_APPROVER)loadAccessRequests();
+  }).catch(function(){});
+}
+/* Approver (michaelmandella / sysop) fallback surface — action pending Precheck
+   Manager access requests IN-APP, so approval never depends on email delivery. */
+function loadAccessRequests(){
+  if(!IS_APPROVER)return;
+  api('/api/precheck-manager/access/pending').then(async function(r){
+    if(!r.ok)return;var d=await r.json().catch(function(){return {};});
+    ACCESS_REQUESTS=(d&&Array.isArray(d.requests))?d.requests:[];
+    renderIncoming();
+  }).catch(function(){});
+}
+function decideAccess(id,action){
+  if(accessReqBusy[id])return;accessReqBusy[id]=true;renderIncoming();
+  api('/api/precheck-manager/access/decide',{method:'POST',json:{requestId:id,action:action}}).then(async function(r){
+    var d=await r.json().catch(function(){return {};});
+    accessReqBusy[id]=false;
+    if(!r.ok){toast(d.error||'Could not update request');renderIncoming();return;}
+    ACCESS_REQUESTS=ACCESS_REQUESTS.filter(function(x){return String(x.id)!==String(id);});
+    renderIncoming();toast(action==='accept'?'Access granted':'Request denied');
+  }).catch(function(){accessReqBusy[id]=false;toast('Could not update request');renderIncoming();});
+}
+function accessApplyHtml(){
+  if(IS_MANAGER)return '';
+  var st=ACCESS_STATUS, inner;
+  if(st==='pending'){
+    inner='<div class="tpending" style="margin:0"><div class="tpending-main"><div class="av s" style="background:var(--as);color:var(--amber);-webkit-text-fill-color:var(--amber);flex-shrink:0">'+icon('shield',16)+'</div><div class="tpending-body"><div class="nm">Application pending</div><div class="tpending-sub">Pending admin review. You\'ll unlock Team Manager once approved.</div></div></div></div>';
+  } else if(st==='approved'){
+    inner='<div class="tpending" style="background:var(--gs);border-color:#bfe6cf;margin:0"><div class="tpending-main"><div class="av s" style="background:var(--gs);color:var(--green);-webkit-text-fill-color:var(--green);flex-shrink:0">'+icon('check',16)+'</div><div class="tpending-body"><div class="nm">Access granted</div><div class="tpending-sub">You now have Precheck Manager access. <a href="#" onclick="location.reload();return false;">Reload</a> to open it.</div></div></div></div>';
+  } else {
+    var denied=(st==='denied');
+    inner='<div class="tpending-sub" style="margin:0 0 10px">'+(denied?'Your previous request was declined. ':'')+'Request access to build and manage your own Precheck team.</div>'
+      +'<button class="btn g sm" style="width:100%" '+(accessBusy?'disabled':'')+' onclick="applyForAccess()">'+icon('shield',16)+' '+(accessBusy?'Sending…':(denied?'Apply again':'Apply for Precheck Manager access'))+'</button>';
+  }
+  return '<div class="raddwrap" style="border-top:none;padding-top:0"><div class="raddhd">'+icon('shield',14)+' Precheck Manager access</div>'+inner+'</div>';
+}
+function applyForAccess(){
+  if(accessBusy)return;accessBusy=true;renderTeam();
+  api('/api/precheck-manager/apply',{method:'POST',json:{}}).then(async function(r){
+    var d=await r.json().catch(function(){return {};});
+    accessBusy=false;
+    if(!r.ok){toast(d.error||'Could not submit application');renderTeam();return;}
+    if(d.alreadyGranted){ACCESS_STATUS='approved';toast('You already have manager access');loadTeam();}
+    else{ACCESS_STATUS='pending';toast('Request submitted for admin approval');}
+    renderTeam();
+  }).catch(function(){accessBusy=false;toast('Could not submit application');renderTeam();});
+}
+
+/* ── Agent-side incoming team-join requests (approval notifications) ── */
+function loadIncomingRequests(){
+  if(!EMAIL)return;
+  api('/api/team/requests/incoming').then(async function(r){
+    if(!r.ok)return;var d=await r.json().catch(function(){return {};});
+    INCOMING=(d&&Array.isArray(d.requests))?d.requests:[];
+    renderIncoming();
+  }).catch(function(){});
+}
+function renderIncoming(){
+  var el=document.getElementById('reqNotif');if(!el)return;
+  var joinCards=INCOMING.map(function(rq){
+    var who=titleCase(rq.managerName||rq.managerEmail||'A manager').replace(/</g,'&lt;');
+    var id=String(rq.id).replace(/'/g,"\\'");
+    var busy=!!reqBusy[rq.id];
+    return '<div class="reqcard">'
+      +'<div class="rqhd"><div class="rqic">'+icon('users',17)+'</div><div class="rqt">Team request</div></div>'
+      +'<div class="rqmsg"><b>'+who+'</b> wants to add you to their AO Precheck team. You will only be added if you accept.</div>'
+      +'<div class="rqbtns">'
+      +'<button class="btn green sm" '+(busy?'disabled':'')+' onclick="acceptRequest(\''+id+'\')">'+icon('check',14)+' Accept</button>'
+      +'<button class="btn redo sm" '+(busy?'disabled':'')+' onclick="denyRequest(\''+id+'\')">'+icon('x',14)+' Deny</button>'
+      +'</div></div>';
+  });
+  var accessCards=(IS_APPROVER?ACCESS_REQUESTS:[]).map(function(rq){
+    var who=titleCase(rq.applicantName||rq.applicantEmail||'A user').replace(/</g,'&lt;');
+    var em=String(rq.applicantEmail||'').replace(/</g,'&lt;');
+    var id=String(rq.id).replace(/'/g,"\\'");
+    var busy=!!accessReqBusy[rq.id];
+    var why=rq.reason?('<div style="font-size:11.5px;color:var(--ink3);margin-top:4px">"'+String(rq.reason).replace(/</g,'&lt;')+'"</div>'):'';
+    return '<div class="reqcard">'
+      +'<div class="rqhd"><div class="rqic">'+icon('shield',17)+'</div><div class="rqt">Precheck Manager access</div></div>'
+      +'<div class="rqmsg"><b>'+who+'</b> ('+em+') is requesting Precheck Manager access. Approving whitelists them to build a team.'+why+'</div>'
+      +'<div class="rqbtns">'
+      +'<button class="btn green sm" '+(busy?'disabled':'')+' onclick="decideAccess(\''+id+'\',\'accept\')">'+icon('check',14)+' Approve</button>'
+      +'<button class="btn redo sm" '+(busy?'disabled':'')+' onclick="decideAccess(\''+id+'\',\'deny\')">'+icon('x',14)+' Deny</button>'
+      +'</div></div>';
+  });
+  var all=accessCards.concat(joinCards);
+  el.innerHTML=all.length?all.join(''):'';
+}
+function acceptRequest(id){
+  if(reqBusy[id])return;reqBusy[id]=true;renderIncoming();
+  api('/api/team/requests/accept',{method:'POST',json:{requestId:id}}).then(async function(r){
+    var d=await r.json().catch(function(){return {};});
+    reqBusy[id]=false;
+    if(!r.ok){toast(d.error||'Could not accept');renderIncoming();return;}
+    INCOMING=INCOMING.filter(function(x){return String(x.id)!==String(id);});
+    renderIncoming();toast('You joined the team');
+    if(team||teamMgrOpen)loadTeam();
+  }).catch(function(){reqBusy[id]=false;toast('Could not accept');renderIncoming();});
+}
+function denyRequest(id){
+  if(reqBusy[id])return;reqBusy[id]=true;renderIncoming();
+  api('/api/team/requests/deny',{method:'POST',json:{requestId:id}}).then(async function(r){
+    var d=await r.json().catch(function(){return {};});
+    reqBusy[id]=false;
+    if(!r.ok){toast(d.error||'Could not deny');renderIncoming();return;}
+    INCOMING=INCOMING.filter(function(x){return String(x.id)!==String(id);});
+    renderIncoming();toast('Request declined');
+  }).catch(function(){reqBusy[id]=false;toast('Could not deny');renderIncoming();});
+}
+
+function applyUser(first,last){
+  var f=titleCase(first||''), l=titleCase(last||'');
+  USER.init=((f[0]||'')+(l[0]||'')).toUpperCase()||(EMAIL[0]||'U').toUpperCase();
+  var av=document.getElementById('meAv');if(av)av.textContent=USER.init;
+}
+
+async function boot(){
+  try{
+    var r=await api('/api/auth/session');
+    var d=await r.json().catch(function(){return {};});
+    var em=d&&d.user&&d.user.email?String(d.user.email).trim().toLowerCase():'';
+    if(!em){location.href='/login';return;}
+    EMAIL=em;
+    if(d.profile){applyUser(d.profile.first_name,d.profile.last_name);}else{
+      var lp=(EMAIL.split('@')[0]||'').replace(/[._]+/g,' ').trim().split(/\s+/);
+      applyUser(lp[0],lp[1]);
+    }
+  }catch(e){location.href='/login';return;}
+  loadTeam();
+  loadTeamVerifications();
+  loadSessions();
+  loadIncomingRequests();
+  loadAccessStatus();
+  renderTeam();
+  renderDrawer();
+  try{
+    var qs=new URLSearchParams(location.search);
+    if(qs.get('teamConfirmed')==='1'){toast('You\'re confirmed on the team!');history.replaceState({},'',location.pathname);}
+    if(qs.get('teamConfirmError')==='1'){toast('Could not confirm team invitation — link may have expired');history.replaceState({},'',location.pathname);}
+  }catch(e){}
+  setInterval(function(){if(EMAIL)loadSessions();},60000);
+  setInterval(function(){if(EMAIL)loadIncomingRequests();if(IS_APPROVER)loadAccessRequests();},45000);
+}
+boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <!-- Force cache refresh - prevent browser caching -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>AO Intelligence</title>
+    <!-- Cache busting script - clears caches on load -->
+    <script>
+      // Force cache refresh on page load
+      if ('caches' in window) {
+        caches.keys().then(function(names) {
+          for (let name of names) {
+            caches.delete(name);
+          }
+        });
+      }
+      // Clear service worker if present
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Use working jsDelivr CDN for Twilio SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@twilio/voice-sdk@2.1.0/dist/twilio.min.js"></script>
+    <!-- Twilio Video SDK -->
+    <script src="https://media.twiliocdn.com/sdk/js/video/releases/2.20.0/twilio-video.min.js"></script>
+  <script>
+    // Data service URL - injected at build time via VITE env, or at runtime via window global
+    if (!window.__AOIRAIL_DATA_SERVICE_URL__) {
+      window.__AOIRAIL_DATA_SERVICE_URL__ = "https://aoirail-data-production.up.railway.app";
+    }
+  </script>
+    <script type="module" crossorigin src="/assets/index-D-OBxYaH.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-bZJIi404.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="aoi-present-overlay" style="display:none;position:fixed;inset:0;z-index:999999;background:rgba(0,0,0,0.9);flex-direction:column;align-items:center;justify-content:center;"></div>
+    <script>
+    // AOI Present Overlay — standalone, outside React
+    (function() {
+      var overlay = document.getElementById('aoi-present-overlay');
+      var isOpen = false;
+      
+      function openOverlay(detail) {
+        if (isOpen) return;
+        isOpen = true;
+        overlay.innerHTML = '';
+        overlay.style.display = 'flex';
+        
+        // Header
+        var header = document.createElement('div');
+        header.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:linear-gradient(to right,#3b82f6,#7c3aed,#3b82f6);color:white;flex-shrink:0;gap:8px;';
+        header.innerHTML = '<span style="font-size:13px;font-weight:700;">🎯 HPPRO Presentation <span style="font-size:10px;opacity:0.55;font-weight:400;">Share this window in Whereby</span></span>';
+        
+        var closeBtn = document.createElement('button');
+        closeBtn.textContent = '✕';
+        closeBtn.style.cssText = 'background:rgba(255,255,255,0.2);border:none;color:white;border-radius:50%;width:26px;height:26px;cursor:pointer;font-size:14px;';
+        closeBtn.onclick = closeOverlay;
+        header.appendChild(closeBtn);
+        
+        // Main container
+        var outerContainer = document.createElement('div');
+        outerContainer.style.cssText = 'width:98vw;height:95vh;display:flex;flex-direction:column;overflow:hidden;border-radius:12px;box-shadow:0 25px 60px rgba(0,0,0,0.8);background:#fff;';
+        
+        var main = document.createElement('div');
+        main.style.cssText = 'display:flex;flex:1;min-height:0;overflow:hidden;height:calc(95vh - 50px);';
+        
+        // HPPRO iframe (2/3)
+        var hpproWrap = document.createElement('div');
+        hpproWrap.style.cssText = 'flex:2;display:flex;flex-direction:column;min-width:0;';
+        
+        var hpproHeader = document.createElement('div');
+        hpproHeader.style.cssText = 'padding:4px 12px;background:rgba(245,158,11,0.1);border-bottom:1px solid rgba(245,158,11,0.3);font-size:11px;color:#b45309;font-weight:600;';
+        hpproHeader.textContent = '📊 HPPRO — Share this panel in Whereby';
+        
+        var hpproIframe = document.createElement('iframe');
+        hpproIframe.src = '/api/hppro/Account/Login';
+        hpproIframe.style.cssText = 'flex:1;width:100%;border:none;height:calc(100% - 28px);display:block;';
+        hpproIframe.setAttribute('allow', 'camera; microphone; fullscreen');
+        
+        hpproWrap.style.cssText = 'flex:1;display:flex;flex-direction:column;height:100%;';
+        hpproWrap.appendChild(hpproHeader);
+        hpproWrap.appendChild(hpproIframe);
+        
+        main.style.cssText = 'flex:1;display:flex;min-height:0;height:calc(100vh - 50px);';
+        main.appendChild(hpproWrap);
+        
+        outerContainer.appendChild(header);
+        outerContainer.appendChild(main);
+        overlay.appendChild(outerContainer);
+        
+        overlay.onclick = function(e) {
+          if (e.target === overlay) closeOverlay();
+        };
+      }
+      
+      function closeOverlay() {
+        isOpen = false;
+        overlay.style.display = 'none';
+        overlay.innerHTML = '';
+      }
+      
+      window.addEventListener('aoi-present-open', function(e) {
+        openOverlay(e.detail || {});
+      });
+      window.addEventListener('aoi-present-close', closeOverlay);
+    })();
+    </script>
+    
+    <!-- Taalk VDP Integration Script - Loaded by React components, not here -->
+    <!-- Script is loaded dynamically by OutboundDialerInterface and VDPStatus components -->
+    
+  </body>
+</html>

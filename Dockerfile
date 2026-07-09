@@ -7,6 +7,6 @@ COPY dist ./dist
 COPY shared ./shared
 ENV NODE_ENV=production
 ENV PORT=5000
-ENV SECTION=off
+ENV SECTION=precheck
 EXPOSE 5000
-CMD ["dumb-init","node","dist/index.js"]
+CMD ["dumb-init","npx","cross-env","SECTION=precheck","node","dist/index.js"]
