@@ -273,7 +273,9 @@ export async function initiateTaalkCall(req: Request, res: Response) {
       phone: phoneNumber, // Use formatted phone number for ZOOM or default for other methods
       agent: TAALK_AGENT_ID, // Agent ID (Spanish or English based on session language)
       retryMethod: 0,
-      webhookUrl: `https://policy-verify-mmandella.replit.app/api/taalk/webhook`, // Taalk completion webhook
+      webhookUrl: process.env.VERIFICATION_BASE_URL
+        ? `${process.env.VERIFICATION_BASE_URL}/api/taalk/webhook`
+        : `https://aoprecheck-production.up.railway.app/api/taalk/webhook`, // Taalk completion webhook
       params: {
         // All script variables exactly as specified - use agent setup data exactly like zoom track
         Taalk_AgentFirstName: agentFirstName,
