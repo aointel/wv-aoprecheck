@@ -82,7 +82,6 @@ import { DailyQualityRatingModal } from "@/components/DailyQualityRatingModal";
 import { QualitySurveyOpenRoute } from "@/components/QualitySurveyOpenRoute";
 import GuidedHelpWidget from "@/components/help/GuidedHelpWidget";
 import AgentCalendarPanel from "@/components/scheduling/AgentCalendarPanel";
-import { GettingStartedVideoGate } from "@/components/GettingStartedVideoGate";
 import {
   clearQualitySurveyForcePreview,
   getPacificYmd,
@@ -1549,8 +1548,8 @@ function AppWithAccountabilityInner() {
           <AppRoutes />
           <GuidedHelpWidget />
           <AgentCalendarPanel />
-          {/* Mandatory first-login Getting Started welcome video (all AO apps) */}
-          <GettingStartedVideoGate userKey={authState?.user?.email} authed={!!authState?.user?.email && authState.initialized} />
+          {/* Getting Started welcome video REMOVED for now (unfinished) —
+              remount <GettingStartedVideoGate/> here when the videos are ready. */}
           {!suppressGlobalOverlaysOnConnect ? <VDPCreditAlert /> : null}
           {!suppressGlobalOverlaysOnConnect ? <HelpQueueStatusBanner /> : null}
           {!suppressGlobalOverlaysOnConnect ? <ItsYourTurnModal /> : null}

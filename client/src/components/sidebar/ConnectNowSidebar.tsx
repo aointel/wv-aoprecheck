@@ -16,6 +16,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { AoAppsSwitcher } from '@/components/AoAppsSwitcher';
+import { PlayCircle } from 'lucide-react';
 import { CreditPurchaseModal } from '@/components/stripe/CreditPurchaseModal';
 import { ProducerSetupModal } from '@/components/modals/AgentSetupModal';
 import { AudioSetupModal } from '@/components/audio/AudioSetupModal';
@@ -242,6 +244,9 @@ export function ConnectNowSidebar({ routes, isOpen, onToggle, userEmail, credits
         )} />
       </button>
 
+      {/* AO Apps switcher — identical across all four AO apps */}
+      <AoAppsSwitcher collapsed={!isOpen} />
+
       {/* Navigation */}
       <div className="p-4 space-y-2">
         {routes.map((route, index) => {
@@ -411,6 +416,9 @@ export function ConnectNowSidebar({ routes, isOpen, onToggle, userEmail, credits
           )}
         </button>
       </div>
+
+      {/* Getting Started video entry REMOVED for now (videos unfinished) —
+          restore the openGettingStarted() button when they're ready. */}
 
       {/* Settings, Audio Setup, Credits, Buy Button, and Get Support - Right Below Last Navbar Item */}
       <div className="px-4 pb-4 border-t space-y-3 mt-2">
